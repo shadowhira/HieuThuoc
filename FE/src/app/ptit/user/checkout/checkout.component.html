@@ -1,0 +1,466 @@
+<div class="main-content overflow-hidden">
+  <div class="page-content">
+    <div class="container-fluid">
+      <!-- start page title -->
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="page-title-box d-sm-flex align-items-center justify-content-between"
+          >
+            <h4 class="mb-sm-0">Checkout</h4>
+          </div>
+        </div>
+      </div>
+      <!-- end page title -->
+
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card">
+            <div class="card-body checkout-tab">
+              <div class="step-arrow-nav mt-n3 mx-n3 mb-3">
+                <ul
+                  class="nav nav-pills nav-justified custom-nav"
+                  role="tablist"
+                >
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link fs-15 p-3 active"
+                      id="pills-bill-info-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-bill-info"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-bill-info"
+                      aria-selected="true"
+                    >
+                      <i
+                        class="ri-user-2-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"
+                      ></i>
+                      Thông tin đơn hàng
+                    </button>
+                  </li>
+
+                  <!-- <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link fs-15 p-3"
+                          id="pills-finish-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#pills-finish"
+                          type="button"
+                          role="tab"
+                          aria-controls="pills-finish"
+                          aria-selected="false"
+                        >
+                          <i
+                            class="ri-checkbox-circle-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"
+                          ></i>
+                          Hoàn tất
+                        </button>
+                      </li> -->
+                </ul>
+              </div>
+
+              <div class="tab-content">
+                <div
+                  class="tab-pane fade show active"
+                  id="pills-bill-info"
+                  role="tabpanel"
+                  aria-labelledby="pills-bill-info-tab"
+                >
+                  <div>
+                    <h5 class="mb-1">Thông tin đơn hàng</h5>
+                    <p class="text-muted mb-4">
+                      Hãy điền đẩy đủ thông tin phía dưới
+                    </p>
+                  </div>
+
+                  <div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="mb-3">
+                          <label for="billinginfo-firstName" class="form-label"
+                            >Tên khách hàng</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="billinginfo-firstName"
+                            placeholder="Nhập tên khách hàng"
+                            [(ngModel)]="donhang.tenKhachHang"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- <div class="col-sm-6">
+                          <div class="mb-3">
+                            <label for="billinginfo-lastName" class="form-label"
+                              >Last Name</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="billinginfo-lastName"
+                              placeholder="Enter last name"
+                              value=""
+                            />
+                          </div>
+                        </div> -->
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="mb-3">
+                          <label for="billinginfo-email" class="form-label"
+                            >Email
+                            <span class="text-muted"
+                              >(Không bắt buộc)</span
+                            ></label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="billinginfo-email"
+                            placeholder="Nhập email"
+                            [(ngModel)]="donhang.email"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="mb-3">
+                          <label for="billinginfo-phone" class="form-label"
+                            >Số điện thoại</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="billinginfo-phone"
+                            placeholder="Nhập số điện thoại"
+                            [(ngModel)]="donhang.soDienThoai"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="billinginfo-address" class="form-label"
+                        >Địa chỉ</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="billinginfo-address"
+                        placeholder="Nhập địa chỉ"
+                        rows="3"
+                        [(ngModel)]="donhang.diaChi"
+                      ></textarea>
+                    </div>
+
+                    <!-- <div class="row">
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <label for="country" class="form-label"
+                                >Country</label
+                              >
+                              <select
+                                class="form-select"
+                                id="country"
+                                data-plugin="choices"
+                              >
+                                <option value="">Select Country...</option>
+                                <option selected>United States</option>
+                              </select>
+                            </div>
+                          </div>
+  
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <label for="state" class="form-label">State</label>
+                              <select
+                                class="form-select"
+                                id="state"
+                                data-plugin="choices"
+                              >
+                                <option value="">Select State...</option>
+                                <option value="Alabama">Alabama</option>
+                                <option value="Alaska">Alaska</option>
+                                <option value="American Samoa">
+                                  American Samoa
+                                </option>
+                                <option value="California" selected>
+                                  California
+                                </option>
+                                <option value="Colorado">Colorado</option>
+                                <option value="District Of Columbia">
+                                  District Of Columbia
+                                </option>
+                                <option value="Florida">Florida</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Guam">Guam</option>
+                                <option value="Hawaii">Hawaii</option>
+                                <option value="Idaho">Idaho</option>
+                                <option value="Kansas">Kansas</option>
+                                <option value="Louisiana">Louisiana</option>
+                                <option value="Montana">Montana</option>
+                                <option value="Nevada">Nevada</option>
+                                <option value="New Jersey">New Jersey</option>
+                                <option value="New Mexico">New Mexico</option>
+                                <option value="New York">New York</option>
+                              </select>
+                            </div>
+                          </div>
+  
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <label for="zip" class="form-label">Zip Code</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="zip"
+                                placeholder="Enter zip code"
+                              />
+                            </div>
+                          </div>
+                        </div>
+   -->
+
+                    <div class="row g-4">
+                      <div class="col-lg-4 col-sm-6">
+                        <div
+                          (click)="changePTTT('1')"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#paymentmethodCollapse.show"
+                          aria-expanded="false"
+                          aria-controls="paymentmethodCollapse"
+                        >
+                          <div class="form-check card-radio">
+                            <input
+                              id="paymentMethod01"
+                              name="paymentMethod"
+                              type="radio"
+                              class="form-check-input"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="paymentMethod01"
+                            >
+                              <span class="fs-16 text-muted me-2"
+                                ><i class="ri-paypal-fill align-bottom"></i
+                              ></span>
+                              <span class="fs-14 text-wrap">Tiền mặt</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-lg-4 col-sm-6">
+                        <div
+                          data-bs-toggle="collapse"
+                          data-bs-target="#paymentmethodCollapse"
+                          aria-expanded="true"
+                          aria-controls="paymentmethodCollapse"
+                          (click)="changePTTT('3')"
+                        >
+                          <div class="form-check card-radio">
+                            <input
+                              id="paymentMethod02"
+                              name="paymentMethod"
+                              type="radio"
+                              class="form-check-input"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="paymentMethod02"
+                            >
+                              <span class="fs-16 text-muted me-2"
+                                ><i class="ri-bank-card-fill align-bottom"></i
+                              ></span>
+                              <span class="fs-14 text-wrap">Thẻ ngân hàng</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div> -->
+
+                      <div class="col-lg-4 col-sm-6">
+                        <div
+                          (click)="changePTTT('2')"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#paymentmethodCollapse.show"
+                          aria-expanded="false"
+                          aria-controls="paymentmethodCollapse"
+                        >
+                          <div class="form-check card-radio">
+                            <input
+                              id="paymentMethod03"
+                              name="paymentMethod"
+                              type="radio"
+                              class="form-check-input"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="paymentMethod03"
+                            >
+                              <span class="fs-16 text-muted me-2"
+                                ><i
+                                  class="ri-money-dollar-box-fill align-bottom"
+                                ></i
+                              ></span>
+                              <span class="fs-14 text-wrap">Chuyển khoản</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- <div class="collapse show" id="paymentmethodCollapse">
+                        <div class="card p-4 border shadow-none mb-0 mt-4">
+                          <div class="row gy-3">
+                            <div class="col-md-12">
+                              <label for="cc-name" class="form-label"
+                                >Tên thẻ</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="cc-name"
+                                placeholder="Enter name"
+                              />
+                              <small class="text-muted"
+                                >Full name as displayed on card</small
+                              >
+                            </div>
+
+                            <div class="col-md-6">
+                              <label for="cc-number" class="form-label"
+                                >Số thẻ</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="cc-number"
+                                placeholder="xxxx xxxx xxxx xxxx"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="d-flex align-items-start gap-3 mt-3">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-label right ms-auto nexttab"
+                        data-nexttab="pills-bill-address-tab"
+                        (click)="submit()"
+                        [disabled]="disabled"
+                      >
+                        <i
+                          class="ri-truck-line label-icon align-middle fs-16 ms-2"
+                        ></i
+                        >Hoàn tất
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end tab pane -->
+
+                <!-- end tab pane -->
+              </div>
+              <!-- end tab content -->
+            </div>
+            <!-- end card body -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-xl-4">
+          <div class="card">
+            <div class="card-header">
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h5 class="card-title mb-0">Chi phí</h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive table-card">
+                <table class="table table-borderless align-middle mb-0">
+                  <thead class="table-light text-muted">
+                    <tr>
+                      <th style="width: 90px" scope="col">Thuốc</th>
+                      <th scope="col">Thông tin thuốc</th>
+                      <th scope="col" class="text-end">Giá</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of gioHangLst">
+                      <td>
+                        <div class="avatar-md bg-light rounded p-1">
+                          <img
+                            [src]="item.thuoc?.avatar"
+                            alt=""
+                            class="img-fluid d-block"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <h5 class="fs-14">
+                          <a
+                            href="apps-ecommerce-product-details.html"
+                            class="text-dark"
+                            >{{ item.thuoc?.tenThuoc }}</a
+                          >
+                        </h5>
+                        <p class="text-muted mb-0">
+                          {{ item.thuoc?.giaBan }} x {{ item.soLuong }}
+                        </p>
+                      </td>
+                      <td class="text-end">
+                        {{
+                          (item.soLuong || 0) * (item.thuoc?.giaBan || 0)
+                            | number : "1.0-0"
+                        }}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="fw-semibold" colspan="2">Sub Total :</td>
+                      <td class="fw-semibold text-end text-info">
+                        {{ tongTien || 0 | number : "1.0-0" }}
+                      </td>
+                    </tr>
+                    <!-- <tr>
+                      <td colspan="2">
+                        Giảm giá:
+                        <span class="text-muted">(VELZON15)</span> :
+                      </td>
+                      <td class="text-end">-0</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Phí vận chuyển :</td>
+                      <td class="text-end">0</td>
+                    </tr> -->
+
+                    <tr class="table-active">
+                      <th colspan="2">Tổng :</th>
+                      <td class="text-end">
+                        <span class="fw-semibold text-info">
+                          {{ tongTien || 0 | number : "1.0-0" }}
+                          VNĐ
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- end card body -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- End Page-content -->
+</div>

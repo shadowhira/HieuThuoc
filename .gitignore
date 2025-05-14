@@ -1,0 +1,67 @@
+# Các file hệ thống
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Các thư mục và file của IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+*.iml
+*.iws
+*.ipr
+.factorypath
+
+# Các file log
+*.log
+*.log.*
+*.gz
+
+# Backend (Java/Maven)
+/BE/target/
+/BE/.mvn/wrapper/maven-wrapper.jar
+/BE/bin/
+/BE/build/
+/BE/out/
+/BE/myapp.log*
+
+# Frontend (Angular)
+/FE/node_modules/
+/FE/.angular/cache/
+/FE/dist/
+/FE/tmp/
+/FE/out-tsc/
+/FE/bazel-out/
+/FE/npm-debug.log
+/FE/yarn-error.log
+/FE/.pnpm-debug.log
+/FE/.angular/
+
+# Các file môi trường
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Các file tạm thời
+*.tmp
+*.temp
+*.swp
+*~
+
+# Các file backup
+*.bak
+*.backup
+
+# Các file cấu hình cá nhân
+.editorconfig
+.prettierrc
+.eslintrc
+
+# Các file khác không cần thiết
+/docs/

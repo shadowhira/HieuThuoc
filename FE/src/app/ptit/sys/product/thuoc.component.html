@@ -1,0 +1,193 @@
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <app-confirm-dialog-common> </app-confirm-dialog-common>
+
+      <!-- start page title -->
+
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="page-title-box d-sm-flex align-items-center justify-content-between"
+          >
+            <h4 class="mb-sm-0">Thuốc</h4>
+          </div>
+        </div>
+      </div>
+      <!-- end page title -->
+
+      <!-- search -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div
+              class="card-header border-0 align-items-center justify-content-end"
+            >
+              <div
+                class="align-items-center p-3 justify-content-between d-flex"
+              >
+                <div class="d-flex flex-column col-xl-2 pl-2">
+                  <label for="statusDropdown">Trạng Thái</label>
+                  <app-select-common
+                    [optionValue]="'value'"
+                    [options]="statusOptions"
+                    [isOptionSelectType]="true"
+                    (selectionChange)="onStatusChange($event)"
+                  ></app-select-common>
+                </div>
+
+                <div class="d-flex flex-column col-xl-2 pl-2">
+                  <label for="statusDropdown"> Nhà sản xuất</label>
+                  <app-select-common
+                    [optionValue]="'id'"
+                    [optionLabel]="'tenNhaSanXuat'"
+                    [options]="nsxLst"
+                    [isOptionSelectType]="false"
+                    (selectionChange)="onNSXChange($event)"
+                  ></app-select-common>
+                </div>
+
+                <div class="d-flex flex-column col-xl-2 pl-2">
+                  <label for="visibilityDropdown">Loại thuốc</label>
+                  <app-select-common
+                    [optionValue]="'tenLoai'"
+                    [optionLabel]="'tenLoai'"
+                    [options]="loaithuocLst"
+                    [isOptionSelectType]="false"
+                    (selectionChange)="onCategoryChange($event)"
+                  ></app-select-common>
+                </div>
+
+                <div class="d-flex flex-column col-xl-3">
+                  <label for="titleDropdown">Tên Thuốc </label>
+                  <input
+                    type="text"
+                    pInputText
+                    [(ngModel)]="modelSearch.keyWord"
+                  />
+                </div>
+
+                <div class="d-flex align-items-end col-xl-2">
+                  <button
+                    type="button"
+                    class="btn btn-success shadow-none mt-3"
+                    (click)="search()"
+                  >
+                    <i class="ri-search-line align-middle me-1"></i>
+                    Tìm Kiếm
+                  </button>
+                </div>
+              </div>
+
+              <!-- <div class="col-auto mb-3"></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- content   -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div
+              class="card-header border-0 align-items-center justify-content-end"
+            >
+              <div
+                class="align-items-center p-3 justify-content-between d-flex"
+              >
+                <div class="flex-shrink-0">
+                  <div class="text-muted">
+                    <span class="fw-semibold">Tổng: </span>
+                    <span class="fw-semibold">{{ productLst.length }}</span>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-success shadow-none"
+                  [routerLink]="['/sys/product-create']"
+                >
+                  <i class="ri-add-circle-line align-middle me-1"></i>
+                  Thêm thuốc
+                </button>
+              </div>
+              <div class="col-auto mb-3"></div>
+
+              <div class="col-auto">
+                <p-table
+                  [value]="productLst"
+                  [rowHover]="true"
+                  dataKey="id"
+                  [showCurrentPageReport]="true"
+                  [rows]="10"
+                  [alwaysShowPaginator]="true"
+                  [paginator]="true"
+                  currentPageReportTemplate=""
+                >
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th>STT</th>
+                      <th>Tên Thuốc</th>
+                      <th>Mã Thuốc</th>
+                      <th>Số Lượng Tồn</th>
+
+                      <th>Giá Nhập</th>
+                      <th>Trạng thái</th>
+                      <th></th>
+                    </tr>
+                  </ng-template>
+                  <ng-template
+                    pTemplate="body"
+                    let-product
+                    let-rowIndex="rowIndex"
+                  >
+                    <tr [style]="{ cursor: 'pointer' }">
+                      <td (click)="preUpdate(product)">{{ rowIndex + 1 }}</td>
+                      <td (click)="preUpdate(product)">
+                        <img
+                          [src]="product.avatar"
+                          alt=""
+                          height="40"
+                          width="40"
+                        />
+                        {{ product.tenThuoc }}
+                      </td>
+                      <td (click)="preUpdate(product)">
+                        {{ product.maThuoc }}
+                      </td>
+                      <td (click)="preUpdate(product)">
+                        {{ product.soLuongTon }}
+                      </td>
+
+                      <td (click)="preUpdate(product)">
+                        {{ product.giaNhap }}
+                      </td>
+                      <td (click)="preUpdate(product)">
+                        <span
+                          class="badge btn-success"
+                          *ngIf="product.trangThai == true"
+                        >
+                          Bán
+                        </span>
+                        <span
+                          class="badge bg-danger"
+                          *ngIf="product.trangThai == false"
+                        >
+                          Ngưng bán
+                        </span>
+                      </td>
+                      <td (click)="preDelete(product)">
+                        <a class="text-danger d-inline-block remove-item-btn">
+                          <i class="ri-delete-bin-line fs-2"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

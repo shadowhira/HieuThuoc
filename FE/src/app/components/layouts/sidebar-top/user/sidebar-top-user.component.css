@@ -1,0 +1,155 @@
+/* .active-link {
+  color: #fff;
+  font-weight: 800;
+}
+
+.bestseller-text {
+
+  font-weight: bold;
+  color: red;
+  position: relative;
+  display: inline-block; 
+  overflow: hidden;
+}
+
+.bestseller-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; 
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: shine 2s infinite;
+  pointer-events: none; 
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+
+.view-all-btn h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.view-all-button {
+  background: none; 
+  color: #007bff; 
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  flex-wrap: nowrap;
+}
+
+.view-all-button:hover {
+  color: #0056b3; 
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item .menu-link {
+  display: inline-block;
+  color: #000; 
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.nav-item .menu-link:hover {
+  color: #007bff; 
+  text-decoration: underline; 
+  transform: none; 
+}
+.nav-item span {
+  display: inline-block;
+  width: 100%; 
+  line-height: 1.2; 
+}
+
+.popup-large {
+  max-width: 90%;
+  max-height: 80vh;
+
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.item-card {
+  width: calc(25% - 16px);
+  min-width: 150px; 
+  max-width: 300px; 
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 5px;
+}
+
+.item-card:hover {
+  transform: translateY(-6px); 
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.item-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover; 
+  border-bottom: 1px solid #eee;
+}
+
+.item-info {
+  padding: 10px;
+}
+
+.item-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4; 
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: normal; 
+  margin-bottom: 6px;
+}
+
+.item-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #007bff;
+} */
+
+.menu-dropdown{
+  overflow-y: scroll; /* Hiển thị thanh cuộn dọc */
+  max-height: calc(50px * 5); /* Chiều cao tối đa để hiển thị 6 thành phần */
+  border: 1px solid #ccc; /* Tùy chọn: thêm viền để phân biệt */
+  padding: 5px; /* Tùy chọn: tạo khoảng cách bên trong */
+}

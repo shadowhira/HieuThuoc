@@ -1,0 +1,364 @@
+<div class="main-content">
+  <div class="page-content">
+    <div class="container-fluid">
+      <!-- start page title -->
+      <div class="row">
+        <!-- <div class="col-12">
+          <div
+            class="page-title-box d-sm-flex align-items-center justify-content-between"
+          >
+            <h4 class="mb-sm-0">Horizontal</h4>
+
+            <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item">
+                  <a href="javascript: void(0);">Layouts</a>
+                </li>
+                <li class="breadcrumb-item active">Horizontal</li>
+              </ol>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!-- end page title -->
+
+      <div class="row">
+        <div class="col-xl-4 col-md-6">
+          <!-- card -->
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                  <p class="text-uppercase fw-medium text-muted mb-0">
+                    Hóa đơn
+                  </p>
+                </div>
+                <!-- <div class="flex-shrink-0">
+                  <h5
+                    class="text-success fs-14 mb-0"
+                    *ngIf="homnay.tongHoaDonHomNay > homqua.tongHoaDonHomQua"
+                  >
+                    <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
+                    +
+                    {{
+                      calculatePercentageIncrease(
+                        homnay.tongHoaDonHomNay,
+                        homqua.tongHoaDonHomQua
+                      )
+                    }}
+                    %
+                  </h5>
+
+                  <h5
+                    class="text-danger fs-14 mb-0"
+                    *ngIf="homnay.tongHoaDonHomNay < homqua.tongHoaDonHomQua"
+                  >
+                    <i class="ri-arrow-right-down-line fs-13 align-middle"></i>
+                    {{
+                      calculatePercentageIncrease(
+                        homnay.tongHoaDonHomNay,
+                        homqua.tongHoaDonHomQua
+                      )
+                    }}
+                    %
+                  </h5>
+
+                  <h5
+                    class="text-muted fs-14 mb-0"
+                    *ngIf="homnay.tongHoaDonHomNay == homqua.tongHoaDonHomQua"
+                  >
+                    +0.00 %
+                  </h5>
+                </div> -->
+              </div>
+              <div class="d-flex align-items-end justify-content-between mt-4">
+                <div>
+                  <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                    <span>{{ tongHoaDon }}</span>
+                  </h4>
+                </div>
+                <div class="avatar-sm flex-shrink-0">
+                  <span
+                    class="avatar-title bg-soft-success rounded fs-3 shadow"
+                  >
+                    <i class="bx bx-dollar-circle text-success"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- end card body -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-xl-4 col-md-6">
+          <!-- card -->
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                  <p class="text-uppercase fw-medium text-muted mb-0">
+                    Đơn hàng trả lại
+                  </p>
+                </div>
+                <!-- <div class="flex-shrink-0">
+                  <h5
+                    class="text-success fs-14 mb-0"
+                    *ngIf="
+                      homnay.tongDonHangTraLaiHomNay >
+                      homqua.tongDonHangTraLaiHomQua
+                    "
+                  >
+                    <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
+                    +
+                    {{
+                      calculatePercentageIncrease(
+                        homnay.tongDonHangTraLaiHomNay,
+                        homqua.tongDonHangTraLaiHomQua
+                      )
+                    }}
+                    %
+                  </h5>
+
+                  <h5
+                    class="text-danger fs-14 mb-0"
+                    *ngIf="
+                      homnay.tongDonHangTraLaiHomNay <
+                      homqua.tongDonHangTraLaiHomQua
+                    "
+                  >
+                    <i class="ri-arrow-right-down-line fs-13 align-middle"></i>
+                    {{
+                      calculatePercentageIncrease(
+                        homnay.tongDonHangTraLaiHomNay,
+                        homqua.tongDonHangTraLaiHomQua
+                      )
+                    }}
+                    %
+                  </h5>
+
+                  <h5
+                    class="text-muted fs-14 mb-0"
+                    *ngIf="
+                      homnay.tongDonHangTraLaiHomNay ==
+                      homqua.tongDonHangTraLaiHomQua
+                    "
+                  >
+                    +0.00 %
+                  </h5>
+                </div> -->
+              </div>
+              <div class="d-flex align-items-end justify-content-between mt-4">
+                <div>
+                  <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                    <span>{{ tongHoaDonTraLai }}</span>
+                  </h4>
+                </div>
+                <div class="avatar-sm flex-shrink-0">
+                  <span
+                    class="avatar-title bg-soft-warning rounded fs-3 shadow"
+                  >
+                    <i class="bx bx-user-circle text-warning"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- end card body -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-xl-4 col-md-6">
+          <!-- card -->
+          <div class="card card-animate">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                  <p class="text-uppercase fw-medium text-muted mb-0">
+                    Doanh thu
+                  </p>
+                </div>
+                <!-- <div class="flex-shrink-0">
+                  <h5
+                    class="text-success fs-14 mb-0"
+                    *ngIf="doanhThuThangNay > doanhThuThangTruoc"
+                  >
+                    <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
+                    +
+                    {{
+                      calculatePercentageIncrease(
+                        doanhThuThangNay,
+                        doanhThuThangTruoc
+                      )
+                    }}
+                    %
+                  </h5>
+
+                  <h5
+                    class="text-danger fs-14 mb-0"
+                    *ngIf="doanhThuThangNay < doanhThuThangTruoc"
+                  >
+                    <i class="ri-arrow-right-down-line fs-13 align-middle"></i>
+                    {{
+                      calculatePercentageIncrease(
+                        doanhThuThangNay,
+                        doanhThuThangTruoc
+                      )
+                    }}
+                    %
+                  </h5>
+
+                  <h5
+                    class="text-muted fs-14 mb-0"
+                    *ngIf="doanhThuThangNay == doanhThuThangTruoc"
+                  >
+                    +0.00 %
+                  </h5>
+                </div> -->
+              </div>
+              <div class="d-flex align-items-end justify-content-between mt-4">
+                <div>
+                  <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                    <span>{{ tongDoanhThu | number : "1.0-0" }} VNĐ</span>
+                  </h4>
+                </div>
+                <div class="avatar-sm flex-shrink-0">
+                  <span
+                    class="avatar-title bg-soft-primary rounded fs-3 shadow"
+                  >
+                    <i class="bx bx-wallet text-primary"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- end card body -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row-->
+
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0 align-items-center d-flex">
+              <h4 class="card-title mb-0 flex-grow-1">Doanh thu</h4>
+              <div class="flex-shrink-0 d-flex">
+                <div class="d-flex">
+                  <label class="list-group-item">
+                    <input
+                      class="form-check-input me-1"
+                      name="exampleRadios"
+                      type="radio"
+                      value=""
+                      (click)="selectNgay()"
+                      [checked]="typeDoanhThu == CommonConstant.NGAY"
+                    />
+                    Theo ngày
+                  </label>
+                  <label class="list-group-item">
+                    <input
+                      class="form-check-input me-1"
+                      name="exampleRadios"
+                      type="radio"
+                      value=""
+                      (click)="selectThang()"
+                      [checked]="typeDoanhThu == CommonConstant.THANG"
+                    />
+                    Theo tháng
+                  </label>
+                  <label class="list-group-item">
+                    <input
+                      class="form-check-input me-1"
+                      name="exampleRadios"
+                      type="radio"
+                      value=""
+                      (click)="selectNam()"
+                      [checked]="typeDoanhThu == CommonConstant.NAM"
+                    />
+                    Theo năm
+                  </label>
+                </div>
+
+                <select
+                  class="form-select form-select-sm"
+                  *ngIf="typeDoanhThu == CommonConstant.NGAY"
+                  (change)="selectADay($event)"
+                >
+                  <option
+                    *ngFor="let day of daysInMonth"
+                    [value]="day"
+                    [selected]="day == ngaySelected"
+                  >
+                    {{ day }}
+                  </option>
+                </select>
+
+                <select
+                  class="form-select form-select-sm"
+                  *ngIf="
+                    typeDoanhThu == CommonConstant.THANG ||
+                    typeDoanhThu == CommonConstant.NGAY
+                  "
+                  (change)="selectAMonth($event)"
+                >
+                  <option
+                    *ngFor="let thang of months"
+                    [value]="thang"
+                    [selected]="thang == thangSelected.toString()"
+                  >
+                    {{ thang }}
+                  </option>
+                </select>
+
+                <select
+                  class="form-select form-select-sm"
+                  (change)="selectAYear($event)"
+                >
+                  <option
+                    *ngFor="let nam of nams"
+                    [value]="nam"
+                    [selected]="nam == namSelected.toString()"
+                  >
+                    {{ nam }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <!-- end card header -->
+
+            <div class="card-header p-0 border-0 bg-soft-light" id="container">
+              <highcharts-chart
+                [Highcharts]="highcharts"
+                [options]="chartOptions"
+                style="width: 100%; height: 100%; display: block"
+              ></highcharts-chart>
+            </div>
+            <!-- end card header -->
+
+            <div class="card-body p-0 pb-2">
+              <div class="w-100">
+                <div
+                  id="customer_impression_charts"
+                  data-colors='["--vz-success", "--vz-primary", "--vz-danger"]'
+                  class="apex-charts"
+                  dir="ltr"
+                ></div>
+              </div>
+            </div>
+            <!-- end card body -->
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <!-- end col -->
+      </div>
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- End Page-content -->
+</div>

@@ -1,0 +1,179 @@
+
+.text-truncate {
+  display: inline-block;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+#carouselExample .carousel-item img {
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Nền màu xanh cho toàn bộ thanh tìm kiếm */
+.search-box-custom {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  padding: 5px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto; /* Căn giữa */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input tìm kiếm */
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  color: #333333; /* Màu chữ trong input */
+  background: #ffffff; /* Nền input màu trắng */
+}
+
+.search-input::placeholder {
+  color: #9ca3af; /* Màu placeholder */
+}
+
+/* Nút tìm kiếm */
+.search-button {
+  background: #1d4ed8; /* Màu xanh đậm hơn nút */
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.search-button i {
+  font-size: 20px;
+  color: #ffffff; /* Màu icon trắng */
+}
+
+.search-button:hover {
+  background: #1742a3; /* Đổi màu nút khi hover */
+}
+
+.btn-custom-primary {
+  background-color: #3964e7; /* Màu xanh lam tùy chỉnh */
+  border-color: #3964e7;
+  color: white;
+}
+
+.bestseller-section {
+  border: 2px solid #add8e6; /* Viền xanh nhạt */
+  border-radius: 8px; /* Bo góc */
+  padding: 16px; /* Khoảng cách bên trong */
+  background-color: #f9f9f9; /* Nền màu xám nhạt */
+}
+
+.bestseller-title {
+  position: relative;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.bestseller-title span {
+  background: linear-gradient(145deg, #e63946, #c5303b); /* Hiệu ứng gradient 3D */
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tăng kích thước chữ */
+  padding: 12px 32px; /* Tăng kích thước padding */
+  border-radius: 32px 32px 0 0; /* Tăng bo cong đầu dải băng */
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Tăng bóng đổ */
+}
+
+.bestseller-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 32px; /* Tăng chiều cao nền cong */
+  background: linear-gradient(145deg, #e63946, #c5303b); /* Gradient như span */
+  border-radius: 32px;
+  z-index: 0;
+  transform: translateY(-50%);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Tăng bóng đổ cho nền */
+}
+
+
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-link {
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ <a> */
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card-link:hover .card {
+  transform: scale(1.02); /* Phóng to nhẹ khi hover */
+  box-shadow: 0px 4px 10px #3964e7; /* Hiệu ứng đổ bóng */
+}
+
+.card-link:active .card {
+  transform: scale(0.98); /* Hiệu ứng bấm xuống */
+}
+
+.responsive-img {
+  object-fit: contain;
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  width: 100%; /* Chiều rộng khung chứa */
+  height: 200px; /* Chiều cao khung chứa */
+}
+
+.text-container {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Slider */
+
+.carousel-item img {
+  aspect-ratio: 16 / 5; /* Tỉ lệ 16:5 */
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Ảnh bên phải */
+.right-image {
+  aspect-ratio: 16 / 5; /* Tỉ lệ 16:5, giống slider */
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 16px; /* Khoảng cách giữa 2 ảnh */
+  border-radius: 20px;
+}
+
+/* Responsive cho thiết bị nhỏ */
+@media (max-width: 768px) {
+  .right-image {
+    margin-bottom: 12px;
+  }
+}
+
