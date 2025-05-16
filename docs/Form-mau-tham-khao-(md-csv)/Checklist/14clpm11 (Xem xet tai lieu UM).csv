@@ -1,0 +1,60 @@
+Checklist Review Tài liệu Hướng dẫn Sử dụng (UM),,,,,
+,,,,,
+Mã dự án,,,,,
+Phiên bản sản phẩm,,,,,
+Phân hệ / Module,,,,,
+Lần xem xét,,,,,
+Người xem xét,,,,,
+Ngày xem xét,,,,,
+Độ lớn sản phẩm,,,,,
+Nguồn lực dành cho xem xét (MH),,,,,
+"Hướng dẫn: Trong quá trình review nếu câu trả lời là ""có"" nhưng chưa thực sự đầy đủ thì đánh dấu vào cột ""Có"" và chú thích cụ thể vào cột ""Ghi chú""",,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú,Điều kiện
+Kiểm soát tài liệu,,,,,
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,,x,,Không sử dụng theo biểu mẫu mới nhất ( Tên dự án phải viết trước ,Bắt buộc
+"Trang tiêu đề có đầy đủ: Tên gọi dự án, tên tài liệu, phiên bản, tên công ty và logo, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",,,,,Bắt buộc
+Đánh số trang có theo đúng qui định: số thứ tự/tổng số trang?,,,,,Bắt buộc
+"Trang ký có đầy đủ và đúng Người lập tài liệu, Người xem xét, Người phê duyệt như ghi nhận trong KHDA không?",,,,,Bắt buộc
+Có bảng ghi nhận thay đổi không? ,,,,,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,Bắt buộc
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
+Giới thiệu Tài liệu,,,,,
+Mục đích và ý nghĩa của Tài liệu có được ghi nhận đầy đủ không?,,,,,Bắt buộc
+Có ghi nhận phiên bản Phần mềm (nếu có) sẽ Hướng dẫn sử dụng không?,,,,,
+Phạm vi Tài liệu có ghi nhận đầy đủ các nội dung:,,,,,
+Liệt kê đầy đủ các Chức năng mà sản phẩm phần mềm đã xây dựng?,,,,,Bắt buộc
+Đối tượng sử dụng tài liệu?,,,,,Bắt buộc
+Có bảng thuật ngữ và từ viết tắt sử dụng trong tài liệu không?,,,,,Bắt buộc
+Có mô tả tổ chức / cấu trúc của tài liệu không?,,,,,Bắt buộc
+Tổng quan,,,,,
+Có ghi nhận Giới thiệu tổng quan chương trình (hoặc Phân hệ) không?,,,,,Bắt buộc
+"Nội dung có được ghi nhận rõ ràng, dễ hiểu không?",,,,,Bắt buộc
+"Có ghi nhận theo phạm vi tài liệu đã đề cập không?
+(Ví dụ: phạm vi tài liệu đề cập 3 Phân hệ A, B, C; nhưng mục này đề cập 3 Phân hệ A, B, E chẳng hạn; Hoặc Phạm vi tài liệu đề cập 4 / 6 Phân hệ của Hệ thống nhưng ở mục này lại ghi nhận toàn bộ hệ thống là không đúng....)",,,,,Bắt buộc
+Có mô tả các nội dung khác không?,,,,,
+"Nếu có, các thông tin mô tả có đầy đủ và hợp lý không?",,,,,Bắt buộc
+Giới thiệu các Chức năng,,,,,
+"Các chức năng Phần mềm được liệt kê trong danh sách có đầy đủ và đúng so với Yêu cầu ban đầu không? (Có thể so sánh với URD, SRS, Tài liệu TK)",,,,,Bắt buộc
+Có mô tả nhiệm vụ của các chức năng này không?,,,,,Bắt buộc
+Các đối tượng sử dụng theo từng Chức năng liệt kê có đúng và đầy đủ không?,,,,,Bắt buộc
+Hướng dẫn Sử dụng các Chức năng Hệ thống,,,,,
+Các chức năng hệ thống có được liệt kê đầy đủ trong Mục này để hướng dẫn sử dụng không?,,,,,Bắt buộc
+Có minh họa các Chức năng / Tác vụ bằng các màn hình thuộc Phần mềm hệ thống đã xây dựng không?,,,,,
+Có mô tả các bước thực hiện như thế nào đối với từng tác vụ / màn hình thao tác không?,,,,,Bắt buộc
+Tài liệu có mô tả các lỗi hoặc sự cố có thể xảy ra khi thao tác chương trình không?,,,,,
+"Nếu có, có ghi nhận cụ thể nguyên nhân xảy ra sự cố?",,,,,Bắt buộc
+Có ghi nhận các bước xử lý sự cố này ra sao không?,,,,,Bắt buộc
+,,,,,
+,,,,,
+,,,,,
+<Có thể thêm vào checklist các quan tâm khác nếu cần thiết>,,,,,
+,,1,,0,
+* Ý kiến,,,,,
+,,,,,
+* Đề xuất,,,,,
+,,,,,
+[   ] - Đạt,,,,,
+[X] - Xem xét lại,,,,,
+[   ] - Khác,,,,,

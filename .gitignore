@@ -64,4 +64,4 @@ desktop.ini
 .eslintrc
 
 # Các file khác không cần thiết
-/docs/
+# /docs/

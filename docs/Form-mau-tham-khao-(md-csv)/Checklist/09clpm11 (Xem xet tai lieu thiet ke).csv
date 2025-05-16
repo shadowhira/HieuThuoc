@@ -1,0 +1,130 @@
+Checklist Review Tài liệu Thiết kế (Gộp),,,,,
+,,,,,
+Mã dự án,,,,,
+Phiên bản sản phẩm,,,,,
+Lần xem xét,,,,,
+Người xem xét,,,,,
+Ngày xem xét,,,,,
+Độ lớn sản phẩm,,,,,
+Nguồn lực dành cho xem xét (MH),,,,,
+"Hướng dẫn: Trong quá trình review nếu câu trả lời là ""có"" nhưng chưa thực sự đầy đủ thì đánh dấu vào cột ""Có"" và chú thích cụ thể vào cột ""Ghi chú""",,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú,Điều kiện
+Kiểm soát tài liệu,,,,,
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,,,,,Bắt buộc
+"Trang tiêu đề có đầy đủ: Tên gọi dự án, tên tài liệu, phiên bản, tên công ty và logo, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",,,,,Bắt buộc
+Đánh số trang có theo đúng quy định: số thứ tự/tổng số trang?,,,,,Bắt buộc
+"Trang ký có đầy đủ và đúng Người lập tài liệu, Người xem xét, Người phê duyệt như ghi nhận trong KHDA không?",,,,,Bắt buộc
+Có bảng ghi nhận thay đổi không? ,,,,,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,Bắt buộc
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
+Tổng quan tài liệu – Giới thiệu chung,,,,,
+Mục đích có bao gồm:,,,,,
+Mục tiêu của tài liệu?,,,,,Bắt buộc
+Đối tượng sử dụng tài liệu?,,,,,Bắt buộc
+Phạm vi có bao gồm các nội dung:,,,,,
+Liệt kê đầy đủ các chức năng mà sản phẩm phần mềm sẽ xây dựng?,,,,,Bắt buộc
+Xác định phạm vi các phân hệ / chức năng thuộc sản phẩm phần mềm dự kiến sẽ đáp ứng?,,,,,Bắt buộc
+Mô tả kết quả và mục tiêu dự kiến đạt được của mỗi chức năng / phân hệ thuộc phần mềm?,,,,,"Bắt buộc
+"
+Có bảng thuật ngữ và khái niệm không?,,,,,Bắt buộc
+Có liệt kê các tài liệu tham khảo không? ,,,,,
+"Nếu có, mỗi tài liệu có bao gồm các thông tin sau không?",,,,,
+Tên tài liệu,,,,,
+Ngày phát hành,,,,,
+Nguồn,,,,,
+Có mô tả tổ chức của tài liệu không?,,,,,Bắt buộc
+Thiết kế Kiến trúc,,,,,
+Thiết kế kiến trúc chung,,,,,
+Kiến trúc hệ thống có độc lập với công nghệ sử dụng để dễ dàng thay đổi không? ,,,,,
+Kiến trúc hệ thống có tính đến mọi ràng buộc kỹ thuật hoặc ràng buộc khác không thể tránh được không? (nghĩa là có khả thi cho môi trường đã chọn không),,,,,Bắt buộc
+Các yêu cầu ảnh hưởng đến kiến trúc có được mô tả không?,,,,,Bắt buộc
+Ngôn ngữ lập trình và công nghệ đã chọn có phù hợp không?,,,,,Bắt buộc
+"Design có phản ánh môi trường thực tế không? Phần cứng, phần mềm?",,,,,Bắt buộc
+Kiến trúc ứng dụng,,,,,
+Kiến trúc ứng dụng có được chia lớp đúng không?,,,,,Bắt buộc
+Có mô tả chức năng của mỗi lớp và phương thức làm việc/trao đổi dữ liệu giữa các lớp không?,,,,,Bắt buộc
+Kiến trúc ứng dụng có phân chia rõ ràng các thành phần ở mức cao nhất của hệ thống không?,,,,,Bắt buộc
+Có mô tả chức năng và mối liên hệ giữa các phân hệ không?,,,,,Bắt buộc
+Có mô tả các xử lý chính trong mỗi phân hệ không?,,,,,Bắt buộc
+Kiến trúc dữ liệu,,,,,
+Kiến trúc dữ liệu có mô tả các thành phần dữ liệu chính của ứng dụng không?,,,,,Bắt buộc
+Danh mục và Code,,,,,
+Các dữ liệu gốc,,,,,
+Các dữ liệu trung gian,,,,,
+"Nếu phù hợp, tất cả các cấu trúc dữ liệu chính có được ""che"" bởi 1 lớp trừu tượng hơn không? (nhằm tách biệt code về data layer và các layer khác - như business layer hoặc presentation layer)",,,,,
+Có mô tả các luồng dữ liệu chính trong ứng dụng không?,,,,,Bắt buộc
+"Trong trường hợp CSDL phân tán, có mô tả phương thức trao đổi và đồng bộ dữ liệu giữa các CSDL phân tán không?",,,,,Bắt buộc
+Loại dữ liệu cần trao đổi,,,,,
+Ý nghĩa trao đổi dữ liệu,,,,,
+Chiều trao đổi dữ liệu: một chiều/ hai chiều,,,,,
+Tần suất trao đổi dữ liệu: ngay lập tức/ hàng ngày/ hàng giờ...,,,,,
+Phương thức trao đổi dữ liệu: trigger/ batch/ gọi hàm/ data propagation/ qua file trong thư mục...,,,,,
+Có mô tả các giao tiếp dữ liệu với các hệ thống khác không?,,,,,Bắt buộc
+Loại dữ liệu cần trao đổi,,,,,
+Ý nghĩa trao đổi dữ liệu,,,,,
+Chiều trao đổi dữ liệu: một chiều/ hai chiều,,,,,
+Tần suất trao đổi dữ liệu: ngay lập tức/ hàng ngày/ hàng giờ...,,,,,
+Phương thức trao đổi dữ liệu: trigger/ batch/ gọi hàm/ data propagation/ qua file trong thư mục...,,,,,
+Kiến trúc vật lý,,,,,
+Có mô tả các cấu hình vật lý sử dụng để vận hành hệ thống không?,,,,,Bắt buộc
+"Cấu hình tối thiểu của các thiết bị (Máy chủ, máy trạm, máy khác....)",,,,,
+Phương thức kết nối,,,,,
+Mối quan hệ của các tiến trình trong mô hình xử lý với các thiết bị vật lý,,,,,
+Các giải pháp kiến trúc khác,,,,,
+Có mô tả kiến trúc bảo mật của hệ thống không?,,,,,
+Có mô tả kiến trúc sao lưu và phục hồi số liệu của hệ thống không?,,,,,
+Có mô tả các giải pháp với các yêu cầu đặc biệt của hệ thống không?,,,,,
+Thiết kế chi tiết cơ sở dữ liệu,,,,,
+Các data elements có được mô tả đủ chi tiết không?,,,,,Bắt buộc
+Miền cho phép của dữ liệu và các ràng buộc khác về dữ liệu có được mô tả không?,,,,,Bắt buộc
+Việc quản lý và sử dụng các shared and stored data có được mô tả rõ không?,,,,,Bắt buộc
+Có mô tả các mô hình quan hệ dữ liệu không?,,,,,Bắt buộc
+Với mỗi bảng dữ liệu có mô tả chi tiết các thành phần sau không?,,,,,
+Chi tiết các trường,,,,,Bắt buộc
+Constraint,,,,,
+Index,,,,,Bắt buộc
+Trigger,,,,,
+Có mô tả chi tiết thiết kế các tệp tin trao đổi với hệ thống khác hoặc kết xuất ra không?,,,,,Bắt buộc
+Với mỗi tệp tin có mô tả chi tiết các thành phần sau không?,,,,,
+Cấu trúc file theo thứ tự các trường,,,,,Bắt buộc
+Chi tiết các trường,,,,,Bắt buộc
+Có mô tả cách thiết kế các trường mã trong cơ sở dữ liệu không?,,,,,Bắt buộc
+Có mô tả thiết kế vật lý của cơ sở dữ liệu không?,,,,,
+Thiết kế chi tiết màn hình,,,,,
+Design có hỗ trợ việc module hoá 1 cách thích hợp không?,,,,,
+Design có hỗ trợ việc re-use design và code không?,,,,,
+Có mô tả các thuật toán chính không?,,,,,
+Các thông tin chi tiết có đủ để cho một người khác code không?,,,,,Bắt buộc
+"Tất cả mọi ràng buộc như processing time, run time, memory usage, I/O, database access and response time có được phản ánh trong design không?",,,,,
+Có chức năng nào không có mô tả thiết kế chi tiết màn hình không?,,,,,
+Có mô tả giao diện người dùng của hệ thống theo các yêu cầu sau không:,,,,,
+Có mô tả/xác định vị trí của tất cả các thành phần trong giao diện người dùng không?,,,,,Bắt buộc
+Có mô tả qui trình hoặc các hoạt động cho giao diện người dùng không?,,,,,Bắt buộc
+Có mô tả việc đọc/ghi dữ liệu trong giao diện người dùng không?,,,,,Bắt buộc
+Có mô tả quan hệ giữa các thành phần trong giao diện người dùng và các modul hoặc hàm dùng chung không?,,,,,
+Các giao tiếp nội bộ và giao tiếp với bên ngoài hệ thống có được xác định rõ ràng không?,,,,,Bắt buộc
+Mọi giá trị đầu vào và đầu ra của các giao tiếp có đầy đủ và cần thiết không?,,,,,Bắt buộc
+Thiết kế chi tiết hàm và thủ tục,,,,,
+"Mỗi unit (class, method, property, form, file, etc.) đều có tên duy nhất và theo naming convention?",,,,,Bắt buộc
+"Các lời gọi, events và message giữa các unit có được ghi rõ không?",,,,,Bắt buộc
+Đối với mỗi unit có mô tả đầy đủ theo các yêu cầu sau không?,,,,,
+"Chức năng, mục đích",,,,,Bắt buộc
+Các tham số và giá trị trả về,,,,,Bắt buộc
+Diagram flow,,,,,Bắt buộc
+Exception,,,,,Bắt buộc
+"Có mô tả phương pháp xử lý lỗi (error, exception handling) trong ứng dụng không?",,,,,Bắt buộc
+Có liệt kê và mô tả nội dung các hàm và thủ tục xử lý lỗi không?,,,,,Bắt buộc
+<Có thể thêm vào checklist các quan tâm khác nếu cần thiết>,,,,,
+,,0,,0,
+* Ý kiến,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+* Đề xuất,,,,,
+,,,,,
+[X] - Đạt,,,,,
+[   ] - Xem xét lại,,,,,
+[   ] - Khác,,,,,

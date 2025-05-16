@@ -1,0 +1,73 @@
+ Checklist Review Kế hoạch test,,,,,
+,,,,,
+Mã dự án,,,,,
+Phiên bản của sản phẩm,,,,,
+Người xem xét,,,,,
+Ngày xem xét,,,,,
+Lần xem xét,,,,,
+Độ lớn sản phẩm,,,,,
+Nguồn lực dùng cho xem xét (MH),,,,,
+,,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú,Điều kiện
+Kiểm soát tài liệu,,,,,
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,,,,,Bắt buộc
+"Trang tiêu đề có bao gồm đủ tên tài liệu, phiên bản và tên công ty, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",,,,,Bắt buộc
+Đánh số trang có theo đúng quy định: số thứ tự/tổng số trang?,,,,,Bắt buộc
+"Trang ký có bao gồm đủ Người lập, Người xem xét & Người phê duyệt không?",,,,,Bắt buộc
+Có Bảng ghi nhận thay đổi không? ,,,,,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,Bắt buộc
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
+Có liệt kê các tài liệu liên quan không?,,,,,Bắt buộc
+Thông tin chung ,,,,,
+Giới thiệu chung về mục đích và cấu trúc tài liệu? ,,,,,Bắt buộc
+Tóm tắt thông tin chung: mục tiêu và phạm vi test?,,,,,Bắt buộc
+Kế hoạch test,,,,,
+"Trong kế hoạch, có phạm vi cụ thể về:",,,,,
+Việc xác định rõ sản phẩm cần test: bao gồm các chức năng/tính năng sẽ được hoặc không được test chưa?,,,,,Bắt buộc
+Các bước test:,,,,,Bắt buộc
+Unit Testing ,,,,,
+Integration Testing,,,,,
+System Testing ,,,,,
+Acceptance testing,,,,,
+Có liệt kê các rủi ro ảnh hưởng đến việc thực hiện test không?,,,,,Bắt buộc
+"Nếu có, có điền đầy đủ và đúng thông tin sau:",,,,,Bắt buộc
+Phương án khắc phục và phòng ngừa,,,,,Bắt buộc
+Mức độ ảnh hưởng,,,,,Bắt buộc
+Có liệt kê ràng buộc cho test không?,,,,,
+Các yêu cầu cho test hệ thống không?,,,,,Bắt buộc
+Có những kiểu test nào sau đây:,,,,,
+Function testing,,,,,Bắt buộc
+User interface testing,,,,,
+Data and Database Integrity Testing,,,,,
+Performance testing,,,,,
+Security and Access Control Testing,,,,,
+Portability,,,,,
+Nếu là dự án phát triển hoặc dự án maintenance thì có xác định việc test hồi qui không? (Bắt buộc đối với dự maintenance),,,,,
+Điều kiện cho Regression test,,,,,Bắt buộc
+Chu kỳ cho Regression test,,,,,Bắt buộc
+Phạm vi cho Regression test,,,,,Bắt buộc
+Mỗi loại test có mô tả:,,,,,
+Mục đích test,,,,,Bắt buộc
+Cách thực hiện,,,,,Bắt buộc
+Điều kiện hoàn thành,,,,,Bắt buộc
+Những lưu ý đặc biệt,,,,,"Bắt buộc 
+"
+"Có mô tả môi trường test, công cụ test và phần mềm test không?",,,,,Bắt buộc
+Có xác định các sản phẩm của việc test không?,,,,,Bắt buộc
+Lịch test có phù hợp với lịch phát triển không?,,,,,Bắt buộc
+Có xác định những điều kiện làm dừng việc test không?,,,,,Bắt buộc
+Nhân sự cho đội test: Có xác định rõ trách nhiệm của thành viên trong đội test không?,,,,,Bắt buộc
+Có xác định nguồn lực sử dụng cho giai đoạn test không,,,,,Bắt buộc
+,,,,,
+<Bổ sung thêm dòng nếu cần>,,,,,
+,,0,,0,
+* Góp ý,,,,,
+,,,,,
+,,,,,
+* Đề xuất,,,,,
+,,,,,
+[X] - Đạt,,,,,
+[   ] - Xem xét lại,,,,,
+[   ] - Khác,,,,,

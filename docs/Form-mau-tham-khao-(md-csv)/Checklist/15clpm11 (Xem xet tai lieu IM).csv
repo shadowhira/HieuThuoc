@@ -1,0 +1,69 @@
+Checklist Review Tài liệu Hướng dẫn Cài đặt (IM),,,,,
+,,,,,
+Mã dự án,,,,,
+Phiên bản sản phẩm,,,,,
+Lần xem xét,,,,,
+Người xem xét,,,,,
+Ngày xem xét,,,,,
+Độ lớn sản phẩm,,,,,
+Nguồn lực dành cho xem xét (MH),,,,,
+"Hướng dẫn: Trong quá trình review nếu câu trả lời là ""có"" nhưng chưa thực sự đầy đủ thì đánh dấu vào cột ""Có"" và chú thích cụ thể vào cột ""Ghi chú""",,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú,Điều kiện
+Kiểm soát tài liệu,,,,,
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,,,,,Bắt buộc
+"Trang tiêu đề có đầy đủ: Tên gọi dự án, tên tài liệu, phiên bản, tên công ty và logo, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",,,,,Bắt buộc
+Đánh số trang có theo đúng qui định: số thứ tự/tổng số trang?,,,,,Bắt buộc
+"Trang ký có đầy đủ và đúng Người lập tài liệu, Người xem xét, Người phê duyệt như ghi nhận trong KHDA không?",,,,,Bắt buộc
+Có bảng ghi nhận thay đổi không? ,,,,,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,Bắt buộc
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
+Tổng quan Tài liệu,,,,,
+Có ghi nhận Mục tiêu Tài liệu không?,,,,,Bắt buộc
+Kiểm tra nội dung Mục tiêu Tài liệu có được ghi nhận đủ gồm:,,,,,
+Nội dung của mục tiêu?,,,,,Bắt buộc
+Đối tượng sử dụng tài liệu?,,,,,Bắt buộc
+Có bảng thuật ngữ và từ viết tắt sử dụng trong tài liệu không?,,,,,Bắt buộc
+Có mô tả kiến trúc Hệ thống sẽ Cài đặt không?,,,,,
+Có mô tả tổ chức / cấu trúc của tài liệu không?,,,,,Bắt buộc
+Yêu cầu về Môi trường Cài đặt,,,,,
+Có mô tả Yêu cầu về môi trường máy chủ (Server) không?,,,,,Bắt buộc
+Cấu hình tối thiểu có được ghi nhận đầy đủ và đúng không?,,,,,Bắt buộc
+Các phần mềm cài đặt cần thiết có được liệt kê tương ứng không?,,,,,Bắt buộc
+Có mô tả Yêu cầu về môi trường máy chủ CSDL không?,,,,,
+"Nếu có, cấu hình tối thiểu đối với môi trường Máy chủ CSDL có được ghi nhận đầy đủ và đúng không?",,,,,Bắt buộc
+Các phần mềm cài đặt cần thiết có được liệt kê tương ứng không?,,,,,Bắt buộc
+Có mô tả Yêu cầu về môi trường máy trạm không?,,,,,
+"Nếu có, cấu hình tối thiểu đối với môi trường Máy trạm có được ghi nhận đầy đủ và đúng không?",,,,,Bắt buộc
+Các phần mềm cài đặt cần thiết có được liệt kê tương ứng không?,,,,,Bắt buộc
+Quy trình Cài đặt,,,,,
+Mô tả chung có các nội dung sau đây không:,,,,,
+Các Database sẽ cài đặt trong Hệ thống?,,,,,Bắt buộc
+Có chỉ ra rằng tài liệu này cài đặt cho Phiên bản nào của Phần mềm không (nếu có cài đặt nhiều phiên bản)?,,,,,
+Có mô tả Quy trình Cài đặt trên máy chủ không?,,,,,Bắt buộc
+Các bước Tổng quát có được mô tả đầy đủ trong các bước Chi tiết không?,,,,,Bắt buộc
+Nội dung các bước có được mô tả chi tiết hoá để dễ dàng tham khảo cài đặt không?,,,,,Bắt buộc
+Có mô tả Quy trình Cài đặt trên máy trạm không?,,,,,
+"Nếu có, các bước có được mô tả chi tiết hoá để dễ dàng tham khảo cài đặt không?",,,,,Bắt buộc
+Có mô tả cách thức Cấu hình Hệ thống không?,,,,,
+Các bước có được mô tả chi tiết hoá để dễ dàng tham khảo cài đặt không?,,,,,Bắt buộc
+"Bảo mật, Backup và sao lưu Hệ thống",,,,,
+Có mô tả về Bảo mật Hệ thống không?,,,,,Bắt buộc
+Các thông tin cảnh báo cần thiết về bảo mật Hệ Thống và các cách thức phòng chống virus có được ghi nhận đầy đủ không?,,,,,Bắt buộc
+Có mô tả Backup CSDL và lập lịch sao lưu hệ thống không?,,,,,Bắt buộc
+Các bước thực hiện việc backup CSDL và lập lịch sao lưu có được mô tả rõ ràng và cụ thể không?,,,,,Bắt buộc
+Có mô tả các lỗi hoặc sự cố có thể xảy ra trong quá trình cài đặt Hệ thống không?,,,,,
+"Nếu có, có ghi nhận cụ thể nguyên nhân xảy ra sự cố?",,,,,Bắt buộc
+Có ghi nhận các bước xử lý sự cố này hoặc hướng khắc phục ra sao không?,,,,,Bắt buộc
+,,,,,
+<Có thể thêm vào checklist các quan tâm khác nếu cần thiết>,,,,,
+,,0,,0,
+* Ý kiến,,,,,
+,,,,,
+,,,,,
+* Đề xuất,,,,,
+,,,,,
+[X] - Đạt,,,,,
+[   ] - Xem xét lại,,,,,
+[   ] - Khác,,,,,

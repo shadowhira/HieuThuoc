@@ -1,0 +1,284 @@
+Function Name,Đăng Ký ,,,,,
+Test Result,Chrome,Firefox,,,,
+Total,0,0,,,,
+Passed,0,0,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Firefox,
+"I. Check UI/UX của màn hình ""Đăng Ký""",,,,,,
+Dk_001,"Check Giao diện mặc định của màn hình ""Đăng Ký""","1. Di chuyển đến màn hình ""Đăng Ký""
+
+2. Check giao diện mặc định của màn hình ""Đăng Ký""","2. UI mặc định của màn hình ""Đăng Ký"" được hiển thị đúng như ảnh dưới đây:
+",,,
+DK_002,"Check bố cục,căn chỉnh các field, font,size,color … 
+( icon,logo,place holder… nếu  có )","1. Check bố cục,căn chỉnh các field, font,size,color .. của from ""Đăng Ký""","1. 
+-  Căn chỉnh các field hợp lý, thẳng hàng 
+- Bố cục ,font,size,color hiển thị giống như trong ảnh đính kèm ở trên",,,
+DK_003,"Check xử lý của hệ thống khi nhấm ""Tab'""từ bàn phím","1. Focus chuột vào text box đầu tiên của form ""Đăng Ký ""
+2. Nhấn phím ""tab"" từ bán phím","2. Con trỏ chuột sẽ dịch chuyển qua các textbox từ trái sang phải, từ trên xuống dưới",,,
+DK_004,"Check xử lý của hệ thống khi nhấm ""Shift+ Tab' từ bàn phím","1. Focus chuột vào text box cuối cùng của form ""Đăng Ký ""
+2. Nhấn phím ""shift+tab"" từ bán phím","2. Con trỏ chuột sẽ dịch chuyển qua các textbox từ phải sang trái, từ dưới lên trên",,,
+"II. Check validation của các field trên màn hình  ""Đăng Ký""",,,,,,
+1. Họ tên,,,,,,
+DK_005,"Để trống field ""Họ tên""","1. Để trống field ""Họ tên""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Họ tên "" với nội dung :
+ ""Đây là trường bắt buộc phải nhập "".
+- Highlight và focus vào field bị lỗi",,,
+DK_006,Check  độ dài tối thiểu ,"1. Nhập 1 ký tự hợp lệ vào field ""Họ tên"" .
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""",,,
+DK_007,Kiểm tra Maxlength,"1.Nhập text có độ dài   =51 ký tự  vào field ""Họ tên"" .
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Họ tên "" với nội dung :
+ ""Hệ thống không cho phép nhập quá 50 ký tự ""
+- Highlight và focus vào field bị lỗi",,,
+DK_008,,"1. Nhập text có độ dài = 50 ký tự hợp lệ vào field ""Họ tên"" .
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""",,,
+DK_009,"Nhập ký tự đặc biệt vào field ""Họ tên""","1. Nhập những ký tự đặc biệt vào field ""Họ tên"" .
+Ví dụ : $%^&*
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Ho Ten "" với nội dung :
+ ""Không cho phép nhập ký tự đặc biệt vào field này ""
+- Highlight và focus vào field bị lỗi",,,
+DK_010,"Nhập html ,java script và field "" Họ tên"" ","1.Nhập html ,java script và field "" Họ tên"" 
+Ví dụ : <script> alert ('Hello') </script>
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","3. Hệ thống không thực thi đoạn html , java script đó 
+Và vẫn coi đó là 1 đoạn text cho phép lưu vào DB thành công ",,,
+DK_011,Nhập space vào trước/ sau họ tên ,"1. Nhập space vào trước và sau text trên field ""Họ tên"" .
+Ví dụ : ""   Dang Anh       ""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""
+>> Hệ thống sẽ tự động loại bỏ khoảng trắng trước /sau data vừa nhập và lưu thành công vào trong DB",,,
+2. Email,,,,,,
+DK_012,"Để trống field ""Email""","1. Tiến hành để trống field ""Email""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Email"" với nội dung :
+ ""Đây là trường bắt buộc phải nhập ""
+- Highlight và focus vào field bị lỗi",,,
+DK_013,"Check độ dài tối đa
+( Điều kiện : Email chưa tồn tại trong DB)","1. Nhập email độ dài  = 51 ký tự  vào field ""Email"" .
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Email "" với nội dung :
+ ""Hệ thống không cho phép nhập quá 50 ký tự ""
+- Highlight và focus vào field bị lỗi",,,
+DK_014,,"1. Nhập email hợp lệ chưa tồn tại trong DB  với độ dài = 50 ký tự vào field ""Email""
+  
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3.Màn hình hiển thị thông báo : ""Đăng ký thành công""",,,
+DK_015,Nhập sai đinh dạng email,"1.Nhập  email  thiếu tên miền vào field ""Email ""
+vidu : anh@abc
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Email "" với nội dung :
+ ""Bạn vừa nhập sai định dạng Email ""
+- Highlight và focus vào field bị lỗi",,,
+DK_016,,"1. Nhập  email  thiếu @ vào field ""Email ""
+vidu : anhabc.com
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]",,,,
+DK_017,,"1. Nhập  email  thiếu tên miền sau dấu chấm vào field ""Email ""
+vidu : anh@abc.
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]",,,,
+DK_018,,"1. Nhập  email  chứa ký tự đăc biệt ( loại trừ @, _ , . ) vào field ""Email ""
+vidu : anh$%^^^@abc.com
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]",,,,
+DK_019,"Nhập html ,java script và field ""Email  "" ","1.Nhập html ,java script và field "" Email"" 
+Ví dụ : <script> alert ('Hello') </script>
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","3. Hệ thống không thực thi đoạn html , java script đó và hiển thị thông báo lỗi nhập sai định dạng data",,,
+DK_020,Nhập Email đã tồn tại trong DB,"1. Nhập ""Email"" đã tồn tại trong DB
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+
+
+3.Hiển thị error message dưới field ""Email "" với nội dung : ""Email đã được sử dụng "" 
+",,,
+DK_021,"Nhập Email toàn là chữ hoa 
+(Điều kiện : Email chưa tồn tại trong DB)","1. Nhập ""Email"" toàn là chữ hoa 
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","3. Đăng ký thành công 
+=> Hệ thống tự động chuyển đổi và lưu email là chữ thường vào trong DB",,,
+DK_022,"Nhập space vào trước/ sau địa chỉ Email
+ (Điều kiện : Email chưa tồn tại trong DB)","1. Nhập space vào trước và sau email hợp lệ trên field ""Email"" với độ dài hợp lệ 
+Ví dụ : ""   anhdang@gmail.com      ""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công"".
+>> Hệ thống sẽ tự động loại bỏ khoảng trắng trước /sau data vừa nhập và lưu thành công vào trong DB",,,
+3. Mật khẩu,,,,,,
+DK_023,"Để trống field ""Mật khẩu""","1. Tiến hành để trống field Mật khẩu""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Mật khẩu "" với nội dung :
+ ""Đây là trường bắt buộc phải nhập ""
+- Highlight và focus vào field bị lỗi",,,
+DK_024,"Check hiển thị ở field "" Mật Khẩu""","1. Nhập data vào field "" Mật Khẩu""
+2. Quan sát hiển thị data ở field đó",2. Mật khẩu vừa nhập có định dạng : ***,,,
+DK_025,Check độ dài tối thiểu,"1. Nhập chữ/số vào field "" Mật khẩu"" với độ dài =7  ký tự
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Mật khẩu "" với nội dung :
+ ""Mật khẩu phải có độ dài ít nhất là 8 ký tự """,,,
+DK_026,,"1. Nhập chữ/số vào field ""Mật Khầu""  với độ dài = 8 ký tự
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""",,,
+DK_027,Check độ dài tối đa,"1. Trên form ""Đăng Ký"" tiến hành nhập chữ/số vào field với độ dài= 50 ký tự
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""",,,
+DK_028,,"1.Nhập chữ/số vào field với độ dài= 51 ký tự
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Mật khẩu "" với nội dung :
+ ""Mật khẩu phải có độ dài không được vượt quá 50 ký tự """,,,
+DK_029,"Nhập chữ/số/ký tự đặc biệt ( có thể bao gồm cả space, chữ hoa… ) vào field ""Mật khẩu "" với độ dài hợp lệ","1. Nhập chữ/số/space/ký tự đặc biết vào field ""Mật Khẩu"" có độ dài trong khoảng từ 8 đến 50 ký tự 
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","1. Mỗi ký tự/space đều được hiển thị dưới dạng mã hóa là  * trên field ""Mật khẩu"".
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""
+>> Data trường password được lưu vào trong DB như khi nhập",,,
+DK_030,"Nhập Mật khẩu có độ dài  [8,50] ký tự nhưng không có chứa số","1.Nhập Mật khẩu có độ dài  [8,50] ký tự nhưng không có chứa số
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Mật khẩu "" với nội dung :
+ ""Mật khẩu phải bao gồm cả chữ và số """,,,
+4. Nhập lại mật khẩu,,,,,,
+DK_031,"Để trống field ""Nhập lại mật khẩu""","1. Để trống field ""Nhập lại mật khẩu""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Nhập lại mật khẩu "" với nội dung :
+ ""Đây là trường bắt buộc phải nhập ""
+-  Highlight và focus vào field bị lỗi",,,
+DK_032,"Check hiển thị ở field "" Nhập Lại Mật Khẩu""","1. Nhập data vào field "" Nhập Lại Mật Khẩu""
+2. Quan sát hiển thị data ở field đó",2. Mật khẩu vừa nhập có định dạng : ***,,,
+DK_033,"Nhập mật khẩu không trùng khớp với mật khẩu đã nhập ở field ""Mật khẩu ""","1. Nhập mật khẩu vào field ""Nhập lại mật khẩu"" sao cho mật khẩu này không trùng khớp với mật khẩu đã nhập ở field ""Mật khẩu ""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Hiển thị error message dưới field ""Nhập lại mật khẩu "" với nội dung :
+ ""Mật khẩu không trùng khớp""
+- Highlight và focus vào field bị lỗi",,,
+DK_034,"Nhập mật khẩu trùng khớp với mật khẩu đã nhập ở filed ""Mật khẩu ""","1. Nhập mật khẩu vào field ""Nhập lại mật khẩu"" sao cho mật khẩu này phải  trùng khớp với mật khẩu đã nhập ở field ""Mật khẩu ""
+
+2. Nhập giá trị hợp lệ vào tất cả các trường còn lại.
+
+3. Nhấn  button  [Đăng Ký]","
+
+3. Màn hình hiển thị thông báo : ""Đăng ký thành công""
+>> Data trường 'nhập lại password"" được lưu vào trong DB như khi nhập",,,
+III. Function Đăng ký,,,,,,
+DK_035,Đăng ký thành công khi click chuột vào  button  [Đăng ký],"1. Nhập valid data vào tất cả các field.
+
+2. Click chuột và  button  [Đăng ký]
+
+3. Click vào button [OK] trên pop-up ","2. Hiển thị pop-up thông báo : ""Đăng ký thành công "" và button [Ok]
+
+3. Hệ thống sẽ tự động chuyển tới trang Login",,,
+DK_036,Đăng ký thành công khi nhấn Enter từ bàn phím,"1. Tại form ""Đăng ký"" , tiến hành nhập valid data vào tất cả các field.
+
+2. Nhấn Enter từ bàn phím
+
+3. Click vào button [OK] trên pop-up ","2. Hiển thị pop-up thông báo : ""Đăng ký thành công "" và button [Ok]
+
+3. Hệ thống sẽ tự động chuyển tới trang Login",,,
+DK_037,Đăng ký không thành công trong trường hợp nhấn vào button [Hủy],"1. Nhập data vào tất cả các field.
+
+2. Check xử lý cuả hệ thống khi nhấn vào button [Hủy]","2. Quá trình đăng ký không thành công , hệ thống sẽ tự động mở ra trang Home ",,,
+DK_038,Đăng ký không thành công trong trường hợp đang nhấn  button  [Đăng ký] thì bị mất kêt nối với server,"1.Nhập valid data vào tất cả các field.
+
+2. Click chuột và  button  [Đăng ký] nhưng bị mất kết nối với server","2. Quá trình Đăng ký không thành công, hệ thống sẽ hiển thị error message với nội dung:
+ "" Đăng ký không thành công do lỗi server , vui lòng thử lại sau "" ….",,,
+DK_039,Đăng ký không thành công khi bỏ trống tất cả các field bắt buộc phải nhập,"1. Bỏ trống tất cả các field bắt buộc phải nhập
+2. Click chuột và  button  [Đăng ký]","2. Hiển thị error message dưới field mà bạn vừa nhập bỏ trống : "" Đây là trường bắt buộc phải nhập""
+=> Đăng ký không thành công",,,
+IV. Impact/ Other Cases,,,,,,
+DK_040,Check đăng nhập thành công bằng tài khoản vừa mới tạo thành công,"1. Đăng ký 1 account thành công
+2. Mở trình duyệt khác rồi di chuyển đến màn login , dùng tài khoản vừa đăng ký để login ",2. Login thành công ,,,

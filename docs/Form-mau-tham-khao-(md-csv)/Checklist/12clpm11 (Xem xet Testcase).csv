@@ -1,0 +1,49 @@
+Checklist review Kịch bản test,,,,,
+,,,,,
+Mã dự án,,,,,
+Phiên bản của sản phẩm,,,,,
+Phân hệ,,,,,
+Người xem xét,,,,,
+Ngày xem xét,,,,,
+Lần xem xét,,,,,
+Độ lớn sản phẩm,,,,,
+Nguồn lực dùng cho xem xét (MH),,,,,
+,,,,,
+Vấn đề,Có,Không,N/A,Ghi chú,Điều kiện
+Kiểm soát tài liệu,,,,,
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,,,,,Bắt buộc
+"Trang tiêu đề có bao gồm đủ tên tài liệu, phiên bản và tên công ty, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",,,,,Bắt buộc
+Đánh số trang có theo đúng quy định: số thứ tự/tổng số trang?,,,,,Bắt buộc
+"Trang ký có bao gồm đủ Người lập, Người xem xét & Người phê duyệt không?",,,,,Bắt buộc
+Có Bảng ghi nhận thay đổi không? ,,,,,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,Bắt buộc
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
+Có liệt kê các tài liệu liên quan không?,,,,,Bắt buộc
+Kiểm tra các Test Case,,,,,
+Có ID cho từng Test Case không?,,,,,Bắt buộc
+Test case có tham chiếu đến yêu cầu không?,,,,,Bắt buộc
+"Với mỗi TestCaseID này, có mô tả rõ:",,,,,
+Các bước thực hiện (Step) cho từng TestCaseID có được mô tả đầy đủ chưa?,,,,,Bắt buộc
+Đầu vào (có thể chỉ đến file dữ liệu riêng)?,,,,,Bắt buộc
+Kết quả mong đợi cho mỗi đầu vào?,,,,,Bắt buộc
+"Có đưa ra tiêu chí để so sánh (đánh giá) giữa kết quả mong đợi của người sử dụng (từ URD, SRS) với kết quả mong đợi khi test không?",,,,,
+"Các Test Case để kiểm tra các trường, điều kiện bản ghi và cập nhật Database có bao gồm:",,,,,
+Điều kiện hợp lệ (Valid),,,,,Bắt buộc
+Điều kiện không hợp lệ (Invalid),,,,,Bắt buộc
+Test Case cho các báo cáo có bao gồm test data và kết quả cần phải đạt được không?,,,,,Bắt buộc
+Có mô tả những ràng buộc giữa các Test Case không?,,,,,Bắt buộc
+Xem xét các thủ tục test,,,,,
+Thủ tục có mô tả điều kiện bắt đầu và các bước xử lý của mỗi thủ tục test không?,,,,,
+Có mô tả phương pháp logon môi trường test không?,,,,,
+<Thêm nếu cần>,,,,,
+,,0,,0,
+* Nhận xét,,,,,
+,,,,,
+,,,,,
+* Đề xuất,,,,,
+,,,,,
+[X] - Đạt,,,,,
+[   ] - Xem xét lại,,,,,
+[   ] - Khác,,,,,

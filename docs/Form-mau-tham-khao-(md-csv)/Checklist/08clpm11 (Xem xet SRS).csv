@@ -1,0 +1,102 @@
+SRS Review Checklist,,,,,
+,,,,,
+Mã dự án,,,,,
+Phiên bản sản phẩm,,,,,
+Phân hệ / Module,,,,,
+Lần xem xét,,,,,
+Người xem xét,,,,,
+Ngày xem xét,,,,,
+Độ lớn sản phẩm,,,,,
+Nguồn lực dành cho xem xét (MH),,,,,
+"Hướng dẫn: Trong quá trình review nếu câu trả lời là ""có"" nhưng chưa thực sự đầy đủ thì đánh dấu vào cột ""Có"" và chú thích cụ thể vào cột ""Ghi chú""",,,,,
+,,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú,Điều kiện
+Kiểm soát tài liệu,,,,,
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,,,,,Bắt buộc
+"Trang tiêu đề có bao gồm đủ tên tài liệu, phiên bản, tên công ty và logo, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu, Mã hiệu của template không?",,,,,Bắt buộc
+Đánh số trang có theo đúng qui định: số thứ tự/tổng số trang?,,,,,Bắt buộc
+Trang ký có bao gồm đủ Người xem xét & Người phê duyệt không?,,,,,Bắt buộc
+Có bảng theo dõi lịch sử thay đổi không? ,,,,,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
+Giới thiệu chung,,,,,
+Có nêu rõ mục đích của tài liệu không?,,,,,Bắt buộc
+Phạm vi hệ thống có được mô tả rõ ràng không?,,,,,
+Các khái niệm và thuật ngữ có được định nghĩa đầy đủ không?,,,,,Bắt buộc
+Có liệt kê các tài liệu tham khảo không? ,,,,,
+"Nếu có, mỗi tài liệu có bao gồm các thông tin sau không?",,,,,
+Tên tài liệu,,,,,
+Ngày phát hành,,,,,
+Nguồn,,,,,
+Có mô tả giới hạn của tài liệu không?,,,,,Bắt buộc
+Có mô tả tổ chức của tài liệu không?,,,,,Bắt buộc
+Mô tả tổng thể,,,,,
+Có xác định ngữ cảnh và điều kiện sử dụng của hệ thống (scenarios and operational concepts) không?,,,,,Bắt buộc
+Có liệt kê các chức năng sản phẩm trong tài liệu không?,,,,,Bắt buộc
+Các chức năng sản phẩm được liệt kê này:,,,,,Bắt buộc
+Có được phân nhóm một cách hợp lý?,,,,,
+Có được mô tả một cách chính xác không?,,,,,
+Danh sách Nhóm người / Người sử dụng có được đề cập theo các yêu cầu / chức năng này này không?,,,,,
+Vai trò của Nhóm người / Người sử dụng có được ghi nhận không?,,,,,
+Có mô hình / Sơ đồ Tổng thể hệ thống không?,,,,,
+Có mô tả đặc điểm người sử dụng không?,,,,,Bắt buộc
+Có mô tả các ràng buộc đối với hệ thống không?,,,,,
+Có các giả thiết và phụ thuộc không?,,,,,
+Đặc tả yêu cầu chức năng sản phẩm - Tổng quát,,,,,
+Mỗi yêu cầu có được xác định duy nhất và chính xác không?,,,,,Bắt buộc
+Các yêu cầu có thống nhất không?,,,,,Bắt buộc
+Có thứ tự ưu tiên / độ ưu tiên thực hiện cho các yêu cầu không?,,,,,Bắt buộc
+Có ghi nhận mã hiệu và tên gọi cho tất cả các yêu cầu không?,,,,,Bắt buộc
+Các dẫn chiếu đến các yêu cầu khác trong tài liệu có đúng không?,,,,,
+Nếu tài liệu SRS được sử dụng để nghiệm thu hệ thống: Có mô tả tiêu chí nghiệm thu của các chức năng sản phẩm trong tài liệu không?,,,,,Bắt buộc
+Các yêu cầu có đầy đủ thông tin cần thiết không?,,,,,
+Nếu có yêu cầu nào thiếu có được đánh dấu lại không?,,,,,
+"Các yêu cầu khác về chất lượng có được mô tả rõ ràng và được số hoá, với những điều chỉnh có thể chấp nhận được không?",,,,,
+Các yêu cầu có nằm trong phạm vi dự án không?,,,,,
+Các yêu cầu có thực sự là yêu cầu mà không phải là đề xuất thiết kế hoặc giải pháp thực hiện không?,,,,,
+Hành động cần làm trong những trường hợp có lỗi (nếu có) có được mô tả không?,,,,,
+Đặc tả yêu cầu chức năng sản phẩm - Chi tiết,,,,,
+Các yêu cầu có cung cấp đủ cơ sở cho thiết kế không?,,,,,Bắt buộc
+Có thể thực hiện được tất cả các yêu cầu với các ràng buộc đã ghi nhận không?,,,,,Bắt buộc
+Có xác định các thuật toán của use case không?,,,,,
+"Mỗi yêu cầu đều có thể kiểm tra được bằng 1 trong các biện pháp sau: test, demonstration, review hoặc phân tích không?",,,,,Bắt buộc
+Các thông báo lỗi cần thiết đều duy nhất và rõ nghĩa?,,,,,
+Mỗi yêu cầu chức năng phần mềm có tương ứng với 1 yêu cầu ở mức cao hơn không? (ví dụ: mức cao hơn có thể là yêu cầu của hệ thống hoặc use case không?),,,,,
+"Các yêu cầu phi chức năng, các yêu cầu đặc biệt của người dùng",,,,,
+Các yêu cầu về bảo mật và an toàn có được xác định không?,,,,,"Bắt buộc
+"
+Loại bảo mật nào được yêu cầu?,,,,,
+Có xác định các yêu cầu về sao lưu dữ liệu không?,,,,,
+Có xác định các yêu cầu về tính sử dụng (usability) của hệ thống không?,,,,,
+Có xác định các yêu cầu về tính ổn định (stability) của hệ thống không?,,,,,
+Các yêu cầu về performance (hiệu năng) có được xác định không?,,,,,
+Lưu lượng giao dịch và qui mô của dữ liệu có được chỉ rõ trong tài liệu không?,,,,,Bắt buộc
+Có xác định các yêu cầu về tính hỗ trợ của hệ thống không?,,,,,
+Có mô tả các yêu cầu về công nghệ và các ràng buộc đối với thiết kế không?,,,,,Bắt buộc
+Có xác định các yêu cầu giao tiếp của hệ thống không?,,,,,
+Giao tiếp người dùng (GUI)?,,,,,Bắt buộc
+Giao tiếp phần cứng?,,,,,
+Giao tiếp phần mềm bao gồm:,,,,,
+Giao tiếp với các hệ thống phần mềm khác?,,,,,Bắt buộc
+Giao tiếp giữa các modul trong nội tại hệ thống?,,,,,Bắt buộc
+Giao tiếp truyền thông?,,,,,
+Có xác định các yêu cầu về tài liệu người dùng và hỗ trợ trực tuyến không?,,,,,
+Hệ thống có sử dụng các thành phần mua ngoài không?,,,,,
+"Nếu có, có được mô tả đầy đủ trong tài liệu không?",,,,,Bắt buộc
+"Các yêu cầu pháp lý, bản quyền không?",,,,,
+"Nếu có, có được mô tả đầy đủ trong tài liệu không?",,,,,Bắt buộc
+Hệ thống có áp dụng các tiêu chuẩn nào khác ngoài các tiêu chuẩn thuộc phạm vi dự án không?,,,,,
+"Nếu có, có được mô tả đầy đủ trong tài liệu không?",,,,,Bắt buộc
+,,,,,
+<Có thể thêm vào checklist các quan tâm khác nếu cần thiết>,,,,,
+,,,,,
+* Nhận xét,,,,,
+,,,,,
+,,,,,
+* Đề xuất,,,,,
+,,,,,
+[  ] - Đạt,,,,,
+[  ] - Xem xét lại,,,,,
+[  ] - Khác,,,,,

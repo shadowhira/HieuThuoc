@@ -1,0 +1,62 @@
+,Checklist Kiểm soát Cấu hình1,,,,,
+,,,,,,
+,Mã hiệu dự án,,,,,
+,Ngày kiểm soát,,,,,
+,Người thực hiện,,,,,
+,Nguồn lực dành để kiểm soát (MH),,,,,
+,,,,,,
+,( Check list này được CB quản lý cấu hình lập tối thiểu 2 tuần/lần),,,,,
+,Câu hỏi,Có,Không,NA,Ghi chú,Điều kiện
+,Kiểm tra Baseline CI (Thư mục Control – Kiểm soát),,,,,Bắt buộc
+,Kiểm tra số lượng CI đã được lưu Control (Tính đến thời điểm kiểm soát):,,,,,Bắt buộc
+,Số lượng CI có đầy đủ?,,,,,Bắt buộc
+,Các CI có đúng như KHDA đã định nghĩa?,,,,,Bắt buộc
+,Các CI có được lưu đủ theo các phiên bản đã tồn tại không?,,,,,Bắt buộc
+,"Các CI có được đặt tên theo quy tắc đặt tên không?
+(Tham khảo Mục quản lý cấu hình của KHDA)",,,,,Bắt buộc
+,Các CI có tuân theo quy tắc đánh số phiên bản không? ,,,,,Bắt buộc
+,Có thông báo phát hành cho từng CI không?,,,,,Bắt buộc
+,Kiểm tra Baseline dự án (Thư mục Baseline – Lưu Trữ),,,,,Bắt buộc
+,Kiểm tra số lượng BaselineID đã được báo cáo (Tính đến thời điểm kiểm soát):,,,,,Bắt buộc
+,"Số lượng CI theo các lần Baseline có đầy đủ không?
+(Baseline sau bắt buộc phải chứa các CI của Baseline trước theo phiên bản mới nhất)",,,,,Bắt buộc
+,Các CI có đúng như các lần Baseline không?,,,,,Bắt buộc
+,"Các CI có được đặt tên theo quy tắc đặt tên không?
+(Tham khảo Mục quản lý cấu hình của KHDA)",,,,,Bắt buộc
+,Các CI trong Baseline có tuân theo quy tắc đánh số phiên bản không? ,,,,,Bắt buộc
+,Các BaselineID đã được PdQA đánh giá chưa? (Tính đến thời điểm kiểm soát),,,,,Bắt buộc
+,Các lỗi của từng CI có được đóng trước khi làm baseline không?,,,,,Bắt buộc
+,"Nếu chưa đóng các lỗi này, có liệt kê ra các lỗi chưa đóng trong báo cáo Baseline tương ứng không? (Kiểm tra các lỗi mở trong TestTrack và so sánh với báo cáo)",,,,,Bắt buộc
+,Các báo cáo Baseline đã được phê duyệt chưa?,,,,,Bắt buộc
+,"Kiểm tra Các thay đổi Cấu hình, và Trạng thái Cấu hình",,,,,
+,Kiểm tra việc cập nhật thay đổi cho các CI có thay đổi:,,,,,
+,Các CI có thay đổi không? ,,,,,
+,Các thay đổi đã được hoàn thiện trong các CI chưa? ,,,,,
+,Các CI liên quan có thay đổi theo không?,,,,,
+,Các thay đổi đã được hoàn thiện trong các sản phẩm liên quan chưa? ,,,,,
+,"Có cập nhật Requirement-Sheet (RMSheet) (hoặc Navisoft-Insight) khi các CI có thay đổi không?
+(Kiểm tra trạng thái của các CI trong Requirement-Sheet (RMSheet) hoặc Navisoft-Insight)",,,,,
+,"Kiểm tra Thư mục dự án (Môi trường), và công tác Lưu trữ dự phòng (Backup) ",,,,,Bắt buộc
+,Thư mục dự án có đúng và đủ như đã ghi nhận trong KHDA không?,,,,,Bắt buộc
+,"Nếu có sai khác so với KHDA, các nội dung sai khác này (thêm, bớt, điều chỉnh tên gọi thư mục, .......) có được ghi nhận ở đâu không?
+(Chỉ ra bằng chứng ghi nhận nội dung sai khác trong Cột Ghi chú)",,,,,Bắt buộc
+,Kiểm tra các thư mục dự án có lưu đủ các thư mục phục vụ các mục đích: WIP – Control – Baseline...hay không?,,,,,Bắt buộc
+,"Kiểm tra các thư mục dự án có lưu đủ các file, các thông tin lưu trữ cần thiết, ...... như đã xác định trong KHDA không?",,,,,Bắt buộc
+,Kiểm tra quyền truy cập của các nhóm / các user trong dự án vào các thư mục có đúng như đã xác định trong KHDA không?,,,,,Bắt buộc
+,Có thực hiện backup như xác định trong kế hoạch quản lý cấu hình không?,,,,,Bắt buộc
+,,,,,,
+,"<Thêm tiếp các câu hỏi khác, nếu cần>",,,,,
+,,,,,,
+, * Nhận xét,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,* Đề xuất,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,* Kết quả,,,,,
+,[     ] - Đạt,,,,,
+,[     ] - Đánh giá lại,,,,,
+,[     ] - Khác,,,,,
+,* Ghi chú:  1Tài liệu tham khảo,,,,,
