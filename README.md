@@ -4,10 +4,20 @@ MedicineShop là một hệ thống quản lý hiệu thuốc toàn diện, bao 
 
 ## Mục lục
 
-1. [Hướng dẫn cài đặt và chạy](#hướng-dẫn-cài-đặt-và-chạy)
-2. [Tài liệu API](#tài-liệu-api)
-3. [Tài liệu giao diện](#tài-liệu-giao-diện)
-4. [Tài liệu kiểm thử](#tài-liệu-kiểm-thử)
+1. [Tài liệu hướng dẫn](#tài-liệu-hướng-dẫn)
+2. [Hướng dẫn cài đặt và chạy](#hướng-dẫn-cài-đặt-và-chạy)
+3. [Tài liệu API](#tài-liệu-api)
+4. [Tài liệu giao diện](#tài-liệu-giao-diện)
+5. [Tài liệu kiểm thử](#tài-liệu-kiểm-thử)
+
+## Tài liệu hướng dẫn
+
+Hệ thống cung cấp các tài liệu hướng dẫn chi tiết trong thư mục `docs`:
+
+1. [Hướng dẫn cài đặt](docs/HUONG_DAN_CAI_DAT.md) - Hướng dẫn chi tiết về cách cài đặt và cấu hình hệ thống
+2. [Hướng dẫn import dữ liệu mẫu](docs/HUONG_DAN_IMPORT_DU_LIEU.md) - Hướng dẫn cách tạo và import dữ liệu mẫu vào cơ sở dữ liệu
+3. [Hướng dẫn sử dụng](docs/HUONG_DAN_SU_DUNG.md) - Hướng dẫn cách sử dụng các chức năng của hệ thống
+4. [Hướng dẫn chi tiết các chức năng](docs/HUONG_DAN_CHUC_NANG.md) - Mô tả chi tiết về các chức năng của hệ thống
 
 ## Hướng dẫn cài đặt và chạy
 
@@ -35,7 +45,7 @@ MedicineShop là một hệ thống quản lý hiệu thuốc toàn diện, bao 
    CREATE USER postgres WITH PASSWORD 'G@con123123';
    GRANT ALL PRIVILEGES ON DATABASE test_hieu_thuoc TO postgres;
    ```
-4. Chạy script khởi tạo cơ sở dữ liệu (nếu có) từ thư mục `Mysql`
+4. Chạy script khởi tạo cơ sở dữ liệu từ thư mục `generate-data` (xem [Hướng dẫn import dữ liệu mẫu](docs/HUONG_DAN_IMPORT_DU_LIEU.md))
 
 ### Cài đặt và chạy Backend
 
@@ -282,17 +292,17 @@ Hệ thống MedicineShop được chia thành 5 phần để kiểm thử, mỗ
 
 Hệ thống cung cấp các tài liệu hướng dẫn chi tiết:
 
-- [Hướng dẫn tạo dữ liệu mẫu](README-data-generator.md) - Chi tiết về cách tạo và sử dụng dữ liệu mẫu
-- [Hướng dẫn về hệ thống phân quyền](README-phan-quyen.md) - Mô tả chi tiết về cơ chế phân quyền trong hệ thống
-- [Hướng dẫn luồng sử dụng hệ thống](README-luong-su-dung.md) - Mô tả chi tiết các luồng sử dụng theo từng vai trò
+- [Hướng dẫn tạo dữ liệu mẫu](docs/HUONG_DAN_IMPORT_DU_LIEU.md) - Chi tiết về cách tạo và sử dụng dữ liệu mẫu
+- [Hướng dẫn sử dụng hệ thống](docs/HUONG_DAN_SU_DUNG.md) - Mô tả chi tiết về cách sử dụng hệ thống
+- [Hướng dẫn chi tiết các chức năng](docs/HUONG_DAN_CHUC_NANG.md) - Mô tả chi tiết các chức năng của hệ thống
 
-Dữ liệu mẫu được chia thành 5 phần cho nhóm kiểm thử:
+Dữ liệu mẫu bao gồm các loại dữ liệu sau:
 
-1. **Phần 1: Quản lý thuốc** - Dữ liệu thuốc, thành phần, đối tượng sử dụng, tồn kho
-2. **Phần 2: Quản lý nhập kho** - Phiếu nhập, chi tiết phiếu nhập
-3. **Phần 3: Quản lý khuyến mãi** - Chương trình khuyến mãi, chi tiết khuyến mãi
-4. **Phần 4: Quản lý đơn hàng** - Đơn hàng, chi tiết đơn hàng
-5. **Phần 5: Quản lý đánh giá và tương tác thuốc** - Đánh giá thuốc, tương tác thuốc
+1. **Quản lý thuốc** - Dữ liệu thuốc, thành phần, đối tượng sử dụng, tồn kho
+2. **Quản lý nhập kho** - Phiếu nhập, chi tiết phiếu nhập
+3. **Quản lý khuyến mãi** - Chương trình khuyến mãi, chi tiết khuyến mãi
+4. **Quản lý đơn hàng** - Đơn hàng, chi tiết đơn hàng
+5. **Quản lý đánh giá và tương tác thuốc** - Đánh giá thuốc, tương tác thuốc
 
 ### Phần 1: Quản lý người dùng và phân quyền
 

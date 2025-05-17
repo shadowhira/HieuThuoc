@@ -315,22 +315,22 @@ function generatePromotionData() {
   // Generate INSERT statements for chi_tiet_khuyen_mai table
   sql += '\n-- Additional Promotion Details\n';
   sql += `INSERT INTO chi_tiet_khuyen_mai (khuyen_mai_id, thuoc_id, giam_gia) VALUES
-(6, 16, 15),
-(6, 17, 10),
-(6, 18, 20),
-(6, 19, 15),
-(6, 20, 10),
-(6, 21, 15),
-(6, 22, 10),
-(6, 23, 20),
-(7, 1, 20),
-(7, 2, 20),
-(7, 3, 20),
-(7, 4, 20),
-(7, 5, 20),
-(7, 21, 20),
-(7, 22, 20),
-(7, 23, 20);\n`;
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 16, 15),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 17, 10),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 18, 20),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 19, 15),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 20, 10),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 21, 15),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 22, 10),
+((SELECT COALESCE(MAX(id), 0) FROM khuyen_mai), 23, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 1, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 2, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 3, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 4, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 5, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 21, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 22, 20),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM khuyen_mai), 23, 20);\n`;
 
   return sql;
 }
@@ -353,29 +353,29 @@ function generateOrderData() {
   // Generate INSERT statements for chi_tiet_don_hang table
   sql += '\n-- Additional Order Details\n';
   sql += `INSERT INTO chi_tiet_don_hang (don_hang_id, thuoc_id, so_luong, don_gia) VALUES
-(11, 16, 1, 5000),
-(11, 17, 1, 4000),
-(11, 6, 1, 500),
-(12, 18, 1, 5500),
-(12, 19, 1, 1800),
-(12, 20, 1, 3500),
-(12, 2, 1, 1200),
-(13, 3, 1, 3000),
-(13, 4, 1, 2500),
-(13, 16, 1, 3000),
-(14, 17, 1, 4000),
-(14, 18, 1, 5500),
-(14, 5, 1, 1000),
-(15, 19, 2, 1800),
-(15, 20, 2, 3500),
-(15, 1, 1, 1500),
-(15, 2, 1, 1200),
-(16, 21, 1, 2500),
-(16, 22, 1, 3200),
-(16, 23, 1, 1800),
-(17, 21, 1, 2500),
-(17, 22, 1, 3200),
-(17, 23, 1, 4000);\n`;
+((SELECT COALESCE(MAX(id), 0) FROM don_hang), 16, 1, 5000),
+((SELECT COALESCE(MAX(id), 0) FROM don_hang), 17, 1, 4000),
+((SELECT COALESCE(MAX(id), 0) FROM don_hang), 6, 1, 500),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM don_hang), 18, 1, 5500),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM don_hang), 19, 1, 1800),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM don_hang), 20, 1, 3500),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM don_hang), 2, 1, 1200),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM don_hang), 3, 1, 3000),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM don_hang), 4, 1, 2500),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM don_hang), 16, 1, 3000),
+((SELECT COALESCE(MAX(id), 0) - 3 FROM don_hang), 17, 1, 4000),
+((SELECT COALESCE(MAX(id), 0) - 3 FROM don_hang), 18, 1, 5500),
+((SELECT COALESCE(MAX(id), 0) - 3 FROM don_hang), 5, 1, 1000),
+((SELECT COALESCE(MAX(id), 0) - 4 FROM don_hang), 19, 2, 1800),
+((SELECT COALESCE(MAX(id), 0) - 4 FROM don_hang), 20, 2, 3500),
+((SELECT COALESCE(MAX(id), 0) - 4 FROM don_hang), 1, 1, 1500),
+((SELECT COALESCE(MAX(id), 0) - 4 FROM don_hang), 2, 1, 1200),
+((SELECT COALESCE(MAX(id), 0) - 5 FROM don_hang), 21, 1, 2500),
+((SELECT COALESCE(MAX(id), 0) - 5 FROM don_hang), 22, 1, 3200),
+((SELECT COALESCE(MAX(id), 0) - 5 FROM don_hang), 23, 1, 1800),
+((SELECT COALESCE(MAX(id), 0) - 6 FROM don_hang), 21, 1, 2500),
+((SELECT COALESCE(MAX(id), 0) - 6 FROM don_hang), 22, 1, 3200),
+((SELECT COALESCE(MAX(id), 0) - 6 FROM don_hang), 23, 1, 4000);\n`;
 
   return sql;
 }
@@ -390,12 +390,16 @@ function generateReviewData() {
 (17, 7, NULL, 4, 'Thuốc tốt, con tôi đã khỏi viêm phổi sau một đợt điều trị.', '2024-02-28', '2024-02-28'),
 (18, 8, NULL, 5, 'Thuốc trị viêm phổi rất hiệu quả, tôi đã khỏi bệnh sau 7 ngày.', '2024-03-05', '2024-03-05'),
 (19, 9, NULL, 4, 'Thuốc giảm đau hiệu quả, nhưng hơi khó uống.', '2024-03-08', '2024-03-08'),
-(20, 10, NULL, 5, 'Thuốc trị đau dạ dày rất tốt, tôi không còn đau sau 2 ngày sử dụng.', '2024-03-12', '2024-03-12'),
-(16, 3, 6, NULL, 'Cảm ơn bạn đã đánh giá. Azithromycin là kháng sinh mạnh và hiệu quả với nhiều loại nhiễm khuẩn.', '2024-02-26', '2024-02-26'),
-(17, 3, 7, NULL, 'Cảm ơn bạn đã đánh giá. Cefixime là lựa chọn tốt cho trẻ em vì có thể dùng đường uống và ít tác dụng phụ.', '2024-03-01', '2024-03-01'),
-(18, 4, 8, NULL, 'Cảm ơn bạn đã đánh giá. Levofloxacin là kháng sinh phổ rộng hiệu quả với nhiều loại nhiễm khuẩn.', '2024-03-06', '2024-03-06'),
-(19, 4, 9, NULL, 'Cảm ơn bạn đã đánh giá. Diclofenac có thể gây khó chịu dạ dày, nên uống sau khi ăn để giảm tác dụng phụ.', '2024-03-09', '2024-03-09'),
-(20, 3, 10, NULL, 'Cảm ơn bạn đã đánh giá. Pantoprazole là thuốc ức chế bơm proton hiệu quả trong điều trị các bệnh lý dạ dày.', '2024-03-13', '2024-03-13');\n`;
+(20, 10, NULL, 5, 'Thuốc trị đau dạ dày rất tốt, tôi không còn đau sau 2 ngày sử dụng.', '2024-03-12', '2024-03-12');\n`;
+
+  // Thêm phản hồi đánh giá sau khi đã có ID của đánh giá
+  sql += `\n-- Additional Review Responses\n`;
+  sql += `INSERT INTO danh_gia (thuoc_id, nguoi_dung_id, danh_gia_id, diem_so, danh_gia, created_at, update_at) VALUES
+(16, 3, (SELECT id FROM danh_gia WHERE thuoc_id = 16 AND nguoi_dung_id = 6 AND danh_gia_id IS NULL), NULL, 'Cảm ơn bạn đã đánh giá. Azithromycin là kháng sinh mạnh và hiệu quả với nhiều loại nhiễm khuẩn.', '2024-02-26', '2024-02-26'),
+(17, 3, (SELECT id FROM danh_gia WHERE thuoc_id = 17 AND nguoi_dung_id = 7 AND danh_gia_id IS NULL), NULL, 'Cảm ơn bạn đã đánh giá. Cefixime là lựa chọn tốt cho trẻ em vì có thể dùng đường uống và ít tác dụng phụ.', '2024-03-01', '2024-03-01'),
+(18, 4, (SELECT id FROM danh_gia WHERE thuoc_id = 18 AND nguoi_dung_id = 8 AND danh_gia_id IS NULL), NULL, 'Cảm ơn bạn đã đánh giá. Levofloxacin là kháng sinh phổ rộng hiệu quả với nhiều loại nhiễm khuẩn.', '2024-03-06', '2024-03-06'),
+(19, 4, (SELECT id FROM danh_gia WHERE thuoc_id = 19 AND nguoi_dung_id = 9 AND danh_gia_id IS NULL), NULL, 'Cảm ơn bạn đã đánh giá. Diclofenac có thể gây khó chịu dạ dày, nên uống sau khi ăn để giảm tác dụng phụ.', '2024-03-09', '2024-03-09'),
+(20, 3, (SELECT id FROM danh_gia WHERE thuoc_id = 20 AND nguoi_dung_id = 10 AND danh_gia_id IS NULL), NULL, 'Cảm ơn bạn đã đánh giá. Pantoprazole là thuốc ức chế bơm proton hiệu quả trong điều trị các bệnh lý dạ dày.', '2024-03-13', '2024-03-13');\n`;
 
   return sql;
 }
@@ -428,20 +432,20 @@ function generateNotificationData() {
   // Generate INSERT statements for nguoi_nhan_thong_bao table
   sql += '\n-- Additional Notification Recipients\n';
   sql += `INSERT INTO nguoi_nhan_thong_bao (thong_bao_id, nguoi_dung_id) VALUES
-(7, 1),
-(7, 2),
-(7, 3),
-(7, 4),
-(7, 5),
-(8, 1),
-(8, 2),
-(8, 3),
-(8, 4),
-(9, 1),
-(9, 2),
-(9, 3),
-(9, 4),
-(9, 5);\n`;
+((SELECT COALESCE(MAX(id), 0) FROM thong_bao), 1),
+((SELECT COALESCE(MAX(id), 0) FROM thong_bao), 2),
+((SELECT COALESCE(MAX(id), 0) FROM thong_bao), 3),
+((SELECT COALESCE(MAX(id), 0) FROM thong_bao), 4),
+((SELECT COALESCE(MAX(id), 0) FROM thong_bao), 5),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM thong_bao), 1),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM thong_bao), 2),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM thong_bao), 3),
+((SELECT COALESCE(MAX(id), 0) - 1 FROM thong_bao), 4),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM thong_bao), 1),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM thong_bao), 2),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM thong_bao), 3),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM thong_bao), 4),
+((SELECT COALESCE(MAX(id), 0) - 2 FROM thong_bao), 5);\n`;
 
   return sql;
 }
@@ -468,10 +472,77 @@ function generateActivityLogData() {
   return sql;
 }
 
+// Generate base data (parent tables)
+function generateBaseData() {
+  let sql = '-- Base data for parent tables\n\n';
+
+  // Generate loai_thuoc data
+  sql += `-- Loại thuốc data
+INSERT INTO loai_thuoc (id, ten_loai, mo_ta) VALUES
+(1, 'Kháng sinh', 'Thuốc kháng sinh'),
+(2, 'Cephalosporin', 'Thuốc kháng sinh nhóm Cephalosporin'),
+(3, 'Macrolide', 'Thuốc kháng sinh nhóm Macrolide'),
+(4, 'Quinolone', 'Thuốc kháng sinh nhóm Quinolone'),
+(5, 'Penicillin', 'Thuốc kháng sinh nhóm Penicillin'),
+(6, 'NSAIDs', 'Thuốc kháng viêm không steroid'),
+(7, 'Antihypertensive', 'Thuốc điều trị tăng huyết áp'),
+(8, 'Antidiabetic', 'Thuốc điều trị đái tháo đường'),
+(9, 'Lipid-lowering', 'Thuốc hạ lipid máu'),
+(10, 'Antihistamine', 'Thuốc kháng histamine'),
+(11, 'Proton pump inhibitor', 'Thuốc ức chế bơm proton');\n\n`;
+
+  // Generate nha_san_xuat data
+  sql += `-- Nhà sản xuất data
+INSERT INTO nha_san_xuat (id, ten_nha_san_xuat, dia_chi, email, so_dien_thoai) VALUES
+(1, 'Công ty Dược phẩm Hà Nội', 'Hà Nội', 'contact@hanoi-pharma.com', '0987654321'),
+(2, 'Công ty Dược phẩm TP.HCM', 'TP.HCM', 'contact@hcm-pharma.com', '0987654322'),
+(3, 'Công ty Dược phẩm Đà Nẵng', 'Đà Nẵng', 'contact@danang-pharma.com', '0987654323'),
+(4, 'Công ty Dược phẩm Cần Thơ', 'Cần Thơ', 'contact@cantho-pharma.com', '0987654324'),
+(5, 'Công ty Dược phẩm Hải Phòng', 'Hải Phòng', 'contact@haiphong-pharma.com', '0987654325');\n\n`;
+
+  // Generate nha_cung_cap data
+  sql += `-- Nhà cung cấp data
+INSERT INTO nha_cung_cap (id, ten_nha_cung_cap, dia_chi, email, so_dien_thoai) VALUES
+(1, 'Công ty Phân phối Dược phẩm Hà Nội', 'Hà Nội', 'distribution@hanoi-pharma.com', '0987654331'),
+(2, 'Công ty Phân phối Dược phẩm TP.HCM', 'TP.HCM', 'distribution@hcm-pharma.com', '0987654332'),
+(3, 'Công ty Phân phối Dược phẩm Đà Nẵng', 'Đà Nẵng', 'distribution@danang-pharma.com', '0987654333');\n\n`;
+
+  // Generate doi_tuong data
+  sql += `-- Đối tượng data
+INSERT INTO doi_tuong (id, ten_doi_tuong, mo_ta) VALUES
+(1, 'Người lớn', 'Người từ 18 tuổi trở lên'),
+(2, 'Trẻ em', 'Trẻ từ 2-12 tuổi'),
+(3, 'Người cao tuổi', 'Người từ 65 tuổi trở lên'),
+(4, 'Phụ nữ có thai', 'Phụ nữ đang mang thai'),
+(5, 'Phụ nữ cho con bú', 'Phụ nữ đang cho con bú'),
+(6, 'Trẻ sơ sinh', 'Trẻ dưới 2 tuổi'),
+(7, 'Thanh thiếu niên', 'Người từ 12-18 tuổi');\n\n`;
+
+  // Generate nguoi_dung data
+  sql += `-- Người dùng data
+INSERT INTO nguoi_dung (id, ten_dang_nhap, mat_khau, ho_ten, email, so_dien_thoai, dia_chi, trang_thai, created_at, update_at) VALUES
+(1, 'admin2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Admin 2', 'admin2@gmail.com', '0987654321', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, 'manager2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Manager 2', 'manager2@gmail.com', '0987654322', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, 'pharmacist2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Pharmacist 2', 'pharmacist2@gmail.com', '0987654323', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, 'cashier2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Cashier 2', 'cashier2@gmail.com', '0987654324', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, 'customer2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 2', 'customer2@gmail.com', '0987654325', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, 'customer3', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 3', 'customer3@gmail.com', '0987654326', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 'customer4', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 4', 'customer4@gmail.com', '0987654327', 'Hồ Chí Minh', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, 'customer5', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 5', 'customer5@gmail.com', '0987654328', 'Đà Nẵng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, 'customer6', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 6', 'customer6@gmail.com', '0987654329', 'Hải Phòng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, 'customer7', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 7', 'customer7@gmail.com', '0987654330', 'Cần Thơ', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);\n\n`;
+
+  return sql;
+}
+
 // Generate all additional data
 function generateAllAdditionalData() {
   let sql = '-- Additional data for pharmacy database\n\n';
 
+  // First add base data (parent tables)
+  sql += generateBaseData();
+
+  // Then add child table data
   sql += generateMedicineData();
   sql += generateImportReceiptData();
   sql += generatePromotionData();

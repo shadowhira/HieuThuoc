@@ -2,6 +2,7 @@
 
 # Tạo dữ liệu mẫu bằng Node.js
 echo "Đang tạo dữ liệu mẫu..."
+cd generate-data
 node generate.js
 
 # Kiểm tra xem file SQL đã được tạo chưa
@@ -40,3 +41,4 @@ else
 fi
 
 echo "Hoàn thành!"
+cd ..
