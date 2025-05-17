@@ -1,11 +1,11 @@
-DO $$ 
-DECLARE 
+DO $$
+DECLARE
     r RECORD;
-BEGIN 
-    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') 
-    LOOP 
+BEGIN
+    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public')
+    LOOP
         EXECUTE 'TRUNCATE TABLE ' || quote_ident(r.tablename) || ' RESTART IDENTITY CASCADE';
-    END LOOP; 
+    END LOOP;
 END $$;
 
 
@@ -51,27 +51,27 @@ SELECT 2, id FROM chuc_nang WHERE hanh_dong != 'DELETE_USER';
 
 -- Pharmacist has medicine and inventory related functions
 INSERT INTO chi_tiet_chuc_nang (nhom_quyen_id, chuc_nang_id)
-SELECT 3, id FROM chuc_nang WHERE 
-    ten_chuc_nang = 'Quản lý thuốc' OR 
+SELECT 3, id FROM chuc_nang WHERE
+    ten_chuc_nang = 'Quản lý thuốc' OR
     ten_chuc_nang = 'Quản lý nhập kho';
 
 -- Cashier has order related functions
 INSERT INTO chi_tiet_chuc_nang (nhom_quyen_id, chuc_nang_id)
-SELECT 4, id FROM chuc_nang WHERE 
+SELECT 4, id FROM chuc_nang WHERE
     ten_chuc_nang = 'Quản lý đơn hàng';
 
 -- Seed data for nguoi_dung (Users)
 INSERT INTO nguoi_dung (ten_dang_nhap, mat_khau, ho_ten, email, dia_chi, so_dien_thoai, avatar, trang_thai, created_at, update_at) VALUES
-('admin', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Admin System', 'admin@pharmacy.com', 'Hà Nội', '0987654321', 'avatar1.jpg', true, NOW(), NOW()),
-('manager', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Nguyễn Văn Quản Lý', 'manager@pharmacy.com', 'Hồ Chí Minh', '0987654322', 'avatar2.jpg', true, NOW(), NOW()),
-('pharmacist1', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Trần Thị Dược Sĩ', 'pharmacist1@pharmacy.com', 'Đà Nẵng', '0987654323', 'avatar3.jpg', true, NOW(), NOW()),
-('pharmacist2', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Lê Văn Dược', 'pharmacist2@pharmacy.com', 'Hải Phòng', '0987654324', 'avatar4.jpg', true, NOW(), NOW()),
-('cashier1', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Phạm Thị Thu Ngân', 'cashier1@pharmacy.com', 'Cần Thơ', '0987654325', 'avatar5.jpg', true, NOW(), NOW()),
-('customer1', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Hoàng Văn Khách', 'customer1@gmail.com', 'Hà Nội', '0987654326', 'avatar6.jpg', true, NOW(), NOW()),
-('customer2', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Ngô Thị Hàng', 'customer2@gmail.com', 'Hồ Chí Minh', '0987654327', 'avatar7.jpg', true, NOW(), NOW()),
-('customer3', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Vũ Văn Mua', 'customer3@gmail.com', 'Đà Nẵng', '0987654328', 'avatar8.jpg', true, NOW(), NOW()),
-('customer4', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Đặng Thị Sắm', 'customer4@gmail.com', 'Hải Phòng', '0987654329', 'avatar9.jpg', true, NOW(), NOW()),
-('customer5', '$2a$10$rPiEAgSwhxvC5Wv6C3Xnz.TUaJXZnEPRhAV0aPQJcRkLKhbPRMGwW', 'Bùi Văn Tiêu', 'customer5@gmail.com', 'Cần Thơ', '0987654330', 'avatar10.jpg', true, NOW(), NOW());
+('admin', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Admin System', 'admin@pharmacy.com', 'Hà Nội', '0987654321', 'avatar1.jpg', true, NOW(), NOW()),
+('manager', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Nguyễn Văn Quản Lý', 'manager@pharmacy.com', 'Hồ Chí Minh', '0987654322', 'avatar2.jpg', true, NOW(), NOW()),
+('pharmacist1', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Trần Thị Dược Sĩ', 'pharmacist1@pharmacy.com', 'Đà Nẵng', '0987654323', 'avatar3.jpg', true, NOW(), NOW()),
+('pharmacist2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Lê Văn Dược', 'pharmacist2@pharmacy.com', 'Hải Phòng', '0987654324', 'avatar4.jpg', true, NOW(), NOW()),
+('cashier1', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Phạm Thị Thu Ngân', 'cashier1@pharmacy.com', 'Cần Thơ', '0987654325', 'avatar5.jpg', true, NOW(), NOW()),
+('customer1', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Hoàng Văn Khách', 'customer1@gmail.com', 'Hà Nội', '0987654326', 'avatar6.jpg', true, NOW(), NOW()),
+('customer2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Ngô Thị Hàng', 'customer2@gmail.com', 'Hồ Chí Minh', '0987654327', 'avatar7.jpg', true, NOW(), NOW()),
+('customer3', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Vũ Văn Mua', 'customer3@gmail.com', 'Đà Nẵng', '0987654328', 'avatar8.jpg', true, NOW(), NOW()),
+('customer4', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Đặng Thị Sắm', 'customer4@gmail.com', 'Hải Phòng', '0987654329', 'avatar9.jpg', true, NOW(), NOW()),
+('customer5', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Bùi Văn Tiêu', 'customer5@gmail.com', 'Cần Thơ', '0987654330', 'avatar10.jpg', true, NOW(), NOW());
 
 -- Seed data for chi_tiet_nhom_quyen (User-Role mapping)
 INSERT INTO chi_tiet_nhom_quyen (nguoi_dung_id, nhom_quyen_id) VALUES

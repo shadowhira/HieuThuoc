@@ -49,7 +49,7 @@
                   alt="user-pic"
                 />
                 <div class="flex-1">
-                  <a class="stretched-link" [href]="noti.linkLienKet">
+                  <a class="stretched-link" (click)="navigateToLink(noti.linkLienKet, $event)">
                     <h6 class="mt-0 mb-1 fs-13 fw-semibold">
                       <!-- {{ noti.nguoiNhan?.hoTen }} -->
                     </h6>

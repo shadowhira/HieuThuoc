@@ -137,7 +137,7 @@
             <span>Sản phẩm</span>
           </div>
           <div class="row mb-4">
-            <div *ngIf="paginatedProductLst.length === 0" class="col-12 text-center py-5">
+            <div *ngIf="paginatedProductLst.length === 0 && modelSearch.keyWord" class="col-12 text-center py-5">
               <div class="alert alert-info">
                 <i class="ri-information-line me-2"></i>
                 Không tìm thấy sản phẩm nào phù hợp với từ khóa "{{ modelSearch.keyWord }}".

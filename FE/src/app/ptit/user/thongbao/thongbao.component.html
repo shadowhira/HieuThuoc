@@ -156,9 +156,10 @@
                                 {{ noti.noiDung }}
                               </p>
                               <a
-                                [href]="noti.linkLienKet"
+                                (click)="navigateToLink(noti.linkLienKet, $event)"
                                 type="button"
                                 class="btn ps-0 btn-sm btn-link text-danger text-uppercase"
+                                style="cursor: pointer;"
                               >
                                 Xem chi tiết
                               </a>

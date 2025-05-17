@@ -16,13 +16,9 @@ export class DangNhapService {
     const apiUrl = environment.backApiUrl + `/dangnhap`;
     const headers: HttpHeaders = HeadersUtil.getHeaders();
 
-    let params = new HttpParams()
-      .set("tenDangNhap", userInfo.tenDangNhap?.toString() || "")
-      .set("matKhau", userInfo.matKhau?.toString() || "");
-
+    // Chỉ gửi dữ liệu trong body, không sử dụng params
     return this.http.post(`${apiUrl}`, userInfo, {
-      headers: headers,
-      params: params,
+      headers: headers
     });
   }
 }

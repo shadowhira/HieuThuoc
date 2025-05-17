@@ -521,16 +521,16 @@ INSERT INTO doi_tuong (id, ten_doi_tuong, mo_ta) VALUES
   // Generate nguoi_dung data
   sql += `-- Người dùng data
 INSERT INTO nguoi_dung (id, ten_dang_nhap, mat_khau, ho_ten, email, so_dien_thoai, dia_chi, trang_thai, created_at, update_at) VALUES
-(1, 'admin2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Admin 2', 'admin2@gmail.com', '0987654321', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(2, 'manager2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Manager 2', 'manager2@gmail.com', '0987654322', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(3, 'pharmacist2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Pharmacist 2', 'pharmacist2@gmail.com', '0987654323', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(4, 'cashier2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Cashier 2', 'cashier2@gmail.com', '0987654324', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(5, 'customer2', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 2', 'customer2@gmail.com', '0987654325', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(6, 'customer3', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 3', 'customer3@gmail.com', '0987654326', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(7, 'customer4', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 4', 'customer4@gmail.com', '0987654327', 'Hồ Chí Minh', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(8, 'customer5', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 5', 'customer5@gmail.com', '0987654328', 'Đà Nẵng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(9, 'customer6', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 6', 'customer6@gmail.com', '0987654329', 'Hải Phòng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(10, 'customer7', '$2a$10$mLK.rrdlvx9DCFb6Eck1t.TlltnGulepXnov3bBp5T2TloO1MYj52', 'Customer 7', 'customer7@gmail.com', '0987654330', 'Cần Thơ', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);\n\n`;
+(1, 'admin2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Admin 2', 'admin2@gmail.com', '0987654321', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, 'manager2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Manager 2', 'manager2@gmail.com', '0987654322', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, 'pharmacist2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Pharmacist 2', 'pharmacist2@gmail.com', '0987654323', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, 'cashier2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Cashier 2', 'cashier2@gmail.com', '0987654324', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, 'customer2', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 2', 'customer2@gmail.com', '0987654325', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, 'customer3', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 3', 'customer3@gmail.com', '0987654326', 'Hà Nội', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 'customer4', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 4', 'customer4@gmail.com', '0987654327', 'Hồ Chí Minh', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, 'customer5', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 5', 'customer5@gmail.com', '0987654328', 'Đà Nẵng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, 'customer6', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 6', 'customer6@gmail.com', '0987654329', 'Hải Phòng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, 'customer7', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 7', 'customer7@gmail.com', '0987654330', 'Cần Thơ', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);\n\n`;
 
   return sql;
 }

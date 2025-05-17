@@ -105,14 +105,14 @@ class ThuocServiceImpl implements ThuocService {
 
 		pageDTO.setData(thuocDTOs);
 
-		return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(200).msg("Thanh công").data(pageDTO).build();
+		return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(200).msg("Thành công").data(pageDTO).build();
 	}
 
 	@Override
 	public ResponseDTO<PageDTO<List<Thuoc>>> search(SearchThuocDTO searchThuocDTO) {
-		
-		System.out.println(searchThuocDTO);
-		
+
+		System.out.println("Search request: " + searchThuocDTO);
+
 		Sort sortBy = Sort.by("id").ascending();
 
 		if (StringUtils.hasText(searchThuocDTO.getSortedField())) {
@@ -130,23 +130,37 @@ class ThuocServiceImpl implements ThuocService {
 		if (searchThuocDTO.getKeyWord() == null) {
 			searchThuocDTO.setKeyWord("");
 		}
-		PageRequest pageRequest = PageRequest.of(searchThuocDTO.getCurrentPage(), searchThuocDTO.getSize(), sortBy);
-		System.out.println("req: " + pageRequest);
 
-		Page<Thuoc> page = thuocRepo.search(searchThuocDTO.getKeyWord(), searchThuocDTO.getLoaiThuoc(),
-				searchThuocDTO.getNhaSanXuat(), searchThuocDTO.getDanhMucThuoc(), searchThuocDTO.getMinGiaBan(),
-				searchThuocDTO.getMaxGiaBan(), searchThuocDTO.getTenDoiTuong(), searchThuocDTO.getTrangThai(),
-				pageRequest);
+		PageRequest pageRequest = PageRequest.of(searchThuocDTO.getCurrentPage(), searchThuocDTO.getSize(), sortBy);
+		System.out.println("Page request: " + pageRequest);
+
+		// Sử dụng phương thức search với tất cả các tham số
+		Page<Thuoc> page = thuocRepo.search(
+			searchThuocDTO.getKeyWord(),
+			searchThuocDTO.getLoaiThuoc(),
+			searchThuocDTO.getNhaSanXuat(),
+			searchThuocDTO.getDanhMucThuoc(),
+			searchThuocDTO.getMinGiaBan(),
+			searchThuocDTO.getMaxGiaBan(),
+			searchThuocDTO.getTenDoiTuong(),
+			searchThuocDTO.getTrangThai(),
+			pageRequest
+		);
 
 		PageDTO<List<Thuoc>> pageDTO = new PageDTO<>();
 		pageDTO.setTotalElements(page.getTotalElements());
 		pageDTO.setTotalPages(page.getTotalPages());
 
-		System.out.println("result: " + page.getContent());
 		List<Thuoc> thuocDTOs = page.getContent();
 		pageDTO.setData(thuocDTOs);
 
-		return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(200).msg("Thanh công").data(pageDTO).build();
+		System.out.println("Search result count: " + thuocDTOs.size());
+
+		return ResponseDTO.<PageDTO<List<Thuoc>>>builder()
+			.status(200)
+			.msg("Thành công")
+			.data(pageDTO)
+			.build();
 	}
 
 	@Override

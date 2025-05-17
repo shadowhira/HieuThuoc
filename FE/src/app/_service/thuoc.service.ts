@@ -12,6 +12,7 @@ export class ThuocService {
   constructor(private http: HttpClient) {}
 
   getProductLst(request: any): Observable<any> {
+    // Sử dụng API search để tìm kiếm sản phẩm
     const apiUrl = environment.backApiUrl + `/thuoc/search`;
     const headers: HttpHeaders = HeadersUtil.getHeaders();
 

@@ -37,13 +37,20 @@ export class HomeComponent implements OnInit {
   itemsPerPage: number = CommonConstant.ROW_OF_PAGE_12;
   maxVisiblePages: number = 3;
 
-  modelSearch: SearchModel = {
+  modelSearch: any = {
     keyWord: "",
     id: 0,
     currentPage: 0,
     size: 1000,
     sortedField: "",
     trangThai: true,
+    // Các trường bổ sung cho SearchThuocDTO
+    loaiThuoc: "",
+    nhaSanXuat: "",
+    danhMucThuoc: "",
+    minGiaBan: null,
+    maxGiaBan: null,
+    tenDoiTuong: ""
   };
 
   constructor(
@@ -66,11 +73,25 @@ export class HomeComponent implements OnInit {
     if (this.modelSearch.trangThai === undefined) {
       this.modelSearch.trangThai = true;
     }
+
+    // Nếu từ khóa tìm kiếm trống, đảm bảo gửi chuỗi rỗng để lấy tất cả sản phẩm
+    if (!this.modelSearch.keyWord || this.modelSearch.keyWord.trim() === '') {
+      this.modelSearch.keyWord = '';
+    }
+
     // Reset về trang đầu tiên khi tìm kiếm
     this.currentPage = 1;
     this.getThuoc();
   }
   getData() {
+    // Đảm bảo tham số trangThai luôn được gửi đi
+    if (this.modelSearch.trangThai === undefined) {
+      this.modelSearch.trangThai = true;
+    }
+
+    // Đảm bảo keyWord là chuỗi rỗng khi khởi tạo để lấy tất cả sản phẩm
+    this.modelSearch.keyWord = '';
+
     this.getThuoc();
     this.getUserInfo();
     this.bestSale();
@@ -110,6 +131,7 @@ export class HomeComponent implements OnInit {
   }
 
   bestSale(){
+    // Vẫn sử dụng API get_thuoc_ban_chay để lấy sản phẩm bán chạy
     this.thuocService.getProductBestsale(this.modelSearch).subscribe({
       next: (res) => {
         if (res.status == CommonConstant.STATUS_OK_200) {
@@ -136,6 +158,7 @@ export class HomeComponent implements OnInit {
 
   getThuoc() {
     console.log('Gửi request tìm kiếm với tham số:', JSON.stringify(this.modelSearch));
+    // Sử dụng getProductLst đã được sửa để sử dụng API search
     this.thuocService.getProductLst(this.modelSearch).subscribe({
       next: (res) => {
         console.log('Kết quả trả về từ API:', res);
@@ -144,7 +167,7 @@ export class HomeComponent implements OnInit {
           this.productLst = Array.isArray(res.data.data) ? res.data.data : [];
           console.log('Danh sách sản phẩm:', this.productLst);
 
-          if (this.productLst.length === 0 && this.modelSearch.keyWord) {
+          if (this.productLst.length === 0 && this.modelSearch.keyWord && this.modelSearch.keyWord.trim() !== '') {
             console.log('Không tìm thấy sản phẩm nào với từ khóa:', this.modelSearch.keyWord);
             this.toastService.info(`Không tìm thấy sản phẩm nào với từ khóa "${this.modelSearch.keyWord}"`);
           }
