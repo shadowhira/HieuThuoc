@@ -4,8 +4,16 @@ import { AuthConstant } from "../_constant/auth.constant";
 
 export class HeadersUtil {
   public static getHeaders(): HttpHeaders {
+    const token = Cookie.get(AuthConstant.ACCESS_TOKEN_KEY);
+    if (token == undefined || token == null) {
+      return new HttpHeaders({
+        "Content-Type": "application/json",
+      });
+    }
+
     return new HttpHeaders({
       "Content-Type": "application/json",
+      Authorization: AuthConstant.TOKEN_TYPE_KEY + token,
     });
   }
 

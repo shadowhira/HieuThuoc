@@ -67,9 +67,17 @@ export class GioHangService {
     const apiUrl = environment.backApiUrl + `/giohang/create`;
     const headers: HttpHeaders = HeadersUtil.getHeaders();
 
+    console.log('Gửi request thêm vào giỏ hàng:', request);
+    console.log('Headers:', headers);
+
     return this.http.post(`${apiUrl}`, request, {
       headers: headers,
-    });
+    }).pipe(
+      map((response: any) => {
+        console.log('Response từ server:', response);
+        return response;
+      })
+    );
   }
 
   deleteGH(id: any): Observable<any> {

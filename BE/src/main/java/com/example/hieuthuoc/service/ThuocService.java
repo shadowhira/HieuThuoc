@@ -77,90 +77,106 @@ class ThuocServiceImpl implements ThuocService {
 
 	@Override
 	public ResponseDTO<PageDTO<List<Thuoc>>> getThuocBanChay(SearchDTO searchDTO) {
-		Sort sortBy = Sort.by("tenThuoc").ascending();
+		try {
+			System.out.println("Get thuoc ban chay request: " + searchDTO);
 
-		if (StringUtils.hasText(searchDTO.getSortedField())) {
-			sortBy = Sort.by(searchDTO.getSortedField()).ascending();
+			Sort sortBy = Sort.by("tenThuoc").ascending();
+
+			if (StringUtils.hasText(searchDTO.getSortedField())) {
+				sortBy = Sort.by(searchDTO.getSortedField()).ascending();
+			}
+
+			if (searchDTO.getCurrentPage() == null) {
+				searchDTO.setCurrentPage(0);
+			}
+
+			if (searchDTO.getSize() == null) {
+				searchDTO.setSize(20);
+			}
+
+			if (searchDTO.getKeyWord() == null) {
+				searchDTO.setKeyWord("");
+			}
+
+			PageRequest pageRequest = PageRequest.of(searchDTO.getCurrentPage(), searchDTO.getSize(), sortBy);
+			Page<Thuoc> page = chiTietDonHangRepo.findAllThuocBanChay(pageRequest);
+
+			PageDTO<List<Thuoc>> pageDTO = new PageDTO<>();
+			pageDTO.setTotalElements(page.getTotalElements());
+			pageDTO.setTotalPages(page.getTotalPages());
+
+			List<Thuoc> thuocDTOs = page.getContent();
+
+			pageDTO.setData(thuocDTOs);
+
+			System.out.println("Get thuoc ban chay result count: " + thuocDTOs.size());
+
+			return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(200).msg("Thành công").data(pageDTO).build();
+		} catch (Exception e) {
+			System.err.println("Error in getThuocBanChay: " + e.getMessage());
+			e.printStackTrace();
+			return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(500).msg("Lỗi: " + e.getMessage()).build();
 		}
-
-		if (searchDTO.getCurrentPage() == null) {
-			searchDTO.setCurrentPage(0);
-		}
-
-		if (searchDTO.getSize() == null) {
-			searchDTO.setSize(20);
-		}
-
-		if (searchDTO.getKeyWord() == null) {
-			searchDTO.setKeyWord("");
-		}
-		PageRequest pageRequest = PageRequest.of(searchDTO.getCurrentPage(), searchDTO.getSize(), sortBy);
-		Page<Thuoc> page = chiTietDonHangRepo.findAllThuocBanChay(pageRequest);
-
-		PageDTO<List<Thuoc>> pageDTO = new PageDTO<>();
-		pageDTO.setTotalElements(page.getTotalElements());
-		pageDTO.setTotalPages(page.getTotalPages());
-
-		List<Thuoc> thuocDTOs = page.getContent();
-
-		pageDTO.setData(thuocDTOs);
-
-		return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(200).msg("Thành công").data(pageDTO).build();
 	}
 
 	@Override
 	public ResponseDTO<PageDTO<List<Thuoc>>> search(SearchThuocDTO searchThuocDTO) {
+		try {
+			System.out.println("Search request: " + searchThuocDTO);
 
-		System.out.println("Search request: " + searchThuocDTO);
+			Sort sortBy = Sort.by("id").ascending();
 
-		Sort sortBy = Sort.by("id").ascending();
+			if (StringUtils.hasText(searchThuocDTO.getSortedField())) {
+				sortBy = Sort.by(searchThuocDTO.getSortedField()).ascending();
+			}
 
-		if (StringUtils.hasText(searchThuocDTO.getSortedField())) {
-			sortBy = Sort.by(searchThuocDTO.getSortedField()).ascending();
+			if (searchThuocDTO.getCurrentPage() == null) {
+				searchThuocDTO.setCurrentPage(0);
+			}
+
+			if (searchThuocDTO.getSize() == null) {
+				searchThuocDTO.setSize(20);
+			}
+
+			if (searchThuocDTO.getKeyWord() == null) {
+				searchThuocDTO.setKeyWord("");
+			}
+
+			PageRequest pageRequest = PageRequest.of(searchThuocDTO.getCurrentPage(), searchThuocDTO.getSize(), sortBy);
+			System.out.println("Page request: " + pageRequest);
+
+			// Sử dụng phương thức search với tất cả các tham số
+			Page<Thuoc> page = thuocRepo.search(
+				searchThuocDTO.getKeyWord(),
+				searchThuocDTO.getLoaiThuoc(),
+				searchThuocDTO.getNhaSanXuat(),
+				searchThuocDTO.getDanhMucThuoc(),
+				searchThuocDTO.getMinGiaBan(),
+				searchThuocDTO.getMaxGiaBan(),
+				searchThuocDTO.getTenDoiTuong(),
+				searchThuocDTO.getTrangThai(),
+				pageRequest
+			);
+
+			PageDTO<List<Thuoc>> pageDTO = new PageDTO<>();
+			pageDTO.setTotalElements(page.getTotalElements());
+			pageDTO.setTotalPages(page.getTotalPages());
+
+			List<Thuoc> thuocDTOs = page.getContent();
+			pageDTO.setData(thuocDTOs);
+
+			System.out.println("Search result count: " + thuocDTOs.size());
+
+			return ResponseDTO.<PageDTO<List<Thuoc>>>builder()
+				.status(200)
+				.msg("Thành công")
+				.data(pageDTO)
+				.build();
+		} catch (Exception e) {
+			System.err.println("Error in search: " + e.getMessage());
+			e.printStackTrace();
+			return ResponseDTO.<PageDTO<List<Thuoc>>>builder().status(500).msg("Lỗi: " + e.getMessage()).build();
 		}
-
-		if (searchThuocDTO.getCurrentPage() == null) {
-			searchThuocDTO.setCurrentPage(0);
-		}
-
-		if (searchThuocDTO.getSize() == null) {
-			searchThuocDTO.setSize(20);
-		}
-
-		if (searchThuocDTO.getKeyWord() == null) {
-			searchThuocDTO.setKeyWord("");
-		}
-
-		PageRequest pageRequest = PageRequest.of(searchThuocDTO.getCurrentPage(), searchThuocDTO.getSize(), sortBy);
-		System.out.println("Page request: " + pageRequest);
-
-		// Sử dụng phương thức search với tất cả các tham số
-		Page<Thuoc> page = thuocRepo.search(
-			searchThuocDTO.getKeyWord(),
-			searchThuocDTO.getLoaiThuoc(),
-			searchThuocDTO.getNhaSanXuat(),
-			searchThuocDTO.getDanhMucThuoc(),
-			searchThuocDTO.getMinGiaBan(),
-			searchThuocDTO.getMaxGiaBan(),
-			searchThuocDTO.getTenDoiTuong(),
-			searchThuocDTO.getTrangThai(),
-			pageRequest
-		);
-
-		PageDTO<List<Thuoc>> pageDTO = new PageDTO<>();
-		pageDTO.setTotalElements(page.getTotalElements());
-		pageDTO.setTotalPages(page.getTotalPages());
-
-		List<Thuoc> thuocDTOs = page.getContent();
-		pageDTO.setData(thuocDTOs);
-
-		System.out.println("Search result count: " + thuocDTOs.size());
-
-		return ResponseDTO.<PageDTO<List<Thuoc>>>builder()
-			.status(200)
-			.msg("Thành công")
-			.data(pageDTO)
-			.build();
 	}
 
 	@Override

@@ -12,7 +12,10 @@ public class SearchThuocDTO {
     private Double maxGiaBan;
     private String tenDoiTuong;
     private Boolean trangThai;
-    
+
+    // Thêm trường id để tương thích với frontend
+    private int id;
+
 	private Integer currentPage;
 	private Integer size;
 	private String sortedField;

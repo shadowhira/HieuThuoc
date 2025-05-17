@@ -130,11 +130,14 @@ export class ThuocChiTietComponent implements OnInit {
   showDetail(thuoc: Thuoc) {
     this.router.navigate([`/thuoc-chitiet/${thuoc.id}`]);
   }
-  
 
-  addProductInCart() {
+
+  addProductInCart(item?: Thuoc) {
     if (Cookie.check(AuthConstant.ACCESS_TOKEN_KEY)) {
-      this.createGH();
+      // Nếu có truyền sản phẩm cụ thể, sử dụng sản phẩm đó
+      // Nếu không, sử dụng sản phẩm hiện tại (this.thuoc)
+      const thuocToAdd = item || this.thuoc;
+      this.createGH(thuocToAdd);
     } else {
       this.router.navigate([`/login`]);
     }
@@ -173,20 +176,63 @@ export class ThuocChiTietComponent implements OnInit {
     });
   }
 
-  createGH() {
+  createGH(thuoc: Thuoc) {
+    // Nếu chưa có ID giỏ hàng, thử lấy lại từ API
+    if (!this.gioHangId && this.userInfo.id) {
+      console.log('Đang lấy lại ID giỏ hàng...');
+      // Sử dụng Promise để đảm bảo lấy giỏ hàng xong trước khi tiếp tục
+      this.gioHangService.getGH(this.userInfo.id).subscribe({
+        next: (res) => {
+          if (res.status == CommonConstant.STATUS_OK_200 && res.data && res.data.id) {
+            this.gioHangId = res.data.id;
+            console.log('Đã lấy được ID giỏ hàng:', this.gioHangId);
+            // Sau khi có ID giỏ hàng, tiếp tục thêm sản phẩm
+            this.addToCart(thuoc);
+          } else {
+            console.error('Không thể lấy ID giỏ hàng:', res);
+            this.toastService.error("Không thể thêm vào giỏ hàng. Vui lòng đăng nhập lại.");
+          }
+        },
+        error: (err) => {
+          console.error('Lỗi khi lấy ID giỏ hàng:', err);
+          this.toastService.error("Không thể thêm vào giỏ hàng. Vui lòng đăng nhập lại.");
+        }
+      });
+    } else if (this.gioHangId) {
+      // Nếu đã có ID giỏ hàng, tiếp tục thêm sản phẩm
+      this.addToCart(thuoc);
+    } else {
+      console.error('Không tìm thấy ID giỏ hàng và ID người dùng');
+      this.toastService.error("Không thể thêm vào giỏ hàng. Vui lòng đăng nhập lại.");
+    }
+  }
+
+  // Hàm thực sự thêm sản phẩm vào giỏ hàng sau khi đã có ID giỏ hàng
+  private addToCart(thuoc: Thuoc) {
+    console.log('Thông tin sản phẩm thêm vào giỏ hàng:', thuoc);
+    console.log('ID giỏ hàng:', this.gioHangId);
+    console.log('ID người dùng:', this.userInfo.id);
+
     let gioHang: GioHangChiTiet = {
       gioHangId: this.gioHangId,
       soLuong: 1,
-      thuocId: Number(this.thuoc.id),
-      donGia: this.thuoc.giaBan,
+      thuocId: Number(thuoc.id),
+      donGia: thuoc.giaBan,
     };
 
-    this.gioHangService.createGH(gioHang).subscribe((resp) => {
-      if (resp.status == CommonConstant.STATUS_OK_200) {
-        this.toastService.success("Lưu thành công");
-        this.router.navigate([`/user/giohang`]);
-      } else {
-        this.toastService.error("Lưu thất bại");
+    this.gioHangService.createGH(gioHang).subscribe({
+      next: (resp) => {
+        console.log('Response thêm giỏ hàng:', resp);
+        if (resp && resp.status == CommonConstant.STATUS_OK_200) {
+          this.toastService.success("Thêm vào giỏ hàng thành công");
+          this.gioHangService.getGHSubject(this.userInfo.id).subscribe();
+        } else {
+          this.toastService.error("Thêm vào giỏ hàng thất bại: " + (resp?.msg || 'Không có phản hồi từ server'));
+        }
+      },
+      error: (err) => {
+        console.error('Lỗi khi thêm vào giỏ hàng:', err);
+        this.toastService.error("Lỗi khi thêm vào giỏ hàng: " + (err.message || 'Không xác định'));
       }
     });
   }
