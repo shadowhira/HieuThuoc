@@ -46,27 +46,27 @@ Hệ thống có các tài khoản mặc định cho các vai trò khác nhau:
 
 - **Admin** (Quản trị viên):
   - Tên đăng nhập: admin
-  - Mật khẩu: 123123
+  - Mật khẩu: 123456
   - Có toàn quyền trên hệ thống
 
 - **Manager** (Quản lý):
   - Tên đăng nhập: manager
-  - Mật khẩu: 123123
+  - Mật khẩu: 123456
   - Có quyền quản lý hầu hết các chức năng
 
 - **Pharmacist** (Dược sĩ):
   - Tên đăng nhập: pharmacist1
-  - Mật khẩu: 123123
+  - Mật khẩu: 123456
   - Có quyền quản lý thuốc, tư vấn
 
 - **Cashier** (Thu ngân):
   - Tên đăng nhập: cashier1
-  - Mật khẩu: 123123
+  - Mật khẩu: 123456
   - Có quyền quản lý đơn hàng, bán hàng
 
 - **Customer** (Khách hàng):
   - Tên đăng nhập: customer1
-  - Mật khẩu: 123123
+  - Mật khẩu: 123456
   - Có quyền xem thuốc, đặt hàng
 
 ## Liên hệ hỗ trợ
