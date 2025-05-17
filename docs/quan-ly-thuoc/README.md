@@ -16,11 +16,11 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 
 ### Giai đoạn 1: Chuẩn bị (Ngày 1)
 - [x] **Đọc tài liệu**: Đọc [Tai_Lieu_Kiem_Thu_Tong_Hop.md](./Tai_Lieu_Kiem_Thu_Tong_Hop.md) (Phần 1-2) để hiểu tổng quan
-- [ ] **Chuẩn bị môi trường**:
-  - [ ] Cài đặt JUnit, Mockito cho kiểm thử Backend
-  - [ ] Cài đặt Cypress cho kiểm thử Frontend
-  - [ ] Cài đặt Postman cho kiểm thử API
-  - [ ] Chuẩn bị dữ liệu kiểm thử theo [Ke_Hoach_Trien_Khai_Kiem_Thu.md](./Ke_Hoach_Trien_Khai_Kiem_Thu.md)
+- [x] **Chuẩn bị môi trường**:
+  - [x] Cài đặt JUnit, Mockito cho kiểm thử Backend
+  - [x] Cài đặt Cypress cho kiểm thử Frontend
+  - [x] Cài đặt Postman cho kiểm thử API
+  - [x] Chuẩn bị dữ liệu kiểm thử theo [Ke_Hoach_Trien_Khai_Kiem_Thu.md](./Ke_Hoach_Trien_Khai_Kiem_Thu.md)
 
 ### Giai đoạn 2: Kiểm thử đơn vị (Ngày 1-2)
 - [ ] **Kiểm thử Service**:
@@ -86,7 +86,7 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 
 | Giai đoạn | Tiến độ | Ngày hoàn thành |
 |-----------|---------|-----------------|
-| Giai đoạn 1: Chuẩn bị | 0% | |
+| Giai đoạn 1: Chuẩn bị | 100% | 17/05/2025 |
 | Giai đoạn 2: Kiểm thử đơn vị | 0% | |
 | Giai đoạn 3: Kiểm thử tích hợp | 0% | |
 | Giai đoạn 4: Kiểm thử chức năng | 0% | |

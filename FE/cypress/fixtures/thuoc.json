@@ -1,0 +1,191 @@
+{
+  "status": 200,
+  "msg": "Thành công",
+  "data": {
+    "data": [
+      {
+        "id": 1,
+        "tenThuoc": "Paracetamol 500mg",
+        "maThuoc": "PARA500",
+        "maVach": "8936059580011",
+        "donVi": "Viên",
+        "cheBao": "Viên nén bao phim",
+        "quyCach": "Hộp 10 vỉ x 10 viên",
+        "soDangKy": "VD-12345",
+        "hanSuDung": "2025-12-31",
+        "giaNhap": 5000,
+        "giaBan": 7000,
+        "soLuongTon": 100,
+        "nguongCanhBao": 20,
+        "congDung": "Giảm đau, hạ sốt",
+        "chiDinh": "Đau đầu, đau răng, đau cơ, đau sau phẫu thuật, đau do chấn thương, đau kinh, sốt",
+        "chongChiDinh": "Mẫn cảm với paracetamol, bệnh gan nặng",
+        "huongDanSuDung": "Người lớn: 1-2 viên/lần, 3-4 lần/ngày. Trẻ em trên 12 tuổi: 1 viên/lần, 3-4 lần/ngày",
+        "moTaNgan": "Thuốc giảm đau, hạ sốt thông dụng",
+        "avatar": "paracetamol.jpg",
+        "trangThai": true,
+        "ghiChu": "",
+        "loaiThuoc": {
+          "id": 2,
+          "tenLoai": "Giảm đau không steroid",
+          "moTa": "Nhóm giảm đau không steroid"
+        },
+        "nhaSanXuat": {
+          "id": 1,
+          "tenNhaSanXuat": "Công ty Dược phẩm ABC",
+          "diaChi": "123 Đường A, Quận B, TP.HCM",
+          "soDienThoai": "0123456789",
+          "email": "abc@example.com",
+          "website": "https://abc.example.com"
+        }
+      },
+      {
+        "id": 2,
+        "tenThuoc": "Amoxicillin 500mg",
+        "maThuoc": "AMOX500",
+        "maVach": "8936059580022",
+        "donVi": "Viên",
+        "cheBao": "Viên nang cứng",
+        "quyCach": "Hộp 10 vỉ x 10 viên",
+        "soDangKy": "VD-23456",
+        "hanSuDung": "2025-12-31",
+        "giaNhap": 8000,
+        "giaBan": 12000,
+        "soLuongTon": 50,
+        "nguongCanhBao": 10,
+        "congDung": "Kháng sinh điều trị nhiễm khuẩn",
+        "chiDinh": "Nhiễm khuẩn đường hô hấp, tiêu hóa, tiết niệu, da và mô mềm",
+        "chongChiDinh": "Mẫn cảm với penicillin, bệnh bạch cầu đơn nhân nhiễm khuẩn",
+        "huongDanSuDung": "Người lớn: 1 viên/lần, 3 lần/ngày. Trẻ em trên 12 tuổi: 1 viên/lần, 3 lần/ngày",
+        "moTaNgan": "Kháng sinh nhóm beta-lactam",
+        "avatar": "amoxicillin.jpg",
+        "trangThai": true,
+        "ghiChu": "",
+        "loaiThuoc": {
+          "id": 1,
+          "tenLoai": "Kháng sinh beta-lactam",
+          "moTa": "Nhóm kháng sinh beta-lactam"
+        },
+        "nhaSanXuat": {
+          "id": 2,
+          "tenNhaSanXuat": "Công ty Dược phẩm XYZ",
+          "diaChi": "456 Đường C, Quận D, Hà Nội",
+          "soDienThoai": "0987654321",
+          "email": "xyz@example.com",
+          "website": "https://xyz.example.com"
+        }
+      },
+      {
+        "id": 3,
+        "tenThuoc": "Azithromycin 500mg",
+        "maThuoc": "AZIT500",
+        "maVach": "8936059580033",
+        "donVi": "Viên",
+        "cheBao": "Viên nén bao phim",
+        "quyCach": "Hộp 3 vỉ x 6 viên",
+        "soDangKy": "VD-12360",
+        "hanSuDung": "2026-06-30",
+        "giaNhap": 3000,
+        "giaBan": 5000,
+        "soLuongTon": 300,
+        "nguongCanhBao": 30,
+        "congDung": "Điều trị nhiễm khuẩn đường hô hấp, da và mô mềm",
+        "chiDinh": "Nhiễm khuẩn đường hô hấp trên và dưới, nhiễm khuẩn da và mô mềm",
+        "chongChiDinh": "Mẫn cảm với macrolide, suy gan nặng",
+        "huongDanSuDung": "Uống 1 viên/ngày, trong 3 ngày liên tiếp",
+        "moTaNgan": "Thuốc kháng sinh nhóm macrolide",
+        "avatar": "azithromycin.jpg",
+        "trangThai": true,
+        "ghiChu": "",
+        "loaiThuoc": {
+          "id": 4,
+          "tenLoai": "Macrolide",
+          "moTa": "Thuốc kháng sinh nhóm Macrolide"
+        },
+        "nhaSanXuat": {
+          "id": 3,
+          "tenNhaSanXuat": "Công ty Dược phẩm Hà Nội",
+          "diaChi": "Hà Nội",
+          "soDienThoai": "0987654322",
+          "email": "contact@hanoi-pharma.com",
+          "website": "https://hanoi-pharma.com"
+        }
+      },
+      {
+        "id": 4,
+        "tenThuoc": "Levofloxacin 500mg",
+        "maThuoc": "LEVO500",
+        "maVach": "8936059580044",
+        "donVi": "Viên",
+        "cheBao": "Viên nén bao phim",
+        "quyCach": "Hộp 1 vỉ x 10 viên",
+        "soDangKy": "VD-12362",
+        "hanSuDung": "2026-06-30",
+        "giaNhap": 3500,
+        "giaBan": 5500,
+        "soLuongTon": 400,
+        "nguongCanhBao": 40,
+        "congDung": "Điều trị nhiễm khuẩn đường hô hấp, tiết niệu, da",
+        "chiDinh": "Viêm phổi, viêm phế quản, nhiễm khuẩn tiết niệu, nhiễm khuẩn da",
+        "chongChiDinh": "Mẫn cảm với quinolone, trẻ em dưới 18 tuổi, phụ nữ có thai",
+        "huongDanSuDung": "Uống 1 viên/ngày, trong 7-14 ngày tùy theo mức độ nhiễm khuẩn",
+        "moTaNgan": "Thuốc kháng sinh nhóm quinolone",
+        "avatar": "levofloxacin.jpg",
+        "trangThai": true,
+        "ghiChu": "",
+        "loaiThuoc": {
+          "id": 5,
+          "tenLoai": "Quinolone",
+          "moTa": "Thuốc kháng sinh nhóm Quinolone"
+        },
+        "nhaSanXuat": {
+          "id": 4,
+          "tenNhaSanXuat": "Công ty Dược phẩm TP.HCM",
+          "diaChi": "TP.HCM",
+          "soDienThoai": "0987654323",
+          "email": "contact@hcm-pharma.com",
+          "website": "https://hcm-pharma.com"
+        }
+      },
+      {
+        "id": 5,
+        "tenThuoc": "Diclofenac 50mg",
+        "maThuoc": "DICL050",
+        "maVach": "8936059580055",
+        "donVi": "Viên",
+        "cheBao": "Viên nén bao phim",
+        "quyCach": "Hộp 3 vỉ x 10 viên",
+        "soDangKy": "VD-12363",
+        "hanSuDung": "2026-06-30",
+        "giaNhap": 1000,
+        "giaBan": 1800,
+        "soLuongTon": 600,
+        "nguongCanhBao": 60,
+        "congDung": "Giảm đau, kháng viêm",
+        "chiDinh": "Đau nhức xương khớp, viêm khớp, đau lưng, đau đầu",
+        "chongChiDinh": "Loét dạ dày, tá tràng, suy thận, suy gan, phụ nữ có thai 3 tháng cuối",
+        "huongDanSuDung": "Uống 1 viên/lần, ngày 2-3 lần, sau khi ăn",
+        "moTaNgan": "Thuốc kháng viêm không steroid",
+        "avatar": "diclofenac.jpg",
+        "trangThai": true,
+        "ghiChu": "",
+        "loaiThuoc": {
+          "id": 6,
+          "tenLoai": "NSAIDs",
+          "moTa": "Thuốc kháng viêm không steroid"
+        },
+        "nhaSanXuat": {
+          "id": 5,
+          "tenNhaSanXuat": "Công ty Dược phẩm Đà Nẵng",
+          "diaChi": "Đà Nẵng",
+          "soDienThoai": "0987654324",
+          "email": "contact@danang-pharma.com",
+          "website": "https://danang-pharma.com"
+        }
+      }
+    ],
+    "totalRows": 5,
+    "totalPages": 1,
+    "currentPage": 0
+  }
+}
