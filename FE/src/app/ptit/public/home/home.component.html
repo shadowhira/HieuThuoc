@@ -137,6 +137,12 @@
             <span>Sản phẩm</span>
           </div>
           <div class="row mb-4">
+            <div *ngIf="paginatedProductLst.length === 0" class="col-12 text-center py-5">
+              <div class="alert alert-info">
+                <i class="ri-information-line me-2"></i>
+                Không tìm thấy sản phẩm nào phù hợp với từ khóa "{{ modelSearch.keyWord }}".
+              </div>
+            </div>
             <div class="col-xl-2 col-lg-6" *ngFor="let item of paginatedProductLst">
               <a (click)="showDetail(item)" class="card-link">
                 <div class="card ribbon-box right overflow-hidden">

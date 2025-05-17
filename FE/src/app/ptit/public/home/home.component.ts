@@ -61,6 +61,13 @@ export class HomeComponent implements OnInit {
   }
 
   search() {
+    console.log('Đang tìm kiếm với từ khóa:', this.modelSearch.keyWord);
+    // Đảm bảo tham số trangThai luôn được gửi đi
+    if (this.modelSearch.trangThai === undefined) {
+      this.modelSearch.trangThai = true;
+    }
+    // Reset về trang đầu tiên khi tìm kiếm
+    this.currentPage = 1;
     this.getThuoc();
   }
   getData() {
@@ -128,22 +135,40 @@ export class HomeComponent implements OnInit {
   }
 
   getThuoc() {
+    console.log('Gửi request tìm kiếm với tham số:', JSON.stringify(this.modelSearch));
     this.thuocService.getProductLst(this.modelSearch).subscribe({
       next: (res) => {
+        console.log('Kết quả trả về từ API:', res);
         if (res.status == CommonConstant.STATUS_OK_200) {
-          this.productLst = res.data.data || [];
+          // Đảm bảo data.data là một mảng, nếu không thì gán mảng rỗng
+          this.productLst = Array.isArray(res.data.data) ? res.data.data : [];
           console.log('Danh sách sản phẩm:', this.productLst);
 
+          if (this.productLst.length === 0 && this.modelSearch.keyWord) {
+            console.log('Không tìm thấy sản phẩm nào với từ khóa:', this.modelSearch.keyWord);
+            this.toastService.info(`Không tìm thấy sản phẩm nào với từ khóa "${this.modelSearch.keyWord}"`);
+          }
+
           // Calculate total pages
-          this.totalPage = Math.ceil(this.productLst.length / this.itemsPerPage);
+          this.totalPage = Math.ceil(this.productLst.length / this.itemsPerPage) || 1; // Đảm bảo ít nhất là 1 trang
+          console.log('Tổng số trang:', this.totalPage);
 
           // Generate page numbers
           this.updatePaginatedList();
           this.updateVisiblePages();
+          console.log('Danh sách sản phẩm đã phân trang:', this.paginatedProductLst);
+        } else {
+          console.error('API trả về lỗi:', res);
+          this.toastService.error('Có lỗi xảy ra khi tìm kiếm sản phẩm');
+          this.productLst = [];
+          this.paginatedProductLst = [];
+          this.totalPage = 0;
+          this.pages = [];
         }
       },
       error: (err) => {
         console.error('Lỗi khi lấy danh sách sản phẩm:', err);
+        this.toastService.error('Không thể kết nối đến máy chủ');
         this.productLst = [];
         this.paginatedProductLst = [];
         this.totalPage = 0;
@@ -162,9 +187,14 @@ export class HomeComponent implements OnInit {
   }
 
   updatePaginatedList(): void {
+    if (!this.productLst || this.productLst.length === 0) {
+      this.paginatedProductLst = [];
+      return;
+    }
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedProductLst = this.productLst.slice(startIndex, endIndex);
+    console.log('Cập nhật danh sách phân trang:', this.paginatedProductLst);
   }
   updateVisiblePages(): void {
     const half = Math.floor(this.maxVisiblePages / 2);
