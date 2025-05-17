@@ -1,0 +1,2099 @@
+UNIT TEST FULL,,,,,,,,,
+,,,,,,,,,
+,,SUM,PASS,FAIL,,,,,
+,,558,539,19,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+STT,Tên file script unit test,Tên class kiểm thử,Tên phương thức,Mã,Mục tiêu,Input,Output mong đợi,Ghi chú,Pass / Fail
+1,changePass.early.test.ts,ChangePasswordController,changePass,TC-CT-AUTH-CP-001,Kiểm tra đổi mật khẩu thành công,"userId='user123', mockDTO với oldPassword='oldPassword123', newPassword='newPassword123'",Service được gọi với đúng tham số và trả về kết quả thành công (true),Đây là trường hợp lý tưởng khi người dùng cung cấp đúng thông tin và quá trình đổi mật khẩu diễn ra suôn sẻ,Pass
+2,,,,TC-CT-AUTH-CP-002,Kiểm tra xử lý khi service gặp lỗi,"userId='user123', mockDTO hợp lệ",Trả về thông báo lỗi từ service,Test case này kiểm tra khả năng xử lý lỗi của controller khi service bên dưới gặp vấn đề. Đảm bảo rằng controller có thể bắt và xử lý lỗi một cách phù hợp,Pass
+3,,,,TC-CT-AUTH-CP-003,Kiểm tra xử lý khi ID người dùng không hợp lệ,"userId='', mockDTO hợp lệ",Trả về kết quả thất bại (false),Test case này kiểm tra việc xử lý khi người dùng gửi yêu cầu với ID rỗng. Đây là trường hợp đầu vào không hợp lệ và hệ thống cần trả về thất bại thay vì gặp lỗi,Pass
+4,,,,TC-CT-AUTH-CP-004,Kiểm tra xử lý khi DTO không hợp lệ,"userId='user123', mockDTO rỗng",Trả về kết quả thất bại (false),Test case này kiểm tra việc xử lý khi dữ liệu đầu vào (DTO) không hợp lệ hoặc thiếu thông tin. Đảm bảo rằng controller có thể xử lý được các trường hợp dữ liệu không đầy đủ mà không gây ra lỗi hệ thống,Pass
+5,,,,TC-CT-AUTH-CP-005,Kiểm tra xử lý khi service trả về null,"userId='user123', mockDTO hợp lệ",Trả về kết quả thành công với giá trị null,"Test case này kiểm tra việc xử lý khi service trả về null, đảm bảo controller xử lý đúng các giá trị không phải boolean",Pass
+6,,,,TC-CT-AUTH-CP-006,Kiểm tra xử lý khi service trả về đối tượng phức tạp,"userId='user123', mockDTO hợp lệ",Trả về kết quả thành công với đối tượng phức tạp,"Test case này kiểm tra việc xử lý khi service trả về đối tượng phức tạp, đảm bảo controller xử lý đúng các kiểu dữ liệu khác nhau",Pass
+7,,,,TC-CT-AUTH-CP-007,Kiểm tra xử lý khi service ném ra lỗi không phải Error,"userId='user123', mockDTO hợp lệ",Trả về thông báo lỗi được chuyển đổi thành chuỗi,Test case này kiểm tra việc xử lý khi service ném ra lỗi không phải là đối tượng Error,Pass
+8,changePassword.early.test.ts,ChangePasswordService,changePassword,TC-SV-AUTH-CP-001,Kiểm tra quá trình đổi mật khẩu diễn ra đúng khi tất cả điều kiện hợp lệ,"- userId: 'user-id'
+- DTO: { password: 'oldPassword', newPassword: 'newPassword' }",Đối tượng người dùng đã được cập nhật,Kiểm tra đầy đủ các bước trong quy trình đổi mật khẩu,Pass
+9,,,,TC-SV-AUTH-CP-002,Kiểm tra xử lý lỗi khi không tìm thấy người dùng với ID đã cho,"- userId: 'invalid-user-id'
+- DTO: { password: 'oldPassword', newPassword: 'newPassword' }",NotFoundException được ném ra,Đảm bảo hệ thống xử lý đúng khi người dùng không tồn tại,Pass
+10,,,,TC-SV-AUTH-CP-003,Kiểm tra xử lý lỗi khi người dùng nhập sai mật khẩu hiện tại,"- userId: 'user-id'
+- DTO: { password: 'oldPassword' (sai), newPassword: 'newPassword' }",Lỗi với thông báo 'CHANGE-PASS.USER NOT EXIST!',Đảm bảo hệ thống xác thực mật khẩu hiện tại trước khi cho phép đổi,Pass
+11,,,,TC-SV-AUTH-CP-004,Kiểm tra xử lý lỗi khi không thể lưu mật khẩu mới vào cơ sở dữ liệu,"- userId: 'user-id'
+- DTO: { password: 'oldPassword', newPassword: 'newPassword' }",Lỗi với thông báo 'CHANGE-PASS.CHANGE-PASS ERROR!',Đảm bảo hệ thống xử lý đúng khi có lỗi trong quá trình lưu dữ liệu,Fail
+12,,,,TC-SV-AUTH-CP-005,Kiểm tra xử lý khi người dùng nhập mật khẩu mới giống với mật khẩu cũ,"- userId: 'user-id'
+- DTO: { password: 'samePassword', newPassword: 'samePassword' }",Lỗi với thông báo 'CHANGE-PASS.NEW-PASS SAME OLD-PASS!',Đảm bảo hệ thống kiểm tra mật khẩu mới khác với mật khẩu cũ,Fail
+13,,,,TC-SV-AUTH-CP-006,Kiểm tra xử lý khi mật khẩu mới không đáp ứng yêu cầu về độ phức tạp,"- userId: 'user-id'
+- DTO: { password: 'oldPassword', newPassword: 'weak' }",Lỗi với thông báo 'CHANGE-PASS.NEW-PASS NOT STRONG ENOUGH!',Đảm bảo hệ thống kiểm tra độ phức tạp của mật khẩu mới,Fail
+14,,,,TC-SV-AUTH-CP-007,Kiểm tra xử lý khi có lỗi xảy ra trong quá trình mã hóa mật khẩu mới,"- userId: 'user-id'
+- DTO: { password: 'oldPassword', newPassword: 'newPassword' }",Lỗi với thông báo 'CHANGE-PASS.HASH ERROR!',Đảm bảo hệ thống xử lý đúng khi có lỗi từ thư viện mã hóa,Fail
+15,,,,TC-SV-AUTH-CP-008,Kiểm tra xử lý khi có lỗi xảy ra trong quá trình so sánh mật khẩu,"- userId: 'user-id'
+- DTO: { password: 'oldPassword', newPassword: 'newPassword' }",Lỗi với thông báo 'CHANGE-PASS.COMPARE ERROR!',Đảm bảo hệ thống xử lý đúng khi có lỗi từ thư viện so sánh mật khẩu,Fail
+16,login.early.test.ts,LoginModuleController,login,TC-CT-AUTH-LG-001,Kiểm tra controller trả về kết quả thành công khi service đăng nhập thành công,"- DTO: { username: 'testuser', password: 'testpassword' }",responseHandler.ok với dữ liệu { token: 'some-token' },Đảm bảo controller gọi service đúng và trả về kết quả đúng định dạng,Pass
+17,,,,TC-CT-AUTH-LG-002,Kiểm tra controller xử lý đúng khi service đăng nhập ném lỗi,"- DTO: { username: 'testuser', password: 'testpassword' }
+- Lỗi: Error('Login failed')",responseHandler.error với thông báo 'Login failed',Đảm bảo controller bắt và xử lý lỗi đúng cách,Pass
+18,,,,TC-CT-AUTH-LG-003,Kiểm tra controller xử lý đúng khi service đăng nhập ném lỗi không phải Error object,"- DTO: { username: 'testuser', password: 'testpassword' }
+- Lỗi: { message: 'Unexpected error' }",responseHandler.error với thông báo JSON.stringify({ message: 'Unexpected error' }),Đảm bảo controller xử lý được cả các lỗi không phải Error object,Pass
+19,login.early.test.ts,LoginServiceController,login,TC-SV-AUTH-LS-001,Kiểm tra quá trình đăng nhập diễn ra đúng khi thông tin đăng nhập hợp lệ,"DTO: { email: 'test@example.com', password: 'password123' }","- user: Thông tin người dùng
+- accessToken: Token xác thực",Kiểm tra đầy đủ các bước trong quy trình đăng nhập và lưu token,Pass
+20,,,,TC-SV-AUTH-LS-002,Kiểm tra xử lý lỗi khi không tìm thấy người dùng với email đã cho,"DTO: { email: 'test@example.com', password: 'password123' }",NotFoundException với thông báo 'LOGIN.USER.EMAIL IS NOT VALID!',Đảm bảo hệ thống xử lý đúng khi người dùng không tồn tại,Pass
+21,,,,TC-SV-AUTH-LS-003,Kiểm tra xử lý lỗi khi người dùng nhập sai mật khẩu hiện tại,"DTO: { email: 'test@example.com', password: 'password123' (sai) }",UnauthorizedException với thông báo 'LOGIN.USER.PASSWORD IS NOT VALID!',Đảm bảo hệ thống xác thực mật khẩu trước khi cho phép đăng nhập,Pass
+22,,,,TC-SV-AUTH-LS-004,Kiểm tra xử lý lỗi khi không thể tạo JWT token,"DTO: { email: 'test@example.com', password: 'password123' }",Lỗi từ JwtService,Đảm bảo hệ thống xử lý đúng khi có lỗi từ JwtService,Pass
+23,logout.early.test.ts,LogoutController,logout,TC-CT-AUTH-LO-001,Kiểm tra controller trả về kết quả thành công khi service đăng xuất thành công,"- userId: '123'
+- DTO: { someProperty: 'someValue' }",responseHandler.ok(true),Đảm bảo controller gọi service đúng và trả về kết quả đúng định dạng,Pass
+24,,,,TC-CT-AUTH-LO-002,Kiểm tra controller xử lý đúng khi service đăng xuất ném lỗi,"- userId: '123'
+- DTO: { someProperty: 'someValue' }
+- Lỗi: Error('Service error')",responseHandler.error('Service error'),Đảm bảo controller bắt và xử lý lỗi đúng cách,Pass
+25,,,,TC-CT-AUTH-LO-003,Kiểm tra controller xử lý đúng khi service đăng xuất ném lỗi không phải Error object,"- userId: '123'
+- DTO: { someProperty: 'someValue' }
+- Lỗi: { message: 'Non-error object' }",responseHandler.error(JSON.stringify({ message: 'Non-error object' })),Đảm bảo controller xử lý được cả các lỗi không phải Error object,Pass
+26,,,,TC-CT-AUTH-LO-004,Kiểm tra controller xử lý đúng khi userId không hợp lệ,"- userId: '' (rỗng)
+- DTO: { someProperty: 'someValue' }",responseHandler.error('USER_ID_INVALID'),Đảm bảo controller kiểm tra tính hợp lệ của userId trước khi gọi service,Pass
+27,logout.early.test.ts,LogoutService,logout,TC-SV-AUTH-LS-001,Kiểm tra quá trình đăng xuất diễn ra đúng khi thông tin đăng xuất hợp lệ,"- userId: '123'
+- DTO: { token: 'valid-token' }",true (xác nhận đăng xuất thành công),Kiểm tra đầy đủ các bước trong quy trình đăng xuất và xóa token,Pass
+28,,,,TC-SV-AUTH-LS-002,Kiểm tra xử lý lỗi khi không tìm thấy người dùng với ID và token đã cho,"- userId: '123'
+- DTO: { token: 'valid-token' }",Lỗi với thông báo 'LOGOUT.USER NOT LOGIN!',Đảm bảo hệ thống xử lý đúng khi người dùng không tồn tại hoặc token không hợp lệ,Pass
+29,,,,TC-SV-AUTH-LS-003,Kiểm tra xử lý lỗi khi không thể lưu thông tin người dùng sau khi đăng xuất,"- userId: '123'
+- DTO: { token: 'valid-token' }",Lỗi với thông báo 'LOGOUT.OCCUR ERROR WHEN LOGOUT!',Đảm bảo hệ thống xử lý đúng khi có lỗi trong quá trình lưu dữ liệu,Pass
+30,,,,TC-SV-AUTH-LS-004,Kiểm tra xử lý khi userId không hợp lệ (rỗng hoặc null),"- userId: '' (rỗng)
+- DTO: { token: 'valid-token' }",Lỗi với thông báo 'LOGOUT.USER_ID INVALID!',Đảm bảo hệ thống kiểm tra tính hợp lệ của userId trước khi xử lý,Fail
+31,create.early.test.ts,RegisterModuleController,create,TC-CT-AUTH-CREATE-001,Kiểm tra controller trả về kết quả thành công khi service đăng ký thành công,"DTO: { email: 'test@example.com', password: 'password123' }",responseHandler.ok('test@example.com'),Đảm bảo controller gọi service đúng và trả về kết quả đúng định dạng,Pass
+32,,,,TC-CT-AUTH-CREATE-002,Kiểm tra controller xử lý đúng khi service đăng ký ném lỗi,"- DTO: { email: 'test@example.com', password: 'password123' }
+- Lỗi: Error('Service error')",responseHandler.error('Service error'),Đảm bảo controller bắt và xử lý lỗi đúng cách,Pass
+33,,,,TC-CT-AUTH-CREATE-003,Kiểm tra controller xử lý đúng khi service đăng ký ném lỗi không phải Error object,"- DTO: { email: 'test@example.com', password: 'password123' }
+- Lỗi: { message: 'Non-error object' }",responseHandler.error(JSON.stringify({ message: 'Non-error object' })),Đảm bảo controller xử lý được cả các lỗi không phải Error object,Pass
+34,,,,TC-CT-AUTH-CREATE-004,Kiểm tra controller xử lý đúng khi DTO không hợp lệ,DTO: {} (rỗng),responseHandler.error('REGISTER.INVALID_INPUT'),Đảm bảo controller kiểm tra tính hợp lệ của dữ liệu đầu vào trước khi gọi service,Pass
+35,update.early.test.ts,RegisterModuleController,update,TC-CT-AUTH-UD-001,Kiểm tra controller trả về kết quả thành công khi service xác thực thành công,"DTO: { email: 'test@example.com', otp: '123456' }",{ success: true },Đảm bảo controller gọi service đúng và trả về kết quả đúng định dạng,Pass
+36,,,,TC-CT-AUTH-UD-002,Kiểm tra controller xử lý đúng khi service xác thực ném lỗi,"- DTO: { email: 'test@example.com', otp: '123456' }
+- Lỗi: Error('Service error')",responseHandler.error('Service error'),Đảm bảo controller bắt và xử lý lỗi đúng cách,Fail
+37,,,,TC-CT-AUTH-UD-003,Kiểm tra controller xử lý đúng khi dữ liệu đầu vào rỗng,DTO: {} (rỗng),"{ success: false, message: 'Invalid input' }",Đảm bảo controller xử lý được cả trường hợp dữ liệu đầu vào không hợp lệ,Pass
+38,,,,TC-CT-AUTH-UD-004,Kiểm tra controller xử lý đúng khi mã OTP không hợp lệ,"DTO: { email: 'test@example.com', otp: 'invalid' }","{ success: false, message: 'Invalid OTP' }",Đảm bảo controller xử lý được trường hợp mã OTP không đúng định dạng,Pass
+39,create.early.test.ts,RegisterModuleService,create,TC-SV-AUTH-CREATE-001,Kiểm tra việc tạo người dùng mới và gửi email OTP thành công,"- firstName: ""John""
+- lastName: ""Doe""
+- email: ""john.doe@example.com""
+- password: ""password123""
+- address: ""123 Main St""
+- phone: ""1234567890""","- Object: { email: ""john.doe@example.com"" }
+- Người dùng được lưu vào database
+- Email OTP được gửi đến địa chỉ email đã đăng ký
+- Transaction được commit",Transaction phải được commit sau khi lưu thành công,Pass
+40,,,,TC-SV-AUTH-CREATE-002,Kiểm tra xử lý khi người dùng đã tồn tại và đã kích hoạt,"- firstName: ""John""
+- lastName: ""Doe""
+- email: ""john.doe@example.com"" (email đã tồn tại trong hệ thống)
+- password: ""password123""
+- address: ""123 Main St""
+- phone: ""1234567890""
+- Database có user với email=""john.doe@example.com"" và isActive=true","- Exception với message chính xác: 'REGISTER.ACCOUNT EXISTS!'
+- Không có thay đổi nào trong database",Không cho phép đăng ký trùng email đã kích hoạt,Pass
+41,,,,TC-SV-AUTH-CREATE-003,Kiểm tra xử lý khi người dùng đã tồn tại nhưng chưa kích hoạt,"- firstName: ""John""
+- lastName: ""Doe""
+- email: ""john.doe@example.com"" (email đã tồn tại trong hệ thống)
+- password: ""password123""
+- address: ""123 Main St""
+- phone: ""1234567890""
+- Database có user với email=""john.doe@example.com"" và isActive=false","- Exception với message chính xác: 'REGISTER.ACCOUNT NOT VERIFY! PLEASE ENTER OTP VERIFY!'
+- Email OTP mới được gửi đến địa chỉ email đã đăng ký
+- Hàm nodemailer.createTransport được gọi để gửi email",Cho phép gửi lại OTP để người dùng xác thực tài khoản,Pass
+42,,,,TC-SV-AUTH-CREATE-004,Kiểm tra xử lý khi lưu thông tin người dùng thất bại,"- firstName: ""John""
+- lastName: ""Doe""
+- email: ""john.doe@example.com"" (email đã tồn tại trong hệ thống)
+- password: ""password123""
+- address: ""123 Main St""
+- phone: ""1234567890""
+- Database có user với email=""john.doe@example.com"" và isActive=false","- Exception loại InternalServerErrorException
+- Transaction được rollback (mockQueryRunner.rollbackTransaction được gọi)
+- Không có dữ liệu nào được lưu vào database",Đảm bảo tính toàn vẹn dữ liệu khi có lỗi xảy ra,Pass
+43,update.early.test.ts,RegisterModuleService,update,TC-SV-AUTH-UD-001,Kiểm tra việc cập nhật trạng thái kích hoạt của người dùng khi OTP được xác thực thành công,"- email: ""test@example.com"" - Địa chỉ email cần xác thực
+- otp: ""123456"" - Mã OTP hợp lệ
+- authenticator.check trả về true (OTP hợp lệ)
+- mockUserRepository.update trả về { affected: 1 } (cập nhật thành công 1 bản ghi)","- Kết quả trả về: true
+-mockUserRepository.update được gọi với tham số đúng:
+     + Điều kiện: { email: ""test@example.com"" }
+     + Giá trị cập nhật: { isActive: true }","Khi OTP hợp lệ, tài khoản người dùng sẽ được kích hoạt (isActive = true)",Pass
+44,,,,TC-SV-AUTH-UD-002,Kiểm tra xử lý khi mã OTP không hợp lệ hoặc đã hết hạn,"- email: ""test@example.com"" - Địa chỉ email cần xác thực
+- otp: ""123456"" - Mã OTP đã nhập
+- authenticator.check trả về false (OTP không hợp lệ hoặc đã hết hạn)","- Exception với message chính xác: 'REGISTER.OTP EXPIRED!'
+- Không có thay đổi nào trong database","Khi OTP không hợp lệ, hệ thống sẽ thông báo lỗi và không kích hoạt tài khoản",Pass
+45,,,,TC-SV-AUTH-UD-003,Kiểm tra xử lý khi cập nhật trạng thái người dùng thất bại,"- email: ""test@example.com"" - Địa chỉ email cần xác thực
+- otp: ""123456"" - Mã OTP hợp lệ
+- authenticator.check trả về true (OTP hợp lệ)
+- mockUserRepository.update trả về { affected: 0 } (không có bản ghi nào được cập nhật)","- Exception với message chính xác: 'REGISTER.UPDATE ACTIVE FAILED!'
+- Không có tài khoản nào được kích hoạt","Khi không tìm thấy tài khoản hoặc cập nhật thất bại, hệ thống sẽ thông báo lỗi",Pass
+46,addToCart.early.test.ts,CartController,addToCart,TC-CT-CART-ADD-001,Kiểm tra việc thêm sản phẩm vào giỏ hàng thành công,"- userId: ""123"" - ID của người dùng
+- createCartDto:
+     + productId: ""product-123"" - ID của sản phẩm
+     + quantity: 1 - Số lượng sản phẩm
+- Service trả về: { success: true, data: ""Item added"" }","- Object: responseHandler.ok({ success: true, data: ""Item added"" })
+- Service.create được gọi với tham số đúng là mockCreateCartDto",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+47,,,,TC-CT-CART-ADD-002,Kiểm tra xử lý khi service gặp lỗi Error,"- userId: ""123"" - ID của người dùng
+- createCartDto:
+    + productId: ""product-123"" - ID của sản phẩm
+     + quantity: 1 - Số lượng sản phẩm
+- Service ném lỗi: Error(""Service error"")","- Object: responseHandler.error(""Service error"")
+- Service.create được gọi với tham số đúng là mockCreateCartDto",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+48,,,,TC-CT-CART-ADD-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"- userId: ""123"" - ID của người dùng
+- createCartDto:
+    + productId: ""product-123"" - ID của sản phẩm
+    + quantity: 1 - Số lượng sản phẩm
+- Service ném lỗi: { message: ""Unexpected error"" }","- Object: responseHandler.error(JSON.stringify({ message: ""Unexpected error"" }))
+- Service.create được gọi với tham số đúng là mockCreateCartDto",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+49,delete.early.test.ts,CartController,delete,TC-CT-CART-DEL-001,Kiểm tra việc xóa sản phẩm khỏi giỏ hàng thành công,"- userId: ""123"" - ID của người dùng
+- deleteCartDto:
+     + cart_ids: [""1"", ""2"", ""3""] - Danh sách ID của các sản phẩm cần xóa
+- Service trả về: true (xóa thành công)","- Object: responseHandler.ok(true)
+- Service.deleteProductsInCart được gọi với tham số đúng: userId và cart_ids",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+50,,,,TC-CT-CART-DEL-002,Kiểm tra xử lý khi danh sách cart_ids rỗng,"- userId: ""123"" - ID của người dùng
+- deleteCartDto:
+    + cart_ids: [] - Danh sách rỗng
+- Service trả về: false (không có sản phẩm nào được xóa)","- Object: responseHandler.ok(false)
+- Service.deleteProductsInCart được gọi với tham số đúng: userId và mảng rỗng",Controller phải xử lý được trường hợp không có sản phẩm nào được chỉ định để xóa,Pass
+51,,,,TC-CT-CART-DEL-003,Kiểm tra xử lý khi service gặp lỗi,"     *   - userId: ""123"" - ID của người dùng
+     *   - deleteCartDto:
+     *     + cart_ids: [""1"", ""2"", ""3""] - Danh sách ID của các sản phẩm cần xóa
+     *   - Service ném lỗi: Error(""Service error"")","- Object: responseHandler.error(""Service error"")
+- Service.deleteProductsInCart được gọi với tham số đúng: userId và cart_ids",Controller phải bắt và xử lý lỗi đúng cách,Pass
+52,,,,TC-CT-CART-DEL-004,Kiểm tra xử lý khi service ném ra lỗi không phải là đối tượng Error,"- userId: ""123"" - ID của người dùng
+- deleteCartDto:
+    + cart_ids: [""1"", ""2"", ""3""] - Danh sách ID của các sản phẩm cần xóa
+- Service ném lỗi: Đối tượng không phải Error (ví dụ: string, object, v.v.)","- Object: responseHandler.error với thông báo lỗi được chuyển đổi thành chuỗi
+- Service.deleteProductsInCart được gọi với tham số đúng: userId và cart_ids","Controller phải xử lý được các loại lỗi khác nhau, không chỉ đối tượng Error",Pass
+53,getAllProductInCart.early.test.ts,CartController,getAllProductInCart,TC-CT-CART-GETALL-001,Kiểm tra việc lấy tất cả sản phẩm trong giỏ hàng của người dùng hợp lệ,"     *   - userId: ""123"" - ID của người dùng
+     *   - Service trả về: [{ id: '1', name: 'Product 1' }, { id: '2', name: 'Product 2' }]","     *   - Object: responseHandler.ok([{ id: '1', name: 'Product 1' }, { id: '2', name: 'Product 2' }])
+     *   - Service.getListProduct được gọi với tham số đúng: { user_id: ""123"" }",Controller phải gọi service đúng và trả về danh sách sản phẩm trong giỏ hàng,Pass
+54,,,,TC-CT-CART-GETALL-002,Kiểm tra xử lý khi không tìm thấy sản phẩm nào trong giỏ hàng của người dùng,"     *   - userId: ""123"" - ID của người dùng
+     *   - Service trả về: [] (mảng rỗng)","     *   - Object: responseHandler.ok([])
+     *   - Service.getListProduct được gọi với tham số đúng: { user_id: ""123"" }",Controller phải xử lý được trường hợp giỏ hàng rỗng,Pass
+55,,,,TC-CT-CART-GETALL-003,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - userId: ""123"" - ID của người dùng
+     *   - Service ném lỗi: Error(""Service error"")","     *   - Object: responseHandler.error(""Service error"")
+     *   - Service.getListProduct được gọi với tham số đúng: { user_id: ""123"" }",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+56,,,,TC-CT-CART-GETALL-004,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - userId: ""123"" - ID của người dùng
+     *   - Service ném lỗi: { message: ""Non-error object"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Non-error object"" }))
+     *   - Service.getListProduct được gọi với tham số đúng: { user_id: ""123"" }",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+57,getListCart.early.test.ts,CartController,getListCart,TC-CT-CART-GETLIST-001,Kiểm tra việc lấy danh sách giỏ hàng thành công,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - Service trả về: [{ id: 1, name: 'Cart 1' }, { id: 2, name: 'Cart 2' }]","     *   - Object: responseHandler.ok([{ id: 1, name: 'Cart 1' }, { id: 2, name: 'Cart 2' }])
+     *   - Service.getList được gọi với tham số đúng: 1, 10",Controller phải gọi service đúng và trả về danh sách giỏ hàng,Pass
+58,,,,TC-CT-CART-GETLIST-002,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - Service ném lỗi: Error(""Service error"")","     *   - Object: responseHandler.error(""Service error"")
+     *   - Service.getList được gọi với tham số đúng: 1, 10",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+59,,,,TC-CT-CART-GETLIST-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - Service ném lỗi: { message: ""Unexpected error"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Unexpected error"" }))
+     *   - Service.getList được gọi với tham số đúng: 1, 10",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+60,update.early.test.ts,CartController,update,TC-CT-CART-UPDATE-001,Kiểm tra việc cập nhật giỏ hàng thành công,"     *   - updateCartDto:
+     *     + id: ""mock-id"" - ID của giỏ hàng cần cập nhật
+     *   - Service trả về: { success: true }","     *   - Object: responseHandler.ok({ success: true })
+     *   - Service.update được gọi với tham số đúng: mockUpdateCartDto, ""mock-id""",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+61,,,,TC-CT-CART-UPDATE-002,Kiểm tra xử lý khi service gặp lỗi Error khi cập nhật,"     *   - updateCartDto:
+     *     + id: ""mock-id"" - ID của giỏ hàng cần cập nhật
+     *   - Service ném lỗi: Error(""Update failed"")","     *   - Object: responseHandler.error(""Update failed"")
+     *   - Service.update được gọi với tham số đúng: mockUpdateCartDto, ""mock-id""",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+62,,,,TC-CT-CART-UPDATE-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - updateCartDto:
+     *     + id: ""mock-id"" - ID của giỏ hàng cần cập nhật
+     *   - Service ném lỗi: { message: ""Unexpected error"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Unexpected error"" }))
+     *   - Service.update được gọi với tham số đúng: mockUpdateCartDto, ""mock-id""",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+63,create.early.test.ts,CartService,create,TC-SV-CART-CREATE-001,Kiểm tra việc cập nhật số lượng khi sản phẩm đã tồn tại trong giỏ hàng,"     *   - createCartDto:
+     *     + product_id: ""mock-product-id"" - ID của sản phẩm
+     *     + user_id: ""mock-user-id"" - ID của người dùng
+     *     + quantity: 1 - Số lượng sản phẩm cần thêm
+     *   - Repository.findOneBy trả về: { id: ""existing-id"", quantity: 2 } (sản phẩm đã tồn tại)","     *   - Object: { id: ""existing-id"", quantity: 2 } (sản phẩm đã được cập nhật)
+     *   - BaseService.update được gọi với tham số đúng: existingProduct, existingProduct.id","Khi sản phẩm đã tồn tại trong giỏ hàng, service sẽ cập nhật số lượng thay vì tạo mới",Pass
+64,,,,TC-SV-CART-CREATE-002,Kiểm tra việc tạo mới sản phẩm trong giỏ hàng khi sản phẩm chưa tồn tại,"     *   - createCartDto:
+     *     + product_id: ""mock-product-id"" - ID của sản phẩm
+     *     + user_id: ""mock-user-id"" - ID của người dùng
+     *     + quantity: 1 - Số lượng sản phẩm cần thêm
+     *   - Repository.findOneBy trả về: null (không tìm thấy sản phẩm)","     *   - Object: { id: ""new-id"", ...mockCreateCartDto } (sản phẩm mới được tạo)
+     *   - BaseService.create được gọi với tham số đúng: mockCreateCartDto, { product_id, user_id }","Khi sản phẩm chưa tồn tại trong giỏ hàng, service sẽ tạo mới sản phẩm trong giỏ hàng",Pass
+65,,,,TC-SV-CART-CREATE-003,Kiểm tra xử lý khi gặp lỗi trong quá trình cập nhật sản phẩm đã tồn tại,"     *   - createCartDto:
+     *     + product_id: ""mock-product-id"" - ID của sản phẩm
+     *     + user_id: ""mock-user-id"" - ID của người dùng
+     *     + quantity: 1 - Số lượng sản phẩm cần thêm
+     *   - Repository.findOneBy trả về: { id: ""existing-id"", quantity: 2 } (sản phẩm đã tồn tại)
+     *   - BaseService.update ném lỗi: Error(""Update failed"")","     *   - Exception với message: ""Update failed""",Service phải ném lại lỗi khi cập nhật sản phẩm thất bại,Pass
+66,,,,TC-SV-CART-CREATE-004,Kiểm tra xử lý khi gặp lỗi trong quá trình tạo mới sản phẩm,"     *   - createCartDto:
+     *     + product_id: ""mock-product-id"" - ID của sản phẩm
+     *     + user_id: ""mock-user-id"" - ID của người dùng
+     *     + quantity: 1 - Số lượng sản phẩm cần thêm
+     *   - Repository.findOneBy trả về: null (không tìm thấy sản phẩm)
+     *   - BaseService.create ném lỗi: Error(""Create failed"")","     *   - Exception với message: ""Create failed""",Service phải ném lại lỗi khi tạo mới sản phẩm thất bại,Pass
+67,deleteProductsInCart.early.test.ts,CartService,deleteProductsInCart,TC-SV-CART-DEL-001,Kiểm tra việc xóa sản phẩm khỏi giỏ hàng thành công,"     *   - userId: ""user123"" - ID của người dùng
+     *   - cartIds: [""cart1"", ""cart2""] - Danh sách ID của các sản phẩm cần xóa
+     *   - Repository.delete trả về: { affected: 2 } (2 bản ghi bị ảnh hưởng)","     *   - Object: { affected: 2 } (kết quả xóa thành công)
+     *   - Repository.delete được gọi với tham số đúng: { id: In(cartIds), user_id: userId }",Service phải xóa đúng các sản phẩm trong giỏ hàng của người dùng,Pass
+68,,,,TC-SV-CART-DEL-002,Kiểm tra xử lý khi danh sách cart_ids rỗng,"     *   - userId: ""user123"" - ID của người dùng
+     *   - cartIds: [] - Danh sách rỗng","Exception với message: ""cart_ids cannot be empty""",Service phải kiểm tra tính hợp lệ của danh sách cart_ids trước khi thực hiện xóa,Pass
+69,,,,TC-SV-CART-DEL-003,Kiểm tra xử lý khi không có bản ghi nào bị xóa,"     *   - userId: ""user123"" - ID của người dùng
+     *   - cartIds: [""cart1"", ""cart2""] - Danh sách ID của các sản phẩm cần xóa
+     *   - Repository.delete trả về: { affected: 0 } (không có bản ghi nào bị ảnh hưởng)","Exception với message: ""No records were deleted. Check cart_ids.""",Service phải kiểm tra kết quả xóa để đảm bảo có bản ghi bị xóa,Fail
+70,,,,TC-SV-CART-DEL-004,Kiểm tra xử lý khi thao tác xóa gặp lỗi,"     *   - userId: ""user123"" - ID của người dùng
+     *   - cartIds: [""cart1"", ""cart2""] - Danh sách ID của các sản phẩm cần xóa
+     *   - Repository.delete ném lỗi: Error(""Database error"")","Exception với message: ""Failed to delete products in cart""",Service phải xử lý lỗi từ repository và ném ra lỗi chung,Pass
+71,detail.early.test.ts,CartService,detail,TC-SV-CART-DETAIL-001,Kiểm tra việc lấy thông tin chi tiết của sản phẩm trong giỏ hàng thành công,"     *   - filter: { id: 1 } - Điều kiện tìm kiếm theo ID
+     *   - Repository.findOneBy trả về: { id: 1, product_id: 'product-1', user_id: 'user-1', quantity: 2 }","     *   - Object: { id: 1, product_id: 'product-1', user_id: 'user-1', quantity: 2 }
+     *   - Repository.findOneBy được gọi với tham số đúng: { id: 1 }",Service phải trả về đúng sản phẩm trong giỏ hàng theo điều kiện tìm kiếm,Fail
+72,,,,TC-SV-CART-DETAIL-002,Kiểm tra xử lý khi không cung cấp điều kiện tìm kiếm,"     *   - filter: {} - Điều kiện tìm kiếm rỗng
+     *   - Repository.findOneBy trả về: null (không tìm thấy sản phẩm)","     *   - null
+     *   - Repository.findOneBy được gọi với tham số đúng: {}",Service phải xử lý được trường hợp không có điều kiện tìm kiếm,Pass
+73,,,,TC-SV-CART-DETAIL-003,Kiểm tra xử lý khi không tìm thấy sản phẩm trong giỏ hàng,"     *   - filter: { user_id: 999 } - Điều kiện tìm kiếm theo user_id không tồn tại
+     *   - Repository.findOneBy trả về: null (không tìm thấy sản phẩm)","     *   - null
+     *   - Repository.findOneBy được gọi với tham số đúng: { user_id: 999 }",Service phải xử lý được trường hợp không tìm thấy sản phẩm,Pass
+74,,,,TC-SV-CART-DETAIL-004,Kiểm tra xử lý khi gặp lỗi không mong muốn,"     *   - filter: { user_id: 1 } - Điều kiện tìm kiếm hợp lệ
+     *   - Repository.findOneBy ném lỗi: Error(""Unexpected error"")","Exception với message: ""Unexpected error""",Service phải ném lại lỗi khi gặp lỗi không mong muốn,Pass
+75,,,,TC-SV-CART-DETAIL-005,Kiểm tra việc lấy thông tin chi tiết của sản phẩm trong giỏ hàng với điều kiện product_id,"     *   - filter: { product_id: 'product-1' } - Điều kiện tìm kiếm theo product_id
+     *   - Repository.findOneBy trả về: { id: 1, product_id: 'product-1', user_id: 'user-1', quantity: 2 }","     *   - Object: { id: 1, product_id: 'product-1', user_id: 'user-1', quantity: 2 }
+     *   - Repository.findOneBy được gọi với tham số đúng: { product_id: 'product-1' }",Service phải xử lý được trường hợp tìm kiếm theo product_id,Pass
+76,,,,TC-SV-CART-DETAIL-006,Kiểm tra việc lấy thông tin chi tiết với cả user_id và product_id,"     *   - filter: { user_id: 'user-1', product_id: 'product-1' } - Điều kiện tìm kiếm kết hợp
+     *   - Repository.findOneBy trả về: { id: 1, product_id: 'product-1', user_id: 'user-1', quantity: 2 }","     *   - Object: { id: 1, product_id: 'product-1', user_id: 'user-1', quantity: 2 }
+     *   - Repository.findOneBy được gọi với tham số đúng: { user_id: 'user-1', product_id: 'product-1' }",Service phải xử lý được trường hợp tìm kiếm kết hợp nhiều điều kiện,Pass
+77,getList.early.test.ts,CartService,getList,TC-SV-CART-GETLIST-001,Kiểm tra việc lấy danh sách sản phẩm trong giỏ hàng có phân trang thành công,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 2 - Số lượng bản ghi trên một trang
+     *   - Repository.findAndCount trả về: [[{ id: 1 }, { id: 2 }], 2] (mảng sản phẩm và tổng số)","     *   - Object: { data: [{ id: 1 }, { id: 2 }], total: 2, page: 1, limit: 2 }
+     *   - Repository.findAndCount được gọi với tham số đúng: { skip: 0, take: 2 }",Service phải trả về đúng danh sách sản phẩm và thông tin phân trang,Pass
+78,,,,TC-SV-CART-GETLIST-002,Kiểm tra xử lý khi số trang nhỏ hơn 1,"     *   - page: 0 - Số trang không hợp lệ (nhỏ hơn 1)
+     *   - limit: 10 - Số lượng bản ghi trên một trang","Exception với message: ""PAGE NUMBER MUST BE GREATER THAN 0!""",Service phải kiểm tra tính hợp lệ của số trang trước khi thực hiện truy vấn,Pass
+79,,,,TC-SV-CART-GETLIST-003,Kiểm tra xử lý khi giới hạn bản ghi nhỏ hơn 1,"     *   - page: 1 - Số trang hợp lệ
+     *   - limit: 0 - Giới hạn bản ghi không hợp lệ (nhỏ hơn 1)","Exception với message: ""LIMIT MUST BE GREATER THAN 0!""",Service phải kiểm tra tính hợp lệ của giới hạn bản ghi trước khi thực hiện truy vấn,Pass
+80,,,,TC-SV-CART-GETLIST-004,Kiểm tra xử lý khi không tìm thấy sản phẩm nào trong giỏ hàng của người dùng,"     *   - page: 1 - Số trang hợp lệ
+     *   - limit: 10 - Giới hạn bản ghi hợp lệ
+     *   - Repository.findAndCount trả về: [null, 0] (không có sản phẩm nào)","Exception với message: ""NO cart!""",Service phải kiểm tra kết quả trả về từ repository để đảm bảo có dữ liệu,Pass
+81,getListProduct.early.test.ts,CartService,getListProduct,TC-SV-CART-GETLISTPROD-001,Kiểm tra việc lấy danh sách sản phẩm trong giỏ hàng theo user_id thành công,"     *   - filters: { user_id: '123' } - Điều kiện tìm kiếm theo ID người dùng
+     *   - Repository.findAndCount trả về: [[{ id: 1, name: 'Product 1' }], 1] (mảng sản phẩm và tổng số)","     *   - Object: { cart: [{ id: 1, name: 'Product 1' }], total: 1 }
+     *   - Repository.findAndCount được gọi với tham số đúng: { where: { user_id: '123' }, relations: ['product'] }",Service phải trả về đúng danh sách sản phẩm và tổng số theo điều kiện tìm kiếm,Pass
+82,,,,TC-SV-CART-GETLISTPROD-002,Kiểm tra xử lý khi không tìm thấy sản phẩm nào trong giỏ hàng của người dùng,"     *   - filters: { user_id: '123' } - Điều kiện tìm kiếm theo ID người dùng
+     *   - Repository.findAndCount trả về: [null, 0] (không có sản phẩm nào)","Exception với message: ""No product!""",Service phải kiểm tra kết quả trả về từ repository để đảm bảo có dữ liệu,Pass
+83,,,,TC-SV-CART-GETLISTPROD-003,Kiểm tra xử lý khi không cung cấp điều kiện tìm kiếm,"     *   - filters: {} - Điều kiện tìm kiếm rỗng
+     *   - Repository.findAndCount trả về: [[{ id: 1, name: 'Product 1' }], 1] (mảng sản phẩm và tổng số)","     *   - Object: { cart: [{ id: 1, name: 'Product 1' }], total: 1 }
+     *   - Repository.findAndCount được gọi với tham số đúng: { where: {}, relations: ['product'] }",Service phải xử lý được trường hợp không có điều kiện tìm kiếm,Pass
+84,,,,TC-SV-CART-GETLISTPROD-004,Kiểm tra xử lý khi gặp lỗi không mong muốn từ repository,"     *   - filters: { user_id: '123' } - Điều kiện tìm kiếm theo ID người dùng
+     *   - Repository.findAndCount ném lỗi: Error(""Unexpected error"")","Exception với message: ""Unexpected error""",Service phải ném lại lỗi khi gặp lỗi không mong muốn từ repository,Pass
+85,update.early.test.ts,CartService,update,TC-SV-CART-UPDATE-001,Kiểm tra việc cập nhật sản phẩm trong giỏ hàng thành công,"     *   - updateCartDto:
+     *     + id: ""mock-id"" - ID của sản phẩm trong giỏ hàng
+     *     + quantity: 1 - Số lượng sản phẩm mới
+     *   - id: ""mock-id"" - ID của sản phẩm trong giỏ hàng cần cập nhật
+     *   - Repository.update trả về: { id: ""mock-id"", quantity: 2 } (sản phẩm đã cập nhật)","     *   - Object: { id: ""mock-id"", quantity: 2 } (sản phẩm đã cập nhật)
+     *   - Repository.update được gọi với tham số đúng: mockUpdateCartDto, ""mock-id""",Service phải trả về đúng sản phẩm đã cập nhật,Pass
+86,,,,TC-SV-CART-UPDATE-002,Kiểm tra xử lý khi sản phẩm trong giỏ hàng không tồn tại,"     *   - updateCartDto:
+     *     + id: ""mock-id"" - ID của sản phẩm trong giỏ hàng
+     *     + quantity: 1 - Số lượng sản phẩm mới
+     *   - id: ""non-existent-id"" - ID không tồn tại
+     *   - Repository.update trả về: null (không tìm thấy sản phẩm)","     *   - null
+     *   - Repository.update được gọi với tham số đúng: mockUpdateCartDto, ""non-existent-id""",Service phải xử lý được trường hợp không tìm thấy sản phẩm cần cập nhật,Fail
+87,,,,TC-SV-CART-UPDATE-003,Kiểm tra xử lý khi gặp lỗi trong quá trình cập nhật sản phẩm đã tồn tại,"     *   - updateCartDto:
+     *     + id: ""mock-id"" - ID của sản phẩm trong giỏ hàng
+     *     + quantity: 1 - Số lượng sản phẩm mới
+     *   - id: ""mock-id"" - ID của sản phẩm trong giỏ hàng cần cập nhật
+     *   - Repository.update ném lỗi: Error(""Update failed"")","     *   - Exception với message: ""Update failed""
+     *   - Repository.update được gọi với tham số đúng: mockUpdateCartDto, ""mock-id""",Service phải ném lại lỗi khi gặp lỗi trong quá trình cập nhật,Pass
+88,email.service.spec.ts,EmailService,sendNotificationEmail,TC-SV-EMAIL-001,Xác nhận EmailService đã được khởi tạo thành công,Instance của EmailService,service phải được định nghĩa,Kiểm tra service đã được định nghĩa,Pass
+89,,,,TC-SV-EMAIL-002,Xác nhận transporter được tạo với cấu hình SMTP chính xác,Không có (constructor được gọi trong beforeEach),nodemailer.createTransport được gọi với cấu hình SMTP đúng,Kiểm tra kết nối đến máy chủ SMTP của Gmail,Pass
+90,,,,TC-SV-EMAIL-003,Xác nhận hàm kết thúc sớm khi không có email nào để gửi,Mảng emailEntities rỗng,"     *  - Log thông báo không có admin offline để gửi email
+     *  - Không gọi phương thức sendMail",Kiểm tra xử lý trường hợp đặc biệt khi không có dữ liệu,Pass
+91,,,,TC-SV-EMAIL-004,Xác nhận email được gửi đến tất cả người nhận với nội dung chính xác,"     *   - emailEntities: Mảng chứa 2 đối tượng Email_entity:
+     *     + Email 1: { emailReceive: 'test1@example.com', header: 'Test Subject 1', content: 'Test Content 1', htmlContent: '<p>Test HTML 1</p>' }
+     *     + Email 2: { emailReceive: 'test2@example.com', header: 'Test Subject 2', content: 'Test Content 2', htmlContent: '<p>Test HTML 2</p>' }
+     *   - consoleSpy: jest.spyOn(console, 'log') - Theo dõi các cuộc gọi console.log
+     *   - mockTransporter.sendMail: Được mock để trả về { messageId: 'test-message-id' }","     *   - mockTransporter.sendMail được gọi đúng 2 lần (toHaveBeenCalledTimes(2))
+     *   - Lần gọi thứ nhất với tham số chính xác cho email 1:
+     *     + from: '""Admin"" <vuong2k2002@gmail.com>'
+     *     + to: 'test1@example.com'
+     *     + subject: 'Test Subject 1'
+     *     + text: 'Test Content 1'
+     *     + html: '<p>Test HTML 1</p>'
+     *   - Lần gọi thứ hai với tham số chính xác cho email 2
+     *   - consoleSpy được gọi với 'Email sent to test1@example.com' và 'Email sent to test2@example.com'",Kiểm tra chức năng chính của dịch vụ gửi email,Pass
+92,,,,TC-SV-EMAIL-005,Xác nhận hàm ném ra lỗi khi gửi email thất bại,"     *   - emailEntities: Mảng chứa 1 đối tượng Email_entity:
+     *     + { emailReceive: 'test@example.com', header: 'Test Subject', content: 'Test Content', htmlContent: '<p>Test HTML</p>' }
+     *   - errorMessage: 'Failed to send email'
+     *   - mockTransporter.sendMail: Được mock để ném lỗi Error(errorMessage)
+     *   - consoleErrorSpy: jest.spyOn(console, 'error').mockImplementation() - Theo dõi và giả lập console.error","     *   - Hàm service.sendNotificationEmail ném ra lỗi với thông báo 'Email sending failed'
+     *   - consoleErrorSpy được gọi với 'Failed to send email:' và đối tượng Error
+     *   - Quá trình gửi email bị ngừng lại sau khi gặp lỗi",Kiểm tra xử lý ngoại lệ trong quá trình gửi email,Pass
+93,create.early.test.ts,CategoryController,create,TC-CT-CATEGORY-CREATE-001,Kiểm tra việc tạo danh mục mới thành công,"     *   - categoryCreateDTO:
+     *     + name: ""Test Category"" - Tên danh mục
+     *     + description: ""Test Description"" - Mô tả danh mục
+     *   - Service trả về: { id: 1, name: ""Test Category"", description: ""Test Description"" }","     *   - Object: responseHandler.ok({ id: 1, name: ""Test Category"", description: ""Test Description"" })
+     *   - Service.create được gọi với tham số đúng là mockCategoryCreateDTO",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+94,,,,TC-CT-CATEGORY-CREATE-002,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - categoryCreateDTO:
+     *     + name: ""Test Category"" - Tên danh mục
+     *     + description: ""Test Description"" - Mô tả danh mục
+     *   - Service ném lỗi: Error(""Service error"")","     *   - Object: responseHandler.error(""Service error"")
+     *   - Service.create được gọi với tham số đúng là mockCategoryCreateDTO",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+95,,,,TC-CT-CATEGORY-CREATE-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - categoryCreateDTO:
+     *     + name: ""Test Category"" - Tên danh mục
+     *     + description: ""Test Description"" - Mô tả danh mục
+     *   - Service ném lỗi: { message: ""Unexpected error"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Unexpected error"" }))
+     *   - Service.create được gọi với tham số đúng là mockCategoryCreateDTO",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+96,delete.early.test.ts,CategoryController,delete,TC-CT-CATEGORY-DEL-001,Kiểm tra việc xóa danh mục thành công,"     *   - categoryId: ""123"" - ID của danh mục cần xóa
+     *   - Service.delete trả về: undefined (xóa thành công)","     *   - Object: responseHandler.ok(undefined)
+     *   - Service.delete được gọi với tham số đúng: ""123""",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+97,,,,TC-CT-CATEGORY-DEL-002,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - categoryId: ""123"" - ID của danh mục cần xóa
+     *   - Service.delete ném lỗi: Error(""Category not found"")","     *   - Object: responseHandler.error(""Category not found"")
+     *   - Service.delete được gọi với tham số đúng: ""123""",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+98,,,,TC-CT-CATEGORY-DEL-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - categoryId: ""123"" - ID của danh mục cần xóa
+     *   - Service.delete ném lỗi: { message: ""Unexpected error"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Unexpected error"" }))
+     *   - Service.delete được gọi với tham số đúng: ""123""",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+99,detail.early.test.ts,CategoryController,detail,TC-CT-CATEGORY-DETAIL-001,Kiểm tra việc lấy thông tin chi tiết của danh mục thành công,"     *   - categoryId: ""1"" - ID của danh mục cần lấy thông tin
+     *   - Service.detail trả về: { id: '1', name: 'Electronics' } (thông tin danh mục)","     *   - Object: responseHandler.ok({ id: '1', name: 'Electronics' })
+     *   - Service.detail được gọi với tham số đúng: ""1""",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+100,,,,TC-CT-CATEGORY-DETAIL-002,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - categoryId: ""999"" - ID của danh mục không tồn tại
+     *   - Service.detail ném lỗi: Error(""Category not found"")","     *   - Object: responseHandler.error(""Category not found"")
+     *   - Service.detail được gọi với tham số đúng: ""999""",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+101,,,,TC-CT-CATEGORY-DETAIL-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - categoryId: ""999"" - ID của danh mục không tồn tại
+     *   - Service.detail ném lỗi: { error: ""Unexpected error"" }","     *   - Object: responseHandler.error(JSON.stringify({ error: ""Unexpected error"" }))
+     *   - Service.detail được gọi với tham số đúng: ""999""",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+102,getList.early.test.ts,CategoryController,getList,TC-CT-CATEGORY-GETLIST-001,Kiểm tra việc lấy danh sách danh mục với các tham số hợp lệ,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - name: ""Category"" - Tên danh mục cần lọc
+     *   - status: ApplyStatus.All - Trạng thái cần lọc
+     *   - Service.getList trả về: [{ id: 1, name: 'Category 1' }] (danh sách danh mục)","     *   - Object: responseHandler.ok([{ id: 1, name: 'Category 1' }])
+     *   - Service.getList được gọi với tham số đúng: 1, 10, { name: 'Category', status: ApplyStatus.All }",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+103,,,,TC-CT-CATEGORY-GETLIST-002,Kiểm tra việc lấy danh sách danh mục với các tham số mặc định,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - name: undefined - Không có tên danh mục cần lọc
+     *   - status: undefined - Không có trạng thái cần lọc
+     *   - Service.getList trả về: [{ id: 1, name: 'Category 1' }] (danh sách danh mục)","     *   - Object: responseHandler.ok([{ id: 1, name: 'Category 1' }])
+     *   - Service.getList được gọi với tham số đúng: 1, 10, { name: '', status: '' }",Controller phải xử lý được trường hợp không có tham số lọc,Pass
+104,,,,TC-CT-CATEGORY-GETLIST-003,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - Service.getList ném lỗi: Error(""Service error"")","     *   - Object: responseHandler.error(""Service error"")
+     *   - Service.getList được gọi với tham số đúng: 1, 10, { name: '', status: '' }",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+105,,,,TC-CT-CATEGORY-GETLIST-004,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - Service.getList ném lỗi: { message: ""Non-error object"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Non-error object"" }))
+     *   - Service.getList được gọi với tham số đúng: 1, 10, { name: '', status: '' }",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+106,update.early.test.ts,CategoryController,update,TC-CT-CATEGORY-UPDATE-001,Kiểm tra việc cập nhật thông tin danh mục thành công,"     *   - categoryUpdateDTO:
+     *     + id: ""1"" - ID của danh mục cần cập nhật
+     *     + name: ""Updated Category"" - Tên mới của danh mục
+     *   - Service.update trả về: { id: '1', name: 'Updated Category' } (thông tin danh mục đã cập nhật)","     *   - Object: responseHandler.ok({ id: '1', name: 'Updated Category' })
+     *   - Service.update được gọi với tham số đúng: mockCategoryUpdateDTO, ""1""",Controller phải gọi service đúng và trả về kết quả thành công,Pass
+107,,,,TC-CT-CATEGORY-UPDATE-002,Kiểm tra xử lý khi service gặp lỗi Error,"     *   - categoryUpdateDTO:
+     *     + id: ""1"" - ID của danh mục cần cập nhật
+     *     + name: ""Updated Category"" - Tên mới của danh mục
+     *   - Service.update ném lỗi: Error(""Update failed"")","     *   - Object: responseHandler.error(""Update failed"")
+     *   - Service.update được gọi với tham số đúng: mockCategoryUpdateDTO, ""1""",Controller phải bắt và xử lý lỗi Error đúng cách,Pass
+108,,,,TC-CT-CATEGORY-UPDATE-003,Kiểm tra xử lý khi service gặp lỗi không phải Error (object lỗi),"     *   - categoryUpdateDTO:
+     *     + id: ""1"" - ID của danh mục cần cập nhật
+     *     + name: ""Updated Category"" - Tên mới của danh mục
+     *   - Service.update ném lỗi: { message: ""Non-error exception"" }","     *   - Object: responseHandler.error(JSON.stringify({ message: ""Non-error exception"" }))
+     *   - Service.update được gọi với tham số đúng: mockCategoryUpdateDTO, ""1""",Controller phải bắt và xử lý cả các lỗi không phải Error,Pass
+109,create.early.test.ts,CategoryService,create,TC-SV-CATEGORY-CREATE-001,     * Mục tiêu: Kiểm tra việc tạo danh mục thành công khi trạng thái là ApplyStatus.True,"     *   - categoryCreateDTO:
+     *     + status: ApplyStatus.True - Trạng thái hoạt động
+     *     + name: ""Test Category"" - Tên danh mục
+     *   - BaseService.create trả về: { id: 1, status: ApplyStatus.True, name: ""Test Category"" }","     *   - Object: { id: 1, status: ApplyStatus.True, name: ""Test Category"" }
+     *   - BaseService.create được gọi với tham số đúng: mockCategoryCreateDTO, { name: ""Test Category"" }",Service phải gọi BaseService.create đúng và trả về kết quả thành công,Pass
+110,,,,TC-SV-CATEGORY-CREATE-002,Kiểm tra việc tạo danh mục thành công khi trạng thái là ApplyStatus.False,"     *   - categoryCreateDTO:
+     *     + status: ApplyStatus.False - Trạng thái không hoạt động
+     *     + name: ""Test Category"" - Tên danh mục
+     *   - BaseService.create trả về: { id: 2, status: ApplyStatus.False, name: ""Test Category"" }","     *   - Object: { id: 2, status: ApplyStatus.False, name: ""Test Category"" }
+     *   - BaseService.create được gọi với tham số đúng: mockCategoryCreateDTO, { name: ""Test Category"" }",Service phải gọi BaseService.create đúng và trả về kết quả thành công,Pass
+111,,,,TC-SV-CATEGORY-CREATE-003,Kiểm tra xử lý khi trạng thái không hợp lệ,"     *   - categoryCreateDTO:
+     *     + status: ""InvalidStatus"" - Trạng thái không hợp lệ (không phải True hoặc False)
+     *     + name: ""Test Category"" - Tên danh mục","Exception với message: ""Invalid status value""",Service phải kiểm tra tính hợp lệ của trạng thái trước khi tạo danh mục,Pass
+112,delete.early.test.ts,CategoryService,delete,TC-SV-CATEGORY-DEL-001,Kiểm tra việc xóa danh mục thành công theo ID,"     *   - id: ""123"" - ID của danh mục cần xóa
+     *   - BaseService.delete trả về: { affected: 1 } (1 bản ghi bị ảnh hưởng)","     *   - Object: { affected: 1 } (xóa thành công 1 bản ghi)
+     *   - BaseService.delete được gọi với tham số đúng: ""123""",Service phải gọi BaseService.delete đúng và trả về kết quả xóa thành công,Pass
+113,,,,TC-SV-CATEGORY-DEL-002,Kiểm tra xử lý khi xóa danh mục không tồn tại,"     *   - id: ""non-existent-id"" - ID của danh mục không tồn tại
+     *   - BaseService.delete trả về: { affected: 0 } (không có bản ghi nào bị ảnh hưởng)","     *   - Object: { affected: 0 } (không có bản ghi nào bị xóa)
+     *   - BaseService.delete được gọi với tham số đúng: ""non-existent-id""",Service phải xử lý được trường hợp không tìm thấy danh mục cần xóa,Pass
+114,,,,TC-SV-CATEGORY-DEL-003,Kiểm tra xử lý khi gặp lỗi trong quá trình xóa,"     *   - id: ""123"" - ID của danh mục cần xóa
+     *   - BaseService.delete ném lỗi: Error(""Deletion error"")","     *   - Exception với message: ""Deletion error""
+     *   - BaseService.delete được gọi với tham số đúng: ""123""",Service phải ném lại lỗi khi gặp lỗi trong quá trình xóa,Pass
+115,detail.early.test.ts,CategoryService,detail,TC-SV-CATEGORY-DETAIL-001,Kiểm tra việc lấy thông tin chi tiết của danh mục thành công theo ID,"     *   - categoryId: ""valid-id"" - ID của danh mục cần lấy thông tin
+     *   - Repository.findOne trả về: { id: ""valid-id"", name: ""Electronics"" } (thông tin danh mục)","     *   - Object: { id: ""valid-id"", name: ""Electronics"" } (thông tin danh mục)
+     *   - Repository.findOne được gọi với tham số đúng: ""valid-id""",Service phải gọi repository.findOne đúng và trả về thông tin danh mục,Pass
+116,,,,TC-SV-CATEGORY-DETAIL-002,Kiểm tra xử lý khi danh mục không tồn tại,"     *   - categoryId: ""non-existent-id"" - ID của danh mục không tồn tại
+     *   - Repository.findOne trả về: null (không tìm thấy danh mục)","     *   - null (không có thông tin danh mục)
+     *   - Repository.findOne được gọi với tham số đúng: ""non-existent-id""",Service phải xử lý được trường hợp không tìm thấy danh mục cần xóa,Pass
+117,,,,TC-SV-CATEGORY-DETAIL-003,Kiểm tra xử lý khi repository gặp lỗi,"     *   - categoryId: ""error-id"" - ID của danh mục gây lỗi
+     *   - Repository.findOne ném lỗi: Error(""Database error"")","     *   - Exception với message: ""Database error""
+     *   - Repository.findOne được gọi với tham số đúng: ""error-id""",Service phải ném lại lỗi khi repository gặp lỗi,Pass
+118,getList.early.test.ts,CategoryService,getList,TC-SV-CATEGORY-GETLIST-001,Kiểm tra việc áp dụng các bộ lọc đúng cách khi lấy danh sách danh mục,"     *   - page: 1 - Số trang cần lấy
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - filters: { name: 'Filtered', status: ApplyStatus.True } - Điều kiện lọc
+     *   - Repository.findAndCount trả về: [[{ id: 1, name: 'Filtered Category', status: ApplyStatus.True }], 1]","     *   - Object: {
+     *       data: [{ id: 1, name: 'Filtered Category', status: ApplyStatus.True }],
+     *       total: 1,
+     *       page: 1,
+     *       limit: 10
+     *     }
+     *   - Repository.findAndCount được gọi với tham số đúng bao gồm các điều kiện lọc",Service phải áp dụng các bộ lọc đúng cách và trả về kết quả phân trang,Pass
+119,,,,TC-SV-CATEGORY-GETLIST-002,Kiểm tra xử lý khi số trang nhỏ hơn 1,"     *   - page: 0 - Số trang không hợp lệ (nhỏ hơn 1)
+     *   - limit: 10 - Số lượng bản ghi trên một trang
+     *   - filters: {} - Không có điều kiện lọc","Exception với message: ""PAGE NUMBER MUST BE GREATER THAN 0!""",Service phải kiểm tra tính hợp lệ của số trang trước khi thực hiện truy vấn,Pass
+120,,,,TC-SV-CATEGORY-GETLIST-003,Kiểm tra xử lý khi giới hạn bản ghi nhỏ hơn 1,"     *   - page: 1 - Số trang hợp lệ
+     *   - limit: 0 - Giới hạn bản ghi không hợp lệ (nhỏ hơn 1)
+     *   - filters: {} - Không có điều kiện lọc","Exception với message: ""LIMIT MUST BE GREATER THAN 0!""",Service phải kiểm tra tính hợp lệ của giới hạn bản ghi trước khi thực hiện truy vấn,Pass
+121,,,,TC-SV-CATEGORY-GETLIST-004,Kiểm tra xử lý khi không tìm thấy danh mục nào,"     *   - page: 1 - Số trang hợp lệ
+     *   - limit: 10 - Giới hạn bản ghi hợp lệ
+     *   - filters: {} - Không có điều kiện lọc
+     *   - Repository.findAndCount trả về: [[], 0] (không có danh mục nào)","Exception với message: ""NO CATEGORY!""",Service phải kiểm tra kết quả trả về từ repository để đảm bảo có dữ liệu,Fail
+122,update.early.test.ts,CategoryService,update,TC-SV-CATEGORY-UPDATE-001,Kiểm tra việc cập nhật danh mục thành công,"     *   - id: ""123"" - ID của danh mục cần cập nhật
+     *   - updateData: mockCategoryUpdateDTO - Dữ liệu cập nhật
+     *   - BaseService.update trả về: { id: ""123"", ...updateData } (thông tin danh mục đã cập nhật)","     *   - Object: { id: ""123"", ...updateData } (thông tin danh mục đã cập nhật)
+     *   - BaseService.update được gọi với tham số đúng: updateData, ""123""",Service phải gọi BaseService.update đúng và trả về kết quả cập nhật thành công,Pass
+123,,,,TC-SV-CATEGORY-UPDATE-002,Kiểm tra xử lý khi cập nhật danh mục không tồn tại,"     *   - id: ""non-existent-id"" - ID của danh mục không tồn tại
+     *   - updateData: mockCategoryUpdateDTO - Dữ liệu cập nhật
+     *   - BaseService.update trả về: null (không tìm thấy danh mục để cập nhật)","     *   - null (không có danh mục nào được cập nhật)
+     *   - BaseService.update được gọi với tham số đúng: updateData, ""non-existent-id""",Service phải xử lý được trường hợp không tìm thấy danh mục cần cập nhật,Pass
+124,,,,TC-SV-CATEGORY-UPDATE-003,Kiểm tra xử lý khi cập nhật với dữ liệu không hợp lệ,"     *   - id: ""123"" - ID của danh mục cần cập nhật
+     *   - updateData: null - Dữ liệu cập nhật không hợp lệ
+     *   - BaseService.update ném lỗi: Error(""Invalid data"")","     *   - Exception với message: ""Invalid data""
+     *   - BaseService.update được gọi với tham số đúng: null, ""123""",Service phải ném lại lỗi khi gặp lỗi trong quá trình cập nhật,Pass
+125,getFeatureProduct.early.test.ts,DashboardController,getFeatureProduct,TC-CT-DASHBOARD-FEATUREPRODUCT-001,Kiểm tra phương thức getFeatureProduct trả về kết quả thành công,Không có tham số đầu vào,"   - Đối tượng response thành công được tạo bởi responseHandler.ok()
+   - Chứa danh sách sản phẩm nổi bật: [
+     { product_id: 'P001', product_name: 'Sản phẩm nổi bật 1', total_sold: 150, rating: 4.8 },
+     { product_id: 'P002', product_name: 'Sản phẩm nổi bật 2', total_sold: 120, rating: 4.7 }
+   ]",Kiểm tra luồng thành công cơ bản,Pass
+126,,,,TC-CT-DASHBOARD-FEATUREPRODUCT-002,Kiểm tra phương thức getFeatureProduct trả về danh sách rỗng khi không có sản phẩm nổi bật,Không có tham số đầu vào,"{ success: true, message: 'OK', data: [] }",Kiểm tra trường hợp không có sản phẩm nổi bật,Pass
+127,,,,TC-CT-DASHBOARD-FEATUREPRODUCT-003,Kiểm tra phương thức getFeatureProduct xử lý lỗi khi service gặp lỗi,Không có tham số đầu vào,"{ success: false, message: 'Lỗi khi lấy danh sách sản phẩm nổi bật', data: null }",Kiểm tra xử lý lỗi kiểu Error,Pass
+128,,,,TC-CT-DASHBOARD-FEATUREPRODUCT-004,Kiểm tra phương thức getFeatureProduct xử lý lỗi không phải Error,Không có tham số đầu vào,"{ success: false, message: '{""code"":500,""message"":""Product repository error""}', data: null }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+129,getFinancialSummary.early.test.ts,DashboardController,getFinancialSummary,TC-CT-DASHBOARD-FINANCIAL-001,Kiểm tra phương thức getFinancialSummary trả về kết quả thành công với TimeFilter.Week,timeFilter = TimeFilter.Week,"{ status: 200, data: [{ time_period: '2023-W01', total_revenue: 1000000, total_cost: 700000, profit: 300000 }, { time_period: '2023-W02', total_revenue: 1200000, total_cost: 800000, profit: 400000 }] }",Kiểm tra luồng thành công với bộ lọc theo tuần,Pass
+130,,,,TC-CT-DASHBOARD-FINANCIAL-002,Kiểm tra phương thức getFinancialSummary trả về kết quả thành công với TimeFilter.Month,timeFilter = TimeFilter.Month,"{ status: 200, data: [{ time_period: '2023-01', total_revenue: 5000000, total_cost: 3500000, profit: 1500000 }, { time_period: '2023-02', total_revenue: 5500000, total_cost: 3800000, profit: 1700000 }] }",Kiểm tra luồng thành công với bộ lọc theo tháng,Pass
+131,,,,TC-CT-DASHBOARD-FINANCIAL-003,Kiểm tra phương thức getFinancialSummary xử lý lỗi khi service gặp lỗi,timeFilter = TimeFilter.Quarter,"{ status: 500, message: 'Lỗi khi lấy dữ liệu tài chính' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+132,,,,TC-CT-DASHBOARD-FINANCIAL-004,Kiểm tra phương thức getFinancialSummary xử lý lỗi không phải Error,timeFilter = TimeFilter.Year,"{ status: 500, message: '{""code"":500,""message"":""Database connection error""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+133,getLateProduct.early.test.ts,DashboardController,getLateProduct,TC-CT-DASHBOARD-LATESTPRODUCT-001,Kiểm tra phương thức getLateProduct trả về kết quả thành công,Không có tham số đầu vào,"{ status: 200, data: [{ product_id: 'P001', product_name: 'Sản phẩm mới 1', created_at: '2023-04-15T10:00:00Z', price: 1500000 }, { product_id: 'P002', product_name: 'Sản phẩm mới 2', created_at: '2023-04-14T09:30:00Z', price: 2000000 }] }",Kiểm tra luồng thành công cơ bản,Pass
+134,,,,TC-CT-DASHBOARD-LATESTPRODUCT-002,Kiểm tra phương thức getLateProduct trả về danh sách rỗng khi không có sản phẩm mới,Không có tham số đầu vào,"{ status: 200, data: [] }",Kiểm tra trường hợp không có sản phẩm mới,Pass
+135,,,,TC-CT-DASHBOARD-LATESTPRODUCT-003,Kiểm tra phương thức getLateProduct xử lý lỗi khi service gặp lỗi,Không có tham số đầu vào,"{ status: 500, message: 'Lỗi khi lấy danh sách sản phẩm mới nhất' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+136,,,,TC-CT-DASHBOARD-LATESTPRODUCT-004,Kiểm tra phương thức getLateProduct xử lý lỗi không phải Error,Không có tham số đầu vào,"{ status: 500, message: '{""code"":500,""message"":""Product repository error""}",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+137,getManageUserDashBoard.early.test.ts,DashboardController,getManageUserDashBoard,TC-CT-DASHBOARD-MANAGEUSER-001,Kiểm tra phương thức getManageUserDashBoard trả về kết quả thành công,Không có tham số đầu vào,"{ status: 200, data: { totalUsers: 100, usersThisWeek: 15, usersLastWeek: 10, usersBoughtThisWeek: 8, usersBoughtLastWeek: 5 } }",Kiểm tra luồng thành công cơ bản,Pass
+138,,,,TC-CT-DASHBOARD-MANAGEUSER-002,Kiểm tra phương thức getManageUserDashBoard trả về kết quả với số liệu bằng 0,Không có tham số đầu vào,"{ status: 200, data: { totalUsers: 50, usersThisWeek: 0, usersLastWeek: 0, usersBoughtThisWeek: 0, usersBoughtLastWeek: 0 } }",Kiểm tra trường hợp không có người dùng mới,Pass
+139,,,,TC-CT-DASHBOARD-MANAGEUSER-003,Kiểm tra phương thức getManageUserDashBoard xử lý lỗi khi service gặp lỗi,Không có tham số đầu vào,"{ status: 500, message: 'Lỗi khi lấy thống kê quản lý người dùng' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+140,,,,TC-CT-DASHBOARD-MANAGEUSER-004,Kiểm tra phương thức getManageUserDashBoard xử lý lỗi không phải Error,Không có tham số đầu vào,"{ status: 500, message: '{""code"":500,""message"":""User repository error""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+141,getRevenueByCategory.early.test.ts,DashboardController,getRevenueByCategory,TC-CT-DASHBOARD-REVENUECATEGORY-001,Kiểm tra phương thức getRevenueByCategory trả về kết quả thành công với TimeFilter.Week,timeFilter = TimeFilter.Week,"{ status: 200, data: [{ category_id: 'C001', category_name: 'Điện thoại', total_revenue: 15000000 }, { category_id: 'C002', category_name: 'Laptop', total_revenue: 25000000 }] }",Kiểm tra luồng thành công với bộ lọc theo tuần,Pass
+142,,,,TC-CT-DASHBOARD-REVENUECATEGORY-002,Kiểm tra phương thức getRevenueByCategory trả về kết quả thành công với TimeFilter.Month,timeFilter = TimeFilter.Month,"{ status: 200, data: [{ category_id: 'C002', category_name: 'Laptop', total_revenue: 80000000 }, { category_id: 'C003', category_name: 'Phụ kiện', total_revenue: 35000000 }] }",Kiểm tra luồng thành công với bộ lọc theo tháng,Pass
+143,,,,TC-CT-DASHBOARD-REVENUECATEGORY-003,Kiểm tra phương thức getRevenueByCategory xử lý lỗi khi service gặp lỗi,timeFilter = TimeFilter.Quarter,"{ status: 500, message: 'Lỗi khi lấy doanh thu theo danh mục' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+144,,,,TC-CT-DASHBOARD-REVENUECATEGORY-004,Kiểm tra phương thức getRevenueByCategory xử lý lỗi không phải Error,timeFilter = TimeFilter.Year,"{ status: 500, message: '{""code"":500,""message"":""Category repository error""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+145,getRevenueBySupplier.early.test.ts,DashboardController,getRevenueBySupplier,TC-CT-DASHBOARD-REVENUESUPPLIER-001,Kiểm tra phương thức getRevenueBySupplier trả về kết quả thành công với TimeFilter.Week,timeFilter = TimeFilter.Week,"{ status: 200, data: [{ supplier_id: 'S001', supplier_name: 'Nhà cung cấp A', total_revenue: 12000000 }, { supplier_id: 'S002', supplier_name: 'Nhà cung cấp B', total_revenue: 8000000 }] }",Kiểm tra luồng thành công với bộ lọc theo tuần,Pass
+146,,,,TC-CT-DASHBOARD-REVENUESUPPLIER-002,Kiểm tra phương thức getRevenueBySupplier trả về kết quả thành công với TimeFilter.Month,timeFilter = TimeFilter.Month,"{ status: 200, data: [{ supplier_id: 'S001', supplier_name: 'Nhà cung cấp A', total_revenue: 45000000 }, { supplier_id: 'S003', supplier_name: 'Nhà cung cấp C', total_revenue: 30000000 }] }",Kiểm tra luồng thành công với bộ lọc theo tháng,Pass
+147,,,,TC-CT-DASHBOARD-REVENUESUPPLIER-003,Kiểm tra phương thức getRevenueBySupplier xử lý lỗi khi service gặp lỗi,timeFilter = TimeFilter.Quarter,"{ status: 500, message: 'Lỗi khi lấy doanh thu theo nhà cung cấp' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+148,,,,TC-CT-DASHBOARD-REVENUESUPPLIER-004,Kiểm tra phương thức getRevenueBySupplier xử lý lỗi không phải Error,timeFilter = TimeFilter.Year,"{ status: 500, message: '{""code"":500,""message"":""Supplier repository error""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+149,getTopCustomers.early.test.ts,DashboardController,getTopCustomers,TC-CT-DASHBOARD-TOPCUSTOMERS-001,Kiểm tra phương thức getTopCustomers trả về kết quả thành công với TimeFilter.Week,timeFilter = TimeFilter.Week,"{ status: 200, data: [{ user_id: 'U001', user_name: 'Nguyễn Văn A', total_revenue: 8000000, order_count: 5 }, { user_id: 'U002', user_name: 'Trần Thị B', total_revenue: 6000000, order_count: 4 }] }",Kiểm tra luồng thành công với bộ lọc theo tuần,Pass
+150,,,,TC-CT-DASHBOARD-TOPCUSTOMERS-002,Kiểm tra phương thức getTopCustomers trả về kết quả thành công với TimeFilter.Month,TimeFilter.Month,"{ status: 200, data: [{ user_id: 'U003', user_name: 'Lê Văn C', total_revenue: 25000000, order_count: 15 }, { user_id: 'U001', user_name: 'Nguyễn Văn A', total_revenue: 20000000, order_count: 12 }] }",Kiểm tra luồng thành công với bộ lọc theo tháng,Pass
+151,,,,TC-CT-DASHBOARD-TOPCUSTOMERS-003,Kiểm tra phương thức getTopCustomers xử lý lỗi khi service gặp lỗi,timeFilter = TimeFilter.Quarter,"{ status: 500, message: 'Lỗi khi lấy danh sách khách hàng' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+152,,,,TC-CT-DASHBOARD-TOPCUSTOMERS-004,Kiểm tra phương thức getTopCustomers xử lý lỗi không phải Error,timeFilter = TimeFilter.Year,"{ status: 500, message: '{""code"":500,""message"":""User repository error""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+153,getTopProducts.early.test.ts,DashboardController,getTopProducts,TC-CT-DASHBOARD-TOPPRODUCTS-001,Kiểm tra phương thức getTopProducts trả về kết quả thành công với TimeFilter.Week,TimeFilter.Week,"{ status: 200, data: [{ product_id: 'P001', product_name: 'Sản phẩm 1', total_revenue: 5000000, quantity_sold: 50 }, { product_id: 'P002', product_name: 'Sản phẩm 2', total_revenue: 3000000, quantity_sold: 30 }] }",Kiểm tra luồng thành công với bộ lọc theo tuần,Pass
+154,,,,TC-CT-DASHBOARD-TOPPRODUCTS-002,Kiểm tra phương thức getTopProducts trả về kết quả thành công với TimeFilter.Month,TimeFilter.Month,"{ status: 200, data: [{ product_id: 'P001', product_name: 'Sản phẩm 1', total_revenue: 15000000, quantity_sold: 150 }, { product_id: 'P003', product_name: 'Sản phẩm 3', total_revenue: 12000000, quantity_sold: 120 }] }",Kiểm tra luồng thành công với bộ lọc theo tháng,Pass
+155,,,,TC-CT-DASHBOARD-TOPPRODUCTS-003,Kiểm tra phương thức getTopProducts xử lý lỗi khi service gặp lỗi,timeFilter = TimeFilter.Quarter,"{ status: 500, message: 'Lỗi khi lấy danh sách sản phẩm bán chạy' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+156,,,,TC-CT-DASHBOARD-TOPPRODUCTS-004,Kiểm tra phương thức getTopProducts xử lý lỗi không phải Error,timeFilter = TimeFilter.Year,"{ status: 500, message: '{""code"":500,""message"":""Database query failed""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+157,summaryStatistic.early.test.ts,DashboardController,summaryStatistic,TC-CT-DASHBOARD-SUMMARY-001,Kiểm tra phương thức summaryStatistic trả về kết quả thành công với TimeFilter.Week,timeFilter = TimeFilter.Week,"{ status: 200, data: { thisTime: { revenue: 1000, product: 50, customer: 20, order: 10 }, lastTime: { revenue: 800, product: 40, customer: 15, order: 8 } } }",Kiểm tra luồng thành công với bộ lọc theo tuần,Pass
+158,,,,TC-CT-DASHBOARD-SUMMARY-002,Kiểm tra phương thức summaryStatistic trả về kết quả thành công với TimeFilter.Month,timeFilter = TimeFilter.Month,"{ status: 200, data: { thisTime: { revenue: 2000, product: 100, customer: 40, order: 20 }, lastTime: { revenue: 1800, product: 90, customer: 35, order: 18 } } }",Kiểm tra luồng thành công với bộ lọc theo tháng,Pass
+159,,,,TC-CT-DASHBOARD-SUMMARY-003,Kiểm tra phương thức summaryStatistic xử lý lỗi khi service gặp lỗi,timeFilter = TimeFilter.Quarter,"{ status: 500, message: 'Service error' }",Kiểm tra xử lý lỗi kiểu Error,Pass
+160,,,,TC-CT-DASHBOARD-SUMMARY-004,Kiểm tra phương thức summaryStatistic xử lý lỗi không phải Error,timeFilter = TimeFilter.Year,"{ status: 500, message: '{""message"":""Non-error exception""}' }",Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+161,dateHelpers.early.test.ts,DashboardService,dateHelpers,TC-SV-DASHBOARD-ADDDAYS-001,Kiểm tra phương thức addDays thêm ngày đúng,"date = '2023-04-15', days = 5",Ngày mới là '2023-04-20',Kiểm tra thêm ngày dương,Pass
+162,,,,TC-SV-DASHBOARD-ADDDAYS-002,Kiểm tra phương thức addDays trừ ngày đúng,"2023-04-15', days = -5",Ngày mới là '2023-04-10',Kiểm tra thêm ngày âm (trừ ngày),Pass
+163,,,,TC-SV-DASHBOARD-ADDDAYS-003,Kiểm tra phương thức addDays xử lý đúng khi chuyển tháng,"2023-04-30', days = 5",Ngày mới là '2023-05-05',Kiểm tra thêm ngày qua tháng mới,Pass
+164,getFeatureProduct.early.test.ts,DashboardService,getFeatureProduct,TC-SV-DASHBOARD-FEATUREPRODUCT-001,Kiểm tra phương thức getFeatureProduct trả về danh sách sản phẩm nổi bật đúng,Không có tham số đầu vào,"[{ product_id: 'P001', product_name: 'Sản phẩm nổi bật 1', total_sold: 150, rating: 4.8 }, { product_id: 'P002', product_name: 'Sản phẩm nổi bật 2', total_sold: 120, rating: 4.7 }]",Kiểm tra luồng thành công cơ bản,Pass
+165,,,,TC-SV-DASHBOARD-FEATUREPRODUCT-002,Kiểm tra phương thức getFeatureProduct xử lý đúng khi repository trả về mảng rỗng,Không có tham số đầu vào,[],Kiểm tra xử lý mảng rỗng,Pass
+166,,,,TC-SV-DASHBOARD-FEATUREPRODUCT-003,Kiểm tra phương thức getFeatureProduct xử lý lỗi khi repository ném ra lỗi,Không có tham số đầu vào,Error('Product repository error'),Kiểm tra xử lý lỗi từ repository,Pass
+167,,,,TC-SV-DASHBOARD-FEATUREPRODUCT-004,Kiểm tra phương thức getFeatureProduct xử lý đúng khi repository trả về null,Không có tham số đầu vào,null,Kiểm tra xử lý giá trị null,Pass
+168,getFinancialSummaryByTime.early.test.ts,DashboardService,getFinancialSummaryByTime,TC-SV-DASHBOARD-FINANCIAL-001,Kiểm tra phương thức getFinancialSummaryByTime trả về kết quả thống kê tài chính đúng,timeFilter = TimeFilter.Week,"[{ time_period: '2023-W15', total_revenue: 1000000, total_cost: 700000, profit: 300000 }, { time_period: '2023-W16', total_revenue: 1200000, total_cost: 800000, profit: 400000 }]",Kiểm tra luồng thành công cơ bản,Pass
+169,,,,TC-SV-DASHBOARD-FINANCIAL-002,Kiểm tra phương thức getFinancialSummaryByTime xử lý đúng khi có giá trị null hoặc undefined,timeFilter = TimeFilter.Month,"[{ time_period: '2023-04', total_revenue: 0, total_cost: 700000, profit: 300000 }, { time_period: '2023-05', total_revenue: 1200000, total_cost: 0, profit: 0 }]",Kiểm tra xử lý giá trị null/undefined,Pass
+170,,,,TC-SV-DASHBOARD-FINANCIAL-003,Kiểm tra phương thức getFinancialSummaryByTime xử lý đúng khi repository trả về mảng rỗng,timeFilter = TimeFilter.Quarter,[],Kiểm tra xử lý mảng rỗng,Pass
+171,,,,TC-SV-DASHBOARD-FINANCIAL-004,Kiểm tra phương thức getFinancialSummaryByTime xử lý lỗi khi repository ném ra lỗi,TimeFilter.Year,Error('Database connection error'),Kiểm tra xử lý lỗi từ repository,Pass
+172,getLatestProduct.early.test.ts,DashboardService,getLatestProduct,TC-SV-DASHBOARD-LATESTPRODUCT-001,Kiểm tra phương thức getLatestProduct trả về danh sách sản phẩm mới nhất đúng,Không có tham số đầu vào,"[{ product_id: 'P001', product_name: 'Sản phẩm mới 1', created_at: '2023-04-15T10:00:00Z', price: 1500000 }, { product_id: 'P002', product_name: 'Sản phẩm mới 2', created_at: '2023-04-14T09:30:00Z', price: 2000000 }]",Kiểm tra luồng thành công cơ bản,Pass
+173,,,,TC-SV-DASHBOARD-LATESTPRODUCT-002,Kiểm tra phương thức getLatestProduct xử lý đúng khi repository trả về mảng rỗng,Không có tham số đầu vào,[],Kiểm tra xử lý mảng rỗng,Pass
+174,,,,TC-SV-DASHBOARD-LATESTPRODUCT-003,Kiểm tra phương thức getLatestProduct xử lý lỗi khi repository ném ra lỗi,Không có tham số đầu vào,Error('Product repository error'),Kiểm tra xử lý lỗi từ repository,Pass
+175,,,,TC-SV-DASHBOARD-LATESTPRODUCT-004,Kiểm tra phương thức getLatestProduct xử lý đúng khi repository trả về null,Không có tham số đầu vào,null,Kiểm tra xử lý giá trị null,Pass
+176,getManageUserDashBoard.early.test.ts,DashboardService,getManageUserDashBoard,TC-SV-DASHBOARD-MANAGEUSER-001,Kiểm tra phương thức getManageUserDashBoard trả về thống kê người dùng đúng,Không có tham số đầu vào,"{ totalUsers: 100, usersThisWeek: 15, usersLastWeek: 10, usersBoughtThisWeek: { userCount: 8 }, usersBoughtLastWeek: { userCount: 5 } }",Kiểm tra luồng thành công cơ bản,Pass
+177,,,,TC-SV-DASHBOARD-MANAGEUSER-002,Kiểm tra phương thức getManageUserDashBoard xử lý lỗi khi repository ném ra lỗi,Không có tham số đầu vào,{ error: 'Database connection error' },Kiểm tra xử lý lỗi từ repository,Pass
+178,,,,TC-SV-DASHBOARD-MANAGEUSER-003,Kiểm tra phương thức getManageUserDashBoard xử lý đúng khi repository trả về null,Không có tham số đầu vào,"{ totalUsers: null, usersThisWeek: null, usersLastWeek: null, usersBoughtThisWeek: null, usersBoughtLastWeek: null }",Kiểm tra xử lý giá trị null,Pass
+179,,,,TC-SV-DASHBOARD-MANAGEUSER-004,Kiểm tra phương thức getManageUserDashBoard xử lý đúng khi có lỗi không phải Error,Không có tham số đầu vào,{ error: 'Lỗi khi lấy thống kê người dùng' },Kiểm tra xử lý lỗi không phải kiểu Error,Pass
+180,getRevenueByCategory.early.test.ts,DashboardService,getRevenueByCategory,TC-SV-DASHBOARD-REVENUECATEGORY-001,Kiểm tra phương thức getRevenueByCategory trả về doanh thu theo danh mục đúng,timeFilter = TimeFilter.Week,"[{ category_id: 'C001', category_name: 'Điện thoại', total_revenue: 15000000 }, { category_id: 'C002', category_name: 'Laptop', total_revenue: 25000000 }]",Kiểm tra luồng thành công cơ bản,Pass
+181,,,,TC-SV-DASHBOARD-REVENUECATEGORY-002,Kiểm tra phương thức getRevenueByCategory hoạt động đúng với các bộ lọc thời gian khác nhau,timeFilter = TimeFilter.Month,"[{ category_id: 'C002', category_name: 'Laptop', total_revenue: 80000000 }, { category_id: 'C003', category_name: 'Phụ kiện', total_revenue: 35000000 }]",Kiểm tra với bộ lọc theo tháng,Pass
+182,,,,TC-SV-DASHBOARD-REVENUECATEGORY-003,Kiểm tra phương thức getRevenueByCategory xử lý đúng khi repository trả về mảng rỗng,timeFilter = TimeFilter.Quarter,[],Kiểm tra xử lý mảng rỗng,Pass
+183,,,,TC-SV-DASHBOARD-REVENUECATEGORY-004,Kiểm tra phương thức getRevenueByCategory xử lý lỗi khi repository ném ra lỗi,timeFilter = TimeFilter.Year,Error('Category repository error'),Kiểm tra xử lý lỗi từ repository,Pass
+184,getRevenueBySupplier.early.test.ts,DashboardService,getRevenueBySupplier,TC-SV-DASHBOARD-REVENUESUPPLIER-001,Kiểm tra phương thức getRevenueBySupplier trả về doanh thu theo nhà cung cấp đúng,timeFilter = TimeFilter.Week,"[{ supplier_id: 'S001', supplier_name: 'Nhà cung cấp A', total_revenue: 12000000 }, { supplier_id: 'S002', supplier_name: 'Nhà cung cấp B', total_revenue: 8000000 }]",Kiểm tra luồng thành công cơ bản,Pass
+185,,,,TC-SV-DASHBOARD-REVENUESUPPLIER-002,Kiểm tra phương thức getRevenueBySupplier hoạt động đúng với các bộ lọc thời gian khác nhau,timeFilter = TimeFilter.Month,"[{ supplier_id: 'S001', supplier_name: 'Nhà cung cấp A', total_revenue: 45000000 }, { supplier_id: 'S003', supplier_name: 'Nhà cung cấp C', total_revenue: 30000000 }]",Kiểm tra với bộ lọc theo tháng,Pass
+186,,,,TC-SV-DASHBOARD-REVENUESUPPLIER-003,Kiểm tra phương thức getRevenueBySupplier xử lý đúng khi repository trả về mảng rỗng,timeFilter = TimeFilter.Quarter,[],Kiểm tra xử lý mảng rỗng,Pass
+187,,,,TC-SV-DASHBOARD-REVENUESUPPLIER-004,Kiểm tra phương thức getRevenueBySupplier xử lý lỗi khi repository ném ra lỗi,timeFilter = TimeFilter.Year,Error('Supplier repository error'),Kiểm tra xử lý lỗi từ repository,Pass
+188,getSummaryStatistic.early.test.ts,DashboardService,getSummaryStatistic,TC-SV-DASHBOARD-SUMMARY-001,Kiểm tra phương thức getSummaryStatistic trả về kết quả thống kê đúng,timeFilter = TimeFilter.Week,"{ thisTime: { revenue: 1000000, product: 50, customer: 20, order: 30 }, lastTime: { revenue: 800000, product: 40, customer: 15, order: 25 } }",Kiểm tra luồng thành công cơ bản,Pass
+189,,,,TC-SV-DASHBOARD-SUMMARY-002,Kiểm tra phương thức getSummaryStatistic hoạt động đúng với các bộ lọc thời gian khác nhau,timeFilter = TimeFilter.Month,"{ thisTime: { revenue: 5000000, product: 200, customer: 80, order: 120 }, lastTime: { revenue: 4500000, product: 180, customer: 70, order: 100 } }",Kiểm tra với bộ lọc theo tháng,Pass
+190,,,,TC-SV-DASHBOARD-SUMMARY-003,Kiểm tra phương thức getSummaryStatistic xử lý lỗi khi timeFilterCreate ném ra lỗi,timeFilter = 'InvalidFilter' (không hợp lệ),Error('Invalid time filter'),Kiểm tra xử lý lỗi với bộ lọc không hợp lệ,Pass
+191,getTopCustomersByRevenue.early.test.ts,DashboardService,getTopCustomersByRevenue,TC-SV-DASHBOARD-TOPCUSTOMERS-001,Kiểm tra phương thức getTopCustomersByRevenue trả về danh sách khách hàng có doanh thu cao đúng,timeFilter = TimeFilter.Week,"[{ user_id: 'U001', user_name: 'Nguyễn Văn A', total_revenue: 8000000, order_count: 5 }, { user_id: 'U002', user_name: 'Trần Thị B', total_revenue: 6000000, order_count: 4 }]",Kiểm tra luồng thành công cơ bản,Pass
+192,,,,TC-SV-DASHBOARD-TOPCUSTOMERS-002,Kiểm tra phương thức getTopCustomersByRevenue hoạt động đúng với các bộ lọc thời gian khác nhau,timeFilter = TimeFilter.Month,"[{ user_id: 'U003', user_name: 'Lê Văn C', total_revenue: 25000000, order_count: 15 }, { user_id: 'U001', user_name: 'Nguyễn Văn A', total_revenue: 20000000, order_count: 12 }]",Kiểm tra với bộ lọc theo tháng,Pass
+193,,,,TC-SV-DASHBOARD-TOPCUSTOMERS-003,Kiểm tra phương thức getTopCustomersByRevenue xử lý đúng khi repository trả về mảng rỗng,TimeFilter.Quarter,[],Kiểm tra xử lý mảng rỗng,Pass
+194,,,,TC-SV-DASHBOARD-TOPCUSTOMERS-004,Kiểm tra phương thức getTopCustomersByRevenue xử lý lỗi khi repository ném ra lỗi,timeFilter = TimeFilter.Year,Error('User repository error'),Kiểm tra xử lý lỗi từ repository,Pass
+195,getTopProductsByRevenue.early.test.ts,DashboardService,getTopProductsByRevenue,TC-SV-DASHBOARD-TOPPRODUCTS-001,Kiểm tra phương thức getTopProductsByRevenue trả về danh sách sản phẩm bán chạy đúng,timeFilter = TimeFilter.Week,"[{ product_id: 'P001', product_name: 'Sản phẩm 1', total_revenue: 5000000, quantity_sold: 50 }, { product_id: 'P002', product_name: 'Sản phẩm 2', total_revenue: 3000000, quantity_sold: 30 }]",Kiểm tra luồng thành công cơ bản,Pass
+196,,,,TC-SV-DASHBOARD-TOPPRODUCTS-002,Kiểm tra phương thức getTopProductsByRevenue hoạt động đúng với các bộ lọc thời gian khác nhau,timeFilter = TimeFilter.Month,"[{ product_id: 'P001', product_name: 'Sản phẩm 1', total_revenue: 15000000, quantity_sold: 150 }, { product_id: 'P003', product_name: 'Sản phẩm 3', total_revenue: 12000000, quantity_sold: 120 }]",Kiểm tra với bộ lọc theo tháng,Pass
+197,,,,TC-SV-DASHBOARD-TOPPRODUCTS-003,Kiểm tra phương thức getTopProductsByRevenue xử lý đúng khi repository trả về mảng rỗng,timeFilter = TimeFilter.Quarter,[],Kiểm tra xử lý mảng rỗng,Pass
+198,,,,TC-SV-DASHBOARD-TOPPRODUCTS-004,Kiểm tra phương thức getTopProductsByRevenue xử lý lỗi khi repository ném ra lỗi,timeFilter = TimeFilter.Year,Error('Database query failed'),Kiểm tra xử lý lỗi từ repository,Pass
+199,lastTimeFilterCreate.early.test.ts,DashboardService,lastTimeFilterCreate,TC-SV-DASHBOARD-LASTTIMEFILTER-001,Kiểm tra phương thức lastTimeFilterCreate trả về khoảng thời gian trước đó đúng với TimeFilter.Week,"startDate, endDate, timeFilter = TimeFilter.Week",Đối tượng chứa lastStartDate và lastEndDate tương ứng với tuần trước,Kiểm tra bộ lọc theo tuần,Pass
+200,,,,TC-SV-DASHBOARD-LASTTIMEFILTER-002,Kiểm tra phương thức lastTimeFilterCreate trả về khoảng thời gian trước đó đúng với TimeFilter.Month,"startDate, endDate, timeFilter = TimeFilter.Month",Đối tượng chứa lastStartDate và lastEndDate tương ứng với tháng trước,Kiểm tra bộ lọc theo tháng,Fail
+201,,,,TC-SV-DASHBOARD-LASTTIMEFILTER-003,Kiểm tra phương thức lastTimeFilterCreate trả về khoảng thời gian trước đó đúng với TimeFilter.Quarter,"startDate, endDate, timeFilter = TimeFilter.Quarter",Đối tượng chứa lastStartDate và lastEndDate tương ứng với quý trước,Kiểm tra bộ lọc theo quý,Fail
+202,,,,TC-SV-DASHBOARD-LASTTIMEFILTER-004,Kiểm tra phương thức lastTimeFilterCreate trả về khoảng thời gian trước đó đúng với TimeFilter.Year,"startDate, endDate, timeFilter = TimeFilter.Year",Đối tượng chứa lastStartDate và lastEndDate tương ứng với năm trước,Kiểm tra bộ lọc theo năm,Pass
+203,,,,TC-SV-DASHBOARD-LASTTIMEFILTER-005,Kiểm tra phương thức lastTimeFilterCreate ném ra lỗi khi bộ lọc không hợp lệ,"startDate, endDate, timeFilter = 'InvalidFilter' (không hợp lệ)",Ném ra lỗi với thông báo 'Unsupported time period for lastTimeFilterCreate.',Kiểm tra xử lý lỗi với bộ lọc không hợp lệ,Pass
+204,timeFilterCreate.early.test.ts,DashboardService,timeFilterCreate,TC-SV-DASHBOARD-TIMEFILTER-001,Kiểm tra phương thức timeFilterCreate trả về khoảng thời gian đúng với TimeFilter.Week,timeFilter = TimeFilter.Week,Đối tượng chứa startDate và endDate tương ứng với tuần hiện tại,Kiểm tra bộ lọc theo tuần,Pass
+205,,,,TC-SV-DASHBOARD-TIMEFILTER-002,Kiểm tra phương thức timeFilterCreate trả về khoảng thời gian đúng với TimeFilter.Month,timeFilter = TimeFilter.Month,Đối tượng chứa startDate và endDate tương ứng với tháng hiện tại,Kiểm tra bộ lọc theo tháng,Pass
+206,,,,TC-SV-DASHBOARD-TIMEFILTER-003,Kiểm tra phương thức timeFilterCreate trả về khoảng thời gian đúng với TimeFilter.Year,timeFilter = TimeFilter.Year,Đối tượng chứa startDate và endDate tương ứng với năm hiện tại,Kiểm tra bộ lọc theo năm,Pass
+207,,,,TC-SV-DASHBOARD-TIMEFILTER-004,Kiểm tra phương thức timeFilterCreate trả về khoảng thời gian đúng với TimeFilter.Quarter,timeFilter = TimeFilter.Quarter,Đối tượng chứa startDate và endDate tương ứng với quý hiện tại,Kiểm tra bộ lọc theo quý,Pass
+208,import.controller.spec.ts,ImportController,constructor,TC-IPC-001,Kiểm tra controller đã được khởi tạo thành công,Instance của ImportController,Controller được định nghĩa (không null/undefined),,Pass
+209,,,create,TC-IPC-002,Kiểm tra việc tạo mới đơn nhập hàng thành công,"một đối tượng CreateImportDTO:
+- totalAmout : 1000
+- import_code: 'IMP001'
+- user_id: '1'
+- product : [product_id: '1',  quantity: 10, price_in: 100]","Trả về thông tin đơn nhập hàng mới với status 200, message : SUCCESS!",,Pass
+210,,,,TC-IPC-003,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tạo,"1. một đối tượng CreateImportDTO:
+- totalAmout : 1000
+- import_code: 'IMP001'
+- user_id: '1'
+- product : [product_id: '1',  quantity: 10, price_in: 100]
+2. service throw Error('Creation failed')","Trả về thông báo lỗi với status 500, message: 'Creation failed', sucess: false",,Pass
+211,,,,TC-IPC-004,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"1.một đối tượng CreateImportDTO:
+- totalAmout : 1000
+- import_code: 'IMP001'
+- user_id: '1'
+- product : [product_id: '1',  quantity: 10, price_in: 100]
+2. service throw { msg: 'Non-error object' }","Trả về thông báo lỗi với status 500, message là JSON string của object, success false",,Pass
+212,import.controller.spec.ts,ImportController,getImportCodeMax,TC-IPC-005,Kiểm tra controller trả về mã nhập hàng lớn nhất từ service,Giá trị mock từ service: mã nhập hàng lớn nhất hiện tại ('IMP999'),"Trả về mã nhập hàng mới với status 200, message : SUCCESS!, succes : true",,Pass
+213,,,,TC-IPC-006,Kiểm tra controller xử lý đúng khi service throw Error,Service throw Error('Database error'),"Trả về thông báo lỗi với status 500, message: Database error, success false",,Pass
+214,,,,TC-IPC-007, Kiểm tra controller xử lý đúng khi service throw một object không phải Error,Service throw { msg: 'Non-error object' },"Trả về thông báo lỗi với status 500, message là JSON string của object, success false",,Pass
+215,,,findAll,TC-IPC-008,Kiểm tra controller trả về danh sách bản ghi nhập hàng từ service,"- số trang hiện tại : 1, số lượng bản ghi trên mỗi trang :  10
+","Trả về danh sách đơn nhập hàng với status 200, message : SUCCESS!, success: true, data : mockImports = [
+        { id: '1', import_code: 'IMP001' },
+        { id: '2', import_code: 'IMP002' },
+      ];",,Pass
+216,,,,TC-IPC-009,Kiểm tra controller xử lý đúng khi service throw Error,"page = 1, limit = 10, service throw Error('Find all failed')","Trả về thông báo lỗi với status 500, message 'Find all failed', success false",,Pass
+217,,,,TC-IPC-010,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, service throw { msg: 'Non-error object' }","Trả về thông báo lỗi với status 500, message là JSON string của object, success false",,Pass
+218,import.controller.spec.ts,ImportController,findOne,TC-IPC-011,Kiểm tra controller trả về thông tin chi tiết bản ghi nhập hàng dựa trên ID,"- importId :1
+","Trả về thông tin đơn nhập hàng với status 200, message :  SUCCESS!, data : mockImport = { id: importId, import_code: 'IMP001' };",,Pass
+219,,,,TC-IPC-012,Kiểm tra controller xử lý đúng khi service throw Error,"importId = '1', service throw Error('Record not found')","Trả về thông báo lỗi với status 500, message: Record not found, success : false",,Pass
+220,,,,TC-IPC-013,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"importId = '1', service throw { msg: 'Non-error object' }","Trả về thông báo lỗi với status 500, message là JSON string của object, success false",,Pass
+221,import.controller.spec.ts,ImportController,update,TC-IPC-014,Kiểm tra việc cập nhật thông tin đơn nhập hàng thành công,"- đối tượng UpdateImpotyDTO:
+_ import_id :1
+_ import_code :'IMP001'
+_ user_id : 1
+_ totalAmount: 1500
+_  products: [
+          {
+            product_id: '1',
+            quantity: 15,
+            price_in: 100,
+          },
+        ]","Trả về thông tin đơn hàng đã cập nhật với status 200, message: SUCCESS!, success: true, data : 
+updatedImport = {
+        id: '1',
+        import_code: 'IMP001',
+        user_id: '1',
+        totalAmount: 1500,
+        products: [
+          {
+            product_id: '1',
+            quantity: 15,
+            price_in: 100,
+          },
+        ],
+      };",,Pass
+222,import.controller.spec.ts,ImportController,update,TC-IPC-015,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình cập nhật,"1.đối tượng UpdateImpotyDTO:
+_ import_id :1
+_ import_code :'IMP001'
+_ user_id : 1
+_ totalAmount: 1500
+_  products: [
+          {
+            product_id: '1',
+            quantity: 15,
+            price_in: 100,
+          },
+        ]
+2. service throw Error('Update failed')","Trả về thông báo lỗi với status 500, message: Update failed, success : false",,Pass
+223,,,,TC-IPC-016,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"1.đối tượng UpdateImpotyDTO:
+_ import_id :1
+_ import_code :'IMP001'
+_ user_id : 1
+_ totalAmount: 1500
+_  products: [
+          {
+            product_id: '1',
+            quantity: 15,
+            price_in: 100,
+          },
+        ]
+2. service throw { msg: 'Non-error object' }","Trả về thông báo lỗi với status 500, message là JSON string của object, success false",,Pass
+224,import.controller.spec.ts,ImportController,delete,TC-IPC-017,Kiểm tra controller xóa bản ghi nhập hàng thành công thông qua service,- ID của đơn nhập hàng cần xóa importId = 1,"Trả về thông báo thành công với thông tin xóa (deleted: true), status 200, success true, message SUCCESS!",,Pass
+225,,,,TC-IPC-018,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình xóa,"importId = '1', service throw Error('Delete failed')","Trả về thông báo lỗi với status 500, message 'Delete failed', success false",,Pass
+226,,,,TC-IPC-019,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"importId = '1', service throw { msg: 'Non-error object' }","Trả về thông báo lỗi với status 500, message là JSON string của object, success false",,Pass
+227,import.service.spec.ts,ImportService,constructor,TC-IPS-001,Đảm bảo service được khởi tạo thành công,Instance của ImportService,Service được định nghĩa (không null/undefined),,Pass
+228,import.service.spec.ts,ImportService,create,TC-IPS-002,Kiểm tra luồng tạo đơn nhập hàng hoạt động đúng,"- một đối tượng CreateImportDTO:
+_ totalAmout : 1000
+_ import_code: 'IMP001'
+_ user_id: '1'
+_ product : [product_id: '1',  quantity: 10, price_in: 100]
+- mockImportEntity = {
+       id: '1',
+        employee_id: 'user_id',
+       total_amount: 1000,
+       import_code: 'IP001'
+     }",Đơn nhập hàng mới được tạo thành công,,Pass
+229,import.service.spec.ts,ImportService,create,TC-IPS-003,Kiểm tra luồng xử lý lỗi khi tạo đơn nhập hàng thất bại,"- một đối tượng CreateImportDTO:
+_ totalAmout : 1000
+_ import_code: 'IMP001'
+_ user_id: '1'
+_ product : [product_id: '1',  quantity: 10, price_in: 100]
+
+",Throw InternalServerErrorException('ORDER.OCCUR ERROR WHEN SAVE TO DATABASE!'),,Pass
+230,import.service.spec.ts,ImportService,create,TC-IPS-004,Kiểm tra release connection trong finally block,"- createDto: CreateImportDTO = {
+        totalAmount: 1000,
+        import_code: 'IMP001',
+        user_id: '1',
+        products: [{
+          product_id: '1',
+          quantity: 10,
+          price_in: 100
+        }]
+      }
+    e",Connection được release,,Pass
+231,import.service.spec.ts,ImportService,create,TC-IPS-005, Kiểm tra validate danh sách sản phẩm rỗng,"- đối tượng CreateImportDTO: 
+{
+        totalAmount: 1000,
+        import_code: 'IMP001',
+        user_id: '1',
+        products: []
+     }","Throw InternalServerErrorException :
+ORDER.OCCUR ERROR WHEN SAVE TO DATABASE!",,Pass
+232,import.service.spec.ts,ImportService,findAll,TC-IPS-006,Kiểm tra chức năng phân trang,"- số trang hiện tại page=1, số lượng bản ghi trên 1 trang limit=10
+- mockImports = [{
+        id: '1',
+        import_code: 'IMP001',
+        total_amount: 1000,
+        employee_id: '1',
+        createdAt: Date,
+        employee: null,
+        importProducts: []
+      }, ...]
+    - mockTotal = 2", Danh sách đơn nhập hàng và tổng số bản ghi,,Pass
+233,,,,TC-IPS-007,Kiểm tra xử lý khi không có dữ liệu,"- page = 1
+- limit = 10
+",Danh sách rỗng và tổng = 0,,Pass
+234,,,,TC-IPS-008,"Đảm bảo tính toán phân trang skip, take chính xác","-page = 2
+- limit = 15
+","skip=15, take=15",,Pass
+235,,,,TC-IPS-009,Kiểm tra xử lý khi có lỗi truy vấn,"- page = 1
+- limit = 10
+",Throw error : Database error,,Pass
+236,import.service.spec.ts,ImportService,getImportCodeMax,TC-IPS-010,Kiểm tra sinh mã đầu tiên khi chưa có đơn nhập hàng nào,Không có đơn nhập nào,Mã IPC00001,,Pass
+237,,,,TC-IPS-011,Kiểm tra tăng mã tự động,Mã hiện tại IPC00001,Mã mới IPC00002,,Pass
+238,,,,TC-IPS-012,Kiểm tra xử lý khi có lỗi query,"- Mock createQueryBuilder() để throw Error('Query builder error')
+ - Mock connection handling để test error propagation",Throw error : Query builder error,,Pass
+239,import.service.spec.ts,ImportService,findOne,TC-IPS-013,Kiểm tra tìm kiếm đơn theo ID,"- id = '1'
+
+      }","Thông tin đơn nhập hàng:
+mockImport = {
+        id: '1',
+        import_code: 'IMP001',
+        importProducts: [],
+      };",,Pass
+240,,,,TC-IPS-014,Kiểm tra xử lý khi không tìm thấy đơn nhập hàng,"- id = '999' (ID không tồn tại)
+ ",Throw error 'IMPORT.IMPORT DETAIL NOT EXISTS!,,Pass
+241,,,,TC-IPS-015,Kiểm tra xử lý khi có lỗi truy vấn,"- id = '1'
+ - Mock importRepo.findOne() để throw Error('Database error')
+ - Mock error handling để test exception propagation",Throw error : Database error,,Pass
+242,import.service.spec.ts,ImportService,update,TC-IPS-016,Kiểm tra việc cập nhật thông tin sản phẩm đã có,"existingProduct = {
+        product_id: '1',
+        quantity: 10,
+        price_in: 100
+     }
+    - updateDto = {
+        import_id: '1',
+        totalAmount: 2000,
+        user_id: 'user1',
+        import_code: 'IMP001',
+        products: [{
+          product_id: '1',
+         quantity: 20,
+          price_in: 150
+        }]
+      }",Cập nhật thông tin sản phẩm hiện có,,Pass
+243,,,,TC-IPS-017,Kiểm tra việc thêm sản phẩm mới khi cập nhật,"    - updateDto = {
+        import_id: '1',
+        totalAmount: 1000,
+        user_id: 'user1',
+        import_code: 'IMP001',
+        products: [{
+          product_id: '2',
+          quantity: 5,
+         price_in: 200
+       }]
+      }", sản phẩm mới được thêm vào danh sách,,Pass
+244,,,,TC-IPS-018,Kiểm tra xử lý lỗi khi đơn hàng không tồn tại," updateDto = {
+        import_id: '999',
+        totalAmount: 1000,
+        user_id: 'user1',
+        import_code: 'IMP001',
+        products: []
+      }
+    - Mock importRepo.findOne() return null","Throw NotFoundException : 
+IMPORT.ORDER UPDATE NOT FOUND!",,Pass
+245,import.service.spec.ts,ImportService,delete,TC-IPS-019,Kiểm tra việc xóa đơn nhập hàng,- id = '1',Trả về kết quả xóa thành công (affected: 1),,Pass
+246,,,,TC-IPS-020,Kiểm tra xử lý khi xóa đơn hàng không tồn tại,- id = '999' (không tồn tại trong DB),Trả về kết quả không có bản ghi nào bị ảnh hưởng (affected: 0),,Pass
+247,,,,TC-IPS-021,Kiểm tra xử lý khi có lỗi database trong quá trình xóa,- id = '1',"Throw error từ database:
+Database error",,Pass
+248,location_user.controller.spec.ts,LocationUserController,constructor,TC-LUC-001,Kiểm tra controller đã được khởi tạo thành công,Instance của LocationUserController,Controller được định nghĩa (không null/undefined),,Pass
+249,,,getAllLocation,TC-LUC-002,Kiểm tra việc lấy danh sách địa chỉ theo user_id,"- user_id: 'test-user-id'
+"," Thông báo thành công với status 200, message: SUCCESS!, success: true, data : ockLocations = [
+        { id: '1', name: 'Location 1', user_id },
+        { id: '2', name: 'Location 2', user_id },
+      ]; 
+và tổng số bản ghi =2",,Pass
+250,,,,TC-LUC-003,Kiểm tra xử lý lỗi khi có vấn đề với database,"- user_id: 'test-user-id'
+","Thông báo lỗi với status 500, message : 
+Database error",,Pass
+251,,,,TC-LUC-004,Kiểm tra xử lý khi service trả về một object không phải Error,-user_id = 'test-user-id',"Thông báo lỗi với status 500, message là JSON string của object, sucess: false",,Pass
+252,,,,TC-LUC-005,Kiểm tra xử lý khi không có địa chỉ nào cho user_id,user_id = 'test-user-id',"status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: { data: [], total: 0 },",,Pass
+253,location_user.controller.spec.ts,LocationUserController,getAllLocationAdmin,TC-LUC-006,Kiểm tra chức năng xem danh sách địa chỉ dành cho admin,- user_id: 'admin-user-id',"status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: { data: mockLocations (danh sách địa chỉ) = [
+        { id: '1', name: 'Location 1', user_id },
+        { id: '2', name: 'Location 2', user_id },
+      ]; , total (tổng số bản ghi): 2 },
+      });",,Pass
+254,,,,TC-LUC-007,Kiểm tra xử lý lỗi trong view admin,"- user_id: 'admin-user-id'
+-  service throw Error('Admin access error')","Thông báo lỗi với status 500, message 'Admin access error', success false",,Pass
+255,,,,TC-LUC-008,Kiểm tra service được gọi với user_id_get đúng,user_id_get = 'admin-id-2',Service được gọi với tham số { user_id: user_id_get },,Pass
+256,,,,TC-LUC-009,Kiểm tra xử lý khi service trả về một object không phải Error,user_id_get = 'admin-id-2',"Thông báo lỗi với status 500, message là JSON string của object, sucess: false",,Pass
+257,,,,TC-LUC-010,Kiểm tra xử lý khi service không tìm thấy dữ liệu,user_id_get = 'admin-id-2',"status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: null,",,Pass
+258,location_user.controller.spec.ts,LocationUserController,create,TC-LUC-011,Kiểm tra việc tạo mới địa chỉ,"- CreateLocationUserDto:
+        + name: 'New Location'
+        + address: '123 Street'
+        + phone: '1234567890'
+        + default_location: true
+        + user_id: 'test-user-id'","Thông tin địa chỉ mới được tạo với:
+- status: 200
+      - message: 'SUCCESS!'
+      - success: true
+      - data: 
+id: '1',
+name: 'New Location',
+        address: '123 Street',
+        phone: '1234567890',
+        default_location: true,
+        user_id: 'test-user-id',",,Pass
+259,,,,TC-LUC-012, Kiểm tra xử lý lỗi trong quá trình tạo địa chỉ,"- CreateLocationUserDto:
+        + name: 'New Location'
+        + address: '123 Street'
+        + phone: '1234567890'
+        + default_location: true
+        + user_id: 'test-user-id'","Thông báo lỗi với:
+- status: 500
+      - message: 'Creation failed'
+      - success: false",,Pass
+260,,,,TC-LUC-013,Kiểm tra xử lý khi DTO thiếu trường name,"createDto: any = {
+        address: '123 Street',
+        phone: '1234567890',
+        default_location: true,
+        user_id: 'test-user-id',
+      };","Thông báo lỗi với status 500, message 'Validation failed', success false",,Pass
+261,,,,TC-LUC-014,Kiểm tra xử lý khi service trả về một object không phải Error,"createDto: CreateLocationUserDto = {
+        name: 'New Location',
+        address: '123 Street',
+        phone: '1234567890',
+        default_location: true,
+        user_id: 'test-user-id',
+      };","Thông báo lỗi với status 500, message là JSON string của object, sucess: false",,Pass
+262,,,,TC-LUC-015,Kiểm tra xử lý khi service không trả về dữ liệu,"createDto: CreateLocationUserDto = {
+        name: 'New Location',
+        address: '123 Street',
+        phone: '1234567890',
+        default_location: true,
+        user_id: 'test-user-id',
+      };","Thông báo : 
+status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: null,",,Pass
+263,location_user.controller.spec.ts,LocationUserController,update,TC-LUC-016,Kiểm tra việc cập nhật thông tin địa chỉ,"- UpdateLocationUserDto:
+        + id: '1'
+        + name: 'Updated Location'
+        + address: '456 Street'
+        + phone: '0987654321'
+        + default_location: false
+       + user_id: 'test-user-id'","Thông tin địa chỉ mới được tạo với:
+ - status: 200
+      - message: 'SUCCESS!'
+      - success: true
+      - data: mockUpdatedLocation =  UpdateLocationUserDto",,Pass
+264,,,,TC-LUC-017,Kiểm tra xử lý lỗi trong quá trình cập nhật,"- UpdateLocationUserDto:
+        + id: '1'
+        + name: 'Updated Location'
+        + address: '456 Street'
+        + phone: '0987654321'
+        + default_location: false
+        + user_id: 'test-user-id'","Thông báo lỗi với:
+ - status: 500
+      - message: 'Update failed'
+      - success: false",,Pass
+265,,,,TC-LUC-018,Kiểm tra xử lý khi service trả về một object không phải Error,"updateDto: UpdateLocationUserDto = {
+        id: '1',
+        name: 'Updated Location',
+        address: '456 Street',
+        phone: '0987654321',
+        default_location: false,
+        user_id: 'test-user-id',
+      };","Thông báo lỗi với status 500, message là JSON string của object, sucess: false",,Pass
+266,,,,TC-LUC-019,Kiểm tra xử lý khi service không trả về dữ liệu,"updateDto: UpdateLocationUserDto = {
+        id: '1',
+        name: 'Updated Location',
+        address: '456 Street',
+        phone: '0987654321',
+        default_location: false,
+        user_id: 'test-user-id',
+      };","status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: null,",,Pass
+267,location_user.controller.spec.ts,LocationUserController,remove,TC-LUC-020,Kiểm tra việc xóa địa chỉ,"- locationId: 'test-location-id'
+      - Mock service.delete() return:
+        + { affected: 1 }","Kết quả xóa thành công với :
+- status: 200
+      - message: 'SUCCESS!'
+      - success: true
+      - data: { affected: 1 }",,Pass
+268,,,,TC-LUC-021,Kiểm tra xử lý lỗi trong quá trình xóa,"- locationId: 'test-location-id'
+      - Mock service.delete() throw error:
+        + new Error('Delete failed')","Thông báo lỗi với:
+- status: 500
+      - message: 'Delete failed'
+      - success: false",,Pass
+269,,,,TC-LUC-022,Kiểm tra xử lý khi địa chỉ cần xóa không tồn tại,locationId = 'not-exist-id',"status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: { affected: 0 },",,Pass
+270,,,,TC-LUC-023,Kiểm tra xử lý khi service trả về một object không phải Error,locationId = 'test-location-id',"Thông báo lỗi với status 500, message là JSON string của object, sucess: false",,Pass
+271,,,,TC-LUC-024,Kiểm tra xử lý khi service không trả về dữ liệu,locationId = 'test-location-id',"status: 200,
+        message: 'SUCCESS!',
+        success: true,
+        data: undefined,",,Pass
+272,location_user.service.spec.ts,LocationUserService,constructor,TC-LUS-001,Đảm bảo service được khởi tạo thành công,Instance của LocationUserService,Service được định nghĩa (không null/undefined),,Pass
+273,location_user.service.spec.ts,LocationUserService,getList,TC-LUS-002,Kiểm tra việc lọc địa chỉ theo ID người dùng,- user_id: '123',"Danh sách địa chỉ và tổng số bản ghi:
+- mockLocations = [{ id: '1', name: 'Location 1' }]
+-  mockTotal = 1",,Pass
+274,,,,TC-LUS-003,Kiểm tra việc lọc địa chỉ mặc định,- default_location: true,"Danh sách địa chỉ mặc định và tổng số bản ghi
+  - mockLocations = [{ id: '1', name: 'Location 1' }]
+- mockTotal = 1",,Pass
+275,,,,TC-LUS-004,Kiểm tra xử lý lỗi khi không tìm thấy địa chỉ,Không có điều kiện lọc,Ném ra lỗi 'NO LOCATION!,,Pass
+276,location_user.service.spec.ts,LocationUserService,createLocation,TC-LUS-005,Kiểm tra việc tạo địa chỉ thông thường,"- createDto: CreateLocationUserDto {
+          name: 'New Location',
+          address: '123 Street',
+          phone: '1234567890',
+          default_location: false,
+          user_id: '123'
+        }",Địa chỉ mới được tạo thành công,,Pass
+277,,,,TC-LUS-006,Kiểm tra việc cập nhật địa chỉ mặc định cũ khi tạo địa chỉ mặc định mới,"- createDto: CreateLocationUserDto {
+          name: 'New Location',
+          address: '123 Street',
+          phone: '1234567890',
+          default_location: true,
+          user_id: '123'
+        }
+- const existingLocation = {
+        id: '2',
+        default_location: true,
+        user_id: '123',
+      };",Địa chỉ mới được tạo và địa chỉ mặc định cũ được cập nhật,,Pass
+278,location_user.service.spec.ts,LocationUserService,detail,TC-LUS-007,Kiểm tra việc lấy thông tin một địa chỉ cụ thể,- locationId: '1',"Thông tin chi tiết của địa chỉ:
+mockLocation = { id: '1', name: 'Test Location' }",,Pass
+279,,,,TC-LUS-008,Kiểm tra xử lý lỗi khi không tìm thấy địa chỉ,- locationId: '1',Ném ra lỗi 'RECORD NOT FOUND!',,Pass
+280,location_user.service.spec.ts,LocationUserService,update,TC-LUS-009,Kiểm tra việc cập nhật thông tin địa chỉ bình thường,"- updateDto: UpdateLocationUserDto {
+          id: '1',
+          name: 'Updated Location',
+          default_location: false,
+          user_id: '123'
+        }","Thông tin địa chỉ được cập nhật:
+updateDto: UpdateLocationUserDto = {
+        id: '1',
+        name: 'Updated Location',
+        default_location: false,
+        user_id: '123',
+      };",,Pass
+281,,,,TC-LUS-010,Kiểm tra việc xử lý khi thay đổi địa chỉ mặc định,"- updateDto: UpdateLocationUserDto {
+          id: '1',
+          name: 'Updated Location',
+          default_location: true,
+          user_id: '123'
+        }
+      - Mock repository responses:
+        + findOneBy: trả về mockLocation (location hiện tại)
+        + findOne: trả về existingLocation {
+            id: '2',
+            default_location: true,
+            user_id: '123'
+          }
+        + save: trả về mockLocation đã cập nhật",Địa chỉ được cập nhật và địa chỉ mặc định cũ được cập nhật,,Pass
+282,location_user.service.spec.ts,LocationUserService,delete,TC-LUS-011,Kiểm tra chức năng xóa địa chỉ,"- locationId: '1'
+      - Mock repository responses:
+        + findOneBy: trả về mockLocation {
+            id: '1',
+            name: 'Test Location'
+          }",Địa chỉ được xóa thành công,,Pass
+283,,,,TC-LUS-012,Xóa một địa chỉ không tồn tại,"- locationId: '1'
+      - Mock repository responses:
+        + findOneBy: trả về null (giả lập không tìm thấy địa chỉ)",Ném ra lỗi với message 'RECORD NOT FOUND!',,Pass
+284,notification.controller.spec.ts,NotificationController,constructor,TC-NC-001,Kiểm tra khởi tạo controller,Instance của NotificationController,Controller được định nghĩa (không null/undefined),,Pass
+285,,,constructor,TC-NC-002,Kiểm tra dependency injection,Instance của NotificationService,Service được định nghĩa trong controller(không null/undefined),,Pass
+286,notification.service.spec.ts,NotificationService,constructor,TC-NS-001,Đảm bảo service được khởi tạo thành công,"- NotificationService provider được đăng ký trong testing module
+  - Các mock cho firebase-admin, database và environment variables",Service được định nghĩa(không null/undefined),,Pass
+287,notification.service.spec.ts,NotificationService,constructor,TC-NS-002,Kiểm tra việc khởi tạo Firebase Admin SDK khi chưa được khởi tạo,- apps.length = 0 (Firebase chưa được khởi tạo),initializeApp được gọi với đúng config,,Pass
+288,notification.service.spec.ts,NotificationService,,TC-NS-003,Kiểm tra việc không khởi tạo lại Firebase Admin SDK khi đã được khởi tạo,- apps.length = 1 (Firebase đã được khởi tạo),initializeApp không được gọi,,Pass
+289,notification.service.spec.ts,NotificationService,sendNotification,TC-NS-004,Kiểm tra việc gửi thông báo thành công đến Firebase,"- mockOrder: OrderEntity với các thuộc tính:
+      + id: 'test-order-id'
+      + order_code: 'ORDER123'
+      + total_price: 100
+      + orderStatus: OrderStatus.Checking
+      + payment_method: PaymentMethod.CashOnDelivery
+      + user_id: 'user123'
+      + các thuộc tính khác được set giá trị mặc định
+    - mockMessage: 'Test notification message'
+    - status: NotificationStatus.Success
+    - type: NotificationType.NewOrder
+    - Mock database.ref trả về object với method push","Hàm push được gọi với đúng tham số:
+order_id: mockOrder.id,
+        isRead: false,
+        message: mockMessage,
+        createdAt: mockOrder.createdAt.toISOString(),
+        status: NotificationStatus.Success,
+        notificationType: NotificationType.NewOrder,",,Pass
+290,notification.service.spec.ts,NotificationService,,TC-NS-005,Kiểm tra việc xử lý khi gặp lỗi từ database,"- mockOrder: OrderEntity với các thuộc tính:
+    + id: 'test-order-id'
+    + order_code: 'ORDER123'
+    + total_price: 100
+    + orderStatus: OrderStatus.Checking
+    + payment_method: PaymentMethod.CashOnDelivery
+    + user_id: 'user123'
+    + createdAt: new Date('2024-01-01')
+    + các thuộc tính khác được set giá trị mặc định
+  - mockMessage: 'Test notification message'
+  - status: NotificationStatus.Success
+  - type: NotificationType.NewOrder
+  - Mock database.ref().push() được cấu hình để ném ra lỗi với message 'Database error'",Throw error với message 'Database error',,Pass
+291,order.controller.spec.ts,OrderController,getAllOrder,TC-OC-001,Kiểm tra việc lấy danh sách đơn hàng theo user_id,"user_id = 'user123', dto với page = 1, limit = 10","Danh sách đơn hàng, với : 
+- status: 200
+      - message: 'SUCCESS!'
+      - success: true
+      - data: Danh sách đơn hàng",,Pass
+292,,,,TC-OC-002,Kiểm tra xử lý lỗi khi service throw Error,"user_id = 'user', dto với page = 1, limit = 1, service throw Error('fail')",Trả về thông báo fail với success = false,,Pass
+293,,,,TC-OC-003,Kiểm tra xử lý khi service trả về object không phải Error,"user_id = 'user', dto với page = 1, limit = 1, service throw { foo: 'bar' }",Trả về success = false,,Pass
+294,order.controller.spec.ts,OrderController,getOrderManagement,TC-OC-004,Kiểm tra việc lấy danh sách đơn hàng quản lý với các bộ lọc mặc định,"- page: 1
+    - limit: 10
+    -const filters = {
+        orderStatus: '',
+        paymentStatus: '',
+        includedStatuses: [],
+        excludedStatuses: [OrderStatus.Delivered, OrderStatus.Canceled],
+      };","Danh sách đơn hàng quản lý với:
+- status: 200
+    - message: 'SUCCESS!'
+    - success: true
+    - result = { orders: [], total: 0, orderStatusSummary: {} };",,Pass
+295,,,,TC-OC-005,Kiểm tra việc lấy danh sách đơn hàng với includeExcluded = true,"page = 1, limit = 10, orderStatus và paymentStatus undefined, includeExcluded = true :
+page,
+        limit,
+        undefined,
+        undefined,
+        true // includeExcluded true","Danh sách đơn hàng bao gồm trạng thái đã loại trừ:
+page,
+        limit,
+        expect.objectContaining({
+          includedStatuses: [OrderStatus.Delivered, OrderStatus.Canceled],
+          excludedStatuses: [],
+        }),",,Pass
+296,,,,TC-OC-006,Kiểm tra việc lấy danh sách đơn hàng với includeExcluded = false,"page = 1, limit = 10, orderStatus và paymentStatus undefined, includeExcluded = false:
+page,
+        limit,
+        undefined,
+        undefined,
+        false// includeExcluded false","Trả về danh sách đơn hàng :
+page,
+        limit,
+        expect.objectContaining({
+          includedStatuses: [],
+          excludedStatuses: [OrderStatus.Delivered, OrderStatus.Canceled],
+        }),
+và success = true",,Pass
+297,,,,TC-OC-007,Kiểm tra việc lấy danh sách đơn hàng với orderStatus được cung cấp,"page = 1, limit = 10, orderStatus = Checking, includeExcluded = true","Trả về  danh sách đơn hàng :
+page,
+        limit,
+        expect.objectContaining({
+          orderStatus: OrderStatus.Checking,
+          includedStatuses: [],
+          excludedStatuses: [],
+        }),
+và success = true",,Pass
+298,,,,TC-OC-008,Kiểm tra xử lý khi service trả về object không phải Error,"page = 1, limit = 1, service throw { foo: 'bar' }",Trả về với success = false,,Pass
+299,,,,TC-OC-009,Kiểm tra xử lý lỗi khi service throw Error,"page = 1, limit = 1, service throw Error('fail')",Trả về thông báo fail với success = false,,Pass
+300,order.controller.spec.ts,OrderController,createOrder,TC-OC-010,Kiểm tra việc tạo đơn hàng với dữ liệu hợp lệ,"- userId: 'user123'
+  - orderDto: CreateOrderDto {
+      totalPrice: 200,
+      orderStatus: OrderStatus.Checking,
+      products: [{
+        product_id: 'prod1',
+        quantity: 2,
+        priceout: 100
+      }],
+      paymentStatus: PaymentStatus.Unpaid,
+      paymentMethod: PaymentMethod.CashOnDelivery,
+      location_id: 'loc123',
+      user_id: 'user123',
+      shipping_fee: 20,
+      discount_amount: 0,
+      note: 'Test order'
+    }","Trả về thông tin đơn hàng mới :
+{user_id = 'user123'
+totalPrice: 100,
+        paymentMethod: 'Thanh toán khi nhận hàng' as any,
+        user_id,
+        location_id: 'loc1',
+        orderStatus: 'Đang kiểm hàng' as any,
+        paymentStatus: 'Chưa thanh toán' as any,
+        products: [],}
+ và success = true",,Pass
+301,,,,TC-OC-011,Kiểm tra xử lý lỗi khi service throw Error,"user_id = 'user', dto rỗng, service throw Error('fail')",Trả về success = false,,Pass
+302,,,,TC-OC-012,Kiểm tra xử lý khi service trả về object không phải Error,"user_id = 'user', dto rỗng, service throw { foo: 'bar' }",Trả về success = false,,Pass
+303,order.controller.spec.ts,OrderController,getDetailOrder,TC-OC-013,Kiểm tra việc lấy chi tiết đơn hàng theo id,"user_id = 'user123', id = 'order1'","Trả về thông tin chi tiết đơn hàng:
+result = { id: 'order1', detail: true }
+ và success = true",,Pass
+304,,,,TC-OC-014,Kiểm tra xử lý lỗi khi service throw Error,"user_id = 'user123', id = 'order1'",Trả về thông báo fail với success = false,,Pass
+305,,,,TC-OC-015,Kiểm tra xử lý khi service trả về object không phải Error,"user_id = 'user', id = 'order', service throw { foo: 'bar' }",Trả về success = false,,Pass
+306,order.controller.spec.ts,OrderController,updateOrder,TC-OC-016,Kiểm tra việc cập nhật thông tin đơn hàng,"user_id = 'user123';
+dto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: 'Đang kiểm hàng' as any,
+        user_id,
+        employee_id: 'emp1',
+        paymentStatus: 'Đã thanh toán' as any,
+      };","Trả về thông tin đơn hàng đã cập nhật: 
+user_id = 'user123'
+order_id: 'order1',
+        orderStatus: 'Đang kiểm hàng' as any,
+        user_id,
+        employee_id: 'emp1',
+        paymentStatus: 'Đã thanh toán' as any,
+và success = true",,Pass
+307,,,,TC-OC-017,Kiểm tra xử lý lỗi khi service throw Error,"user_id = 'user', dto rỗng, service throw Error('fail')",Trả về success = false,,Pass
+308,,,,TC-OC-018,Kiểm tra xử lý khi service trả về object không phải Error,"user_id = 'user', dto rỗng, service throw { foo: 'bar' }",Trả về success = false,,Pass
+309,order.controller.spec.ts,OrderController,getOrderUserDashboard,TC-OC-019,Kiểm tra việc lấy thông tin dashboard theo user_id,user_id = 'user123',"Trả về thông tin dashboard : 
+{ totalOrders: 1, statusSummary: {} }
+và success = true",,Pass
+310,,,,TC-OC-020,Kiểm tra xử lý lỗi khi service throw Error,"user_id = 'user', service throw Error('fail')",Trả về thông báo fail với success = false,,Pass
+311,,,,TC-OC-021,Kiểm tra xử lý khi service trả về object không phải Error,"user_id = 'user', service throw { foo: 'bar' }",Trả về success = false,,Pass
+312,order.service.spec.ts,OrderService,constructor,TC-OS-001,Đảm bảo service được khởi tạo thành công,Instance của OrderService,Service được định nghĩa(không null/undefined),,Pass
+313,,,createOrder,TC-OS-002,Kiểm tra xem hàm createOrder có tạo và lưu đơn hàng thành công không,"CreateOrderDto = {
+        user_id: 'user1',
+        location_id: 'loc1',
+        totalPrice: 100,
+        paymentMethod: PaymentMethod.CashOnDelivery,
+        paymentStatus: PaymentStatus.Unpaid,
+        orderStatus: OrderStatus.Checking,
+        products: [
+          { product_id: 'prod1', quantity: 2, priceout: 50 },
+          { product_id: 'prod2', quantity: 1, priceout: 50 },
+        ],
+      };","Đơn hàng được tạo với các thông tin khớp với mockOrder :
+id: 'order1',
+        order_code: 'ORD123',
+        ...mockOrderDto,
+        orderStatus: OrderStatus.Checking,
+        employee_id: null,",,Pass
+314,,,,TC-OS-003,Kiểm tra xem hàm createOrder có rollback transaction và throw lỗi khi xảy ra lỗi không,"CreateOrderDto (hợp lệ) = {
+        user_id: 'user1',
+        location_id: 'loc1',
+        totalPrice: 100,
+        paymentMethod: PaymentMethod.CashOnDelivery,
+        paymentStatus: PaymentStatus.Unpaid,
+        orderStatus: OrderStatus.Checking,
+        products: [
+          { product_id: 'prod1', quantity: 2, priceout: 50 },
+          { product_id: 'prod2', quantity: 1, priceout: 50 },
+        ],
+      };
+nhưng mock lỗi khi lưu vào database",Throw InternalServerErrorException với message 'ORDER.OCCUR ERROR WHEN SAVE TO DATABASE!',,Pass
+315,order.service.spec.ts,OrderService,createNotificationOrderSuccess,TC-OS-004,Kiểm tra xem hàm createNotificationOrderSuccess có gửi thông báo và email cho admin không,"- mockOrder = {
+        id: 'order1',
+        user_id: 'user1',
+        orderStatus: OrderStatus.Checking,
+        paymentStatus: PaymentStatus.Unpaid,
+      } as OrderEntity
+- mockUser = {
+        id: 'user1',
+        firstName: 'John',
+        lastName: 'Doe',
+      } as User;
+
+- mockAdmins = [
+        { id: 'admin1', email: 'admin1@test.com', role: 'admin', isActive: true },
+        { id: 'admin2', email: 'admin2@test.com', role: 'admin', isActive: true },
+      ] as User[];",Gửi thông báo và email thành công,,Pass
+316,order.service.spec.ts,OrderService,,TC-OS-005,Kiểm tra xem hàm createNotificationOrderSuccess có chỉ gửi thông báo mà không gửi email khi không có admin không," mockOrder = {
+        id: 'order1',
+        user_id: 'user1',
+      } as OrderEntity;
+
+      const mockUser = {
+        id: 'user1',
+        firstName: 'John',
+        lastName: 'Doe',
+      } as User;","Chỉ gửi thông báo, không gửi email",,Pass
+317,order.service.spec.ts,OrderService,getAllOrder,TC-OS-006,Kiểm tra xem hàm getAllOrder có trả về danh sách đơn hàng phân trang đúng không,"const userId = 'user1';
+      const mockDto: OrderAllOrderDto = {
+        page: 1,
+        limit: 10,
+      };","Danh sách đơn hàng :
+mockOrders = [
+        { id: 'order1', user_id: userId },
+        { id: 'order2', user_id: userId },
+      ] as OrderEntity[];
+và tổng số đơn hàng : 2",,Pass
+318,order.service.spec.ts,OrderService,,TC-OS-007,Kiểm tra xem hàm getAllOrder có trả về danh sách rỗng khi không có đơn hàng không,"const userId = 'user1';
+      const mockDto: OrderAllOrderDto = {
+        page: 1,
+        limit: 10,
+      };","Danh sách rỗng và tổng số là 0 : 
+list: [],
+        total: 0,",,Pass
+319,order.service.spec.ts,OrderService,getOrderManagement,TC-OS-008,Kiểm tra xem hàm getOrderManagement có trả về danh sách đơn hàng với bộ lọc trạng thái và tóm tắt trạng thái không,"page=1, limit=10, 
+id: 'order1',
+              orderStatus: OrderStatus.Checking,
+              paymentStatus: PaymentStatus.Unpaid,
+              orderProducts: [
+                {
+                  product: { id: 'prod1', name: 'Product 1', stockQuantity: 10 },
+                  priceout: 50,
+                  quantity: 2,
+                },
+              ],
+              user: { id: 'user1', firstName: 'John', lastName: 'Doe' },
+              employee: null,
+              location: { id: 'loc1', address: '123 Street', phone: '123456', default_location: true },","Danh sách đơn hàng:
+productId: 'prod1',
+          productName: 'Product 1',
+          priceout: 50,
+          quantityBuy: 2,
+          quantityInStock: 10,
+, tổng số :1 và tóm tắt trạng thái",,Pass
+320,,,,TC-OS-009,Kiểm tra xem hàm getOrderManagement có trả về danh sách đơn hàng với trạng thái bị loại trừ không,"page=1, limit=10 
+id: 'order1',
+              orderStatus: OrderStatus.Checking,
+              paymentStatus: PaymentStatus.Unpaid,
+              orderProducts: [],
+              user: { id: 'user1', firstName: 'John', lastName: 'Doe' },
+              employee: { id: 'emp1', firstName: 'Emp', lastName: 'One' },
+              location: { id: 'loc1', address: '123 Street', phone: '123456', default_location: true },","Danh sách đơn hàng, số lượng sản phẩm trong kho và tóm tắt trạng thái",,Pass
+321,,,,TC-OS-010,Kiểm tra xem hàm getOrderManagement có trả về danh sách rỗng và bao phủ nhánh trong getQuantityProductInStock và getOrderStatusCount không,"page=1, limit=10, filters với excludedStatuses: page=1, limit=10, filters với excludedStatuses","Danh sách rỗng, productInStock rỗng và orderStatusSummary rỗng
+orders: [],
+        productInStock: [],
+        total: 0,
+        orderStatusSummary: {},",,Pass
+322,,,,TC-OS-011,Kiểm tra xem hàm getOrderManagement có xử lý đúng khi employee và location là null không (bao phủ nhánh trong ordersWithProducts),"page=1, limit=10
+id: 'order1',
+              orderStatus: OrderStatus.Checking,
+              paymentStatus: PaymentStatus.Unpaid,
+              orderProducts: [],
+              user: { id: 'user1', firstName: 'John', lastName: 'Doe' },
+              employee: null,
+              location: null,","orderStatus: '',
+        paymentStatus: '',
+        includedStatuses: [],
+        excludedStatuses: [],",,Pass
+323,,,,TC-OS-012,Kiểm tra xem hàm getOrderManagement có xử lý đúng khi kết hợp nhiều bộ lọc không (bao phủ các nhánh trong điều kiện lọc),"page=1, limit=10, filters với excludedStatuses: page=1, limit=10, filters với excludedStatuses","Danh sách đơn hàng và tóm tắt trạng thái :
+orderStatus: OrderStatus.Checking,
+        paymentStatus: '',
+        includedStatuses: [OrderStatus.Checking, OrderStatus.WaitingForDelivered],
+        excludedStatuses: [],",,Pass
+324,order.service.spec.ts,OrderService,getDetail,TC-OS-013,Kiểm tra xem hàm getDetail có trả về chi tiết đơn hàng đúng không,orderId = 'order1',"Chi tiết đơn hàng khớp với mockOrder:
+mockOrder = {
+        id: orderId,
+        orderProducts: [],
+        location: { id: 'loc1' },
+      } as OrderEntity;",,Pass
+325,,,,TC-OS-014,Kiểm tra xem hàm getDetail có throw lỗi khi không tìm thấy đơn hàng không,orderId không tồn tại,Throw Error với message 'ORDER.ORDER DETAIL NOT EXSIST!',,Pass
+326,,,,TC-OS-015,Kiểm tra xem hàm getDetail có xử lý đúng khi orderProducts và location là null không,"orderId = 'order1';
+    mockOrder = {
+        id: orderId,
+        orderProducts: null,
+        location: null,
+      } as OrderEntity;","Chi tiết đơn hàng : 
+mockOrder = {
+        id: orderId,
+        orderProducts: null,
+        location: null,
+      } as OrderEntity;",,Pass
+327,order.service.spec.ts,OrderService,getOrderUserDashboard,TC-OS-016,Kiểm tra xem hàm getOrderUserDashboard có trả về tóm tắt trạng thái đơn hàng không,userId = 'user1',"Tổng số đơn hàng và tóm tắt trạng thái:
+totalOrders: 3,
+        statusSummary: expect.objectContaining({
+          [OrderStatus.Checking]: 2,
+          [OrderStatus.Delivered]: 1,
+        }),",,Pass
+328,,,,TC-OS-017,Kiểm tra xem hàm getOrderUserDashboard có trả về lỗi khi query thất bại không,userId = 'user1' hợp lệ nhưng query thất bại,Đối tượng chứa thông tin lỗi Query failed,,Pass
+329,,,,TC-OS-018,Kiểm tra xem hàm getOrderUserDashboard có trả về số 0 khi không có đơn hàng không,userId = 'user1' hợp lệ nhưng không có đơn hàng,"Tổng số đơn hàng là 0 và tóm tắt trạng thái với tất cả giá trị là 0:
+totalOrders: 0,
+        statusSummary: expect.objectContaining({
+          [OrderStatus.Checking]: 0,
+          [OrderStatus.Delivered]: 0,
+        }),",,Pass
+330,,,updateOrder,TC-OS-019,Kiểm tra xem hàm updateOrder có cập nhật đơn hàng thành công không,"mockUpdateDto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: OrderStatus.WaitingForDelivered,
+        user_id: 'user1',
+        employee_id: 'emp1',
+        paymentStatus: PaymentStatus.Paid,
+      };","Đơn hàng được cập nhật với thông tin mới:
+id: 'order1',
+        orderStatus: OrderStatus.Checking,
+        employee_id: null,
+        paymentStatus: PaymentStatus.Unpaid,
+        orderProducts: [],
+        orderStatus: mockUpdateDto.orderStatus,
+        employee_id: mockUpdateDto.employee_id,
+        paymentStatus: mockUpdateDto.paymentStatus,
+        ",,Pass
+331,,,,TC-OS-020,Kiểm tra xem hàm updateOrder có throw lỗi khi đơn hàng không tồn tại không,UpdateOrderDTO với order_id không tồn tại,Throw Error với message 'ORDER.OCCUR ERROR WHEN UPDATE TO DATABASE!',,Pass
+332,,,,TC-OS-021,Kiểm tra xem hàm updateOrder có rollback transaction và throw lỗi khi xảy ra lỗi không," mockUpdateDto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: OrderStatus.WaitingForDelivered,
+        user_id: 'user1',
+        employee_id: 'emp1',
+        paymentStatus: PaymentStatus.Paid,
+      };",Throw InternalServerErrorException với message 'ORDER.OCCUR ERROR WHEN UPDATE TO DATABASE!',,Pass
+333,,,,TC-OS-022,Kiểm tra xem hàm updateOrder có bỏ qua cập nhật paymentStatus khi nó là null không ,"mockUpdateDto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: OrderStatus.WaitingForDelivered,
+        user_id: 'user1',
+        employee_id: 'emp1',
+        paymentStatus: null,
+      };","Đơn hàng được cập nhật nhưng paymentStatus không thay đổi:
+id: 'order1',
+        orderStatus: OrderStatus.Checking,
+        employee_id: null,
+        paymentStatus: PaymentStatus.Unpaid,
+        orderProducts: [],
+        orderStatus: mockUpdateDto.orderStatus,
+        employee_id: mockUpdateDto.employee_id,
+        paymentStatus: PaymentStatus.Unpaid,",,Pass
+334,,,,TC-OS-023,Kiểm tra xem hàm updateOrder có xử lý đúng khi paymentStatus không thuộc enum PaymentStatus không ,"mockUpdateDto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: OrderStatus.WaitingForDelivered,
+        user_id: 'user1',
+        employee_id: 'emp1',
+        paymentStatus: 'INVALID_STATUS' as PaymentStatus,
+      };
+(UpdateOrderDTO với paymentStatus không hợp lệ)","Đơn hàng được cập nhật nhưng paymentStatus sẽ là undefined:
+id: 'order1',
+        orderStatus: OrderStatus.Checking,
+        employee_id: null,
+        paymentStatus: PaymentStatus.Unpaid,
+        orderProducts: [],
+        orderStatus: mockUpdateDto.orderStatus,
+        employee_id: mockUpdateDto.employee_id,
+        paymentStatus: undefined,",,Pass
+335,,,,TC-OS-024,Kiểm tra xem hàm updateOrder có bỏ qua cập nhật orderStatus khi nó là null không,"UpdateOrderDTO với orderStatus là null:
+mockUpdateDto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: null,
+        user_id: 'user1',
+        employee_id: 'emp1',
+        paymentStatus: PaymentStatus.Paid,
+      };","Đơn hàng được cập nhật nhưng orderStatus không thay đổi:
+id: 'order1',
+        orderStatus: OrderStatus.Checking,
+        employee_id: null,
+        paymentStatus: PaymentStatus.Unpaid,
+        orderProducts: [],
+        employee_id: mockUpdateDto.employee_id,
+        paymentStatus: mockUpdateDto.paymentStatus,",,Pass
+336,,,,TC-OS-025,Kiểm tra xem hàm updateOrder có bỏ qua cập nhật employee_id khi nó là null không,"UpdateOrderDTO với employee_id là null:
+mockUpdateDto: UpdateOrderDTO = {
+        order_id: 'order1',
+        orderStatus: OrderStatus.WaitingForDelivered,
+        user_id: 'user1',
+        employee_id: null,
+        paymentStatus: PaymentStatus.Paid,
+      };","Đơn hàng được cập nhật nhưng employee_id không thay đổi:
+id: 'order1',
+        orderStatus: OrderStatus.Checking,
+        employee_id: 'emp0',
+        paymentStatus: PaymentStatus.Unpaid,
+        orderProducts: [],
+        orderStatus: mockUpdateDto.orderStatus,
+        paymentStatus: mockUpdateDto.paymentStatus,",,Pass
+337,product.controller.spec.ts,ProductController,constructor,TC-PC-001,Kiểm tra controller được định nghĩa,Instance của ProductController,Controller được định nghĩa(không null/undefined),,Pass
+338,,,getList,TC-PC-002,Kiểm tra controller trả về danh sách sản phẩm từ service,"mockResult = { products: [], total: 0, page: 1, limit: 10 };",Trả về danh sách sản phẩm được bọc trong responseHandler.ok,,Pass
+339,,,,TC-PC-003,Kiểm tra controller xử lý đúng khi service throw Error,"page = 1, limit = 10, status = ExpirationStatus.All, service throw Error('fail')",Trả về lỗi lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+340,,,,TC-PC-004,Kiểm tra controller gọi service với status rỗng khi không truyền status,"mockResult = { products: [], total: 0, page: 1, limit: 10 };","Trả về danh sách sản phẩm được bọc trong responseHandler.ok, service được gọi với status = ''",,Pass
+341,,,,TC-PC-005,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+342,product.controller.spec.ts,ProductController,search,TC-PC-006,Kiểm tra controller trả về danh sách sản phẩm theo tiêu chí tìm kiếm,"page = 1, limit = 10, name = 'abc', category_id = 'cat1'",Trả về danh sách sản phẩm được bọc trong responseHandler.ok,,Pass
+343,,,,TC-PC-007,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tìm kiếm,"page = 1, limit = 10, name = 'abc', category_id = 'cat1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+344,,,,TC-PC-008,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, name = 'abc', category_id = 'cat1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+345,product.controller.spec.ts,ProductController,create,TC-PC-009,Kiểm tra controller tạo mới sản phẩm thành công thông qua service,"dto: ProductCreateDTO = {
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),
+      };","Trả về thông tin sản phẩm được tạo, bọc trong responseHandler.ok:
+name: 'test',
+        id: '1'
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),",,Pass
+346,,,,TC-PC-010,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tạo,"dto: ProductCreateDTO = {
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),
+      };
+service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+347,,,,TC-PC-011,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"dto: ProductCreateDTO = {
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),
+      };
+{ msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+348,product.controller.spec.ts,ProductController,detail,TC-PC-012,Kiểm tra controller trả về thông tin chi tiết sản phẩm dựa trên ID,id = '1',"Trả về thông tin sản phẩm được bọc trong responseHandler.ok:
+mockDetail = { products: { id: '1', name: 'test' } }",,Pass
+349,,,,TC-PC-013,Kiểm tra controller xử lý đúng khi service throw Error,"id = '1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+350,,,,TC-PC-014,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"id = '1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+351,product.controller.spec.ts,ProductController,update,TC-PC-015,Kiểm tra controller cập nhật sản phẩm thành công thông qua service,"dto: ProductUpdateDTO = {
+        id: '1',
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),
+      };","Response với thông tin sản phẩm đã cập nhật, bọc trong responseHandler.ok:
+id: '1',
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),",,Pass
+352,,,,TC-PC-016,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình cập nhật,"dto: ProductUpdateDTO = {
+        id: '1',
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),
+      };
+service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+353,,,,TC-PC-017,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"dto: ProductUpdateDTO = {
+        id: '1',
+        name: 'test',
+        priceout: 100,
+        banner: 'banner',
+        description: 'desc',
+        stockQuantity: 10,
+        weight: 1,
+        url_image: 'img',
+        category_id: 'cat',
+        supplier_id: 'sup',
+        expire_date: new Date(),
+      }
+service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+354,product.controller.spec.ts,ProductController,delete,TC-PC-018,Kiểm tra controller xóa sản phẩm thành công thông qua service,id = '1',"Trả về thông tin xóa (affected: 1), bọc trong responseHandler.ok",,Pass
+355,,,,TC-PC-019,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình xóa,"id = '1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+356,,,,TC-PC-020,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"id = '1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+357,product.service.spec.ts,ProductService,construcotor,TC-PS-001,Đảm bảo ProductService được định nghĩa sau khi module được biên dịch,Instance của ProductService,service được định nghĩa ( không null/undefined),,Pass
+358,product.service.spec.ts,ProductService,getList,TC-PS-002,Đảm bảo hàm getList trả về danh sách sản phẩm với phân trang và áp dụng bộ lọc trạng thái hợp lệ,"page = 1, limit = 10, filters = { status: ExpirationStatus.Valid }","products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,
+        page: 1,
+        limit: 10,",,Pass
+359,,,,TC-PS-003,Đảm bảo hàm getList ném lỗi khi page <= 0,"page = 0, limit = 10, filters = {}",Lỗi với thông báo 'PAGE NUMBER MUST BE GREATER THAN 0!',,Pass
+360,,,,TC-PS-004,Đảm bảo hàm getList ném lỗi khi limit <= 0,"page = 1, limit = 0, filters = {}",Lỗi với thông báo 'LIMIT MUST BE GREATER THAN 0!',,Pass
+361,,,,TC-PS-005,Đảm bảo hàm getList ném lỗi khi không có sản phẩm nào được tìm thấy,"page = 1, limit = 10, filters = { status: ExpirationStatus.Valid }",Lỗi với thông báo 'NO PRODUCT!',,Pass
+362,,,,TC-PS-006,Đảm bảo hàm getList không áp dụng điều kiện trạng thái khi status không hợp lệ,"page = 1, limit = 10, filters = { status: 'INVALID_STATUS' }","Danh sách sản phẩm và tổng số lượng, không áp dụng điều kiện trạng thái:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,
+        page: 1,
+        limit: 10,",,Pass
+363,,,,TC-PS-007,Đảm bảo hàm getList sử dụng page = 1 và limit = 10 khi không được cung cấp,"page = undefined, limit = undefined, filters = {}","Danh sách sản phẩm với page = 1, limit = 10:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,
+        page: 1,
+        limit: 10,",,Pass
+364,,,,TC-PS-008,Đảm bảo hàm getList không áp dụng điều kiện trạng thái khi filters.status không được cung cấp,"page = 1, limit = 10, filters = {}","Danh sách sản phẩm và tổng số lượng, không áp dụng điều kiện trạng thái:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,
+        page: 1,
+        limit: 10,",,Pass
+365,,,,TC-PS-009,Đảm bảo hàm getList xử lý đúng khi filters là undefined bằng cách sử dụng bộ lọc rỗng,"page = 1, limit = 10, filters = {}","Danh sách sản phẩm và tổng số lượng, không áp dụng điều kiện trạng thái:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,
+        page: 1,
+        limit: 10,",,Pass
+366,product.service.spec.ts,ProductService,searchProducts,TC-PS-010,Đảm bảo hàm searchProducts trả về danh sách sản phẩm dựa trên bộ lọc tên và danh sách category_id,"page = 1, limit = 10, filters = { name: 'Test', category_id: ['cat1'] }","Đối tượng chứa danh sách sản phẩm và tổng số lượng:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,",,Pass
+367,,,,TC-PS-011,Đảm bảo hàm searchProducts xử lý đúng khi category_id là một giá trị đơn,"page = 1, limit = 10, filters = { name: 'Test', category_id: 'cat1' }","Đối tượng chứa danh sách sản phẩm và tổng số lượng:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,",,Pass
+368,,,,TC-PS-012,Đảm bảo hàm searchProducts trả về danh sách sản phẩm khi không có bộ lọc,"page = 1, limit = 10, filters = {}","Đối tượng chứa danh sách sản phẩm và tổng số lượng:
+products: [
+mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }],
+        total: 1,",,Pass
+369,,,,TC-PS-013,Đảm bảo hàm searchProducts trả về danh sách rỗng khi không tìm thấy sản phẩm,"page = 1, limit = 10, filters = {}","Đối tượng chứa danh sách sản phẩm rỗng và tổng số lượng = 0:
+products: [],
+        total: 0,",,Pass
+370,,,create,TC-PS-014,Đảm bảo hàm create tạo và lưu sản phẩm mới thành công,"createDto: ProductCreateDTO = {
+        name: 'New Product',
+        priceout: 200,
+        banner: 'banner.jpg',
+        description: 'New Description',
+        stockQuantity: 20,
+        weight: 2,
+        url_image: 'image.jpg',
+        category_id: 'cat1',
+        supplier_id: 'sup1',
+        expire_date: new Date(),
+      };","Đối tượng sản phẩm đã được tạo
+name: 'New Product',
+        priceout: 200,
+        banner: 'banner.jpg',
+        description: 'New Description',
+        stockQuantity: 20,
+        weight: 2,
+        url_image: 'image.jpg',
+        category_id: 'cat1',
+        supplier_id: 'sup1',
+        expire_date: new Date(),",,Pass
+371,product.service.spec.ts,ProductService,detail,TC-PS-015,Đảm bảo hàm detail trả về chi tiết sản phẩm khi tìm thấy,id = '1',"mockProduct = {
+    id: '1',
+    name: 'Test Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }
+",,Pass
+372,,,,TC-PS-016,Đảm bảo hàm detail trả về null khi không tìm thấy sản phẩm,id = 'notfound',"Đối tượng chứa products = null:
+",,Pass
+373,product.service.spec.ts,ProductService,update,TC-PS-017,Đảm bảo hàm update cập nhật sản phẩm thành công khi sản phẩm tồn tại,"updateDto = { id: '1', name: 'Updated Product' }, id = '1'","Đối tượng sản phẩm đã được cập nhật:
+{
+    id: '1',
+    name: 'Update Product',
+    priceout: 100,
+    banner: 'banner.jpg',
+    description: 'Test Description',
+    stockQuantity: 10,
+    weight: 1,
+    url_image: 'image.jpg',
+    category_id: 'cat1',
+    supplier_id: 'sup1',
+    expire_date: new Date(),
+    status: ExpirationStatus.Valid,
+    category: { id: 'cat1', status: ApplyStatus.True },
+  }",,Pass
+374,,,,TC-PS-018,Đảm bảo hàm update ném lỗi khi sản phẩm không được tìm thấy,"updateDto = { id: 'notfound', name: 'Updated Product' }, id = 'notfound'",Trả về lỗi với thông báo 'Product not found',,Pass
+375,,,delete,TC-PS-019,Đảm bảo hàm delete xóa sản phẩm thành công khi sản phẩm tồn tại,id = '1',undefined,,Pass
+376,,,,TC-PS-020,Đảm bảo hàm delete ném lỗi khi sản phẩm không được tìm thấy,id = 'notfound',Lỗi với thông báo 'Product not found',,Pass
+377,supplier.controller.spec.ts,SupplierController,constructor,TC-SC-001,Đảm bảo rằng SupplierService được inject và định nghĩa trong controller,Instance của SupplierController,Controller được định nghĩa ( không null/undefined),,Pass
+378,supplier.controller.spec.ts,SupplierController,getList,TC-SC-002,Kiểm tra controller trả về danh sách nhà cung cấp từ service,"page = 1, limit = 10","Trả về danh sách nhà cung cấp (có thể rỗng) được bọc trong responseHandler.ok:
+result = { data: [], total: 0, page: 1, limit: 10 };",,Pass
+379,,,,TC-SC-003,Kiểm tra controller xử lý đúng khi service throw Error,"page = 1, limit = 10, service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+380,,,,TC-SC-004,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+381,supplier.controller.spec.ts,SupplierController,getAllBySearch,TC-SC-005,Kiểm tra controller trả về danh sách nhà cung cấp được lọc theo tiêu chí tìm kiếm,"page = 1, limit = 10, searchDto = { name: 'test', phone: '0123456789' }",Trả về danh sách nhà cung cấp được bọc trong responseHandler.ok,,Pass
+382,,,,TC-SC-006,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tìm kiếm,"page = 1, limit = 10, searchDto = { name: 'test' }, service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+383,,,,TC-SC-007,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, searchDto = { name: 'test' }, service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+384,,,create,TC-SC-008,Kiểm tra controller tạo mới nhà cung cấp thành công thông qua service,"dto: CreateSupplierDto = {
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };","Trả về thông tin nhà cung cấp được tạo, bọc trong responseHandler.ok:
+id: '1'
+name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',",,Pass
+385,,,,TC-SC-009,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tạo,"dto: CreateSupplierDto = {
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+service throw Error('fail')",Trả về  lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+386,,,,TC-SC-010,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"dto: CreateSupplierDto = {
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+387,supplier.controller.spec.ts,SupplierController,findOne,TC-SC-011,Kiểm tra controller trả về thông tin nhà cung cấp dựa trên ID,id = '1',Trả về thông tin nhà cung cấp được bọc trong responseHandler.ok,,Pass
+388,,,,TC-SC-012,Kiểm tra controller xử lý đúng khi service throw Error,"id = '1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+389,,,,TC-SC-013,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"id = '1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+390,supplier.controller.spec.ts,SupplierController,update,TC-SC-014,Kiểm tra controller cập nhật nhà cung cấp thành công thông qua service,"dto: UpdateSupplierDto = {
+        id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };","Trả về thông tin nhà cung cấp đã cập nhật, bọc trong responseHandler.ok",,Pass
+391,,,,TC-SC-015,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình cập nhật,"dto: UpdateSupplierDto = {
+        id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+- service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+392,,,,TC-SC-016,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"dto: UpdateSupplierDto = {
+        id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+- service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+393,supplier.controller.spec.ts,SupplierController,remove,TC-SC-017,Kiểm tra controller xóa nhà cung cấp thành công thông qua service,id = '1',"Trả về thông tin nhà cung cấp đã xóa, bọc trong responseHandler.ok",,Pass
+394,,,,TC-SC-018,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình xóa,"id = '1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+395,,,,TC-SC-019,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"id = '1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+396,supplier.service.spec.ts,SupplierService,constructor,TC-SS-001,Đảm bảo rằng SupplierService được inject và định nghĩa trong controller,InStance của SupplierService,service phải được định nghĩa (không undefined/ null),,Pass
+397,supplier.service.spec.ts,SupplierService,getList,TC-SS-002,Kiểm tra controller trả về danh sách nhà cung cấp từ service,"page = 1, limit = 10","Trả về danh sách nhà cung cấp (có thể rỗng) được bọc trong responseHandler.ok:
+{ data: [], total: 0, page: 1, limit: 10 };",,Pass
+398,,,,TC-SS-003,Kiểm tra controller xử lý đúng khi service throw Error,"page = 1, limit = 10, service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+399,,,,TC-SS-004,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+400,supplier.service.spec.ts,SupplierService,getAllBySearch,TC-SS-005,Kiểm tra controller trả về danh sách nhà cung cấp được lọc theo tiêu chí tìm kiếm,"page = 1, limit = 10, searchDto = { name: 'test', phone: '0123456789' }","Trả về danh sách nhà cung cấp được bọc trong responseHandler.ok:
+result = { data: [], total: 0, page: 1, limit: 10 };",,Pass
+401,,,,TC-SS-006,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tìm kiếm,"page = 1, limit = 10, searchDto = { name: 'test' }, service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+402,,,,TC-SS-007,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"page = 1, limit = 10, searchDto = { name: 'test' }, service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+403,supplier.service.spec.ts,SupplierService,create,TC-SS-008,Kiểm tra controller tạo mới nhà cung cấp thành công thông qua service,"dto: CreateSupplierDto = {
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };","Trả về thông tin nhà cung cấp được tạo, bọc trong responseHandler.ok:
+name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',",,Pass
+404,,,,TC-SS-009,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình tạo,"dto: CreateSupplierDto = {
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+405,,,,TC-SS-010,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"dto: CreateSupplierDto = {
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+406,supplier.service.spec.ts,SupplierService,findOne,TC-SS-011,Kiểm tra controller trả về thông tin nhà cung cấp dựa trên ID,id = '1',"Trả về thông tin nhà cung cấp được bọc trong responseHandler.ok:
+result = { id: '1', name: 'test' };",,Pass
+407,,,,TC-SS-012,Kiểm tra controller xử lý đúng khi service throw lỗi RECORD NOT FOUND,"id = '1', service throw Error('RECORD NOT FOUND!')",Trả về lỗi được bọc trong responseHandler.error với message 'RECORD NOT FOUND!',,Pass
+408,,,,TC-SS-013,Kiểm tra controller xử lý đúng khi service throw các lỗi khác,"id = '1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+409,,,,TC-SS-014,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"id = '1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+410,supplier.service.spec.ts,SupplierService,update,TC-SS-015,Kiểm tra controller cập nhật nhà cung cấp thành công thông qua service,"dto: UpdateSupplierDto = {
+        id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };","Trả về thông tin nhà cung cấp đã cập nhật, bọc trong responseHandler.ok:
+id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',",,Pass
+411,,,,TC-SS-016,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình cập nhật,"dto: UpdateSupplierDto = {
+        id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+412,,,,TC-SS-017,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"dto: UpdateSupplierDto = {
+        id: '1',
+        name: 'test',
+        url_image: 'test@example.com',
+        phone: '0123456789',
+        address: 'address',
+      };
+service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+413,supplier.service.spec.ts,SupplierService,remove,TC-SS-018,Kiểm tra controller xóa nhà cung cấp thành công thông qua service,id = '1',"Trả về thông tin nhà cung cấp đã xóa, bọc trong responseHandler.ok",,Pass
+414,,,,TC-SS-019,Kiểm tra controller xử lý đúng khi service throw Error trong quá trình xóa,"id = '1', service throw Error('fail')",Trả về lỗi được bọc trong responseHandler.error với message 'fail',,Pass
+415,,,,TC-SS-020,Kiểm tra controller xử lý đúng khi service throw một object không phải Error,"id = '1', service throw { msg: 'fail' }",Trả về lỗi được bọc trong responseHandler.error với message là JSON string của object,,Pass
+416,create.early.test.ts,UserController,create,TC-UC-CR-001,Kiểm tra việc tạo user mới thành công,MockCreateUserDto với dữ liệu hợp lệ,responseHandler.ok với thông tin user đã tạo,Kiểm tra cả việc gọi service và kết quả trả về,Pass
+417,,,,TC-UC-CR-002,Kiểm tra xử lý khi service throw Error,MockCreateUserDto và service ném ra lỗi,responseHandler.error với message lỗi,Kiểm tra khả năng xử lý lỗi của controller,Pass
+418,,,,TC-UC-CR-003,Kiểm tra xử lý khi service throw object không phải Error,MockCreateUserDto và service ném ra object,responseHandler.error với message được stringify,Kiểm tra khả năng xử lý các loại exception khác nhau,Pass
+419,findAll.early.test.ts,UserController,findAll,TC-UC-FA-001,Kiểm tra việc lấy danh sách users thành công,"- page: 1
+- limit: 10",responseHandler.ok với mảng users,Kiểm tra cả việc gọi service và kết quả trả về,Pass
+420,,,,TC-UC-FA-002,Kiểm tra xử lý khi service throw Error,"- page: 1
+- limit: 10",responseHandler.error với message lỗi,Kiểm tra khả năng xử lý lỗi của controller,Pass
+421,,,,TC-UC-FA-003,Kiểm tra xử lý khi service throw object không phải Error,"- page: 1
+- limit: 10",responseHandler.error với message được stringify,Kiểm tra khả năng xử lý các loại exception khác nhau,Pass
+422,findAllBySearch.early.test.ts,UserController,findAllBySearch,TC-UC-FABS-001,Kiểm tra việc tìm kiếm users với các tham số tìm kiếm hợp lệ,"- page: 1
+- limit: 10
+- searchDto: MockUserSearchDto với đầy đủ thông tin",responseHandler.ok với mảng users tìm được,Kiểm tra cả việc gọi service và kết quả trả về,Pass
+423,,,,TC-UC-FABS-002,Kiểm tra xử lý khi không có tham số tìm kiếm,"- page: 1
+- limit: 10
+- searchDto: object rỗng",responseHandler.ok với mảng users,Kiểm tra khả năng xử lý khi không có điều kiện tìm kiếm,Pass
+424,,,,TC-UC-FABS-003,Kiểm tra xử lý khi service throw Error,"- page: 1
+- limit: 10
+- searchDto: MockUserSearchDto đầy đủ",responseHandler.error với message lỗi,Kiểm tra khả năng xử lý lỗi của controller,Pass
+425,,,,TC-UC-FABS-004,Kiểm tra xử lý khi page và limit có giá trị không hợp lệ,"- page: -1
+- limit: 0
+- searchDto: MockUserSearchDto đầy đủ",responseHandler.error với message được stringify,Kiểm tra khả năng xử lý tham số phân trang không hợp lệ,Pass
+426,findOne.early.test.ts,UserController,findOne,TC-UC-FO-001,Kiểm tra việc tìm kiếm user thành công với ID tồn tại,mockUserId: '123',"responseHandler.ok với dữ liệu user { id: '123', name: 'John Doe' }",Kiểm tra cả việc gọi service và kết quả trả về,Pass
+427,,,,TC-UC-FO-002,Kiểm tra xử lý khi không tìm thấy user,mockUserId: '999' (ID không tồn tại),responseHandler.error với message 'User not found',Kiểm tra khả năng xử lý lỗi khi user không tồn tại,Pass
+428,,,,TC-UC-FO-003,Kiểm tra xử lý khi service trả về exception không phải Error,"- mockUserId: '999'
+- mockException: object { message: 'Unexpected error' }",responseHandler.error với message là chuỗi JSON của exception,Kiểm tra khả năng xử lý các loại exception khác nhau,Pass
+429,findOneByAdmin.early.test.ts,UserController,findOneByAdmin,TC-UC-FOBA-001,Kiểm tra việc admin tìm kiếm user thành công,userId: '123',"responseHandler.ok với dữ liệu user { id: '123', name: 'John Doe' }",Kiểm tra cả việc gọi service và kết quả trả về,Pass
+430,,,,TC-UC-FOBA-002,Kiểm tra xử lý khi không tìm thấy user,userId: '999' (ID không tồn tại),responseHandler.error với message 'User not found',Kiểm tra khả năng xử lý lỗi khi user không tồn tại,Pass
+431,,,,TC-UC-FOBA-003,Kiểm tra xử lý khi service trả về exception không phải Error,"- UserId: '999'
+- Exception: object { message: 'Unexpected error' }",responseHandler.error với message là chuỗi JSON của exception,Kiểm tra khả năng xử lý các loại exception khác nhau,Pass
+432,remove.early.test.ts,UserController,remove,TC-UC-RM-001,Kiểm tra việc xóa user thành công và trả về response phù hợp,user_id_user: '123',responseHandler.ok với { success: true },Kiểm tra cả việc gọi service và kết quả trả về,Pass
+433,,,,TC-UC-RM-002,Kiểm tra xử lý khi không tìm thấy user cần xóa,"- user_id_user: '123'
+- error: Error('User not found')",responseHandler.error với message 'User not found',Kiểm tra khả năng xử lý lỗi khi user không tồn tại,Pass
+434,,,,TC-UC-RM-003,Kiểm tra xử lý khi service trả về lỗi không phải Error object,"- user_id_user: '123'
+- errorObject: { message: 'Unexpected error' }",responseHandler.error với message là chuỗi JSON của exception,Kiểm tra khả năng xử lý các loại exception khác nhau,Pass
+435,update.early.test.ts,UserController,update,TC-UC-UD-001,Kiểm tra việc cập nhật thông tin user thành công,"- userId: '123'
+-mockUpdateUserDto: đối tượng UpdateUserDto",responseHandler.ok với dữ liệu user đã cập nhật,Kiểm tra cả việc gọi service và kết quả trả về,Pass
+436,,,,TC-UC-UD-002,Kiểm tra xử lý khi service gặp lỗi và throw Error,"- userId: '123'
+-mockUpdateUserDto: đối tượng UpdateUserDto
+- error: Error('User not found')",responseHandler.error với message 'User not found',Kiểm tra khả năng xử lý Error object,Pass
+437,,,,TC-UC-UD-003,Kiểm tra xử lý khi service trả về lỗi không phải Error object,"- userId: '123'
+-mockUpdateUserDto: đối tượng UpdateUserDto
+- errorObject: { message: 'Unexpected error' }",responseHandler.error với message là chuỗi JSON của exception,Kiểm tra khả năng xử lý các loại exception khác nhau,Pass
+438,updateByAdmin.early.test.ts,UserController,updateByAdmin,TC-UC-UDBA-001,Kiểm tra việc Admin cập nhật thông tin user thành công,"- mockuserId: '123'
+-mockUpdateUserDto: đối tượng UpdateUserDto { name: 'Test User', email: 'test@example.com' }",responseHandler.ok với dữ liệu user đã cập nhật,Kiểm tra cả việc gọi service và kết quả trả về,Pass
+439,,,,TC-UC-UDBA-002,Kiểm tra xử lý khi service gặp lỗi,"- mockUserId: '123'
+-mockUpdateUserDto: { name: 'Test User', email: 'test@example.com' }
+- mockError: Error('Service error')",responseHandler.error với message 'Service error',Kiểm tra khả năng xử lý Error object,Pass
+440,,,,TC-UC-UDBA-003,Kiểm tra xử lý khi service trả về lỗi không phải Error object,"- mockUserId: '123'
+-mockUpdateUserDto: { name: 'Test User', email: 'test@example.com' }
+- mockError: { message: 'Non-error object' }",responseHandler.error với message là chuỗi JSON của exception,Kiểm tra khả năng xử lý các loại lỗi khác nhau,Pass
+441,create.early.test.ts,UserService,create,TC-SV-CR-001,Kiểm tra việc tạo user mới khi chưa tồn tại trong hệ thống,"mockCreateUserDto: { email: 'test@example.com', password: 'password123' }",Trả về object chứa email của user đã tạo,Kiểm tra cả việc gọi repository và kết quả trả về,Pass
+442,,,,TC-SV-CR-002,Kiểm tra xử lý khi tạo user đã tồn tại và đang active,"-mockCreateUserDto: { email: 'test@example.com', password: 'password123' }
+- existingUser: { email: 'test@example.com', isActive: true }",Throw error với message 'ACCOUNT EXSIST!',Kiểm tra việc xử lý trùng lặp tài khoản,Pass
+443,,,,TC-SV-CR-003,Kiểm tra xử lý khi không thể lưu user vào database,"-mockCreateUserDto: { email: 'test@example.com', password: 'password123' }",Throw error với message 'OCCUR ERROR WHEN SAVE USER TO DB!',Kiểm tra việc xử lý lỗi từ database,Pass
+444,findAll.early.test.ts,UserService,findAll,TC-SV-FA-001,Kiểm tra việc lấy danh sách user với tham số phân trang hợp lệ,"- page: 1 (trang hiện tại)
+- limit: 10 (số lượng record mỗi trang)","- data: mảng chứa thông tin user
+- total: tổng số user
+- page: số trang hiện tại
+- limit: số lượng record mỗi trang",Kiểm tra cả việc gọi repository và kết quả trả về,Pass
+445,,,,TC-SV-FA-002,Kiểm tra xử lý khi tham số page < 1,"- page: 0 (không hợp lệ)
+- limit: 10",Throw error với message 'Page and limit must be greater than 0.’,Kiểm tra validate tham số page,Pass
+446,,,,TC-SV-FA-003,Kiểm tra xử lý khi tham số limit < 1,"- page: 1
+- limit: 0 (không hợp lệ)",Throw error với message 'Page and limit must be greater than 0.’,Kiểm tra validate tham số limit,Pass
+447,,,,TC-SV-FA-004,Kiểm tra xử lý khi không có user nào trong hệ thống,"- page: 1
+- limit: 10",Throw error với message 'NO USER!',Kiểm tra xử lý khi database không có dữ liệu,Pass
+448,findAllBySearch.early.test.ts,UserService,findAllBySearch,TC-SV-FABS-001,Kiểm tra việc tìm kiếm và phân trang hoạt động đúng,"- page: 1 (trang hiện tại)
+- limit: 10 (số lượng record mỗi trang)
+- filters: {} (không có điều kiện lọc)","- data: mảng chứa thông tin user
+- total: tổng số user
+- page: số trang hiện tại
+- limit: số lượng record mỗi trang",Kiểm tra cả việc gọi repository và kết quả trả về,Pass
+449,,,,TC-SV-FABS-002,Kiểm tra việc áp dụng các điều kiện lọc hoạt động đúng,"- page: 1
+- limit: 10
+- filters: {lastName: 'Doe', email: 'johndoe@example.com'}",Repository được gọi với điều kiện Like cho các trường lọc,Kiểm tra việc chuyển đổi filter thành điều kiện Like,Pass
+450,,,,TC-SV-FABS-003,Kiểm tra xử lý khi tham số page < 1,"- page: 0 (không hợp lệ)
+- limit: 10
+- filters: {}",Throw error với message 'Page and limit must be greater than 0.',Kiểm tra validate tham số page,Pass
+451,,,,TC-SV-FABS-004,Kiểm tra xử lý khi tham số limit < 1,"- page: 1
+- limit: 0 (không hợp lệ)
+- filters: {}",Throw error với message 'Page and limit must be greater than 0.',Kiểm tra validate tham số limit,Pass
+452,,,,TC-SV-FABS-005,Kiểm tra xử lý khi không có user nào thỏa mãn điều kiện,"- page: 1
+- limit: 10
+- filters: {}",Throw error với message 'NO USER!',Kiểm tra xử lý khi không có dữ liệu phù hợp,Fail
+453,findOne.early.test.ts,UserService,findOne,TC-SV-FO-001,Kiểm tra việc tìm kiếm user theo ID hoạt động đúng,id: '123' (ID hợp lệ),Đối tượng MockUser với id và name tương ứng,Kiểm tra cả việc gọi repository và kết quả trả về,Pass
+454,,,,TC-SV-FO-002,Kiểm tra xử lý khi không tìm thấy user với ID cung cấp,id: '999' (ID không tồn tại),Throw error với message 'USER WITH ID ${id} NOT FOUND!',Kiểm tra xử lý khi không tìm thấy dữ liệu,Pass
+455,,,,TC-SV-FO-003,Kiểm tra xử lý khi có lỗi phát sinh từ repository,id: '123',Throw error với message 'Unexpected error',Kiểm tra xử lý lỗi từ tầng repository,Pass
+456,getManageUserDashBoard.early.test.ts,UserService,getManageUserDashBoard,TC-SV-GMUDB-001,Kiểm tra việc lấy số liệu thống kê user hoạt động đúng,"- totalUsers: 100
+- usersThisWeek: 10
+- usersLastWeek: 5","Object chứa các thông số:
++ totalUsers: 100
++ usersThisWeek: 10
+ + usersLastWeek: 5",Kiểm tra việc tính toán và trả về đúng các số liệu thống kê,Fail
+457,,,,TC-SV-GMUDB-002,Kiểm tra xử lý khi hệ thống không có user nào,Tất cả các số liệu đều là 0,Object với tất cả các giá trị là 0,Kiểm tra xử lý edge case khi không có dữ liệu,Pass
+458,,,,TC-SV-GMUDB-003,Kiểm tra xử lý khi có lỗi phát sinh từ database,Repository throw error với message 'Database error',Object chứa thông tin lỗi,Kiểm tra xử lý lỗi từ tầng database,Fail
+459,remove.early.test.ts,UserService,remove,TC-SV-RM-001,Kiểm tra việc vô hiệu hóa user hoạt động đúng,id: '1' (ID hợp lệ của user đang hoạt động),User object với isActive = false,Kiểm tra cả việc gọi repository và kết quả trả về,Pass
+460,,,,TC-SV-RM-002,Kiểm tra xử lý khi không tìm thấy user với ID cung cấp,id: '2' (ID không tồn tại),Throw error với message 'USER WITH ID 2 NOT FOUND',Kiểm tra xử lý khi không tìm thấy dữ liệu,Pass
+461,,,,TC-SV-RM-003,Kiểm tra xử lý khi có lỗi trong quá trình lưu thông tin,"- id: '1'
+- save operation fails",Throw error với message 'REMOVE NOT SUCCESS!',Kiểm tra xử lý lỗi từ tầng repository khi lưu,Pass
+462,update.early.test.ts,UserService,update,TC-SV-UD-001,Kiểm tra việc cập nhật thông tin user hoạt động đúng,"- id: '1' (ID hợp lệ)
+- updateUserDto: {name: 'Jane Doe', email: 'jane.doe@example.com'}",User object với thông tin đã được cập nhật,Kiểm tra cả việc gọi repository và kết quả trả về,Pass
+463,,,,TC-SV-UD-002,Kiểm tra xử lý khi không tìm thấy user với ID cung cấp,"- id: 'non-existent-id' (ID không tồn tại)
+ - updateUserDto: {name: 'Jane Doe', email: 'jane.doe@example.com'}",Throw error với message 'USER WITH ID non-existent-id NOT FOUND!',Kiểm tra xử lý khi không tìm thấy dữ liệu,Pass
+464,,,,TC-SV-UD-003,Kiểm tra xử lý khi có lỗi trong quá trình lưu thông tin,"- id: '1'
+- updateUserDto: {name: 'Jane Doe', email: 'jane.doe@example.com'}",Throw error với message 'UPDATE NOT SUCCESS!',Kiểm tra xử lý lỗi từ tầng repository khi lưu,Pass
+465,create.early.test.ts,BaseService,create,TC-BS-CR-001,Kiểm tra tạo bản ghi mới khi chưa tồn tại,"- data: { name: 'New Record' }
+- findCondition: { id: 1 }",Bản ghi mới được tạo và lưu thành công,,Pass
+466,,,,TC-BS-CR-002,Kiểm tra xử lý khi tạo bản ghi đã tồn tại,"- data: { name: 'Existing Record' }
+- findCondition: { id: 1 }",Throw error với message 'RECORD ALREADY EXISTS!',kiểm tra xử lý lỗi,Pass
+467,,,,TC-BS-CR-003,Kiểm tra khả năng xử lý khi input là object rỗng,"- data: {}
+- findCondition: { id: 1 }",Bản ghi rỗng được tạo thành công,kiểm tra xử lý dữ liệu đặc biệt,Pass
+468,delete.early.test.ts,BaseService,delete,TC-BS-DL-001,Kiểm tra xóa bản ghi khi bản ghi tồn tại,id = '123',Bản ghi được xóa thành công,,Pass
+469,,,,TC-BS-DL-002,Kiểm tra xử lý khi xóa bản ghi không tồn tại,id = '123',Throw error với message 'RECORD NOT FOUND!',kiểm tra xử lý lỗi khi bản ghi không tồn tại,Pass
+470,,,,TC-BS-DL-003,Kiểm tra xử lý khi repository.delete gặp lỗi,id = '123',Throw error với message 'Delete failed',kiểm tra xử lý lỗi từ repository,Pass
+471,findAll.early.test.ts,BaseService,findAll,TC-BS-FA-001,Kiểm tra lấy danh sách khi không chỉ định limit và page,Không có tham số đầu vào,"- data: Mảng 2 phần tử
+- total: 2
+- Gọi findAndCount với take=10, skip=0",Kiểm tra giá trị mặc định,Pass
+472,,,,TC-BS-FA-002,Kiểm tra lấy danh sách với tham số limit và page cụ thể,"limit = 2, page = 2","- data: Mảng 2 phần tử
+- total: 4
+- Gọi findAndCount với take=2, skip=2",Kiểm tra phân trang,Pass
+473,,,,TC-BS-FA-003,Kiểm tra xử lý khi không có dữ liệu,Không có tham số đầu vào,"- data: Mảng rỗng
+- total: 0",Kiểm tra trường hợp không có dữ liệu,Pass
+474,,,,TC-BS-FA-004,Kiểm tra xử lý khi limit và page là số âm,"limit = -1, page = -1","Sử dụng giá trị mặc định (take=10, skip=0)",Kiểm tra xử lý giá trị không hợp lệ,Fail
+475,,,,TC-BS-FA-005,Kiểm tra xử lý khi page có giá trị lớn,"limit = 10, page = 1000",Tính toán skip chính xác (skip = 9990),Kiểm tra xử lý phân trang với số trang lớn,Pass
+476,findOne.early.test.ts,BaseService,findOne,TC-BS-FO-001,Kiểm tra tìm kiếm bản ghi khi bản ghi tồn tại trong DB,id = '123',"- Trả về bản ghi với id='123' và name='Test Record'
+-Repository.findOneBy được gọi với tham số {id: '123'}",,Pass
+477,,,,TC-BS-FO-002,Kiểm tra xử lý khi bản ghi không tồn tại trong DB,id = '123',"- Throw error với message 'RECORD NOT FOUND!'
+-Repository.findOneBy được gọi với tham số {id: '123'}",Kiểm tra xử lý lỗi khi không tìm thấy bản ghi,Pass
+478,,,,TC-BS-FO-003,Kiểm tra xử lý khi ID truyền vào là chuỗi rỗng,id = ‘’,"- Throw error với message 'RECORD NOT FOUND!'
+-Repository.findOneBy được gọi với tham số {id: ''}",Kiểm tra xử lý với input không hợp lệ,Pass
+479,update.early.test.ts,BaseService,update,TC-BS-UD-001,Kiểm tra cập nhật bản ghi khi bản ghi tồn tại trong DB,"- id: '1'
+- updateData: { name: 'New Name' }","- Trả về bản ghi đã được cập nhật: { id: '1', name: 'New Name' }
+-Repository.findOneBy được gọi với {id: '1'}
+-Repository.save được gọi với dữ liệu cập nhật",Kiểm tra trường hợp happy path,Pass
+480,,,,TC-BS-UD-002,Kiểm tra xử lý khi bản ghi cần cập nhật không tồn tại,"- id: '1'
+- updateData: { name: 'New Name' }","- Throw error với message 'RECORD NOT FOUND!'
+-Repository.findOneBy được gọi với {id: '1'}
+-Repository.save không được gọi",Kiểm tra xử lý lỗi khi không tìm thấy bản ghi,Pass
+481,,,,TC-BS-UD-003,Kiểm tra cập nhật một phần thuộc tính của bản ghi,"- id: '1'
+- updateData: { age: 31 }","- Trả về bản ghi với thuộc tính đã cập nhật, giữ nguyên các thuộc tính khác
+-Repository.findOneBy được gọi với {id: '1'}
+ - Repository.save được gọi với dữ liệu cập nhật một phần",Kiểm tra cập nhật từng phần (partial update),Pass
+482,Match.early.test.ts,Decorator,Match,TC-DC-M-001,Kiểm tra decorator Match khi giá trị hai trường giống nhau,"- password: '123456'
+- confirmPassword: '123456'",Trả về true,,Pass
+483,,,,TC-DC-M-002,Kiểm tra message tùy chỉnh khi validation thất bại,"- password: '123456'
+- confirmPassword: '123457'
+- message: 'Passwords do not match'",Trả về message tùy chỉnh: 'Passwords do not match',Kiểm tra khả năng tùy chỉnh thông báo lỗi,Fail
+484,,,,TC-DC-M-003,Kiểm tra xử lý khi trường được so sánh có giá trị undefined,"- password: undefined
+- confirmPassword: '123456'",Trả về false,Kiểm tra xử lý giá trị undefined,Pass
+485,,,,TC-DC-M-004,Kiểm tra xử lý khi giá trị cần kiểm tra là undefined,"- password: '123456'
+- confirmPassword: undefined",Trả về false,Kiểm tra xử lý giá trị undefined,Pass
+486,,,,TC-DC-M-005,Kiểm tra thông báo mặc định khi không có message tùy chỉnh,"- password: '123456'
+- confirmPassword: ‘654321’",Trả về message mặc định: 'confirmPassword must match password',Kiểm tra thông báo lỗi mặc định,Pass
+487,Roles.early.test.ts,Decorator,Roles,TC-DC-R-001,Verify decorator hoạt động đúng với một role đơn lẻ,role = 'admin',"SetMetadata được gọi với ('roles', ['admin'])",,Pass
+488,,,,TC-DC-R-002,Verify decorator hoạt động đúng với nhiều role,"roles = ['admin', 'user']","SetMetadata được gọi với ('roles', ['admin', 'user'])",Kiểm tra khả năng xử lý nhiều role cùng lúc,Pass
+489,,,,TC-DC-R-003,Verify decorator hoạt động đúng khi không có role,không có tham số,"SetMetadata được gọi với ('roles', [])",Kiểm tra xử lý edge case khi không có role,Pass
+490,,,,TC-DC-R-004,Verify decorator xử lý đúng role có ký tự đặc biệt,"roles = ['admin$', 'user#']","SetMetadata được gọi với ('roles', ['admin$', 'user#'])",Kiểm tra khả năng xử lý ký tự đặc biệt,Pass
+491,,,,TC-DC-R-005,Verify decorator giữ nguyên case sensitivity của role,"roles = ['Admin', 'USER']","SetMetadata được gọi với ('roles', ['Admin', 'USER'])",Kiểm tra bảo toàn case sensitivity,Pass
+492,,,,TC-DC-R-006,Verify decorator xử lý đúng role có khoảng trắng,"roles = ['admin role', 'user role']","SetMetadata được gọi với ('roles', ['admin role', 'user role'])",Kiểm tra xử lý khoảng trắng trong role,Pass
+493,,,,TC-DC-R-007,Verify decorator xử lý đúng khi role là undefined,roles = [undefined],"SetMetadata được gọi với ('roles', [undefined])",Kiểm tra xử lý giá trị undefined,Pass
+494,,,,TC-DC-R-008,Verify decorator xử lý đúng khi role là null,roles = [null],"SetMetadata được gọi với ('roles', [null])",Kiểm tra xử lý giá trị null,Pass
+495,canActivate.early.test.ts,AuthGuard,canActivate,TC-JWT-GUARD-001,Kiểm tra xác thực thành công với token hợp lệ,"- Token: 'validToken'
+- User data: { isActive: true, token: 'validToken', role: 'admin' }",TRUE,Happy path - Trường hợp xác thực thành công với đầy đủ thông tin hợp lệ,Pass
+496,,,,TC-JWT-GUARD-002,Kiểm tra trường hợp thiếu header authorization,Request không có authorization header,Response error với message 'GUARD.PLEASE PROVIDE AUTHORIZATIONHEADER!',Edge case - Kiểm tra xử lý khi thiếu thông tin xác thực,Pass
+497,,,,TC-JWT-GUARD-003,Kiểm tra trường hợp thiếu token,Authorization header không có token,Response error với message 'GUARD.PLEASE PROVIDE TOKEN!',Edge case - Kiểm tra xử lý khi header không chứa token,Pass
+498,,,,TC-JWT-GUARD-004,Kiểm tra trường hợp token không hợp lệ,Token không hợp lệ 'invalidToken',UnauthorizedException,Edge case - Kiểm tra xử lý khi token không thể verify,Pass
+499,,,,TC-JWT-GUARD-005,Kiểm tra trường hợp user không active,User data với isActive: false,FALSE,Edge case - Kiểm tra xử lý khi tài khoản bị vô hiệu hóa,Pass
+500,,,,TC-JWT-GUARD-006,Kiểm tra trường hợp user không có token,User data với token: null,FALSE,Edge case - Kiểm tra xử lý khi user chưa được cấp token,Pass
+501,,,,TC-JWT-GUARD-007,Kiểm tra trường hợp user không có quyền admin và user_id không khớp,"- User role: 'user'
+- Request param user_id khác với token",Response error với message 'GUARD.USER ID IN PARAM DOES NOT MATCH WITH TOKEN!',Edge case - Kiểm tra phân quyền truy cập,Pass
+502,canActive.early.test.ts,RolesGuard,canActivate,TC-ROLE-GUARD-001,Kiểm tra xử lý khi user có role phù hợp với yêu cầu,"- User role: 'admin'
+- Required roles: ['admin']",TRUE,Happy path - trường hợp thành công cơ bản,Pass
+503,,,,TC-ROLE-GUARD-002,Kiểm tra xử lý khi không có role nào được yêu cầu,Required roles: undefined,TRUE,Happy path - trường hợp không yêu cầu role,Pass
+504,,,,TC-ROLE-GUARD-003,Kiểm tra xử lý khi user không có role yêu cầu,"- User role: 'user'
+- Required roles: ['admin']",UnauthorizedException,Edge case - xử lý trường hợp không đủ quyền,Pass
+505,,,,TC-ROLE-GUARD-004,Kiểm tra xử lý khi không có thông tin user trong request,"- User: undefined
+- Required roles: ['admin']",UnauthorizedException,Edge case - thiếu thông tin user,Pass
+506,,,,TC-ROLE-GUARD-005,Kiểm tra xử lý khi role của user không nằm trong danh sách được phép,"- User role: 'guest'
+- Required roles: ['admin', 'manager']",UnauthorizedException,Edge case - role không nằm trong danh sách cho phép,Pass
+507,findLatestProducts.early.test.ts,ImportProductRepository,findLatestProducts,TC-RP-FINDPROD-001,Kiểm tra lấy danh sách 8 sản phẩm mới nhất thành công,Không có (phương thức không nhận tham số),"Mảng chứa 2 sản phẩm với đầy đủ thông tin
+- productId, productName, productImages, priceOut, productWeight, categoryName",Happy path - Trường hợp thành công với dữ liệu đầy đủ,Pass
+508,,,,TC-RP-FINDPROD-002,Kiểm tra xử lý khi không có sản phẩm nào trong database,Không có (phương thức không nhận tham số),Mảng rỗng [],Edge case - Trường hợp không có dữ liệu,Pass
+509,,,,TC-RP-FINDPROD-003,Kiểm tra xử lý khi có lỗi từ database,Không có (phương thức không nhận tham số),Throw Error với message 'Database error',Edge case - Trường hợp xảy ra lỗi database,Pass
+510,,,,TC-RP-FINDPROD-004,Kiểm tra giới hạn số lượng sản phẩm trả về đúng là 8 khi có nhiều hơn 8 sản phẩm,Không có (phương thức không nhận tham số),"Mảng chứa đúng 8 sản phẩm mới nhất, không nhiều hơn",Happy path - Kiểm tra ràng buộc limit(8) hoạt động đúng,Pass
+511,getFeatureProductsByRevenue.early.test.ts,OrderProductRepository,getFeatureProductsByRevenue,TC-RP-FEATUREPROD-001,Kiểm tra lấy top 5 sản phẩm có doanh thu cao nhất thành công,Không có (phương thức không nhận tham số),"Mảng chứa thông tin của 2 sản phẩm nổi bật với các trường:
+- productId, productName, productImage, priceout, categoryName",Happy path - Trường hợp thành công với dữ liệu đầy đủ,Pass
+512,,,,TC-RP-FEATUREPROD-002,Kiểm tra xử lý khi không có sản phẩm nào thỏa mãn điều kiện,Không có (phương thức không nhận tham số),Mảng rỗng [],Edge case - Trường hợp không có dữ liệu thỏa mãn,Pass
+513,,,,TC-RP-FEATUREPROD-003,Kiểm tra xử lý khi có lỗi từ database,Không có (phương thức không nhận tham số),Throw Error với message 'Database error',Edge case - Trường hợp xảy ra lỗi database,Pass
+514,,,,TC-RP-FEATUREPROD-004,Kiểm tra giới hạn số lượng sản phẩm trả về đúng là 5 khi có nhiều hơn 5 sản phẩm,Không có (phương thức không nhận tham số),"Mảng chứa đúng 5 sản phẩm nổi bật, không nhiều hơn",Happy path - Kiểm tra ràng buộc limit(5) hoạt động đúng,Pass
+515,getTopProductsByRevenue.early.test.ts,OrderProductRepository,getTopProductsByRevenue,TC-RP-TOPPROD-001,Kiểm tra lấy danh sách sản phẩm có doanh thu cao nhất trong khoảng thời gian,"- startDate: 2023-01-01
+- endDate: 2023-12-31","Mảng chứa thông tin của 2 sản phẩm với các trường:
+- productId, productName, priceout, revenue",Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+516,,,,TC-RP-TOPPROD-002,Kiểm tra xử lý khi không có sản phẩm nào trong khoảng thời gian,"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng rỗng [],Edge case - Trường hợp không có dữ liệu trong khoảng thời gian,Pass
+517,,,,TC-RP-TOPPROD-003,Kiểm tra xử lý khi dữ liệu doanh thu không phải số hợp lệ,"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng chứa sản phẩm với revenue là NaN,Edge case - Trường hợp dữ liệu doanh thu không hợp lệ,Pass
+518,calculateStatsForTwoPeriods.early.test.ts,OrderRepository,calculateStatsForTwoPeriods,TC-RP-CAL-001,Kiểm tra tính toán thống kê chính xác cho hai khoảng thời gian,"- startDate: 2023-01-01
+- endDate: 2023-01-31
+- lastStartDate: 2022-12-01
+- lastEndDate: 2022-12-31","Object chứa các chỉ số thống kê:
+ - currentRevenue: 1000
+ - lastRevenue: 800
+ - currentQuantity: 50
+ - lastQuantity: 40
+ - currentTotalOrders: 10
+ - lastTotalOrders: 8
+ - currentTotalCustomers: 5
+ - lastTotalCustomers: 4",Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+519,,,,TC-RP-CAL-002,Kiểm tra xử lý khi không có dữ liệu thống kê,"- startDate: 2023-01-01
+- endDate: 2023-01-31
+- lastStartDate: 2022-12-01
+- lastEndDate: 2022-12-31",Object với tất cả giá trị bằng 0,Edge case - Trường hợp không có dữ liệu thống kê,Pass
+520,,,,TC-RP-CAL-003,Kiểm tra xử lý khi khoảng thời gian không hợp lệ,"- startDate sau endDate
+- lastStartDate sau lastEndDate",Object với tất cả giá trị bằng 0,Edge case - Trường hợp khoảng thời gian không hợp lệ,Pass
+521,getFinancialSummary.early.test.ts,OrderRepository,getFinancialSummary,TC-RP-FINANCIALSUM-001,Kiểm tra lấy báo cáo tài chính theo tuần thành công,TimeFilter.Week,Mảng chứa báo cáo tài chính của tuần hiện tại,Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+522,,,,TC-RP-FINANCIALSUM-002,Kiểm tra lấy báo cáo tài chính theo tháng thành công,TimeFilter.Month,Mảng chứa báo cáo tài chính của 12 tháng,Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+523,,,,TC-RP-FINANCIALSUM-003,Kiểm tra lấy báo cáo tài chính theo quý thành công,TimeFilter.Quarter,Mảng chứa báo cáo tài chính của 4 quý,Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+524,,,,TC-RP-FINANCIALSUM-004,Kiểm tra lấy báo cáo tài chính theo năm thành công,TimeFilter.Year,Mảng chứa báo cáo tài chính của 4 năm gần nhất,Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+525,,,,TC-RP-FINANCIALSUM-005,Kiểm tra xử lý khi không có dữ liệu từ database,TimeFilter.Month và database trả về mảng rỗng,Mảng chứa 12 tháng với tất cả giá trị bằng 0,Edge case - Trường hợp không có dữ liệu,Pass
+526,,,,TC-RP-FINANCIALSUM-006,Kiểm tra xử lý khi TimeFilter không hợp lệ,TimeFilter không hợp lệ,Throw error với message 'Invalid TimeFilter',Edge case - Trường hợp input không hợp lệ,Pass
+527,getRevenueByCategory.early.test.ts,OrderRepository,getRevenueByCategory,TC-RP-REVENUECATEGORY-001,Kiểm tra lấy doanh thu theo danh mục trong khoảng thời gian hợp lệ,"- startDate: 2023-01-01
+- endDate: 2023-12-31","Mảng chứa thông tin doanh thu của 2 danh mục:
+- Danh mục 1: Electronics, doanh thu 1000.00
+- Danh mục 2: Books, doanh thu 500.00",Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+528,,,,TC-RP-REVENUECATEGORY-002,Kiểm tra xử lý khi không có đơn hàng nào trong khoảng thời gian,"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng rỗng [],Edge case - Trường hợp không có dữ liệu thỏa mãn điều kiện,Pass
+529,,,,TC-RP-REVENUECATEGORY-003,Kiểm tra xử lý khi khoảng thời gian không hợp lệ (startDate > endDate),"- startDate: 2023-12-31
+ - endDate: 2023-01-01",Mảng rỗng [],Edge case - Trường hợp đầu vào không hợp lệ,Pass
+530,getRevenueBySupplier.early.test.ts,OrderRepository,getRevenueBySupplier,TC-RP-REVENUESUPPLIER-001,Kiểm tra lấy doanh thu theo nhà cung cấp trong khoảng thời gian hợp lệ,"- startDate: 2023-01-01
+- endDate: 2023-12-31","Mảng chứa thông tin doanh thu của 2 nhà cung cấp:
+- Supplier A: doanh thu 1000.00
+- Supplier B: doanh thu 2000.00",Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+531,,,,TC-RP-REVENUESUPPLIER-002,Kiểm tra xử lý khi không có đơn hàng nào trong khoảng thời gian,"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng rỗng [],Edge case - Trường hợp không có dữ liệu thỏa mãn điều kiện,Pass
+532,,,,TC-RP-REVENUESUPPLIER-003,Kiểm tra xử lý khi doanh thu trả về null hoặc undefined,"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng chứa các nhà cung cấp với doanh thu = 0,Edge case - Trường hợp dữ liệu doanh thu không hợp lệ,Fail
+533,getTopCustomersByRevenue.early.test.ts,OrderRepository,getTopCustomersByRevenue,TC-RP-TOPCUS-001,Kiểm tra lấy top 5 khách hàng có doanh thu cao nhất trong khoảng thời gian (có 2 khách trong dữ liệu),"- startDate: 2023-01-01
+- endDate: 2023-12-31","Mảng chứa thông tin của 2 khách hàng với các trường:
+- userId,userName, revenue
+",Happy path - Trường hợp thành công với dữ liệu đầy đủ và hợp lệ,Pass
+534,,,,TC-RP-TOPCUS-002,Kiểm tra xử lý khi không có đơn hàng nào trong khoảng thời gian (không có khách mua),"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng rỗng [],Edge case - Trường hợp không có dữ liệu thỏa mãn điều kiện,Pass
+535,,,,TC-RP-TOPCUS-003,Kiểm tra xử lý khi doanh thu không phải là số hợp lệ,"- startDate: 2023-01-01
+- endDate: 2023-12-31",Mảng chứa khách hàng với revenue là NaN,Edge case - Trường hợp dữ liệu doanh thu không hợp lệ,Pass
+536,,,,TC-RP-TOPCUS-004,Kiểm tra giới hạn số lượng khách hàng trả về đúng là 5 khi có nhiều hơn 5 khách hàng,"- startDate: 2023-01-01
+- endDate: 2023-12-31
+- Danh sách 7 khách hàng ","Mảng chứa đúng 5 khách hàng có tiền mua cao nhất, sắp xếp giảm dần",Happy path - Kiểm tra ràng buộc limit(5) hoạt động đúng,Pass
+537,generateOrderCode.early.test.ts,GenerateEntityCode,generateOrderCode,TC-GENORDER-001,Kiểm tra tạo mã đơn hàng hợp lệ với entity code cho trước,entityCode = 'ORD',"Chuỗi có định dạng 'ORD-timestamp-randomString' trong đó:
+- Bắt đầu bằng 'ORD-'
+- Có 3 phần được phân tách bởi dấu gạch ngang
+- Phần thứ 2 là timestamp hợp lệ ở dạng base36
+- Phần thứ 3 là chuỗi ngẫu nhiên độ dài 10 ký tự",Happy path - Trường hợp tạo mã đơn hàng cơ bản,Pass
+538,,,,TC-GENORDER-002,Kiểm tra tính duy nhất của mã được tạo,"entityCode = 'ORD', gọi hàm 2 lần liên tiếp",Hai mã khác nhau,Happy path - Kiểm tra tính duy nhất của mã được tạo,Pass
+539,,,,TC-GENORDER-003,Kiểm tra xử lý khi entity code rỗng,entityCode = '',Chuỗi có định dạng '-timestamp-randomString' trong đó,Edge case - Xử lý entity code rỗng,Pass
+540,,,,TC-GENORDER-004,Kiểm tra xử lý khi entity code rất dài,entityCode = 'A' lặp lại 100 lần,Chuỗi có định dạng '{entityCode}-timestamp-randomString',Edge case - Xử lý entity code có độ dài lớn,Pass
+541,transform.early.test.ts,ParseBooleanPipe,transform,TC-TRANSFORM-001,"Kiểm tra chuyển đổi chuỗi ""true"" thành boolean true","value = ""true""",TRUE,"Happy path - Trường hợp cơ bản với giá trị ""true""",Pass
+542,,,,TC-TRANSFORM-002,"Kiểm tra chuyển đổi chuỗi ""false"" thành boolean false","value=""false""",FALSE,"Happy path - Trường hợp cơ bản với giá trị ""false""",Pass
+543,,,,TC-TRANSFORM-003,Kiểm tra xử lý giá trị undefined,value = undefined,undefined,Edge case - Xử lý giá trị undefined,Pass
+544,,,,TC-TRANSFORM-004,Kiểm tra xử lý chuỗi không phải boolean,"value = ""notABoolean""",Ném ra BadRequestException,Error case - Xử lý input không hợp lệ,Pass
+545,,,,TC-TRANSFORM-005,Kiểm tra xử lý chuỗi rỗng,"value = """"",Ném ra BadRequestException,Error case - Xử lý input rỗng,Pass
+546,,,,TC-TRANSFORM-006,Kiểm tra xử lý chuỗi số,"value = ""123""",Ném ra BadRequestException,Error case - Xử lý input là chuỗi số,Pass
+547,,,,TC-TRANSFORM-007,Kiểm tra xử lý khi input là boolean true,value = true,Ném ra BadRequestException,Error case - Xử lý input là boolean thay vì string,Pass
+548,,,,TC-TRANSFORM-008,Kiểm tra xử lý khi input là boolean false,value = false,Ném ra BadRequestException,Error case - Xử lý input là boolean thay vì string,Pass
+549,responseHandler.early.test.ts,responseHandler,responseHandler,TC-RESUTIL-001,Kiểm tra phương thức ok() với dữ liệu hợp lệ,"data = { id: 1, name: 'Test' }","Object response với:
+- success: true
+- data: { id: 1, name: 'Test' }
+ - status: 200
+- message: 'SUCCESS!'",Happy path - Trường hợp thành công cơ bản,Pass
+550,,,,TC-RESUTIL-002,Kiểm tra phương thức notFound(),Không có,"Object response với:
+- success: false
+- status: 404
+- message: 'CANNOT FIND RESOURCES!'",Happy path - Trường hợp không tìm thấy tài nguyên,Pass
+551,,,,TC-RESUTIL-003,Kiểm tra phương thức error() với message mặc định,Không có,"Object response với:
+- success: false
+- status: 500
+- message: 'Internal server error'",Happy path - Trường hợp lỗi server mặc định,Pass
+552,,,,TC-RESUTIL-004,Kiểm tra phương thức unauthorized() với message mặc định,Không có,"Object response với:
+- success: false
+- status: 401
+- message: 'Unauthorized'",Happy path - Trường hợp không có quyền truy cập,Pass
+553,,,,TC-RESUTIL-005,Kiểm tra phương thức invalidated() với dữ liệu lỗi,"errors = { field: 'name', error: 'Required' }","Object response với:
+- success: false
+- status: 422
+- data: { field: 'name', error: 'Required' }",Happy path - Trường hợp dữ liệu không hợp lệ,Pass
+554,,,,TC-RESUTIL-006,Kiểm tra phương thức error() với message tùy chỉnh,message = 'Custom error message',"Object response với:
+- success: false
+- status: 500
+- message: 'Custom error message'",Edge case - Trường hợp tùy chỉnh thông báo lỗi,Pass
+555,,,,TC-RESUTIL-007,Kiểm tra phương thức unauthorized() với message tùy chỉnh,message = 'Custom unauthorized message',"Object response với:
+- success: false
+- status: 401
+- message: 'Custom unauthorized message'",Edge case - Trường hợp tùy chỉnh thông báo unauthorized,Pass
+556,,,,TC-RESUTIL-008,Kiểm tra phương thức invalidated() với object errors rỗng,errors = {},"Object response với:
+- success: false
+- status: 422
+- data: {}",Edge case - Trường hợp không có chi tiết lỗi,Pass
+557,,,,TC-RESUTIL-009,Kiểm tra phương thức ok() với dữ liệu null,data = null,"Object response với:
+- success: true
+- data: null
+- status: 200
+- message: 'SUCCESS!'",Edge case - Trường hợp dữ liệu null,Pass
+558,,,,TC-RESUTIL-010,Kiểm tra phương thức ok() với dữ liệu undefined,data = undefined,"Object response với:
+- success: true
+- data: undefined
+- status: 200
+- message: 'SUCCESS!'",Edge case - Trường hợp dữ liệu undefined,Pass

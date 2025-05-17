@@ -1,0 +1,147 @@
+,,,,,,,,
+,Pass,26,,,,,,
+,Fail,16,,,,,,
+,N/A,0,,,,,,
+,Number of Test case,42,,,,,,
+,,,,,,,,
+Mã kiểm thử,Mục đích kiểm thử,Các bước thực hiện,Dữ liệu kiểm thử,Kết quả mong muốn,Test Result,Ngày thực hiện,Tester,Note
+,,,,,,,,
+"Precond:
+Khách hàng đăng nhập thành công vào hệ thống và có quyền thực hiện chức năng của khách hàng",,,,,,,,
+Màn hình Trang chủ,,,,,,,,
+,Giao diện,,,,,,,
+,Giao diện chung,,,,,,,
+TC-TC-0001,Kiểm tra Tổng thể giao diện màn hình Trang chủ,"Tại màn hình Trang chủ
+1. Kiểm tra màu nền, màu chữ, kích thước chữ trên màn hình ",,"1. Các lable sử dụng cùng 1 loại font, cỡ chữ, căn lề trái, có độ dài, rộng và khoảng cách bằng nhau, không xô lệch
+2. Các thông tin hiển thị trên màn hình đúng chính tả, đúng ngữ pháp
+3. Form được bố trí hợp lý và dễ sử dụng",Pass,,Đỗ Hoành Thông,
+TC-TC-0002,Kiểm tra bố cục giao diện màn hình Trang chủ,"1. Kiểm tra title của màn hình
+2. Kiểm tra hiển thị thông tin các trường và button trên màn hình",,"1. Màn hình Trang chủ gồm:
+- Hiển thị title của giao diện: ""Trang chủ""
+2. Kiểm tra hiển thị thông tin các trường và button trên màn hình
++ Button: Mua ngay
++ Button : Khám phá thêm
++ Button: Xem thêm
+- Phần nhập thông tin Gửi phản hồi:
++ Họ Tên: Textbox
++ Email: Textbox
++ Ghi chú: Textbox
++ Button: Gửi",Pass,,Đỗ Hoành Thông,
+TC-TC-0003,Kiểm tra thứ tự di chuyển trỏ trên màn hình khi nhấn phím Tab,Forcus vào màn hình. Nhấn Tab liên tục,,"Con trỏ di chuyển lần lượt trên các trường input, button, hyperlink theo thứ tự trái sang phải, trên xuống dưới.",Pass,,Đỗ Hoành Thông,
+TC-TC-0004,Kiểm tra thứ tự con trỏ di chuyển ngược lại trên màn hình khi nhấn Shift-Tab,Forcus vào màn hình. Nhấn phím Shift-Tab liên tục,,"Con trỏ di chuyển lần lượt trên các trường input, button, hyperlink: từ dưới lên trên, từ phải sang trái",Pass,,Đỗ Hoành Thông,
+TC-TC-0005,"Kiểm tra giao diện khi thu nhỏ, phóng to","1. Nhấn phím Ctrl -
+2. Nhấn phím Ctrl +",,"Màn hình thu nhỏ, phóng to tương ứng và không bị vỡ giao diện",Fail,,Đỗ Hoành Thông,Giao diện bị vỡ khi zoom 400%
+TC-TC-0006,Kiểm tra khi nhấn icon reload trên trình duyệt nhiều lần ,Nhấn reload 20 lần liên tục,,Trang thông tin được hiện thị đầy đủ,Pass,,Đỗ Hoành Thông,
+,"Validate các trường thông tin (Phần gửi phản hồi)
+Chú ý: Khi validate thông tin của một trường, tất cả các trường khác hợp lệ",,,,,,,
+,Textbox Họ tên,,,,,,,
+TC-TC-0007,Kiểm tra giá trị mặc định trường Họ tên,"Tại màn hình Trang chủ
+1. Kiểm tra mặc định trường Họ tên",,"Mặc định trường Họ tên là để trống
+",Pass,,Đỗ Hoành Thông,
+TC-TC-0008,Kiểm tra khi nhập dữ liệu số,"Tại màn hình Trang chủ
+1. Nhập dữ liệu số vào textbox Họ tên","{Họ tên: ""123""}","Không cho phép nhập
+Hiển thị thông báo: ""Tên không hợp lệ""",Fail,,Đỗ Hoành Thông,Vẫn cho phép nhập
+TC-TC-0009,"Kiểm tra nhập tiếng Việt có dấu, không dấu","Tại màn hình Trang chủ
+1. Nhập tiếng Việt có dấu hoặc không dấu vào textbox Họ tên","{Họ tên: ""Vũ""}",Cho phép nhập,Pass,,Đỗ Hoành Thông,
+TC-TC-0010,Kiểm tra nhập Họ tên có chứa kí tự đặc biệt,"Tại màn hình Trang chủ
+1. Nhập ký tự đặc biệt vào textbox Họ tên","{Họ tên: ""####""}","Không cho phép nhập
+Hiển thị thông báo: ""Tên không hợp lệ""",Fail,,Đỗ Hoành Thông,Vẫn cho phép nhập
+TC-TC-0011,Kiểm tra trimspace,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Họ tên, có ký tự space ở đầu hoặc cuối của chuỗi
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""         A    ""}",Thực hiện trim space ở đầu và cuối trường dữ liệu,Fail,,Đỗ Hoành Thông,Không xử lý trimspace
+TC-TC-0012,Kiểm tra nhập minLength,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Họ tên = 1 ký tự
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""A""}","Hiển thị: ""Tên min = 2""",Fail,,Đỗ Hoành Thông,"Không hiển thị thông báo, chưa xử lý trường hợp này"
+TC-TC-0013,,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Họ tên = 2 ký tự
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""An""}",Thông tin hợp lệ,Pass,,Đỗ Hoành Thông,
+TC-TC-0014,,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Họ tên =3 ký tự
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""Anh""}",Thông tin hợp lệ,Pass,,Đỗ Hoành Thông,
+TC-TC-0015,Kiểm tra nhập maxlength,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Tên = 19 ký tự
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""qwertyuioasdffghjkl""}",Thông tin hợp lệ,Pass,,Đỗ Hoành Thông,
+TC-TC-0016,,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Tên = 20 ký tự
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""qwertyuioasdffghjklz""}",Thông tin hợp lệ,Pass,,Đỗ Hoành Thông,
+TC-TC-0017,,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Tên = 21 ký tự
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{Họ tên: ""qwertyuioasdffghjklzx""}","Hiển thị: ""Tên max = 20""",Fail,,Đỗ Hoành Thông,"Không hiển thị thông báo, chưa xử lý trường hợp này"
+TC-TC-0018,Kiểm tra hành vi nhập thông tin,Sau khi điền Họ tên thì ấn tab,,Con trỏ chuyển xuống trường Email,Pass,,Đỗ Hoành Thông,
+TC-TC-0019,,Copy dữ liệu rồi paste vào trường Họ tên,,Cho phép copy paste,Pass,,Đỗ Hoành Thông,
+,Textbox Email,,,,,,,
+TC-TC-0020,Kiểm tra giá trị mặc định,"Tại màn hình Trang chủ
+1. Kiểm tra mặc định trường Email",,"Mặc định trường Email là để trống
+",Pass,,Đỗ Hoành Thông,
+TC-TC-0021,Kiểm tra Khi nhập thông tin là ký tự số vào phần tên định dạng Email trong trường Textbox Email,"Tại màn hình Trang chủ
+1. Nhập thông tin là ký tự số vào phần tên định dạng Email trong trường Email","{email: ""123@gmail.com""}",Cho phép nhập,Pass,,Đỗ Hoành Thông,
+TC-TC-0022,Kiểm tra Khi nhập thông tin là ký tự chữ thường không dấu vào phần tên định dạng Email trong trường Textbox Email,"Tại màn hình Trang chủ
+1. Nhập thông tin là ký tự chữ thường  không dấu vào phần tên định dạng Email trong trường Email","{email: ""abc@gmail.com""}",Cho phép nhập. Không phân biệt chữ hoa chữ thường,Pass,,Đỗ Hoành Thông,
+TC-TC-0023,Kiểm tra Khi nhập thông tin là ký tự chữ hoa không dấu vào phần tên định dạng Email trong trường Textbox Email,"Tại màn hình Trang chủ
+1. Nhập thông tin là ký tự chữ thường  không dấu vào phần tên định dạng Email trong trường Email","{email: ""ABC@gmail.com""}",Cho phép nhập. Không phân biệt chữ hoa chữ thường,Pass,,Đỗ Hoành Thông,
+TC-TC-0024,Kiểm tra Khi nhập thông tin là ký tự chữ có dấu vào phần tên định dạng Email trong trường Textbox Email,"Tại màn hình Trang chủ
+1. Nhập thông tin là ký tự chữ có dấu vào phần tên định dạng Email trong trường Email
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{email: ""á@gmail.com""}","Hiển thị: ""Email không hợp lệ""",Fail,,Đỗ Hoành Thông,"Sai nội dung hiển thị, nội dung mà thông báo thực tế hiển thị : "" A part followed by '@' should not contain the symbol 'á'"""
+TC-TC-0025,Kiểm tra Khi nhập thông tin là ký tự đặc biệt vào phần tên định dạng Email trong trường Textbox Email,"Tại màn hình Trang chủ
+1. Nhập thông tin là ký tự đặc biệt vào phần tên định dạng Email trong trường Email
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{email: ""Abc!!@gmail.com""}","Hiển thị: ""Email không hợp lệ""",Fail,,Đỗ Hoành Thông,"Không hiển thị thông báo, đồng thời vẫn gửi đi phản hồi"
+TC-TC-0026,"Kiểm tra Khi nhập thông tin phần tên miền Email trong trường Textbox Email không phải ""@gmail.com""","Tại màn hình Trang chủ
+1. Nhập thông tin tên miền khác ""@gmail.com"" vào trường Email
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi","{email : ""abc@byebye""}","Hiển thị: ""Email không hợp lệ""",Fail,,Đỗ Hoành Thông,"Không hiển thị thông báo, đồng thời vẫn gửi đi phản hồi"
+TC-TC-0027,Kiểm tra space đầu cuối dữ liệu trường Email,"Tại màn hình Trang chủ
+1.Space đầu dữ liệu trường Email
+2.Nhấn nút Gửi
+3.Kiểm tra hiển thị trên màn hình",,Thực hiện trimspace dữ liệu,Fail,,Đỗ Hoành Thông,Không trimspace khoảng trống
+TC-TC-0028,Kiểm tra hành vi nhập thông tin,Sau khi điền Email thì ấn tab,,Con trỏ chuyển xuống trường Ghi chú,Fail,,Đỗ Hoành Thông,Con trỏ chuyển xuống nút Gửi
+TC-TC-0029,,Copy dữ liệu rồi paste vào trường Email,,Cho phép copy paste,Pass,,Đỗ Hoành Thông,
+,Textbox Ghi chú,,,,,,,
+TC-TC-0030,Kiểm tra giá trị mặc định trường Ghi chú,"Tại màn hình Trang chủ
+1. Kiểm tra mặc định trường Ghi chú",,Mặc định trường Ghi chú là để trống,Pass,,Đỗ Hoành Thông,
+TC-TC-0031,Kiểm tra khi nhập dữ liệu số,"Tại màn hình Trang chủ
+1. Nhập dữ liệu số 123456 vào textbox Ghi chú",,Cho phép nhập,Pass,,Đỗ Hoành Thông,
+TC-TC-0032,"Kiểm tra nhập tiếng Việt có dấu, không dấu","Tại màn hình Trang chủ
+1. Nhập tiếng Việt có dấu  hoặc không dấu vào textbox Ghi chú",,Cho phép nhập,Pass,,Đỗ Hoành Thông,
+TC-TC-0033,Kiểm tra nhập Ghi chú có chứa kí tự đặc biệt,"Tại màn hình Trang chủ
+1. Nhập ký tự đặc biệt vào textbox Ghi chú",,Cho phép nhập,Pass,,Đỗ Hoành Thông,
+TC-TC-0034,Kiểm tra trimspace,"Tại màn hình Trang chủ
+1. Nhập dữ liệu Ghi chú, có ký tự space ở đầu hoặc cuối của chuỗi
+2. Nhập dữ liệu hợp lệ cho các trường khác
+3. Click Gửi",,Thực hiện trim space ở đầu và cuối trường dữ liệu,Fail,,Đỗ Hoành Thông,Không thực hiện trimspace
+TC-TC-0035,Kiểm tra hành vi nhập thông tin,Sau khi điền thông tin trường Ghi chú thì ấn tab,,Con trỏ chuyển tới button Gửi,Fail,,Đỗ Hoành Thông,Con trỏ chuyển xuống hyperlink Trang chủ
+TC-TC-0036,,Copy dữ liệu rồi paste vào trường Ghi chú,,Cho phép copy paste,Pass,,Đỗ Hoành Thông,
+,Chức năng,,,,,,,
+,Kiểm tra chức năng button Mua ngay,,,,,,,
+TC-TC-0037,Kiểm tra cho phép click button Mua ngay,"Tại màn hình Trang chủ
+Click vào button Mua ngay",,"Cho phép click vào button Mua ngay.
+Hệ thống chuyển đến giao diện Sản phẩm",Fail,,Đỗ Hoành Thông,Chức năng chưa được triển khai
+,Kiểm tra chức năng button Xem thêm,,,,,,,
+TC-TC-0038,Kiểm tra cho phép click button Xem thêm,"Tại màn hình Trang chủ
+Click vào button Xem thêm",,"Cho phép click vào button Xem thêm.
+Hệ thống chuyển đến giao diện Xem ưu đãi",Fail,,Đỗ Hoành Thông,Chức năng chưa được triển khai
+,Kiểm tra chức năng button Gửi,,,,,,,
+TC-TC-0039,Kiểm tra button Gửi khi để mặc định hoặc để trống các trường,"Tại màn hình Trang chủ
+ 1. Để mặc định hoặc để trống các trường 
+ 2. Click button Gửi",,"Disable button Gửi
+Nhắc nhở điền thông tin vào các trường",Pass,,Đỗ Hoành Thông,
+TC-TC-0040,Kiểm tra button Gửi khi nhập thông tin không đủ 3 trường,"Tại màn hình Trang chủ
+ 1. Nhập thông tin 1-2 trường
+ 2. Click button Gửi",,"Disable button Gửi
+Nhắc nhở điền thông tin vào các trường còn thiếu",Pass,,Đỗ Hoành Thông,
+TC-TC-0041,Kiểm tra Button Gửi khi nhập thông tin vào các trường đều hợp lệ,"Tại màn hình Trang chủ
+ 1. Nhập các trường hợp lệ (thỏa mãn độ dài và định dạng)
+ 2. Click button Gửi",,"Enable button Gửi
+Admin nhận được thông tin phản hồi",Fail,,Đỗ Hoành Thông,Admin chưa nhận được thông tin phản hồi do Dev chưa xử lý.
+TC-TC-0042,Kiểm tra chức năng Gửi khi nhập thông tin KHÔNG hợp lệ : nhập sai định dạng email,"Tại màn hình Trang chủ
+ 1. Nhập các trường Họ tên, Ghi chú hợp lệ (thỏa mãn độ dài và định dạng)
+ 2. Click button Gửi",,"Disable button Gửi
+Nhắc nhở điền sai định dạng Email",Pass,,Đỗ Hoành Thông,
