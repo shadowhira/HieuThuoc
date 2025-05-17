@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
     currentPage: 0,
     size: 1000,
     sortedField: "",
+    trangThai: true,
   };
 
   constructor(
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getData(); 
+    this.getData();
   }
 
   search() {
@@ -69,33 +70,51 @@ export class HomeComponent implements OnInit {
   }
 
   async getUserInfo(): Promise<void> {
-    const _token = Cookie.get(AuthConstant.ACCESS_TOKEN_KEY);
+    try {
+      const _token = Cookie.get(AuthConstant.ACCESS_TOKEN_KEY);
 
-    const userInfo = jwtDecode(_token) as NguoiDung;
-    if (userInfo.id) {
-      const resp = await lastValueFrom(this.nguoidungService.get(userInfo.id));
-      if (resp.status == CommonConstant.STATUS_OK_200) {
-        this.userInfo = resp.data;
+      if (!_token) {
+        console.log('Không có token, người dùng chưa đăng nhập');
+        return;
+      }
 
-        if (
-          this.userInfo.nhomQuyens?.some(
-            (quyen) => quyen.id == AuthConstant.ROLE_ADMIN.toString()
-          )
-        ) {
-        }
-        if (this.userInfo.id) {
-          this.getGH();
+      const userInfo = jwtDecode(_token) as NguoiDung;
+      if (userInfo.id) {
+        const resp = await lastValueFrom(this.nguoidungService.get(userInfo.id));
+        if (resp.status == CommonConstant.STATUS_OK_200) {
+          this.userInfo = resp.data;
+
+          if (
+            this.userInfo.nhomQuyens?.some(
+              (quyen) => quyen.id == AuthConstant.ROLE_ADMIN.toString()
+            )
+          ) {
+            // Xử lý quyền admin nếu cần
+          }
+
+          if (this.userInfo.id) {
+            this.getGH();
+          }
         }
       }
+    } catch (error) {
+      console.error('Lỗi khi lấy thông tin người dùng:', error);
     }
   }
 
   bestSale(){
-    this.thuocService.getProductBestsale(this.modelSearch).subscribe((res) => {
-      if( res.status == CommonConstant.STATUS_OK_200){
-        this.productBS = res.data.data; 
+    this.thuocService.getProductBestsale(this.modelSearch).subscribe({
+      next: (res) => {
+        if (res.status == CommonConstant.STATUS_OK_200) {
+          this.productBS = res.data.data || [];
+          console.log('Sản phẩm bán chạy:', this.productBS);
+        }
+      },
+      error: (err) => {
+        console.error('Lỗi khi lấy sản phẩm bán chạy:', err);
+        this.productBS = [];
       }
-    }) 
+    });
   }
 
   getGH() {
@@ -109,16 +128,27 @@ export class HomeComponent implements OnInit {
   }
 
   getThuoc() {
-    this.thuocService.getProductLst(this.modelSearch).subscribe((res) => {
-      this.productLst = res.data.data;
+    this.thuocService.getProductLst(this.modelSearch).subscribe({
+      next: (res) => {
+        if (res.status == CommonConstant.STATUS_OK_200) {
+          this.productLst = res.data.data || [];
+          console.log('Danh sách sản phẩm:', this.productLst);
 
-      // Calculate total pages
-      this.totalPage = Math.ceil(this.productLst.length / this.itemsPerPage);
+          // Calculate total pages
+          this.totalPage = Math.ceil(this.productLst.length / this.itemsPerPage);
 
-      // Generate page numbers
-      // this.pages = Array.from({ length: this.totalPage }, (_, i) => i + 1);
-      this.updatePaginatedList();
-      this.updateVisiblePages();
+          // Generate page numbers
+          this.updatePaginatedList();
+          this.updateVisiblePages();
+        }
+      },
+      error: (err) => {
+        console.error('Lỗi khi lấy danh sách sản phẩm:', err);
+        this.productLst = [];
+        this.paginatedProductLst = [];
+        this.totalPage = 0;
+        this.pages = [];
+      }
     });
   }
 

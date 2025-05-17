@@ -22,13 +22,15 @@ public interface ThuocRepo extends JpaRepository<Thuoc, Integer> {
 //    Search thuoc
 	@Query("SELECT DISTINCT t FROM Thuoc t " + "LEFT JOIN t.loaiThuoc lt " + "LEFT JOIN t.nhaSanXuat nsx "
 			+ "LEFT JOIN lt.danhMucThuoc dmt " + "LEFT JOIN t.doiTuongs dt "
-			+ "WHERE (:keyWord IS NULL OR (t.tenThuoc LIKE CONCAT('%', :keyWord, '%') "
+			+ "WHERE (:keyWord IS NULL OR :keyWord = '' OR (t.tenThuoc LIKE CONCAT('%', :keyWord, '%') "
 			+ "OR t.maThuoc LIKE CONCAT('%', :keyWord, '%'))) "
-			+ "AND (:loaiThuoc IS NULL OR lt.tenLoai LIKE CONCAT('%', :loaiThuoc, '%')) "
-			+ "AND (:nhaSanXuat IS NULL OR nsx.tenNhaSanXuat LIKE CONCAT('%', :nhaSanXuat, '%')) "
-			+ "AND (:danhMucThuoc IS NULL OR dmt.tenDanhMuc LIKE CONCAT('%', :danhMucThuoc, '%')) "
-			+ "AND ((:minGiaBan IS NULL AND :maxGiaBan IS NULL) OR (t.giaBan >= COALESCE(:minGiaBan, 0) AND t.giaBan <= COALESCE(:maxGiaBan, 9999999))) "
-			+ "AND (:tenDoiTuong IS NULL OR (dt IS NOT NULL AND dt.tenDoiTuong LIKE CONCAT('%', :tenDoiTuong, '%'))) "
+			+ "AND (:loaiThuoc IS NULL OR :loaiThuoc = '' OR lt.tenLoai LIKE CONCAT('%', :loaiThuoc, '%')) "
+			+ "AND (:nhaSanXuat IS NULL OR :nhaSanXuat = '' OR nsx.tenNhaSanXuat LIKE CONCAT('%', :nhaSanXuat, '%')) "
+			+ "AND (:danhMucThuoc IS NULL OR :danhMucThuoc = '' OR dmt.tenDanhMuc LIKE CONCAT('%', :danhMucThuoc, '%')) "
+			+ "AND ((:minGiaBan IS NULL AND :maxGiaBan IS NULL) OR (:minGiaBan IS NOT NULL AND :maxGiaBan IS NOT NULL AND t.giaBan >= :minGiaBan AND t.giaBan <= :maxGiaBan) "
+			+ "OR (:minGiaBan IS NOT NULL AND :maxGiaBan IS NULL AND t.giaBan >= :minGiaBan) "
+			+ "OR (:minGiaBan IS NULL AND :maxGiaBan IS NOT NULL AND t.giaBan <= :maxGiaBan)) "
+			+ "AND (:tenDoiTuong IS NULL OR :tenDoiTuong = '' OR (dt IS NOT NULL AND dt.tenDoiTuong LIKE CONCAT('%', :tenDoiTuong, '%'))) "
 			+ "AND (:trangThai IS NULL OR t.trangThai = :trangThai)"
 	)
 	Page<Thuoc> search(@Param("keyWord") String keyWord, @Param("loaiThuoc") String loaiThuoc,

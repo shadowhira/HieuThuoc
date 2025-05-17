@@ -14,4 +14,5 @@ export class SearchModel {
   nhaSanXuat?: string | null;
   maxGiaBan?: number | null;
   minGiaBan?: number | null;
+  trangThai?: boolean;
 }

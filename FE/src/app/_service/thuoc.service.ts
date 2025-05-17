@@ -101,10 +101,10 @@ export class ThuocService {
 
   getProductBestsale(thuoc: any): Observable<any>{
     const apiUrl = environment.backApiUrl + `/thuoc/get_thuoc_ban_chay`;
-    const headers: HttpHeaders = HeadersUtil.getHeadersAuth();
-  
+    const headers: HttpHeaders = HeadersUtil.getHeaders();
+
     // let params = new HttpParams();
-    
+
     return this.http.post(`${apiUrl}`, thuoc, {
       headers: headers,
       // params: params,
