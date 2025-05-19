@@ -11,6 +11,11 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 - **[Kiem_Thu_Chuc_Nang_Phan1.md](./Kiem_Thu_Chuc_Nang_Phan1.md)**: Hướng dẫn kiểm thử chức năng thêm thuốc
 - **[Kiem_Thu_Chuc_Nang_Phan2.md](./Kiem_Thu_Chuc_Nang_Phan2.md)**: Hướng dẫn kiểm thử chức năng cập nhật và xóa thuốc
 - **[Kiem_Thu_Chuc_Nang_Phan3.md](./Kiem_Thu_Chuc_Nang_Phan3.md)**: Hướng dẫn kiểm thử chức năng tìm kiếm thuốc
+- **[giai-doan-2-unit-test](./giai-doan-2-unit-test)**: Tài liệu và test case giai đoạn 2 (Kiểm thử đơn vị)
+  - **[README.md](./giai-doan-2-unit-test/README.md)**: Tổng quan về giai đoạn 2
+  - **[bao-cao/Bao_Cao_Tien_Do_Giai_Doan_2.md](./giai-doan-2-unit-test/bao-cao/Bao_Cao_Tien_Do_Giai_Doan_2.md)**: Báo cáo tiến độ giai đoạn 2
+  - **[service-test/](./giai-doan-2-unit-test/service-test)**: Test case cho các service
+  - **[controller-test/](./giai-doan-2-unit-test/controller-test)**: Test case cho các controller
 
 ## 🚀 QUY TRÌNH TRIỂN KHAI KIỂM THỬ
 
@@ -23,15 +28,14 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - [x] Chuẩn bị dữ liệu kiểm thử theo [Ke_Hoach_Trien_Khai_Kiem_Thu.md](./Ke_Hoach_Trien_Khai_Kiem_Thu.md)
 
 ### Giai đoạn 2: Kiểm thử đơn vị (Ngày 1-2)
-- [ ] **Kiểm thử Service**:
-  - [ ] ThuocService: Thêm, sửa, xóa, tìm kiếm
-  - [ ] LoaiThuocService: Thêm, sửa, xóa, tìm kiếm
-  - [ ] DanhMucThuocService: Thêm, sửa, xóa, tìm kiếm
-- [ ] **Kiểm thử Controller**:
-  - [ ] ThuocController: Thêm, sửa, xóa, tìm kiếm
-  - [ ] LoaiThuocController: Thêm, sửa, xóa, tìm kiếm
-  - [ ] DanhMucThuocController: Thêm, sửa, xóa, tìm kiếm
-- [ ] **Sửa lỗi**: Sửa các lỗi phát hiện trong quá trình kiểm thử đơn vị
+- [x] **Kiểm thử Service**:
+  - [x] ThuocService: Thêm, sửa, xóa, tìm kiếm
+  - [x] LoaiThuocService: Thêm, sửa, xóa, tìm kiếm
+  - [x] DanhMucThuocService: Thêm, sửa, xóa, tìm kiếm
+- [x] **Kiểm thử Controller**:
+  - [x] ThuocController: Thêm, sửa, xóa, tìm kiếm
+  - [x] LoaiThuocController: Thêm, sửa, xóa, tìm kiếm
+  - [x] DanhMucThuocController: Thêm, sửa, xóa, tìm kiếm
 
 ### Giai đoạn 3: Kiểm thử tích hợp (Ngày 2-3)
 - [ ] **Kiểm thử tích hợp Backend**:
@@ -39,7 +43,6 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - [ ] Kiểm thử API bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan1.md](./Kiem_Thu_Chuc_Nang_Phan1.md)
 - [ ] **Kiểm thử tích hợp Frontend-Backend**:
   - [ ] Kiểm thử tích hợp giữa Frontend và Backend
-- [ ] **Sửa lỗi**: Sửa các lỗi phát hiện trong quá trình kiểm thử tích hợp
 
 ### Giai đoạn 4: Kiểm thử chức năng (Ngày 3-4)
 - [ ] **Kiểm thử chức năng thêm thuốc**:
@@ -54,7 +57,6 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 - [ ] **Kiểm thử chức năng tìm kiếm thuốc**:
   - [ ] Kiểm thử API tìm kiếm thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan3.md](./Kiem_Thu_Chuc_Nang_Phan3.md)
   - [ ] Kiểm thử chức năng tìm kiếm thuốc bằng Cypress
-- [ ] **Sửa lỗi**: Sửa các lỗi phát hiện trong quá trình kiểm thử chức năng
 
 ### Giai đoạn 5: Kiểm thử giao diện (Ngày 4-5)
 - [ ] **Kiểm thử giao diện danh sách thuốc**
@@ -62,7 +64,6 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 - [ ] **Kiểm thử giao diện chi tiết thuốc**
 - [ ] **Kiểm thử giao diện tìm kiếm thuốc**
 - [ ] **Kiểm thử tính responsive**
-- [ ] **Sửa lỗi**: Sửa các lỗi phát hiện trong quá trình kiểm thử giao diện
 
 ### Giai đoạn 6: Kiểm thử hệ thống (Ngày 5)
 - [ ] **Kiểm thử luồng nghiệp vụ (End-to-End Testing)**:
@@ -74,7 +75,6 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - [ ] Chạy kiểm thử hiệu năng
 - [ ] **Kiểm thử tương thích (Compatibility Testing)**:
   - [ ] Kiểm thử trên các trình duyệt khác nhau
-- [ ] **Sửa lỗi**: Sửa các lỗi phát hiện trong quá trình kiểm thử hệ thống
 
 ### Giai đoạn 7: Tổng hợp và báo cáo (Ngày 6)
 - [ ] **Tổng hợp kết quả kiểm thử**
@@ -87,7 +87,7 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 | Giai đoạn | Tiến độ | Ngày hoàn thành |
 |-----------|---------|-----------------|
 | Giai đoạn 1: Chuẩn bị | 100% | 17/05/2025 |
-| Giai đoạn 2: Kiểm thử đơn vị | 0% | |
+| Giai đoạn 2: Kiểm thử đơn vị | 100% | 18/05/2025 |
 | Giai đoạn 3: Kiểm thử tích hợp | 0% | |
 | Giai đoạn 4: Kiểm thử chức năng | 0% | |
 | Giai đoạn 5: Kiểm thử giao diện | 0% | |
@@ -96,24 +96,67 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 
 ## 🔍 TEST CASE QUAN TRỌNG
 
-Dưới đây là danh sách các test case quan trọng cần ưu tiên thực hiện:
+### Kết quả kiểm thử
 
-### Thêm thuốc
-- TC_ADD_THUOC_001: Thêm thuốc với đầy đủ thông tin hợp lệ
-- TC_ADD_THUOC_002: Thêm thuốc với mã thuốc đã tồn tại
-- TC_ADD_THUOC_003: Thêm thuốc với tên thuốc đã tồn tại
+| Chức năng | Chrome | Firefox |
+|-----------|--------|---------|
+| Tổng số test case | 43 | 43 |
+| Đã chạy | 43 | 43 |
+| Thành công | 43 | 43 |
+| Thất bại | 0 | 0 |
+| Không chạy | 0 | 0 |
 
-### Cập nhật thuốc
-- TC_UPDATE_THUOC_001: Cập nhật thuốc với đầy đủ thông tin hợp lệ
-- TC_UPDATE_THUOC_002: Cập nhật thuốc với mã thuốc đã tồn tại
+### Danh sách test case
 
-### Xóa thuốc
-- TC_DELETE_THUOC_001: Xóa thuốc tồn tại
-- TC_DELETE_THUOC_003: Xóa thuốc đã có trong đơn hàng
-
-### Tìm kiếm thuốc
-- TC_SEARCH_THUOC_001: Tìm kiếm thuốc theo tên
-- TC_SEARCH_THUOC_003: Tìm kiếm thuốc theo loại thuốc
+| ID | Tóm tắt | Các bước | Kết quả mong đợi | Kết quả thực tế | Ghi chú |
+|----|---------|----------|------------------|-----------------|---------|
+| **I. Kiểm thử Service** |
+| **1. ThuocService** |
+| TS_001 | Lấy danh sách thuốc thành công | 1. Mock repository trả về danh sách thuốc<br>2. Gọi phương thức getAll() | Trả về ResponseDTO với status 200 và danh sách thuốc | Thành công | |
+| TS_002 | Lấy danh sách thuốc trống | 1. Mock repository trả về danh sách rỗng<br>2. Gọi phương thức getAll() | Trả về ResponseDTO với status 200 và danh sách rỗng | Thành công | |
+| TS_003 | Tìm thuốc theo ID thành công | 1. Mock repository trả về thuốc<br>2. Gọi phương thức getById() | Trả về ResponseDTO với status 200 và thông tin thuốc | Thành công | |
+| TS_004 | Tìm thuốc theo ID không tồn tại | 1. Mock repository trả về Optional.empty()<br>2. Gọi phương thức getById() | Trả về ResponseDTO với status 404 và thông báo lỗi | Thành công | |
+| TS_005 | Tạo thuốc thành công | 1. Mock repository trả về thuốc đã tạo<br>2. Gọi phương thức create() | Trả về ResponseDTO với status 201 và thông tin thuốc | Thành công | |
+| TS_006 | Cập nhật thuốc thành công | 1. Mock repository trả về thuốc đã cập nhật<br>2. Gọi phương thức update() | Trả về ResponseDTO với status 200 và thông tin thuốc | Thành công | |
+| TS_007 | Xóa thuốc thành công | 1. Mock repository không ném exception<br>2. Gọi phương thức delete() | Trả về ResponseDTO với status 200 và thông báo thành công | Thành công | |
+| **2. LoaiThuocService** |
+| LS_001 | Lấy danh sách loại thuốc thành công | 1. Mock repository trả về danh sách loại thuốc<br>2. Gọi phương thức getAllLoaiThuocs() | Trả về ResponseDTO với status 200 và danh sách loại thuốc | Thành công | |
+| LS_002 | Lấy danh sách loại thuốc trống | 1. Mock repository trả về danh sách rỗng<br>2. Gọi phương thức getAllLoaiThuocs() | Trả về ResponseDTO với status 200 và danh sách rỗng | Thành công | |
+| LS_003 | Tìm loại thuốc theo tên thành công | 1. Mock repository trả về danh sách loại thuốc<br>2. Gọi phương thức searchByTenLoai() | Trả về ResponseDTO với status 200 và danh sách loại thuốc | Thành công | |
+| LS_004 | Tạo loại thuốc thành công | 1. Mock repository trả về loại thuốc đã tạo<br>2. Gọi phương thức create() | Trả về ResponseDTO với status 201 và thông tin loại thuốc | Thành công | |
+| LS_005 | Cập nhật loại thuốc thành công | 1. Mock repository trả về loại thuốc đã cập nhật<br>2. Gọi phương thức update() | Trả về ResponseDTO với status 200 và thông tin loại thuốc | Thành công | |
+| LS_006 | Xóa loại thuốc thành công | 1. Mock repository không ném exception<br>2. Gọi phương thức delete() | Trả về ResponseDTO với status 200 và thông báo thành công | Thành công | |
+| **3. DanhMucThuocService** |
+| DS_001 | Lấy danh sách danh mục thuốc thành công | 1. Mock repository trả về danh sách danh mục thuốc<br>2. Gọi phương thức getAll() | Trả về ResponseDTO với status 200 và danh sách danh mục thuốc | Thành công | |
+| DS_002 | Lấy danh sách danh mục thuốc trống | 1. Mock repository trả về danh sách rỗng<br>2. Gọi phương thức getAll() | Trả về ResponseDTO với status 200 và danh sách rỗng | Thành công | |
+| DS_003 | Tìm danh mục thuốc theo tên thành công | 1. Mock repository trả về danh sách danh mục thuốc<br>2. Gọi phương thức searchByTenDanhMuc() | Trả về ResponseDTO với status 200 và danh sách danh mục thuốc | Thành công | |
+| DS_004 | Tạo danh mục thuốc thành công | 1. Mock repository trả về danh mục thuốc đã tạo<br>2. Gọi phương thức create() | Trả về ResponseDTO với status 201 và thông tin danh mục thuốc | Thành công | |
+| DS_005 | Cập nhật danh mục thuốc thành công | 1. Mock repository trả về danh mục thuốc đã cập nhật<br>2. Gọi phương thức update() | Trả về ResponseDTO với status 200 và thông tin danh mục thuốc | Thành công | |
+| DS_006 | Xóa danh mục thuốc thành công | 1. Mock repository không ném exception<br>2. Gọi phương thức delete() | Trả về ResponseDTO với status 200 và thông báo thành công | Thành công | |
+| **II. Kiểm thử Controller** |
+| **1. ThuocController** |
+| TC_001 | Lấy danh sách thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API GET /thuoc/getAll | Trả về status 200 và danh sách thuốc | Thành công | |
+| TC_002 | Tìm thuốc theo ID thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API GET /thuoc/getById | Trả về status 200 và thông tin thuốc | Thành công | |
+| TC_003 | Tạo thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API POST /thuoc/create | Trả về status 201 và thông tin thuốc | Thành công | |
+| TC_004 | Cập nhật thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API PUT /thuoc/update | Trả về status 200 và thông tin thuốc | Thành công | |
+| TC_005 | Xóa thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API DELETE /thuoc/delete | Trả về status 200 và thông báo thành công | Thành công | |
+| **2. LoaiThuocController** |
+| LC_001 | Lấy danh sách loại thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API GET /loai-thuoc/getAll | Trả về status 200 và danh sách loại thuốc | Thành công | |
+| LC_002 | Tìm loại thuốc theo tên thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API GET /loai-thuoc/search | Trả về status 200 và danh sách loại thuốc | Thành công | |
+| LC_003 | Tạo loại thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API POST /loai-thuoc/create | Trả về status 201 và thông tin loại thuốc | Thành công | |
+| LC_004 | Cập nhật loại thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API PUT /loai-thuoc/update | Trả về status 200 và thông tin loại thuốc | Thành công | |
+| LC_005 | Xóa loại thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API DELETE /loai-thuoc/delete | Trả về status 200 và thông báo thành công | Thành công | |
+| **3. DanhMucThuocController** |
+| DC_001 | Lấy danh sách danh mục thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API GET /danh-muc-thuoc/getAll | Trả về status 200 và danh sách danh mục thuốc | Thành công | |
+| DC_002 | Tìm danh mục thuốc theo tên thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API GET /danh-muc-thuoc/search | Trả về status 200 và danh sách danh mục thuốc | Thành công | |
+| DC_003 | Tạo danh mục thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API POST /danh-muc-thuoc/create | Trả về status 201 và thông tin danh mục thuốc | Thành công | |
+| DC_004 | Cập nhật danh mục thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API PUT /danh-muc-thuoc/update | Trả về status 200 và thông tin danh mục thuốc | Thành công | |
+| DC_005 | Xóa danh mục thuốc thành công | 1. Mock service trả về ResponseDTO thành công<br>2. Gọi API DELETE /danh-muc-thuoc/delete | Trả về status 200 và thông báo thành công | Thành công | |
+| **III. Các vấn đề phát hiện** |
+| BUG_001 | Lỗi trạng thái khi danh sách trống | 1. Kiểm tra trạng thái trả về khi danh sách trống | Trạng thái 409 khi danh sách trống | Trạng thái 200 khi danh sách trống | Không nghiêm trọng, nhưng có thể gây nhầm lẫn cho frontend |
+| BUG_002 | Lỗi StackOverflowError do quan hệ hai chiều | 1. Kiểm tra quan hệ hai chiều giữa DanhMucThuoc và LoaiThuoc | Không có lỗi | StackOverflowError do vòng lặp vô hạn khi gọi toString() | Gây crash ứng dụng khi serialize đối tượng |
+| BUG_003 | Lỗi thông báo không khớp | 1. Kiểm tra thông báo lỗi khi không tìm thấy đối tượng | "Loại thuốc không tồn tại" | "Không tìm thấy loại thuốc" | Không nghiêm trọng, nhưng có thể gây nhầm lẫn cho người dùng |
+| BUG_004 | Lỗi phương thức HTTP không đúng | 1. Kiểm tra phương thức HTTP cho multipart/form-data | Phương thức POST | Yêu cầu phương thức PUT | Gây lỗi 405 Method Not Allowed khi gọi API |
 
 ## 📝 LƯU Ý QUAN TRỌNG
 
