@@ -1,0 +1,93 @@
+Function Name,Báo cáo doanh thu theo ngày,,,,,
+Test Result,Chrome,Firefox,,,,
+Total,10,0,,,,
+Passed,8,0,,,,
+Failed,2,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Firefox,
+"I. Kiểm tra giao diện màn hình ""Báo cáo doanh thu theo ngày""",,,,,,
+BC_001,"Kiểm tra hiển thị mặc định của màn hình ""Báo cáo doanh thu theo ngày""","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""","1. Hiển thị tiêu đề ""Báo cáo doanh thu theo ngày""
+2. Hiển thị phần chọn ngày với giá trị mặc định là ngày hiện tại
+3. Hiển thị nút ""Xem báo cáo""
+4. Hiển thị biểu đồ doanh thu theo giờ trong ngày
+5. Hiển thị bảng dữ liệu chi tiết với các cột: Giờ, Doanh thu, Số đơn hàng, Số đơn trả lại
+6. Hiển thị tổng doanh thu, tổng số đơn hàng, tổng số đơn trả lại trong ngày",Passed,,
+BC_002,"Kiểm tra font chữ và màu sắc của màn hình ""Báo cáo doanh thu theo ngày""","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""","1. Font chữ tiêu đề là Arial hoặc sans-serif, cỡ chữ 18-24px, màu đen hoặc xanh đậm
+2. Font chữ nội dung là Arial hoặc sans-serif, cỡ chữ 14-16px, màu đen
+3. Màu nền của biểu đồ là trắng
+4. Màu của các cột trong biểu đồ là xanh dương hoặc các màu tương phản
+5. Màu nền của bảng dữ liệu là trắng, với các dòng xen kẽ màu xám nhạt",Passed,,
+BC_003,"Kiểm tra bố cục của màn hình ""Báo cáo doanh thu theo ngày""","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""","1. Tiêu đề nằm ở phía trên cùng của màn hình
+2. Phần chọn ngày và nút ""Xem báo cáo"" nằm dưới tiêu đề
+3. Biểu đồ doanh thu nằm dưới phần chọn ngày, chiếm khoảng 50-60% chiều cao màn hình
+4. Bảng dữ liệu chi tiết nằm dưới biểu đồ
+5. Thông tin tổng hợp (tổng doanh thu, tổng số đơn hàng, tổng số đơn trả lại) nằm dưới bảng dữ liệu hoặc bên cạnh biểu đồ",Passed,,
+BC_004,"Kiểm tra tính responsive của màn hình ""Báo cáo doanh thu theo ngày"" trên desktop","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Điều chỉnh kích thước cửa sổ trình duyệt đến các độ phân giải desktop khác nhau (1920x1080, 1366x768)","1. Giao diện hiển thị đầy đủ và cân đối trên tất cả các độ phân giải desktop
+2. Không có thanh cuộn ngang
+3. Biểu đồ và bảng dữ liệu tự động điều chỉnh kích thước để phù hợp với độ phân giải màn hình
+4. Tất cả các thành phần vẫn dễ đọc và dễ sử dụng",Passed,,
+BC_005,"Kiểm tra tính responsive của màn hình ""Báo cáo doanh thu theo ngày"" trên tablet và mobile","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Điều chỉnh kích thước cửa sổ trình duyệt đến các độ phân giải tablet (768x1024) và mobile (375x667)","1. Giao diện tự động điều chỉnh để phù hợp với kích thước màn hình
+2. Các thành phần xếp dọc thay vì ngang trên màn hình nhỏ
+3. Biểu đồ và bảng dữ liệu tự động điều chỉnh kích thước
+4. Menu được thu gọn thành nút hamburger trên màn hình nhỏ
+5. Tất cả các thành phần vẫn dễ đọc và dễ sử dụng",Failed,"Bảng dữ liệu không hiển thị tốt trên màn hình mobile, cần phải cuộn ngang để xem đầy đủ thông tin"
+"II. Kiểm tra chức năng của màn hình ""Báo cáo doanh thu theo ngày""",,,,,,
+BC_006,"Kiểm tra chức năng chọn ngày trên màn hình ""Báo cáo doanh thu theo ngày""","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Nhấp vào ô chọn ngày
+5. Chọn một ngày khác từ lịch hiện ra","1. Lịch hiển thị khi nhấp vào ô chọn ngày
+2. Có thể chọn ngày từ lịch
+3. Ngày đã chọn được hiển thị trong ô chọn ngày theo định dạng DD/MM/YYYY
+4. Có thể chọn ngày trong quá khứ
+5. Không thể chọn ngày trong tương lai",Passed,,
+BC_007,"Kiểm tra chức năng ""Xem báo cáo"" với ngày có dữ liệu","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Chọn một ngày có dữ liệu đơn hàng
+5. Nhấn nút ""Xem báo cáo""","1. Biểu đồ doanh thu theo giờ được cập nhật với dữ liệu của ngày đã chọn
+2. Bảng dữ liệu chi tiết được cập nhật với dữ liệu của ngày đã chọn
+3. Tổng doanh thu, tổng số đơn hàng, tổng số đơn trả lại được cập nhật với dữ liệu của ngày đã chọn
+4. Dữ liệu hiển thị chính xác theo dữ liệu từ backend",Passed,,
+BC_008,"Kiểm tra chức năng ""Xem báo cáo"" với ngày không có dữ liệu","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Chọn một ngày không có dữ liệu đơn hàng
+5. Nhấn nút ""Xem báo cáo""","1. Biểu đồ doanh thu theo giờ hiển thị với giá trị 0 cho tất cả các giờ
+2. Bảng dữ liệu chi tiết hiển thị với giá trị 0 cho tất cả các giờ
+3. Tổng doanh thu, tổng số đơn hàng, tổng số đơn trả lại hiển thị giá trị 0
+4. Không hiển thị thông báo lỗi",Passed,,
+BC_009,"Kiểm tra hiển thị biểu đồ doanh thu theo giờ","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Chọn một ngày có dữ liệu đơn hàng
+5. Nhấn nút ""Xem báo cáo""","1. Biểu đồ dạng cột hiển thị doanh thu theo từng giờ trong ngày (0-23)
+2. Trục X hiển thị các giờ từ 0 đến 23
+3. Trục Y hiển thị doanh thu
+4. Có tiêu đề biểu đồ ""Doanh thu theo giờ""
+5. Có chú thích cho biểu đồ
+6. Khi di chuột qua mỗi cột, hiển thị tooltip với thông tin chi tiết về doanh thu tại giờ đó",Passed,,
+BC_010,"Kiểm tra chức năng xuất báo cáo ra file","1. Đăng nhập với quyền Admin hoặc Manager
+2. Truy cập menu ""Báo cáo"" > ""Doanh thu""
+3. Chọn tab ""Theo ngày""
+4. Chọn một ngày có dữ liệu đơn hàng
+5. Nhấn nút ""Xem báo cáo""
+6. Nhấn nút ""Xuất Excel"" hoặc ""Xuất PDF""","1. File được tạo và tải xuống thành công
+2. File có tên ""Bao_Cao_Doanh_Thu_Ngay_DD_MM_YYYY.xlsx"" hoặc ""Bao_Cao_Doanh_Thu_Ngay_DD_MM_YYYY.pdf""
+3. File chứa đầy đủ thông tin: tiêu đề báo cáo, ngày báo cáo, biểu đồ doanh thu, bảng dữ liệu chi tiết, tổng doanh thu, tổng số đơn hàng, tổng số đơn trả lại
+4. Định dạng file đúng và có thể mở được",Failed,"Chức năng xuất báo cáo ra file chưa được triển khai"

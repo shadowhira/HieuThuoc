@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Review Code Phân hệ Báo cáo và Thống kê</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Review Code Phân hệ Báo cáo và Thống kê</h1>
+<p></p>
+<h2>1. Tổng quan</h2>
+<p></p>
+<p>Phân hệ Báo cáo và Thống kê trong hệ thống quản lý hiệu thuốc bao gồm các chức năng:</p>
+<ul>
+<li>Báo cáo doanh thu (theo ngày, tháng, năm)</li>
+<li>Báo cáo tồn kho</li>
+<li>Báo cáo thuốc bán chạy</li>
+</ul>
+<p></p>
+<p>Phân hệ này được triển khai qua các thành phần chính:</p>
+<ul>
+<li>Backend: BaoCaoController, DonHangRepo, ChiTietDonHangRepo, TonKhoController</li>
+<li>Frontend: ThongKeComponent, BaoCaoService</li>
+</ul>
+<p></p>
+<h2>2. Review Backend</h2>
+<p></p>
+<h3>2.1. BaoCaoController.java</h3>
+<p></p>
+<pre><code>@RestController
+@RequestMapping("/baocao")
+public class BaoCaoController {
+    @Autowired
+    DonHangRepo donHangRepo;
+
+    @GetMapping("/doanhthutheongay")
+    public ResponseDTO&lt;List&lt;DoanhThuDTO&gt;&gt; doanhThuTheoNgay(
+            @RequestParam("ngay") @DateTimeFormat(pattern = "yyyy-MM-dd") Date ngay) {
+        List&lt;DoanhThuDTO&gt; doanhThuDTOs = donHangRepo.doanhThuTheoNgay(ngay);
+        return ResponseDTO.&lt;List&lt;DoanhThuDTO&gt;&gt;builder().status(200).msg("Thành công.").data(doanhThuDTOs).build();
+    }
+
+    @GetMapping("/doanhthutheothang")
+    public ResponseDTO&lt;List&lt;DoanhThuDTO&gt;&gt; doanhThuTheoThang(@RequestParam("nam") int nam,
+            @RequestParam("thang") int thang) {
+        List&lt;DoanhThuDTO&gt; doanhThuDTOs = donHangRepo.doanhThuTheoThang(nam, thang);
+        return ResponseDTO.&lt;List&lt;DoanhThuDTO&gt;&gt;builder().status(200).msg("Thành công.").data(doanhThuDTOs).build();
+    }
+
+    @GetMapping("/doanhthutheonam")
+    public ResponseDTO&lt;List&lt;DoanhThuDTO&gt;&gt; doanhThuTheoNam(@RequestParam("nam") int nam) {
+        List&lt;DoanhThuDTO&gt; doanhThuDTOs = donHangRepo.doanhThuTheoNam(nam);
+        return ResponseDTO.&lt;List&lt;DoanhThuDTO&gt;&gt;builder().status(200).msg("Thành công.").data(doanhThuDTOs).build();
+    }
+}
+</code></pre><p></p>
+<p><span class="strong">Đánh giá</span>:</p>
+<ul>
+<li>**Điểm mạnh**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Controller được tổ chức rõ ràng với các endpoint riêng biệt cho từng loại báo cáo</li>
+<li>Sử dụng annotation @DateTimeFormat để xử lý định dạng ngày tháng</li>
+<li>Trả về dữ liệu trong đối tượng ResponseDTO với status và message rõ ràng</li>
+</ul>
+<p></p>
+<ul>
+<li>**Điểm yếu**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Thiếu các endpoint cho báo cáo tồn kho và báo cáo thuốc bán chạy</li>
+<li>Không có xử lý ngoại lệ (try-catch) cho các trường hợp lỗi</li>
+<li>Không có kiểm tra quyền truy cập (authorization) cho các endpoint</li>
+<li>Không có endpoint để xuất báo cáo ra file Excel hoặc PDF</li>
+</ul>
+<p></p>
+<h3>2.2. DonHangRepo.java (Các query báo cáo doanh thu)</h3>
+<p></p>
+<pre><code>@Query("SELECT new com.example.hieuthuoc.dto.DoanhThuDTO( " + "HOUR(dh.createdAt), "
+        + "SUM(CASE WHEN dh.trangThaiGiaoHang != 'TRA_HANG' THEN dh.tongTien ELSE 0 END), " +
+        "COUNT(CASE WHEN dh.trangThaiGiaoHang != 'TRA_HANG' THEN 1 ELSE NULL END), " +
+        "SUM(CASE WHEN dh.trangThaiGiaoHang = 'TRA_HANG' THEN 1 ELSE 0 END)) " +
+        "FROM DonHang dh " + "WHERE dh.trangThaiThanhToan = 'DA_THANH_TOAN' " +
+        "AND DATE(dh.createdAt) = :ngay " +
+        "GROUP BY HOUR(dh.createdAt) " +
+        "ORDER BY HOUR(dh.createdAt)")
+List&lt;DoanhThuDTO&gt; doanhThuTheoNgay(@Param("ngay") Date ngay);
+
+@Query("SELECT new com.example.hieuthuoc.dto.DoanhThuDTO( " + "DAY(dh.createdAt), " +
+        "SUM(CASE WHEN dh.trangThaiGiaoHang != 'TRA_HANG' THEN dh.tongTien ELSE 0 END), " +
+        "COUNT(CASE WHEN dh.trangThaiGiaoHang != 'TRA_HANG' THEN 1 ELSE NULL END), " +
+        "SUM(CASE WHEN dh.trangThaiGiaoHang = 'TRA_HANG' THEN 1 ELSE 0 END)) " +
+        "FROM DonHang dh " + "WHERE dh.trangThaiThanhToan = 'DA_THANH_TOAN' " +
+        "AND YEAR(dh.createdAt) = :nam " +
+        "AND MONTH(dh.createdAt) = :thang " +
+        "GROUP BY DAY(dh.createdAt) " +
+        "ORDER BY DAY(dh.createdAt)")
+List&lt;DoanhThuDTO&gt; doanhThuTheoThang(@Param("nam") int nam, @Param("thang") int thang);
+
+@Query("SELECT new com.example.hieuthuoc.dto.DoanhThuDTO( " + "MONTH(dh.createdAt), " +
+        "SUM(CASE WHEN dh.trangThaiGiaoHang != 'TRA_HANG' THEN dh.tongTien ELSE 0 END), " +
+        "COUNT(CASE WHEN dh.trangThaiGiaoHang != 'TRA_HANG' THEN 1 ELSE NULL END), " +
+        "SUM(CASE WHEN dh.trangThaiGiaoHang = 'TRA_HANG' THEN 1 ELSE 0 END)) " +
+        "FROM DonHang dh " + "WHERE dh.trangThaiThanhToan = 'DA_THANH_TOAN' " +
+        "AND YEAR(dh.createdAt) = :nam " +
+        "GROUP BY MONTH(dh.createdAt) " +
+        "ORDER BY MONTH(dh.createdAt)")
+List&lt;DoanhThuDTO&gt; doanhThuTheoNam(@Param("nam") int nam);
+</code></pre><p></p>
+<p><span class="strong">Đánh giá</span>:</p>
+<ul>
+<li>**Điểm mạnh**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Các query được tổ chức rõ ràng theo từng loại báo cáo (ngày, tháng, năm)</li>
+<li>Sử dụng JPQL với các hàm tổng hợp (SUM, COUNT) để tính toán doanh thu và số lượng đơn hàng</li>
+<li>Có xử lý các trường hợp đơn hàng trả lại (TRA_HANG)</li>
+<li>Kết quả được trả về dưới dạng DTO (DoanhThuDTO) giúp dễ dàng sử dụng ở tầng controller</li>
+</ul>
+<p></p>
+<ul>
+<li>**Điểm yếu**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Các query có thể gặp vấn đề hiệu suất khi dữ liệu lớn</li>
+<li>Không có index cho các trường được sử dụng trong điều kiện WHERE và GROUP BY</li>
+<li>Không có xử lý cho trường hợp không có dữ liệu trong khoảng thời gian được chọn</li>
+</ul>
+<p></p>
+<h3>2.3. ChiTietDonHangRepo.java (Query thuốc bán chạy)</h3>
+<p></p>
+<pre><code>@Query("SELECT t " +
+       "FROM Thuoc t " +
+       "LEFT JOIN ChiTietDonHang c ON t.id = c.thuoc.id " +
+       "LEFT JOIN DonHang d ON c.donHang.id = d.id " +
+       "WHERE d.trangThaiThanhToan = 'DA_THANH_TOAN' " +
+       "GROUP BY t " +
+       "ORDER BY COALESCE(SUM(c.soLuong), 0) DESC")
+Page&lt;Thuoc&gt; findAllThuocBanChay(Pageable pageable);
+</code></pre><p></p>
+<p><span class="strong">Đánh giá</span>:</p>
+<ul>
+<li>**Điểm mạnh**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Query sử dụng JOIN để lấy thông tin thuốc bán chạy từ các bảng liên quan</li>
+<li>Kết quả được sắp xếp theo số lượng bán giảm dần</li>
+<li>Sử dụng COALESCE để xử lý trường hợp NULL</li>
+<li>Hỗ trợ phân trang với Pageable</li>
+</ul>
+<p></p>
+<ul>
+<li>**Điểm yếu**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Không có tham số để lọc theo khoảng thời gian</li>
+<li>Không có tham số để lọc theo loại thuốc, nhà sản xuất</li>
+<li>Không trả về số lượng bán và doanh thu của từng thuốc</li>
+</ul>
+<p></p>
+<h2>3. Review Frontend</h2>
+<p></p>
+<h3>3.1. BaoCaoService.ts</h3>
+<p></p>
+<pre><code>export class BaoCaoService {
+  constructor(private http: HttpClient) {}
+
+  getDoanhThuTheoThang(request?: any): Observable&lt;any&gt; {
+    const apiUrl = environment.backApiUrl + `/baocao/doanhthutheothang`;
+    const headers: HttpHeaders = HeadersUtil.getHeaders();
+
+    let params = new HttpParams()
+      .set("nam", request.nam?.toString() || "")
+      .set("thang", request.thang?.toString() || "");
+
+    return this.http.get(`${apiUrl}`, {
+      headers: headers,
+      params: params,
+    });
+  }
+
+  getDoanhThuTheoNgay(request?: any): Observable&lt;any&gt; {
+    const apiUrl = environment.backApiUrl + `/baocao/doanhthutheongay`;
+    const headers: HttpHeaders = HeadersUtil.getHeaders();
+
+    let params = new HttpParams().set("ngay", request || "");
+
+    return this.http.get(`${apiUrl}`, {
+      headers: headers,
+      params: params,
+    });
+  }
+
+  getDoanhThuTheoNam(request?: any): Observable&lt;any&gt; {
+    const apiUrl = environment.backApiUrl + `/baocao/doanhthutheonam`;
+    const headers: HttpHeaders = HeadersUtil.getHeaders();
+
+    let params = new HttpParams().set("nam", request.toString() || "");
+
+    return this.http.get(`${apiUrl}`, {
+      headers: headers,
+      params: params,
+    });
+  }
+}
+</code></pre><p></p>
+<p><span class="strong">Đánh giá</span>:</p>
+<ul>
+<li>**Điểm mạnh**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Service được tổ chức rõ ràng với các phương thức riêng biệt cho từng loại báo cáo</li>
+<li>Sử dụng HttpParams để truyền tham số cho các request</li>
+<li>Sử dụng Observable để xử lý bất đồng bộ</li>
+</ul>
+<p></p>
+<ul>
+<li>**Điểm yếu**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Thiếu các phương thức cho báo cáo tồn kho và báo cáo thuốc bán chạy</li>
+<li>Không có phương thức để xuất báo cáo ra file Excel hoặc PDF</li>
+<li>Không có xử lý lỗi (error handling) cho các request</li>
+</ul>
+<p></p>
+<h3>3.2. ThongKeComponent.ts</h3>
+<p></p>
+<pre><code>export class ThongKecComponent implements OnInit {
+  constructor(
+    private toastService: ToastrService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+    private baocaoService: BaoCaoService
+  ) {}
+
+  typeDoanhThu = CommonConstant.NGAY;
+  thangSelected: number = 0;
+  namSelected: number = 0;
+  ngaySelected: number = 0;
+
+  // ... (các thuộc tính khác)
+
+  ngOnInit(): void {
+    // Khởi tạo giá trị mặc định
+    const today = new Date();
+    this.namSelected = today.getFullYear();
+    this.thangSelected = today.getMonth() + 1;
+    this.ngaySelected = today.getDate();
+
+    // Lấy dữ liệu báo cáo
+    this.getHoaDonHomNay();
+    this.getHoaDonHomQua();
+    this.getDoanhThuThangNay();
+    this.getDoanhThuThangTruoc();
+    this.getDoanhThuNgay(this.ngaySelected, this.thangSelected, this.namSelected);
+  }
+
+  // ... (các phương thức khác)
+
+  getDoanhThuNgay(ngay: number, thang: number, nam: number) {
+    // Tạo biến kiểu năm-tháng-ngày (yyyy-MM-dd)
+    const ngayThangNam = `${nam}-${thang.toString().padStart(2, "0")}-${ngay
+      .toString()
+      .padStart(2, "0")}`;
+
+    this.baocaoService.getDoanhThuTheoNgay(ngayThangNam).subscribe((res) =&gt; {
+      if (res.status == CommonConstant.STATUS_OK_200) {
+        let data = res.data as BaoCao[];
+
+        this.tongDoanhThu = 0;
+        this.tongHoaDon = 0;
+        this.tongHoaDonTraLai = 0;
+
+        // Mảng doanh thu của tất cả các ngày trong tháng, khởi tạo với giá trị 0
+        const doanhThuTheoNgay = Array(24).fill(0);
+        
+        // ... (xử lý dữ liệu)
+
+        setTimeout(() =&gt; {
+          Highcharts.chart("container", this.chartOptions);
+        });
+      }
+    });
+  }
+
+  // ... (các phương thức khác)
+}
+</code></pre><p></p>
+<p><span class="strong">Đánh giá</span>:</p>
+<ul>
+<li>**Điểm mạnh**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Component được tổ chức rõ ràng với các phương thức riêng biệt cho từng loại báo cáo</li>
+<li>Sử dụng Highcharts để hiển thị biểu đồ trực quan</li>
+<li>Có xử lý dữ liệu để hiển thị tổng doanh thu, tổng số đơn hàng, tổng số đơn hàng trả lại</li>
+</ul>
+<p></p>
+<ul>
+<li>**Điểm yếu**:</li>
+</ul>
+<ul style="margin-left: 30px;">
+<li>Thiếu các phương thức cho báo cáo tồn kho và báo cáo thuốc bán chạy</li>
+<li>Không có phương thức để xuất báo cáo ra file Excel hoặc PDF</li>
+<li>Không có xử lý lỗi (error handling) cho các request</li>
+<li>Không có kiểm tra quyền truy cập (authorization) cho component</li>
+</ul>
+<p></p>
+<h2>4. Đánh giá chung</h2>
+<p></p>
+<h3>4.1. Điểm mạnh</h3>
+<ul>
+<li>Backend và Frontend được tổ chức rõ ràng với các thành phần riêng biệt cho từng loại báo cáo</li>
+<li>Sử dụng các công nghệ phù hợp: Spring Boot cho Backend, Angular cho Frontend, Highcharts cho biểu đồ</li>
+<li>Có xử lý dữ liệu để hiển thị tổng doanh thu, tổng số đơn hàng, tổng số đơn hàng trả lại</li>
+<li>Sử dụng DTO để truyền dữ liệu giữa các tầng</li>
+</ul>
+<p></p>
+<h3>4.2. Điểm yếu</h3>
+<ul>
+<li>**Thiếu chức năng xuất báo cáo**: Mặc dù trong tài liệu đặc tả và hướng dẫn sử dụng có đề cập đến việc xuất báo cáo ra file Excel hoặc PDF, nhưng không tìm thấy code triển khai chức năng này trong cả Backend và Frontend.</li>
+<li>**Thiếu chức năng báo cáo tồn kho và báo cáo thuốc bán chạy**: Mặc dù có query để lấy danh sách thuốc bán chạy, nhưng không có endpoint trong BaoCaoController và không có phương thức trong BaoCaoService để lấy dữ liệu này.</li>
+<li>**Thiếu xử lý ngoại lệ và kiểm tra quyền truy cập**: Không có xử lý ngoại lệ (try-catch) cho các trường hợp lỗi và không có kiểm tra quyền truy cập (authorization) cho các endpoint và component.</li>
+<li>**Thiếu tính năng so sánh dữ liệu**: Mặc dù trong tài liệu đặc tả có đề cập đến việc so sánh doanh thu giữa các khoảng thời gian, nhưng không tìm thấy code triển khai chức năng này.</li>
+</ul>
+<p></p>
+<h3>4.3. Khuyến nghị cải thiện</h3>
+<p>1. <span class="strong">Bổ sung chức năng xuất báo cáo</span>: Triển khai các endpoint trong Backend và phương thức trong Frontend để xuất báo cáo ra file Excel hoặc PDF.</p>
+<p>2. <span class="strong">Bổ sung chức năng báo cáo tồn kho và báo cáo thuốc bán chạy</span>: Triển khai các endpoint trong BaoCaoController và phương thức trong BaoCaoService để lấy dữ liệu báo cáo tồn kho và báo cáo thuốc bán chạy.</p>
+<p>3. <span class="strong">Bổ sung xử lý ngoại lệ và kiểm tra quyền truy cập</span>: Triển khai xử lý ngoại lệ (try-catch) cho các trường hợp lỗi và kiểm tra quyền truy cập (authorization) cho các endpoint và component.</p>
+<p>4. <span class="strong">Bổ sung tính năng so sánh dữ liệu</span>: Triển khai chức năng so sánh doanh thu giữa các khoảng thời gian.</p>
+<p>5. <span class="strong">Cải thiện hiệu suất query</span>: Thêm index cho các trường được sử dụng trong điều kiện WHERE và GROUP BY để cải thiện hiệu suất query.</p>
+<p></p>
+
+<script>
+    // Thêm hướng dẫn để lưu dưới dạng Word
+    window.onload = function() {
+        alert('Để lưu dưới dạng Word, vui lòng nhấn Ctrl+S hoặc chọn File > Save As, sau đó chọn định dạng Word Document (*.docx)');
+    }
+</script>
+</body>
+</html>

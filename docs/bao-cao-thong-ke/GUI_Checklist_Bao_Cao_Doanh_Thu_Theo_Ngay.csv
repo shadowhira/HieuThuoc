@@ -1,0 +1,79 @@
+,,,,,,
+,GUI Review Checklist,,,,,
+,,,,,,
+Mã dự án:,HT001,Tổng số OK:,45,,,
+Phiên bản:,1.0,Tổng số NG:,7,,,
+Chức năng review:,Báo cáo doanh thu theo ngày,Tổng số NA:,10,,,
+Họ tên SV review:,[Tên người review],,,,,
+Mã SV review:,[Mã SV],,,,,
+Ngày review:,[Ngày review],,,,,
+Kích thước sản phẩm:,Medium,,,,,
+Số giờ công:,4,,,,,
+,,,,,,
+Khía cạnh ,Mô tả,Kết quả mong đợi ,OK,NG,N/A,Note
+Chính tả,Kiểm tra tất cả chính tả trong giao diện báo cáo doanh thu theo ngày,Tất cả các từ đúng chính tả,X,,,
+Chính tả,So sánh từ được viết hoa với hướng dẫn viết hoa. Kiểm tra tính nhất quán trong việc viết hoa giữa các từ,"Quy định viết hoa tuân theo 1 tập hướng dẫn, tuân theo hướng dẫn này hoặc hướng dẫn từ một nguồn khác",X,,,
+Định vị nhãn,Kiểm tra các nhãn có ở gần các điều khiển(controls) mà nó hiện giải thích(explanation) không,"Tất cả các nhãn gần với điều khiển, với 1 khoảng trống ở giữa kí tự cuối cùng và cạnh của điều khiển",X,,,
+,Kiểm tra các nhãn được đặt ở bên trái hay bên trên các điều khiển,1. Tất cả các nhãn được đặt ở bên trái hoặc bên trên điều khiển,X,,,
+,,"2. Nếu nhãn ở phía trên điều khiển, nó sẽ được căn chỉnh về góc trái dưới hoặc ở trung tâm",X,,,
+,,3. Nếu nhãn được căn chỉnh ở bên phải hoặc dưới điều khiển thì phải có lý do hợp lệ,,,X,
+Màu font chữ,"Để có thể đọc được, ta kiểm tra độ tương phản của màu font chữ cần tương thích với nền. Kiểm tra tất cả các màn hình để đảm bảo tất cả các kí tự rõ ràng để đọc",Tất cả kí tự trên tất cả các màn hình đều dễ đọc,X,,,
+,Font chữ màu đỏ phải được dùng cho thông báo lỗi và những cảnh báo(warning),"1. Font chữ đỏ không dùng cho tiêu đề, header hoặc văn bản thông thường",X,,,
+,,2. Thông báo lỗi và cảnh báo được dùng với font chữ đỏ,X,,,
+,"Font chữ màu xanh(blue) thường sẽ gây khó đọc, nên tránh màu font này","Nếu xuất hiện chỗ có font chữ màu xanh, thì nó phải rõ ràng và dễ đọc",X,,,Tiêu đề "Báo cáo doanh thu theo ngày" sử dụng màu xanh đậm nhưng vẫn dễ đọc
+,Font màu tối thì dễ đọc hơn. Font màu sáng trên nền font màu tối sẽ gây khó đọc,Màu font chữ nên tối hơn màu nền,X,,,
+Kiểu chữ,Kiểu chữ được chọn cần phù hợp với màn hình hiển thị và đồng nhất qua các ứng dụng khác nhau,"Tất cả kí tự trên cùng một màn hình có cùng font. Nếu không thì cần có lí do hợp lệ, và vẫn cần phải tương thích với màn hình và mục đích sử dụng",X,,,
+Kích cỡ chữ,"Kích cỡ chữ cần tương thích với văn bản thường, tiêu đề, header, cảnh báo, etc.. ",1. Tất cả tiêu đề có cùng kích cỡ,X,,,
+,,2. Tất cả các header có cùng kích cỡ,X,,,
+,,3. Tất cả văn bản thường có cùng kích cỡ,X,,,
+,,4. Tất cả các cảnh báo có cùng kích cỡ,,,X,Không có cảnh báo trong giao diện báo cáo doanh thu theo ngày
+,,"5. Kích cỡ của tiêu đề, header văn bản thường, cảnh báo có thể khác nhau để phân biệt với nhau cho rõ ràng",X,,,
+Tông màu ,"Tông màu nên tương thích xuyên xuốt các ứng dụng trên tất cả các màn hình. Nghĩa là các nền(background), mục menu, font chữ, hình ảnh, và thông báo có sự tương thích về màu sắc",Tất cả các màn hình sử dụng tông màu tương thích,X,,,
+,"Tông màu nên có sự khác nhau giữa các lớp thông tin khác nhau trên màn hình. Menu nên có màu khác so với văn bản thường, tiêu đề, header nên có màu khác với văn bản thường, etc. Điều này giúp người dùng phân biệt được các mức thông tin",Tông màu khác nhau cho các lớp thông tin khác nhau trên một màn hình,X,,,
+,"Những thông tin như yêu cầu đặc biệt, giảm giá hay thông báo cảnh báo(VD: hết hạn thẻ thành viên) nên có tông màu thu hút sự chú ý người dùng","Tất cả thông tin đặc biệt trên màn hình có tông màu khác với phần còn lại, và có khả năng thu hút sự chú ý ngay lập tức",,,X,Không có thông tin đặc biệt trong giao diện báo cáo doanh thu theo ngày
+Giao diện đồ họa,Đồ họa nên chỉ ra được mục đích rõ ràng. Kiểm tra xem đồ họa có truyền tải được ý nghĩa mà nó mang hay không,Giao diện đồ họa khớp với mục đích mà nó được gán,X,,,Biểu đồ doanh thu theo giờ truyền tải đúng mục đích
+,Giao diện đồ họa trên website không nên gây phản cảm giữa các nền văn hóa. Ví dụ như hiển thị ngón tay giữa hay ngón trỏ sẽ gây phản cảm ở nhiều nơi. Đảm bảo rằng giao diện đồ họa không xúc phạm tôn giáo hoặc tín ngưỡng ở bất kì đâu,Chỉ sử dụng đồ họa tiêu chuẩn hoặc trung lập tôn giáo,X,,,
+Biểu tượng,Các biểu tượng nên phản ánh đúng chức năng của nó. Bên cạnh đó mọi biểu tượng nên có công cụ gợi ý(tool tip),Tất cả biểu tượng phản ánh đúng chức năng và hiển thị phần gợi ý giải thích chức năng,,X,,Biểu tượng lịch không có tooltip khi hover
+,Mỗi biểu tượng nên có phím tắt để chức năng của nó có thể được sử dụng thông qua bàn phím,Mỗi biểu tượng có thể click(clickable icon) có thể được truy cập bằng phím tắt thông qua bàn phím,,X,,Không có phím tắt cho các biểu tượng
+Đa nhiệm,Nếu ứng dụng cho phép thực thi đa nhiệm thì bắt đầu cho chạy hai hoặc nhiều yêu cầu,Không fail,X,,,
+,Nếu ứng dụng không cho phép thực thi đa nhiệm thì cho chạy yêu cầu thứ hai ,"Yêu cầu thứ hai này không được phép chạy. Có thông báo một yêu cầu khác đang chạy sẽ được hiển thị, và yêu cầu đó vẫn đang tiếp tục chạy",,,X,
+Thay đổi kích cỡ cửa sổ,"Nếu ứng dụng cho phép thay đổi kích cỡ cửa sổ, ta thay đổi, thu nhỏ, phóng to cửa sổ","Cửa sổ được thay đổi, thu nhỏ, phóng to",X,,,
+Kích hoạt và vô hiệu hóa,"Các nút có thể được kích hoạt hoặc vô hiệu hóa, phụ thuộc vào ứng dụng. Nút "Xóa" thông thường nên để vô hiệu hóa khi không có gì được chọn để xóa hoặc ở trong những trường hợp tương tự",Các nút có thể được kích hoạt hoặc vô hiệu hóa khi cần thiết,X,,,
+,Các mục menu có thể được kích hoạt hoặc vô hiệu hóa dựa vào cài đặt bảo mật của ứng dụng. Chạy ứng dụng dưới nhiều quyền bảo mật(security authorization),Những mục menu không tương thích với quyền bảo mật sẽ bị vô hiệu hóa và ngược lại,X,,,
+Hộp thoại phương thức(modal dialog),"Khi một hộp thoại phương thức được hiển thị, cửa số chính bị vô hiệu hóa. Hiển thị một hộp thoại phương thức xem xem có vô hiệu hóa được cửa số chính không",Cửa số chính không thể truy cập được,,,X,Không có hộp thoại phương thức trong giao diện báo cáo doanh thu theo ngày
+Hộp thoại không chế độ(modeless dialog),"Hộp thoại này nên được gắn với cửa số chính. Hiển thị một hộp thoại không chế độ và thử phóng to, thu nhỏ cửa số chính ",Hộp thoại không chế độ cũng phóng to và thu nhỏ theo cửa sổ chính,,,X,Không có hộp thoại không chế độ trong giao diện báo cáo doanh thu theo ngày
+Tiêu điểm con trỏ ,"Khi màn hình vừa được tải lại, con trỏ nên được đặt ở một trường mặc định, thi thoảng sẽ không có trường mặc định",Có một trường mặc định cho mọi màn hình và con trỏ sẽ được đặt ở đó mỗi khi màn hình tải lại,,X,,Con trỏ không được đặt tự động vào ô chọn ngày khi tải lại màn hình
+,"Khi con trỏ được chuyển đến một vùng điều khiển có chứa dữ liệu, tất cả dữ liệu phải được chọn. Điều này sẽ ngăn việc bổ sung thêm dữ liệu vào trường điều khiển đã sẵn có. Nhập dữ liệu vào trường điều khiển vào chuyển tiêu điểm con trỏ sang đó",Tất cả dữ liệu được chọn,,X,,Khi click vào ô chọn ngày, dữ liệu không được chọn tự động
+Thông báo,"Sau khi một thông báo lỗi được hiển thị và được đóng, con trỏ nên được chuyển tới trường lỗi. Thi thoảng con trỏ không được trỏ tới trường nào hết",Con trỏ trỏ tới trường lỗi,,,X,Không có thông báo lỗi trong quá trình kiểm thử
+,"Sau khi một thông báo lỗi được hiển thị và được đóng, con trỏ nên trỏ trở lại trường mà trước đó vừa trỏ. Thi thoảng tiêu điểm trỏ không được đặt",Con trỏ được đặt trỏ lại trường mà trước đó đã trỏ,,,X,Không có thông báo lỗi trong quá trình kiểm thử
+Refresh màn hình,"Việc tải lại màn hình là cần thiết sau các tác vụ như lưu trữ hoặc xóa. Trong khi màn hình đang tải lại, việc cần thiết là bỏ trống các trường có thể để trống trong quá trình sử dụng, cũng cần phải tải các giá trị trong các trường "có thể chọn"(selectable field), ví dụ: combo box, list box, list view, etc. Thực hiện các tác vụ lưu hoặc xóa và quan sát màn hình khi refresh",Màn hình refresh đúng,X,,,Màn hình refresh đúng sau khi nhấn nút "Xem báo cáo"
+Các sự kiện nhấp chuột,"Các khu vực không mong đợi nhấp chuột sẽ không kích hoạt hành động. Ví dụ: khung, nhãn và danh sách trống không được kích hoạt bất kỳ hành động nào khi nhấp vào. Nhấp và nhấp đúp vào các khu vực như vậy và quan sát phản hồi",Không có phản hồi,X,,,
+Thanh điều hướng,Thanh điều hướng khi sử dụng phím tab phải đi từ trái qua phải từ trên xuống dưới. Tab từ điều khiển này đến điều khiển khác ,"Tiêu điểm (focus) chuyển từ điều khiển bên trái sang điều khiển bên phải, sau đó xuống hàng tiếp theo. Khi tab đến điều khiển cuối cùng thì quay trở lại với điều khiển đầu tiên.",X,,,
+,Những người khuyết tật – đặc biệt là về thị giác – có thể bắt buộc phải dùng bàn phím bên cạnh chuột. ,Tất cả cá chức năng đều có thể truy cập bởi bàn phím.,,X,,Không thể sử dụng bàn phím để tương tác với biểu đồ
+,Cuộn màn hình theo cả chiều dọc và chiều ngang là rất tốn công,Không cần thiết phải cuộn màn hinh theo cả 2 hướng trừ khi có lý do bắt buộc,,X,,Trên màn hình mobile, cần phải cuộn cả chiều dọc và chiều ngang để xem đầy đủ bảng dữ liệu
+Các mặc định,Phải có một ô được chọn sẵn khi tải bảng điều khiến có các nút chọn (radio button),Có một nút chọn được chọn sẵn khi tải xong,X,,,Tab "Theo ngày" được chọn mặc định
+,Các ô đánh dấu (checkbox) phải được đánh dấu trước hoặc không tùy theo các giá trị mặc định,Các ô đánh dấu (checkbox) phải được đánh dấu trước hoặc không tùy theo các giá trị mặc định đối với lần đầu tiên tải,,,X,Không có ô đánh dấu trong giao diện báo cáo doanh thu theo ngày
+,Một nút lệnh phải được mặc định cho màn hình.,1. Mặc định một nút lệnh nào đó phải được kích hoạt khi ấn phím enter.,X,,,Nút "Xem báo cáo" được kích hoạt khi ấn Enter
+,,2. Nút mặc định thường là những nút mang tính tích cực như "Save" hoặc "Ok". Các nút mang tính tiêu cực như "Cancel" hoặc "Delete" không nên là các nút mặc định,X,,,
+,,3. Phải có lý do hợp lý thì các nút mang tính tiêu cực mới có thể là nút mặc định,,,X,Không có nút mang tính tiêu cực trong giao diện báo cáo doanh thu theo ngày
+Phản hồi hành động,Đối với hành động "lưu" nên biểu thì rằng bản ghi đã được lưu,"Sự xác nhận hành động "lưu" có thể được hiển thị trên một thanh tiến trình, hay sự thay đổi hình dáng con trỏ, tin nhắn thông báo xác nhận hoặc các thứ gì đó tương tự. Hành động "lưu" không thể bỏ qua nếu không có sự biểu thị xác nhận",X,,,Có hiển thị loading khi đang tải dữ liệu báo cáo
+Tính nhất quán,Cần có sự nhất quán giữa các nút trên thanh công cụ và các item trong menu. Khởi tạo hành động (bắt sự kiện) đối với từng lựa chọn trên thanh công cụ rồi đến menu (cũng có thể chấp nhận ngược lại ),Các hành động tương tự nhau được kích hoạt khi đã khởi tạo trong thanh công cụ hoặc menu,X,,,
+Thanh công cụ,Mỗi nút trên thanh công cụ đều phải có một menu item tương ứng với nó trong menu,Mỗi nút trên thanh công cụ đều phải có một menu item tương ứng với nó trong menu,X,,,
+,Các nút trên thanh công cụ đều phải có gợi ý công cụ để mô tả hành động khi được nhấn nút. Chắc chắn rằng gợi ý công cụ hiện lên khi đưa chuột qua mỗi nút,Mỗi nút trên thanh công cụ đều phải có gợi ý công cụ,,X,,Nút "Xem báo cáo" không có tooltip khi hover
+Thứ tự (khi ấn) tab,"Các điều khiển đầu vào đề có thể truy cập được bằng nút tab. Thứ tự của chúng là từ trái qua phải, từ trên xuống dưới","Con trỏ chuyển từ điều khiển đầu vào này đến điều khiển đầu vào khác với phím tab, từ trái qua phải và từ trên xuống dưới",X,,,
+,,,,,,
+Các khía cạnh bổ sung cho chức năng Báo cáo doanh thu theo ngày,,,,,,
+,,,,,,
+Khía cạnh ,Mô tả,Kết quả mong đợi ,OK,NG,N/A,Note
+Hiển thị biểu đồ,Biểu đồ doanh thu theo giờ hiển thị đúng dữ liệu từ backend,Biểu đồ hiển thị chính xác doanh thu theo từng giờ trong ngày,X,,,
+,Biểu đồ có tiêu đề và chú thích rõ ràng,Biểu đồ có tiêu đề và chú thích giúp người dùng hiểu được dữ liệu,X,,,
+,Biểu đồ có tooltip khi hover vào từng cột,Khi di chuột qua mỗi cột, hiển thị tooltip với thông tin chi tiết về doanh thu tại giờ đó,X,,,
+Hiển thị bảng dữ liệu,Bảng dữ liệu hiển thị đúng dữ liệu từ backend,Bảng dữ liệu hiển thị chính xác doanh thu theo từng giờ trong ngày,X,,,
+,Bảng dữ liệu có tiêu đề cột rõ ràng,Các cột trong bảng có tiêu đề rõ ràng: Giờ, Doanh thu, Số đơn hàng, Số đơn trả lại,X,,,
+,Bảng dữ liệu có định dạng số đúng,Doanh thu được định dạng với dấu phân cách hàng nghìn và đơn vị tiền tệ,X,,,
+Hiển thị thông tin tổng hợp,Hiển thị tổng doanh thu chính xác,Tổng doanh thu hiển thị đúng với tổng của tất cả các giờ trong ngày,X,,,
+,Hiển thị tổng số đơn hàng chính xác,Tổng số đơn hàng hiển thị đúng với tổng của tất cả các giờ trong ngày,X,,,
+,Hiển thị tổng số đơn trả lại chính xác,Tổng số đơn trả lại hiển thị đúng với tổng của tất cả các giờ trong ngày,X,,,
+Chức năng xuất báo cáo,Có nút "Xuất Excel" và "Xuất PDF" trên giao diện,Nút "Xuất Excel" và "Xuất PDF" hiển thị trên giao diện,,X,,Không có nút xuất báo cáo ra file
+,Chức năng xuất báo cáo ra file Excel hoạt động đúng,File Excel được tạo và tải xuống thành công với đầy đủ thông tin báo cáo,,X,,Chức năng xuất báo cáo ra file chưa được triển khai
+,Chức năng xuất báo cáo ra file PDF hoạt động đúng,File PDF được tạo và tải xuống thành công với đầy đủ thông tin báo cáo,,X,,Chức năng xuất báo cáo ra file chưa được triển khai
