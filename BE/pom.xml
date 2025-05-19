@@ -149,6 +149,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Thêm dependency cho Spring Security Test -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- Thêm dependency cụ thể cho Mockito -->
 		<dependency>
 			<groupId>org.mockito</groupId>

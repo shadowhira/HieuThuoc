@@ -16,6 +16,12 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - **[bao-cao/Bao_Cao_Tien_Do_Giai_Doan_2.md](./giai-doan-2-unit-test/bao-cao/Bao_Cao_Tien_Do_Giai_Doan_2.md)**: Báo cáo tiến độ giai đoạn 2
   - **[service-test/](./giai-doan-2-unit-test/service-test)**: Test case cho các service
   - **[controller-test/](./giai-doan-2-unit-test/controller-test)**: Test case cho các controller
+- **[giai-doan-3-integration-test](./giai-doan-3-integration-test)**: Tài liệu và test case giai đoạn 3 (Kiểm thử tích hợp)
+  - **[README.md](./giai-doan-3-integration-test/README.md)**: Tổng quan về giai đoạn 3
+  - **[bao-cao/Bao_Cao_Tien_Do_Giai_Doan_3.md](./giai-doan-3-integration-test/bao-cao/Bao_Cao_Tien_Do_Giai_Doan_3.md)**: Báo cáo tiến độ giai đoạn 3
+  - **[backend-test/](./giai-doan-3-integration-test/backend-test)**: Test case cho tích hợp Backend
+  - **[postman-test/](./giai-doan-3-integration-test/postman-test)**: Test case cho API bằng Postman
+  - **[frontend-backend-test/](./giai-doan-3-integration-test/frontend-backend-test)**: Test case cho tích hợp Frontend-Backend
 
 ## 🚀 QUY TRÌNH TRIỂN KHAI KIỂM THỬ
 
@@ -38,11 +44,11 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - [x] DanhMucThuocController: Thêm, sửa, xóa, tìm kiếm
 
 ### Giai đoạn 3: Kiểm thử tích hợp (Ngày 2-3)
-- [ ] **Kiểm thử tích hợp Backend**:
-  - [ ] Kiểm thử tích hợp giữa các thành phần Backend
-  - [ ] Kiểm thử API bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan1.md](./Kiem_Thu_Chuc_Nang_Phan1.md)
-- [ ] **Kiểm thử tích hợp Frontend-Backend**:
-  - [ ] Kiểm thử tích hợp giữa Frontend và Backend
+- [x] **Kiểm thử tích hợp Backend**:
+  - [x] Kiểm thử tích hợp giữa các thành phần Backend
+  - [x] Kiểm thử API bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan1.md](./Kiem_Thu_Chuc_Nang_Phan1.md)
+- [x] **Kiểm thử tích hợp Frontend-Backend**:
+  - [x] Kiểm thử tích hợp giữa Frontend và Backend
 
 ### Giai đoạn 4: Kiểm thử chức năng (Ngày 3-4)
 - [ ] **Kiểm thử chức năng thêm thuốc**:
@@ -88,7 +94,7 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 |-----------|---------|-----------------|
 | Giai đoạn 1: Chuẩn bị | 100% | 17/05/2025 |
 | Giai đoạn 2: Kiểm thử đơn vị | 100% | 18/05/2025 |
-| Giai đoạn 3: Kiểm thử tích hợp | 0% | |
+| Giai đoạn 3: Kiểm thử tích hợp | 50% | 19/05/2025 |
 | Giai đoạn 4: Kiểm thử chức năng | 0% | |
 | Giai đoạn 5: Kiểm thử giao diện | 0% | |
 | Giai đoạn 6: Kiểm thử hệ thống | 0% | |
