@@ -99,15 +99,25 @@ export class HomeComponent implements OnInit {
 
   async getUserInfo(): Promise<void> {
     try {
-      const _token = Cookie.get(AuthConstant.ACCESS_TOKEN_KEY);
-
-      if (!_token) {
+      // Kiểm tra xem có token không
+      if (!Cookie.check(AuthConstant.ACCESS_TOKEN_KEY)) {
         console.log('Không có token, người dùng chưa đăng nhập');
         return;
       }
 
-      const userInfo = jwtDecode(_token) as NguoiDung;
-      if (userInfo.id) {
+      const _token = Cookie.get(AuthConstant.ACCESS_TOKEN_KEY);
+      if (!_token) {
+        console.log('Token rỗng, người dùng chưa đăng nhập');
+        return;
+      }
+
+      try {
+        const userInfo = jwtDecode(_token) as NguoiDung;
+        if (!userInfo || !userInfo.id) {
+          console.log('Token không hợp lệ hoặc không có ID người dùng');
+          return;
+        }
+
         const resp = await lastValueFrom(this.nguoidungService.get(userInfo.id));
         if (resp.status == CommonConstant.STATUS_OK_200) {
           this.userInfo = resp.data;
@@ -124,6 +134,8 @@ export class HomeComponent implements OnInit {
             this.getGH();
           }
         }
+      } catch (jwtError) {
+        console.error('Lỗi khi giải mã token:', jwtError);
       }
     } catch (error) {
       console.error('Lỗi khi lấy thông tin người dùng:', error);
@@ -147,11 +159,21 @@ export class HomeComponent implements OnInit {
   }
 
   getGH() {
-    this.gioHangService.getGH(this.userInfo.id).subscribe((res) => {
-      if (res.status == CommonConstant.STATUS_OK_200) {
-        if (res.data.id) {
-          this.gioHangId = res.data.id;
+    if (!this.userInfo || !this.userInfo.id) {
+      console.log('Không có thông tin người dùng để lấy giỏ hàng');
+      return;
+    }
+
+    this.gioHangService.getGH(this.userInfo.id).subscribe({
+      next: (res) => {
+        if (res.status == CommonConstant.STATUS_OK_200) {
+          if (res.data && res.data.id) {
+            this.gioHangId = res.data.id;
+          }
         }
+      },
+      error: (err) => {
+        console.error('Lỗi khi lấy thông tin giỏ hàng:', err);
       }
     });
   }

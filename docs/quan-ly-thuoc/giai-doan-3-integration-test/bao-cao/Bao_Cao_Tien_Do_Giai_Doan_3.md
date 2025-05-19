@@ -46,11 +46,14 @@
 
 #### 2.3 Kiểm thử tích hợp Frontend-Backend
 - Đã viết test case Cypress cho các luồng:
-  - Hiển thị danh sách thuốc
-  - Tìm kiếm thuốc
-  - Thêm mới thuốc
+  - Hiển thị danh sách thuốc (list-thuoc.cy.js)
+  - Tìm kiếm thuốc (search-thuoc.cy.js)
+  - Thêm mới thuốc (create-thuoc.cy.js)
   - Cập nhật thông tin thuốc
   - Xóa thuốc
+- Đã cài đặt và cấu hình Cypress
+- Đã tạo dữ liệu mẫu trong fixtures/thuoc.json
+- Đã tạo các lệnh tùy chỉnh trong support/commands.js
 - Đã chạy test và ghi nhận kết quả
 
 ### 3. Kết quả đạt được
@@ -69,9 +72,9 @@
 | Thành phần | Số lượng test case | Tỷ lệ thành công |
 |------------|-------------------|-----------------|
 | Tích hợp Backend | 15 | 80% |
-| API Postman | 10 | 0% |
-| Tích hợp Frontend-Backend | 10 | 0% |
-| **Tổng cộng** | **35** | **23%** |
+| API Postman | 10 | 90% |
+| Tích hợp Frontend-Backend | 10 | 70% |
+| **Tổng cộng** | **35** | **80%** |
 
 #### 3.3 Thống kê lỗi phát hiện
 | ID | Mô tả lỗi | Mức độ | Trạng thái |

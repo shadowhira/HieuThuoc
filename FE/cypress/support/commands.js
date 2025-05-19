@@ -11,10 +11,10 @@
 // Lệnh đăng nhập
 Cypress.Commands.add('login', (username, password) => {
   cy.visit('/login');
-  cy.get('input[name="username"]').type(username);
-  cy.get('input[name="password"]').type(password);
+  cy.get('input#username').type(username);
+  cy.get('input#password-input').type(password || '123456');
   cy.get('button[type="submit"]').click();
-  cy.url().should('include', '/admin');
+  cy.url().should('include', '/home');
 });
 
 // Lệnh chuyển đến trang quản lý thuốc

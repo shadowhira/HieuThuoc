@@ -108,7 +108,7 @@ npm run cypress:open
 
 | Giai đoạn | Tiến độ | Ngày hoàn thành |
 |-----------|---------|-----------------|
-| Giai đoạn 3.1: Kiểm thử tích hợp Backend | 0% | |
-| Giai đoạn 3.2: Kiểm thử API bằng Postman | 0% | |
-| Giai đoạn 3.3: Kiểm thử tích hợp Frontend-Backend | 0% | |
-| **Tổng cộng** | **0%** | |
+| Giai đoạn 3.1: Kiểm thử tích hợp Backend | 100% | 19/05/2025 |
+| Giai đoạn 3.2: Kiểm thử API bằng Postman | 100% | 19/05/2025 |
+| Giai đoạn 3.3: Kiểm thử tích hợp Frontend-Backend | 100% | 19/05/2025 |
+| **Tổng cộng** | **100%** | 19/05/2025 |

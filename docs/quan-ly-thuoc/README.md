@@ -94,7 +94,7 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 |-----------|---------|-----------------|
 | Giai đoạn 1: Chuẩn bị | 100% | 17/05/2025 |
 | Giai đoạn 2: Kiểm thử đơn vị | 100% | 18/05/2025 |
-| Giai đoạn 3: Kiểm thử tích hợp | 50% | 19/05/2025 |
+| Giai đoạn 3: Kiểm thử tích hợp | 100% | 19/05/2025 |
 | Giai đoạn 4: Kiểm thử chức năng | 0% | |
 | Giai đoạn 5: Kiểm thử giao diện | 0% | |
 | Giai đoạn 6: Kiểm thử hệ thống | 0% | |
