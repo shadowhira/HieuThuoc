@@ -1,0 +1,109 @@
+ID,Mô tả,Các bước thực hiện,Dữ liệu đầu vào,Kết quả mong đợi,Mức độ ưu tiên,Điều kiện tiên quyết,Trạng thái
+UI-001,"Kiểm tra hiển thị tổng quan Dashboard","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị các thành phần tổng quan","Tài khoản admin","1. Hiển thị số lượng hóa đơn (7 trong ảnh)
+2. Hiển thị số lượng đơn hàng trả lại (0 trong ảnh)
+3. Hiển thị tổng doanh thu (153,400 VND trong ảnh)
+4. Các thành phần được hiển thị với màu sắc và biểu tượng phù hợp",Cao,"Người dùng có quyền truy cập báo cáo",Chưa thực hiện
+UI-002,"Kiểm tra hiển thị biểu đồ doanh thu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị biểu đồ doanh thu","Tài khoản admin","1. Biểu đồ doanh thu được hiển thị dạng cột
+2. Trục X hiển thị các ngày trong tháng
+3. Trục Y hiển thị doanh thu (VND)
+4. Các cột biểu đồ có màu xanh dương
+5. Có tooltip hiển thị chi tiết khi di chuột vào cột",Cao,"Người dùng có quyền truy cập báo cáo",Chưa thực hiện
+UI-003,"Kiểm tra chức năng chuyển đổi loại báo cáo","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Kiểm tra hiển thị biểu đồ
+5. Chọn loại báo cáo ""Theo tháng""
+6. Kiểm tra hiển thị biểu đồ
+7. Chọn loại báo cáo ""Theo năm""
+8. Kiểm tra hiển thị biểu đồ","Tài khoản admin","1. Khi chọn ""Theo ngày"", biểu đồ hiển thị doanh thu theo giờ trong ngày
+2. Khi chọn ""Theo tháng"", biểu đồ hiển thị doanh thu theo ngày trong tháng
+3. Khi chọn ""Theo năm"", biểu đồ hiển thị doanh thu theo tháng trong năm
+4. Dữ liệu biểu đồ được cập nhật tương ứng với loại báo cáo đã chọn",Cao,"Người dùng có quyền truy cập báo cáo",Chưa thực hiện
+UI-004,"Kiểm tra chức năng chọn thời gian","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn một ngày khác
+5. Kiểm tra hiển thị biểu đồ
+6. Chọn loại báo cáo ""Theo tháng""
+7. Chọn một tháng khác
+8. Kiểm tra hiển thị biểu đồ
+9. Chọn loại báo cáo ""Theo năm""
+10. Chọn một năm khác
+11. Kiểm tra hiển thị biểu đồ","Tài khoản admin","1. Khi chọn ngày khác, biểu đồ được cập nhật với dữ liệu của ngày đã chọn
+2. Khi chọn tháng khác, biểu đồ được cập nhật với dữ liệu của tháng đã chọn
+3. Khi chọn năm khác, biểu đồ được cập nhật với dữ liệu của năm đã chọn
+4. Dữ liệu tổng quan (số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu) được cập nhật tương ứng",Cao,"Người dùng có quyền truy cập báo cáo",Chưa thực hiện
+UI-005,"Kiểm tra hiển thị trên màn hình desktop","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị trên màn hình desktop (>= 1024px)","Tài khoản admin","1. Tất cả các thành phần được hiển thị đầy đủ và rõ ràng
+2. Biểu đồ được hiển thị với kích thước phù hợp
+3. Không có thanh cuộn ngang",Trung bình,"Người dùng có quyền truy cập báo cáo",Chưa thực hiện
+UI-006,"Kiểm tra hiển thị trên màn hình tablet","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị trên màn hình tablet (768px - 1023px)","Tài khoản admin","1. Tất cả các thành phần được hiển thị đầy đủ và rõ ràng
+2. Biểu đồ được hiển thị với kích thước phù hợp
+3. Layout có thể thay đổi để phù hợp với kích thước màn hình",Trung bình,"Người dùng có quyền truy cập báo cáo",Chưa thực hiện
+BB-001,"Kiểm tra báo cáo doanh thu với ngày có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày có dữ liệu (ví dụ: ngày hiện tại)
+5. Kiểm tra hiển thị biểu đồ và dữ liệu tổng quan","Tài khoản admin, ngày có dữ liệu","1. Biểu đồ hiển thị doanh thu theo giờ trong ngày
+2. Dữ liệu tổng quan (số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu) được hiển thị chính xác
+3. Dữ liệu biểu đồ khớp với dữ liệu trong cơ sở dữ liệu",Cao,"Có dữ liệu đơn hàng trong ngày đã chọn",Chưa thực hiện
+BB-002,"Kiểm tra báo cáo doanh thu với ngày không có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày không có dữ liệu (ví dụ: ngày trong quá khứ xa)
+5. Kiểm tra hiển thị biểu đồ và dữ liệu tổng quan","Tài khoản admin, ngày không có dữ liệu","1. Biểu đồ hiển thị không có dữ liệu hoặc tất cả các cột đều bằng 0
+2. Dữ liệu tổng quan hiển thị giá trị 0 cho số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu
+3. Không có thông báo lỗi",Cao,"Không có dữ liệu đơn hàng trong ngày đã chọn",Chưa thực hiện
+BB-003,"Kiểm tra báo cáo doanh thu với tháng có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn tháng có dữ liệu (ví dụ: tháng hiện tại)
+5. Kiểm tra hiển thị biểu đồ và dữ liệu tổng quan","Tài khoản admin, tháng có dữ liệu","1. Biểu đồ hiển thị doanh thu theo ngày trong tháng
+2. Dữ liệu tổng quan (số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu) được hiển thị chính xác
+3. Dữ liệu biểu đồ khớp với dữ liệu trong cơ sở dữ liệu",Cao,"Có dữ liệu đơn hàng trong tháng đã chọn",Chưa thực hiện
+BB-004,"Kiểm tra báo cáo doanh thu với tháng không có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn tháng không có dữ liệu
+5. Kiểm tra hiển thị biểu đồ và dữ liệu tổng quan","Tài khoản admin, tháng không có dữ liệu","1. Biểu đồ hiển thị không có dữ liệu hoặc tất cả các cột đều bằng 0
+2. Dữ liệu tổng quan hiển thị giá trị 0 cho số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu
+3. Không có thông báo lỗi",Cao,"Không có dữ liệu đơn hàng trong tháng đã chọn",Chưa thực hiện
+BB-005,"Kiểm tra báo cáo doanh thu với năm có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn năm có dữ liệu (ví dụ: năm hiện tại)
+5. Kiểm tra hiển thị biểu đồ và dữ liệu tổng quan","Tài khoản admin, năm có dữ liệu","1. Biểu đồ hiển thị doanh thu theo tháng trong năm
+2. Dữ liệu tổng quan (số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu) được hiển thị chính xác
+3. Dữ liệu biểu đồ khớp với dữ liệu trong cơ sở dữ liệu",Cao,"Có dữ liệu đơn hàng trong năm đã chọn",Chưa thực hiện
+BB-006,"Kiểm tra báo cáo doanh thu với năm không có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn năm không có dữ liệu
+5. Kiểm tra hiển thị biểu đồ và dữ liệu tổng quan","Tài khoản admin, năm không có dữ liệu","1. Biểu đồ hiển thị không có dữ liệu hoặc tất cả các cột đều bằng 0
+2. Dữ liệu tổng quan hiển thị giá trị 0 cho số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu
+3. Không có thông báo lỗi",Cao,"Không có dữ liệu đơn hàng trong năm đã chọn",Chưa thực hiện
+BB-007,"Kiểm tra tính toán tổng doanh thu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày có dữ liệu đã biết
+5. Kiểm tra tổng doanh thu hiển thị","Tài khoản admin, ngày có dữ liệu đã biết","1. Tổng doanh thu hiển thị bằng tổng của tất cả các giao dịch trong ngày đã chọn
+2. Giá trị tổng doanh thu khớp với dữ liệu trong cơ sở dữ liệu",Cao,"Có dữ liệu đơn hàng trong ngày đã chọn",Chưa thực hiện
+BB-008,"Kiểm tra tính toán số lượng hóa đơn","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày có dữ liệu đã biết
+5. Kiểm tra số lượng hóa đơn hiển thị","Tài khoản admin, ngày có dữ liệu đã biết","1. Số lượng hóa đơn hiển thị bằng tổng số hóa đơn trong ngày đã chọn
+2. Giá trị số lượng hóa đơn khớp với dữ liệu trong cơ sở dữ liệu",Cao,"Có dữ liệu đơn hàng trong ngày đã chọn",Chưa thực hiện
+BB-009,"Kiểm tra tính toán số lượng đơn hàng trả lại","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày có dữ liệu đã biết
+5. Kiểm tra số lượng đơn hàng trả lại hiển thị","Tài khoản admin, ngày có dữ liệu đã biết","1. Số lượng đơn hàng trả lại hiển thị bằng tổng số đơn hàng trả lại trong ngày đã chọn
+2. Giá trị số lượng đơn hàng trả lại khớp với dữ liệu trong cơ sở dữ liệu",Cao,"Có dữ liệu đơn hàng trả lại trong ngày đã chọn",Chưa thực hiện

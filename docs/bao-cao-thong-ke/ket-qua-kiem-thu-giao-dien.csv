@@ -1,0 +1,151 @@
+ID,Mô tả,Các bước thực hiện,Kết quả mong đợi,Kết quả thực tế,Trạng thái,Ghi chú
+UI-001,"Kiểm tra hiển thị tổng quan Dashboard với dữ liệu mặc định","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị các thành phần tổng quan với dữ liệu mặc định (ngày hiện tại)","1. Hiển thị số lượng hóa đơn chính xác theo dữ liệu thực tế
+2. Hiển thị số lượng đơn hàng trả lại chính xác theo dữ liệu thực tế
+3. Hiển thị tổng doanh thu chính xác theo dữ liệu thực tế
+4. Các thành phần được hiển thị với màu sắc và biểu tượng phù hợp",,,"Kiểm tra thủ công"
+UI-001a,"Kiểm tra hiển thị tổng quan Dashboard với dữ liệu nhiều hóa đơn","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn ngày/tháng/năm có nhiều hóa đơn
+4. Kiểm tra hiển thị các thành phần tổng quan","1. Hiển thị số lượng hóa đơn lớn chính xác theo dữ liệu thực tế
+2. Hiển thị số lượng đơn hàng trả lại chính xác theo dữ liệu thực tế
+3. Hiển thị tổng doanh thu lớn chính xác theo dữ liệu thực tế
+4. Các thành phần được hiển thị với màu sắc và biểu tượng phù hợp",,,"Kiểm tra thủ công"
+UI-001b,"Kiểm tra hiển thị tổng quan Dashboard với dữ liệu nhiều đơn hàng trả lại","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn ngày/tháng/năm có nhiều đơn hàng trả lại
+4. Kiểm tra hiển thị các thành phần tổng quan","1. Hiển thị số lượng hóa đơn chính xác theo dữ liệu thực tế
+2. Hiển thị số lượng đơn hàng trả lại lớn chính xác theo dữ liệu thực tế
+3. Hiển thị tổng doanh thu chính xác theo dữ liệu thực tế (đã trừ đơn hàng trả lại)
+4. Các thành phần được hiển thị với màu sắc và biểu tượng phù hợp",,,"Kiểm tra thủ công"
+UI-002,"Kiểm tra hiển thị biểu đồ doanh thu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị biểu đồ doanh thu","1. Biểu đồ doanh thu được hiển thị dạng cột
+2. Trục X hiển thị các ngày trong tháng
+3. Trục Y hiển thị doanh thu (VND)
+4. Các cột biểu đồ có màu xanh dương
+5. Có tooltip hiển thị chi tiết khi di chuột vào cột",,,"Kiểm tra thủ công"
+UI-003,"Kiểm tra chức năng chuyển đổi loại báo cáo","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Kiểm tra hiển thị biểu đồ
+5. Chọn loại báo cáo ""Theo tháng""
+6. Kiểm tra hiển thị biểu đồ
+7. Chọn loại báo cáo ""Theo năm""
+8. Kiểm tra hiển thị biểu đồ","1. Khi chọn ""Theo ngày"", biểu đồ hiển thị doanh thu theo giờ trong ngày
+2. Khi chọn ""Theo tháng"", biểu đồ hiển thị doanh thu theo ngày trong tháng
+3. Khi chọn ""Theo năm"", biểu đồ hiển thị doanh thu theo tháng trong năm
+4. Dữ liệu biểu đồ được cập nhật tương ứng với loại báo cáo đã chọn",,,"Kiểm tra thủ công và Cypress"
+UI-004,"Kiểm tra chức năng chọn thời gian","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn một ngày khác
+5. Kiểm tra hiển thị biểu đồ
+6. Chọn loại báo cáo ""Theo tháng""
+7. Chọn một tháng khác
+8. Kiểm tra hiển thị biểu đồ
+9. Chọn loại báo cáo ""Theo năm""
+10. Chọn một năm khác
+11. Kiểm tra hiển thị biểu đồ","1. Khi chọn ngày khác, biểu đồ được cập nhật với dữ liệu của ngày đã chọn
+2. Khi chọn tháng khác, biểu đồ được cập nhật với dữ liệu của tháng đã chọn
+3. Khi chọn năm khác, biểu đồ được cập nhật với dữ liệu của năm đã chọn
+4. Dữ liệu tổng quan (số lượng hóa đơn, đơn hàng trả lại, tổng doanh thu) được cập nhật tương ứng",,,"Kiểm tra thủ công và Cypress"
+UI-005,"Kiểm tra hiển thị trên màn hình desktop","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị trên màn hình desktop (>= 1024px)","1. Tất cả các thành phần được hiển thị đầy đủ và rõ ràng
+2. Biểu đồ được hiển thị với kích thước phù hợp
+3. Không có thanh cuộn ngang",,,"Kiểm tra thủ công và Cypress"
+UI-006,"Kiểm tra hiển thị trên màn hình tablet","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị trên màn hình tablet (768px - 1023px)","1. Tất cả các thành phần được hiển thị đầy đủ và rõ ràng
+2. Biểu đồ được hiển thị với kích thước phù hợp
+3. Layout có thể thay đổi để phù hợp với kích thước màn hình",,,"Kiểm tra thủ công và Cypress"
+UI-007,"Kiểm tra hiển thị trên màn hình mobile","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra hiển thị trên màn hình mobile (< 768px)","1. Tất cả các thành phần được hiển thị đầy đủ và rõ ràng
+2. Biểu đồ được hiển thị với kích thước phù hợp
+3. Layout thay đổi thành dạng cột (các thành phần xếp dọc)
+4. Không có nội dung bị cắt hoặc tràn ra ngoài màn hình",,,"Kiểm tra thủ công và Cypress"
+UI-008,"Kiểm tra tooltip khi hover vào biểu đồ","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Di chuột vào các cột trong biểu đồ","1. Tooltip hiển thị khi di chuột vào cột biểu đồ
+2. Tooltip hiển thị thông tin chính xác về doanh thu của thời điểm tương ứng
+3. Tooltip có định dạng rõ ràng và dễ đọc",,,"Kiểm tra thủ công và Cypress"
+UI-009,"Kiểm tra tính nhất quán của giao diện","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra các thành phần giao diện","1. Font chữ nhất quán trên toàn bộ trang
+2. Màu sắc tuân theo bảng màu của hệ thống
+3. Khoảng cách giữa các thành phần hợp lý
+4. Các biểu tượng có kích thước và phong cách nhất quán",,,"Kiểm tra thủ công"
+UI-010,"Kiểm tra khả năng tương tác với biểu đồ","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Tương tác với biểu đồ (nếu có tính năng tương tác)","1. Có thể zoom in/out biểu đồ (nếu có tính năng)
+2. Có thể xuất biểu đồ (nếu có tính năng)
+3. Có thể tùy chỉnh hiển thị biểu đồ (nếu có tính năng)",,,"Kiểm tra thủ công"
+UI-011,"Kiểm tra hiển thị khi không có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn thời gian không có dữ liệu (ví dụ: năm trong quá khứ)","1. Biểu đồ hiển thị thông báo ""Không có dữ liệu"" hoặc tương tự
+2. Không có lỗi JavaScript
+3. Các thành phần tổng quan hiển thị giá trị 0",,,"Kiểm tra thủ công và Cypress"
+UI-011a,"Kiểm tra hiển thị với dữ liệu doanh thu cực lớn","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn thời gian có doanh thu rất cao (hoặc tạo dữ liệu test với doanh thu cao)
+4. Kiểm tra hiển thị biểu đồ và tổng doanh thu","1. Biểu đồ hiển thị chính xác với các cột cao
+2. Tổng doanh thu hiển thị đúng định dạng số lớn (không bị tràn, cắt hoặc hiển thị sai)
+3. Tooltip hiển thị đúng giá trị khi hover vào cột biểu đồ",,,"Kiểm tra thủ công"
+UI-011b,"Kiểm tra hiển thị với dữ liệu doanh thu cực nhỏ","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn thời gian có doanh thu rất thấp (hoặc tạo dữ liệu test với doanh thu thấp)
+4. Kiểm tra hiển thị biểu đồ và tổng doanh thu","1. Biểu đồ hiển thị chính xác với các cột thấp
+2. Tổng doanh thu hiển thị đúng định dạng số nhỏ
+3. Tooltip hiển thị đúng giá trị khi hover vào cột biểu đồ",,,"Kiểm tra thủ công"
+UI-012,"Kiểm tra tốc độ tải trang","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Đo thời gian tải trang và biểu đồ","1. Trang tải trong thời gian hợp lý (< 3 giây)
+2. Biểu đồ hiển thị trong thời gian hợp lý (< 2 giây sau khi trang tải xong)
+3. Không có hiện tượng ""flickering"" (nhấp nháy) khi tải dữ liệu",,,"Kiểm tra thủ công và Cypress"
+UI-013,"Kiểm tra khả năng truy cập (accessibility)","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Kiểm tra các yếu tố accessibility","1. Tất cả các thành phần có thể truy cập bằng bàn phím
+2. Các thành phần có thuộc tính alt, aria-label phù hợp
+3. Độ tương phản màu sắc đủ cao
+4. Cấu trúc HTML semantic",,,"Kiểm tra thủ công và Cypress với axe-core"
+UI-014,"Kiểm tra hiển thị thông báo lỗi","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Mô phỏng lỗi kết nối API (nếu có thể)","1. Hiển thị thông báo lỗi rõ ràng
+2. Có hướng dẫn khắc phục hoặc thử lại
+3. Giao diện không bị vỡ khi có lỗi",,,"Kiểm tra thủ công và Cypress"
+UI-015,"Kiểm tra tính năng xuất báo cáo (nếu có)","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Sử dụng tính năng xuất báo cáo (nếu có)","1. Có thể xuất báo cáo dạng PDF hoặc Excel
+2. File xuất ra chứa đầy đủ thông tin
+3. Định dạng file xuất ra chính xác",,,"Kiểm tra thủ công"
+UI-016,"Kiểm tra hiển thị biểu đồ với nhiều ngày có dữ liệu","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn tháng có dữ liệu ở nhiều ngày khác nhau","1. Biểu đồ hiển thị đầy đủ các cột cho tất cả các ngày trong tháng
+2. Các ngày không có dữ liệu hiển thị cột với giá trị 0
+3. Các ngày có dữ liệu hiển thị cột với giá trị chính xác",,,"Kiểm tra thủ công và Cypress"
+UI-017,"Kiểm tra hiển thị biểu đồ với dữ liệu không đồng đều","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo tháng"" hoặc ""Theo năm""
+4. Chọn khoảng thời gian có dữ liệu không đồng đều (một số ngày/tháng có doanh thu cao, một số thấp)","1. Biểu đồ hiển thị chính xác với các cột có chiều cao khác nhau
+2. Trục Y tự động điều chỉnh để hiển thị tất cả các giá trị
+3. Tooltip hiển thị đúng giá trị khi hover vào cột biểu đồ",,,"Kiểm tra thủ công"
+UI-018,"Kiểm tra tính năng lọc dữ liệu (nếu có)","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Sử dụng các bộ lọc dữ liệu nếu có (ví dụ: lọc theo loại thuốc, nhà cung cấp)","1. Bộ lọc hoạt động chính xác
+2. Dữ liệu được cập nhật theo bộ lọc đã chọn
+3. Biểu đồ và tổng quan được cập nhật tương ứng",,,"Kiểm tra thủ công"
+UI-019,"Kiểm tra hiển thị dữ liệu theo giờ trong ngày","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày có dữ liệu ở nhiều giờ khác nhau","1. Biểu đồ hiển thị đầy đủ các cột cho các giờ có dữ liệu
+2. Các giờ không có dữ liệu hiển thị cột với giá trị 0
+3. Các giờ có dữ liệu hiển thị cột với giá trị chính xác",,,"Kiểm tra thủ công và Cypress"
+UI-020,"Kiểm tra tính năng so sánh dữ liệu (nếu có)","1. Đăng nhập vào hệ thống với quyền admin
+2. Truy cập vào trang Báo cáo
+3. Sử dụng tính năng so sánh dữ liệu nếu có (ví dụ: so sánh doanh thu giữa các tháng)","1. Tính năng so sánh hoạt động chính xác
+2. Dữ liệu so sánh được hiển thị rõ ràng
+3. Biểu đồ hiển thị dữ liệu so sánh một cách trực quan",,,"Kiểm tra thủ công"
