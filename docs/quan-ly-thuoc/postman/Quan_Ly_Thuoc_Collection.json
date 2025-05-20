@@ -18,21 +18,51 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}"
+          "raw": "{\n    \"tenDangNhap\": \"admin\",\n    \"matKhau\": \"123456\"\n}"
         },
         "url": {
-          "raw": "{{baseUrl}}/auth/login",
+          "raw": "{{baseUrl}}/dangnhap",
           "host": [
             "{{baseUrl}}"
           ],
           "path": [
-            "auth",
-            "login"
+            "dangnhap"
           ]
         },
         "description": "Đăng nhập để lấy token"
       },
-      "response": []
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has correct structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('status');",
+              "    pm.expect(jsonData).to.have.property('data');",
+              "});",
+              "",
+              "pm.test(\"Response status is 200\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.equal(200);",
+              "});",
+              "",
+              "// Lưu token vào biến môi trường",
+              "var jsonData = pm.response.json();",
+              "if (jsonData.data) {",
+              "    pm.environment.set(\"token\", jsonData.data);",
+              "    console.log(\"Token đã được lưu: \" + jsonData.data.substring(0, 20) + \"...\");",
+              "}"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Lấy thuốc theo ID",
@@ -62,7 +92,38 @@
         },
         "description": "Lấy thông tin thuốc theo ID"
       },
-      "response": []
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has correct structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('status');",
+              "    pm.expect(jsonData).to.have.property('data');",
+              "});",
+              "",
+              "pm.test(\"Response status is 200\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.equal(200);",
+              "});",
+              "",
+              "pm.test(\"Response data has correct thuoc info\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('id');",
+              "    pm.expect(jsonData.data).to.have.property('tenThuoc');",
+              "    pm.expect(jsonData.data).to.have.property('maThuoc');",
+              "});"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Tìm kiếm thuốc",
@@ -94,7 +155,39 @@
         },
         "description": "Tìm kiếm thuốc theo các tiêu chí"
       },
-      "response": []
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has correct structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('status');",
+              "    pm.expect(jsonData).to.have.property('data');",
+              "});",
+              "",
+              "pm.test(\"Response status is 200\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.equal(200);",
+              "});",
+              "",
+              "pm.test(\"Response data has correct pagination structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('data');",
+              "    pm.expect(jsonData.data).to.have.property('totalPages');",
+              "    pm.expect(jsonData.data).to.have.property('totalElements');",
+              "    pm.expect(jsonData.data).to.have.property('currentPage');",
+              "});"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Thêm thuốc mới",
@@ -104,6 +197,10 @@
           {
             "key": "Authorization",
             "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
           }
         ],
         "body": {
@@ -112,7 +209,8 @@
             {
               "key": "thuocDTO",
               "value": "{\n    \"tenThuoc\": \"Vitamin D3 1000IU\",\n    \"maThuoc\": \"VITD1000\",\n    \"loaiThuocId\": 3,\n    \"nhaSanXuatId\": 1,\n    \"donVi\": \"Viên\",\n    \"giaNhap\": 8000,\n    \"giaBan\": 12000,\n    \"soLuongTon\": 100,\n    \"nguongCanhBao\": 20,\n    \"congDung\": \"Bổ sung vitamin D3\",\n    \"huongDanSuDung\": \"Uống 1 viên mỗi ngày\",\n    \"trangThai\": true\n}",
-              "type": "text"
+              "type": "text",
+              "contentType": "application/json"
             },
             {
               "key": "file",
@@ -133,7 +231,40 @@
         },
         "description": "Thêm thuốc mới"
       },
-      "response": []
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has correct structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('status');",
+              "    pm.expect(jsonData).to.have.property('data');",
+              "});",
+              "",
+              "pm.test(\"Response status is 200\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.equal(200);",
+              "});",
+              "",
+              "pm.test(\"Response data has correct thuoc info\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('id');",
+              "    pm.expect(jsonData.data).to.have.property('tenThuoc');",
+              "    pm.expect(jsonData.data).to.have.property('maThuoc');",
+              "    pm.expect(jsonData.data).to.have.property('donVi');",
+              "    pm.expect(jsonData.data).to.have.property('giaBan');",
+              "});"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Cập nhật thuốc",
@@ -143,6 +274,10 @@
           {
             "key": "Authorization",
             "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
           }
         ],
         "body": {
@@ -151,7 +286,8 @@
             {
               "key": "thuocDTO",
               "value": "{\n    \"id\": 1,\n    \"tenThuoc\": \"Paracetamol 500mg\",\n    \"maThuoc\": \"PARA500\",\n    \"loaiThuocId\": 2,\n    \"nhaSanXuatId\": 1,\n    \"donVi\": \"Viên\",\n    \"giaNhap\": 5000,\n    \"giaBan\": 8000,\n    \"soLuongTon\": 100,\n    \"nguongCanhBao\": 20,\n    \"congDung\": \"Giảm đau, hạ sốt, giảm viêm\",\n    \"huongDanSuDung\": \"Uống 1-2 viên mỗi 4-6 giờ khi cần\",\n    \"trangThai\": true\n}",
-              "type": "text"
+              "type": "text",
+              "contentType": "application/json"
             },
             {
               "key": "file",
@@ -172,7 +308,40 @@
         },
         "description": "Cập nhật thông tin thuốc"
       },
-      "response": []
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has correct structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('status');",
+              "    pm.expect(jsonData).to.have.property('data');",
+              "});",
+              "",
+              "pm.test(\"Response status is 200\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.equal(200);",
+              "});",
+              "",
+              "pm.test(\"Response data has correct thuoc info\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.data).to.have.property('id');",
+              "    pm.expect(jsonData.data).to.have.property('tenThuoc');",
+              "    pm.expect(jsonData.data).to.have.property('maThuoc');",
+              "    pm.expect(jsonData.data).to.have.property('donVi');",
+              "    pm.expect(jsonData.data).to.have.property('giaBan');",
+              "});"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Xóa thuốc",
@@ -202,7 +371,35 @@
         },
         "description": "Xóa thuốc theo ID"
       },
-      "response": []
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has correct structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('status');",
+              "});",
+              "",
+              "pm.test(\"Response status is 200\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.equal(200);",
+              "});",
+              "",
+              "pm.test(\"Response message indicates success\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('msg');",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [

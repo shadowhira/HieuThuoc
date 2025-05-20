@@ -18,7 +18,8 @@ giai-doan-3-integration-test/
 ├── postman-test/                            # Test case cho API bằng Postman
 │   ├── Postman_Collection.md                # Hướng dẫn tạo Postman Collection
 │   ├── Postman_Environment.md               # Hướng dẫn cấu hình Postman Environment
-│   └── Postman_Test_Script.md               # Hướng dẫn viết test script cho Postman
+│   ├── Postman_Test_Script.md               # Hướng dẫn viết test script cho Postman
+│   └── Huong_Dan_Khac_Phuc_Loi_Postman.md   # Hướng dẫn khắc phục lỗi Postman
 └── frontend-backend-test/                   # Test case cho tích hợp Frontend-Backend
     ├── ThuocComponentTest.md                # Test case tích hợp cho ThuocComponent
     ├── LoaiThuocComponentTest.md            # Test case tích hợp cho LoaiThuocComponent

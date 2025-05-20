@@ -31,7 +31,44 @@
             },
             "description": "Lấy danh sách tất cả loại thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response data contains loai thuoc items\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.data.length > 0) {",
+                  "        pm.expect(jsonData.data[0]).to.have.property('id');",
+                  "        pm.expect(jsonData.data[0]).to.have.property('tenLoai');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Tìm kiếm loại thuốc theo tên",
@@ -61,7 +98,48 @@
             },
             "description": "Tìm kiếm loại thuốc theo tên"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response data contains loai thuoc items with matching name\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var searchTerm = pm.request.url.query.find(param => param.key === 'tenLoai').value.toLowerCase();",
+                  "    if (jsonData.data.length > 0) {",
+                  "        pm.expect(jsonData.data[0]).to.have.property('id');",
+                  "        pm.expect(jsonData.data[0]).to.have.property('tenLoai');",
+                  "        // Kiểm tra tên loại thuốc có chứa từ khóa tìm kiếm",
+                  "        var found = jsonData.data.some(item => item.tenLoai.toLowerCase().includes(searchTerm));",
+                  "        pm.expect(found).to.be.true;",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Thêm mới loại thuốc",
@@ -93,7 +171,44 @@
             },
             "description": "Thêm mới loại thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "    pm.expect(jsonData).to.have.property('msg');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 201\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data has correct loai thuoc info\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.have.property('id');",
+                  "    pm.expect(jsonData.data).to.have.property('tenLoai');",
+                  "    pm.expect(jsonData.data).to.have.property('moTa');",
+                  "    ",
+                  "    // Lấy thông tin từ request body để so sánh",
+                  "    var requestBody = JSON.parse(pm.request.body.raw);",
+                  "    pm.expect(jsonData.data.tenLoai).to.equal(requestBody.tenLoai);",
+                  "    pm.expect(jsonData.data.moTa).to.equal(requestBody.moTa);",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Cập nhật loại thuốc",
@@ -125,7 +240,45 @@
             },
             "description": "Cập nhật thông tin loại thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "    pm.expect(jsonData).to.have.property('msg');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data has correct loai thuoc info\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.have.property('id');",
+                  "    pm.expect(jsonData.data).to.have.property('tenLoai');",
+                  "    pm.expect(jsonData.data).to.have.property('moTa');",
+                  "    ",
+                  "    // Lấy thông tin từ request body để so sánh",
+                  "    var requestBody = JSON.parse(pm.request.body.raw);",
+                  "    pm.expect(jsonData.data.id).to.equal(requestBody.id);",
+                  "    pm.expect(jsonData.data.tenLoai).to.equal(requestBody.tenLoai);",
+                  "    pm.expect(jsonData.data.moTa).to.equal(requestBody.moTa);",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Xóa loại thuốc",
@@ -155,7 +308,36 @@
             },
             "description": "Xóa loại thuốc theo ID"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('msg');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response message indicates success\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.msg).to.include('thành công');",
+                  "});"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -184,7 +366,44 @@
             },
             "description": "Lấy danh sách tất cả danh mục thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response data contains danh muc thuoc items\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.data.length > 0) {",
+                  "        pm.expect(jsonData.data[0]).to.have.property('id');",
+                  "        pm.expect(jsonData.data[0]).to.have.property('tenDanhMuc');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Lấy danh mục thuốc kèm loại thuốc",
@@ -208,7 +427,46 @@
             },
             "description": "Lấy danh sách danh mục thuốc kèm loại thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response data contains danh muc thuoc items with loai thuoc\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.data.length > 0) {",
+                  "        pm.expect(jsonData.data[0]).to.have.property('id');",
+                  "        pm.expect(jsonData.data[0]).to.have.property('tenDanhMuc');",
+                  "        pm.expect(jsonData.data[0]).to.have.property('loaiThuocs');",
+                  "        pm.expect(jsonData.data[0].loaiThuocs).to.be.an('array');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Tìm kiếm danh mục thuốc theo tên",
@@ -238,7 +496,48 @@
             },
             "description": "Tìm kiếm danh mục thuốc theo tên"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response data contains danh muc thuoc items with matching name\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var searchTerm = pm.request.url.query.find(param => param.key === 'tenDanhMuc').value.toLowerCase();",
+                  "    if (jsonData.data.length > 0) {",
+                  "        pm.expect(jsonData.data[0]).to.have.property('id');",
+                  "        pm.expect(jsonData.data[0]).to.have.property('tenDanhMuc');",
+                  "        // Kiểm tra tên danh mục thuốc có chứa từ khóa tìm kiếm",
+                  "        var found = jsonData.data.some(item => item.tenDanhMuc.toLowerCase().includes(searchTerm));",
+                  "        pm.expect(found).to.be.true;",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Thêm mới danh mục thuốc",
@@ -270,7 +569,44 @@
             },
             "description": "Thêm mới danh mục thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "    pm.expect(jsonData).to.have.property('msg');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 201\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data has correct danh muc thuoc info\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.have.property('id');",
+                  "    pm.expect(jsonData.data).to.have.property('tenDanhMuc');",
+                  "    pm.expect(jsonData.data).to.have.property('moTa');",
+                  "    ",
+                  "    // Lấy thông tin từ request body để so sánh",
+                  "    var requestBody = JSON.parse(pm.request.body.raw);",
+                  "    pm.expect(jsonData.data.tenDanhMuc).to.equal(requestBody.tenDanhMuc);",
+                  "    pm.expect(jsonData.data.moTa).to.equal(requestBody.moTa);",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Cập nhật danh mục thuốc",
@@ -302,7 +638,45 @@
             },
             "description": "Cập nhật thông tin danh mục thuốc"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "    pm.expect(jsonData).to.have.property('msg');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response data has correct danh muc thuoc info\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.have.property('id');",
+                  "    pm.expect(jsonData.data).to.have.property('tenDanhMuc');",
+                  "    pm.expect(jsonData.data).to.have.property('moTa');",
+                  "    ",
+                  "    // Lấy thông tin từ request body để so sánh",
+                  "    var requestBody = JSON.parse(pm.request.body.raw);",
+                  "    pm.expect(jsonData.data.id).to.equal(requestBody.id);",
+                  "    pm.expect(jsonData.data.tenDanhMuc).to.equal(requestBody.tenDanhMuc);",
+                  "    pm.expect(jsonData.data.moTa).to.equal(requestBody.moTa);",
+                  "});"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "Xóa danh mục thuốc",
@@ -332,7 +706,36 @@
             },
             "description": "Xóa danh mục thuốc theo ID"
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "    pm.expect(jsonData).to.have.property('msg');",
+                  "});",
+                  "",
+                  "pm.test(\"Response status is 200\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.equal(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response message indicates success\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.msg).to.include('thành công');",
+                  "});"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

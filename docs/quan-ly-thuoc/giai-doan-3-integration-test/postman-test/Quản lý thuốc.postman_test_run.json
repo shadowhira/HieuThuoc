@@ -1,0 +1,317 @@
+{
+	"id": "76716032-b501-4483-b3ff-aed6c316cbb9",
+	"name": "Quản lý thuốc",
+	"timestamp": "2025-05-20T02:50:32.693Z",
+	"collection_id": "23079831-302d09e9-1a4d-4424-afd5-a3aefa14d8f3",
+	"folder_id": 0,
+	"environment_id": "23079831-2cf6b822-9f4f-4b35-9e77-65c10ecda1bf",
+	"totalPass": 20,
+	"delay": "500",
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-20T02:50:28.423Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "80376025-7100-473c-904e-6932885f4be9",
+			"name": "Đăng nhập",
+			"url": "http://localhost:8888/hieuthuoc/dangnhap",
+			"time": 121,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				121
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has token": true
+				}
+			]
+		},
+		{
+			"id": "35523cd8-9e08-4a90-9922-5aa065872340",
+			"name": "Lấy thuốc theo ID",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/get?id=1",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true,
+				"Thuoc data is correct for successful response": true,
+				"Response status is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Thuoc data is correct for successful response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true,
+					"Thuoc data is correct for successful response": true,
+					"Response status is valid": true
+				}
+			]
+		},
+		{
+			"id": "30d77c22-d7d3-4ece-bde3-45cd542c9903",
+			"name": "Tìm kiếm thuốc",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/search",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true,
+				"Data structure is correct for successful response": true,
+				"Response status is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data structure is correct for successful response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true,
+					"Data structure is correct for successful response": true,
+					"Response status is valid": true
+				}
+			]
+		},
+		{
+			"id": "9cac5ea3-bdbd-4165-b056-972f7f97a234",
+			"name": "Thêm thuốc mới",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/create",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 or 415": true,
+				"Response structure check": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 or 415": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response structure check": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200 or 415": true,
+					"Response structure check": true
+				}
+			]
+		},
+		{
+			"id": "99ede5a6-3808-4f6b-842a-0bc99fba5d3e",
+			"name": "Cập nhật thuốc",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/update",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 or 415": true,
+				"Response structure check": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 or 415": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response structure check": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200 or 415": true,
+					"Response structure check": true
+				}
+			]
+		},
+		{
+			"id": "66ded2c4-3371-447b-b976-834909b6abd4",
+			"name": "Xóa thuốc",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/delete?id=1",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response structure check": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response structure check": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response structure check": true
+				}
+			]
+		},
+		{
+			"id": "c8ac2623-23c2-4953-949d-a68289cc85c3",
+			"name": "Lấy thuốc bán chạy",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/get_thuoc_ban_chay",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true,
+				"Data structure is correct for successful response": true,
+				"Response status is valid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data structure is correct for successful response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true,
+					"Data structure is correct for successful response": true,
+					"Response status is valid": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 213,
+	"collection": {
+		"requests": [
+			{
+				"id": "80376025-7100-473c-904e-6932885f4be9",
+				"method": "POST"
+			},
+			{
+				"id": "35523cd8-9e08-4a90-9922-5aa065872340",
+				"method": "GET"
+			},
+			{
+				"id": "30d77c22-d7d3-4ece-bde3-45cd542c9903",
+				"method": "POST"
+			},
+			{
+				"id": "9cac5ea3-bdbd-4165-b056-972f7f97a234",
+				"method": "POST"
+			},
+			{
+				"id": "99ede5a6-3808-4f6b-842a-0bc99fba5d3e",
+				"method": "PUT"
+			},
+			{
+				"id": "66ded2c4-3371-447b-b976-834909b6abd4",
+				"method": "DELETE"
+			},
+			{
+				"id": "c8ac2623-23c2-4953-949d-a68289cc85c3",
+				"method": "POST"
+			}
+		]
+	}
+}
