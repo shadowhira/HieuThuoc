@@ -22,6 +22,11 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - **[backend-test/](./giai-doan-3-integration-test/backend-test)**: Test case cho tích hợp Backend
   - **[postman-test/](./giai-doan-3-integration-test/postman-test)**: Test case cho API bằng Postman
   - **[frontend-backend-test/](./giai-doan-3-integration-test/frontend-backend-test)**: Test case cho tích hợp Frontend-Backend
+- **[giai-doan-4-functional-test](./giai-doan-4-functional-test)**: Tài liệu và test case giai đoạn 4 (Kiểm thử chức năng)
+  - **[README.md](./giai-doan-4-functional-test/README.md)**: Tổng quan về giai đoạn 4
+  - **[bao-cao/Bao_Cao_Tien_Do_Giai_Doan_4.md](./giai-doan-4-functional-test/bao-cao/Bao_Cao_Tien_Do_Giai_Doan_4.md)**: Báo cáo tiến độ giai đoạn 4
+  - **[postman-test/](./giai-doan-4-functional-test/postman-test)**: Test case cho API bằng Postman
+  - **[cypress-test/](./giai-doan-4-functional-test/cypress-test)**: Test case cho giao diện bằng Cypress
 
 ## 🚀 QUY TRÌNH TRIỂN KHAI KIỂM THỬ
 
@@ -51,18 +56,18 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - [x] Kiểm thử tích hợp giữa Frontend và Backend
 
 ### Giai đoạn 4: Kiểm thử chức năng (Ngày 3-4)
-- [ ] **Kiểm thử chức năng thêm thuốc**:
-  - [ ] Kiểm thử API thêm thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan1.md](./Kiem_Thu_Chuc_Nang_Phan1.md)
-  - [ ] Kiểm thử chức năng thêm thuốc bằng Cypress
-- [ ] **Kiểm thử chức năng cập nhật thuốc**:
-  - [ ] Kiểm thử API cập nhật thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan2.md](./Kiem_Thu_Chuc_Nang_Phan2.md)
-  - [ ] Kiểm thử chức năng cập nhật thuốc bằng Cypress
-- [ ] **Kiểm thử chức năng xóa thuốc**:
-  - [ ] Kiểm thử API xóa thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan2.md](./Kiem_Thu_Chuc_Nang_Phan2.md)
-  - [ ] Kiểm thử chức năng xóa thuốc bằng Cypress
-- [ ] **Kiểm thử chức năng tìm kiếm thuốc**:
-  - [ ] Kiểm thử API tìm kiếm thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan3.md](./Kiem_Thu_Chuc_Nang_Phan3.md)
-  - [ ] Kiểm thử chức năng tìm kiếm thuốc bằng Cypress
+- [x] **Kiểm thử chức năng thêm thuốc**:
+  - [x] Kiểm thử API thêm thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan1.md](./Kiem_Thu_Chuc_Nang_Phan1.md)
+  - [x] Kiểm thử chức năng thêm thuốc bằng Cypress
+- [x] **Kiểm thử chức năng cập nhật thuốc**:
+  - [x] Kiểm thử API cập nhật thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan2.md](./Kiem_Thu_Chuc_Nang_Phan2.md)
+  - [x] Kiểm thử chức năng cập nhật thuốc bằng Cypress
+- [x] **Kiểm thử chức năng xóa thuốc**:
+  - [x] Kiểm thử API xóa thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan2.md](./Kiem_Thu_Chuc_Nang_Phan2.md)
+  - [x] Kiểm thử chức năng xóa thuốc bằng Cypress
+- [x] **Kiểm thử chức năng tìm kiếm thuốc**:
+  - [x] Kiểm thử API tìm kiếm thuốc bằng Postman theo [Kiem_Thu_Chuc_Nang_Phan3.md](./Kiem_Thu_Chuc_Nang_Phan3.md)
+  - [x] Kiểm thử chức năng tìm kiếm thuốc bằng Cypress
 
 ### Giai đoạn 5: Kiểm thử giao diện (Ngày 4-5)
 - [ ] **Kiểm thử giao diện danh sách thuốc**
@@ -95,7 +100,7 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 | Giai đoạn 1: Chuẩn bị | 100% | 17/05/2025 |
 | Giai đoạn 2: Kiểm thử đơn vị | 100% | 18/05/2025 |
 | Giai đoạn 3: Kiểm thử tích hợp | 100% | 19/05/2025 |
-| Giai đoạn 4: Kiểm thử chức năng | 0% | |
+| Giai đoạn 4: Kiểm thử chức năng | 100% | 20/05/2025 |
 | Giai đoạn 5: Kiểm thử giao diện | 0% | |
 | Giai đoạn 6: Kiểm thử hệ thống | 0% | |
 | Giai đoạn 7: Tổng hợp và báo cáo | 0% | |

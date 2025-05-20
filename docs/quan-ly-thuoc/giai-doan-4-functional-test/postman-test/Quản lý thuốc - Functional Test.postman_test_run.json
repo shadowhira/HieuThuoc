@@ -1,0 +1,503 @@
+{
+	"id": "438646dd-a2db-420c-952b-a096180a475c",
+	"name": "Quản lý thuốc - Functional Test",
+	"timestamp": "2025-05-20T08:18:21.857Z",
+	"collection_id": "45117701-01df0a07-5808-41e3-96d8-788ed0a9f1c3",
+	"folder_id": 0,
+	"environment_id": "45117701-57ef68b5-ae5e-44dd-9cb3-ae11e491829e",
+	"totalPass": 25,
+	"delay": "500",
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-20T08:18:14.334Z",
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "d2fd4cd2-e9d5-4f38-8c7a-36c656b2b029",
+			"name": "Đăng nhập",
+			"url": "http://localhost:8888/hieuthuoc/dangnhap",
+			"time": 88,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				88
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has token": true
+				}
+			]
+		},
+		{
+			"id": "1d13a4fa-6c95-4d8b-8b7b-26db7c2e6432",
+			"name": "Tìm kiếm thuốc theo tên",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/search",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true
+				}
+			]
+		},
+		{
+			"id": "eea5fa16-015e-4d82-ac9b-ca9567a910d7",
+			"name": "Tìm kiếm thuốc theo loại thuốc",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/search",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true
+				}
+			]
+		},
+		{
+			"id": "9247f9d5-2437-4ca9-9b5c-76a30377924a",
+			"name": "Tìm kiếm thuốc theo khoảng giá",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/search",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true
+				}
+			]
+		},
+		{
+			"id": "e19161e5-b615-4286-b0cf-6810af5ac33e",
+			"name": "Tìm kiếm thuốc không có kết quả",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/search",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true
+				}
+			]
+		},
+		{
+			"id": "e54a1c72-47b1-4f73-8be1-140646adfd59",
+			"name": "Thêm thuốc thành công",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/create",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true
+				}
+			]
+		},
+		{
+			"id": "e8a16281-91bc-4d80-8469-6aa8fca67cf0",
+			"name": "Thêm thuốc với mã trùng",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/create",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has error structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has error structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has error structure": true
+				}
+			]
+		},
+		{
+			"id": "d5e1a7a3-32bf-451d-aae0-2658699e290a",
+			"name": "Cập nhật thuốc thành công",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/update",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has correct structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has correct structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has correct structure": true
+				}
+			]
+		},
+		{
+			"id": "f4bc7e01-0761-442b-bc65-c50390b98ad2",
+			"name": "Cập nhật thuốc với dữ liệu không hợp lệ",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/update",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false,
+				"Response has error structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response has error structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 400": false,
+					"Response has error structure": true
+				}
+			]
+		},
+		{
+			"id": "72708566-3ca0-4cf1-bae8-140789eeccaf",
+			"name": "Cập nhật thuốc không tồn tại",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/update",
+			"time": 115,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has error structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has error structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				115
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has error structure": true
+				}
+			]
+		},
+		{
+			"id": "bad43ec8-f3c7-444b-bffc-056727372336",
+			"name": "Xóa thuốc thành công",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/delete?id=1",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has success structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has success structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has success structure": true
+				}
+			]
+		},
+		{
+			"id": "fd85a27d-207d-4d35-9959-37385637f10c",
+			"name": "Xóa thuốc không tồn tại",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/delete?id=99999",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has error structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has error structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has error structure": true
+				}
+			]
+		},
+		{
+			"id": "31f96f59-f3b2-4c2e-af47-0626878d52c0",
+			"name": "Xóa thuốc đã có trong đơn hàng",
+			"url": "http://localhost:8888/hieuthuoc/thuoc/delete?id=1",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has error structure": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has error structure": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has error structure": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 314,
+	"collection": {
+		"requests": [
+			{
+				"id": "d2fd4cd2-e9d5-4f38-8c7a-36c656b2b029",
+				"method": "POST"
+			},
+			{
+				"id": "1d13a4fa-6c95-4d8b-8b7b-26db7c2e6432",
+				"method": "POST"
+			},
+			{
+				"id": "eea5fa16-015e-4d82-ac9b-ca9567a910d7",
+				"method": "POST"
+			},
+			{
+				"id": "9247f9d5-2437-4ca9-9b5c-76a30377924a",
+				"method": "POST"
+			},
+			{
+				"id": "e19161e5-b615-4286-b0cf-6810af5ac33e",
+				"method": "POST"
+			},
+			{
+				"id": "e54a1c72-47b1-4f73-8be1-140646adfd59",
+				"method": "POST"
+			},
+			{
+				"id": "e8a16281-91bc-4d80-8469-6aa8fca67cf0",
+				"method": "POST"
+			},
+			{
+				"id": "d5e1a7a3-32bf-451d-aae0-2658699e290a",
+				"method": "PUT"
+			},
+			{
+				"id": "f4bc7e01-0761-442b-bc65-c50390b98ad2",
+				"method": "PUT"
+			},
+			{
+				"id": "72708566-3ca0-4cf1-bae8-140789eeccaf",
+				"method": "PUT"
+			},
+			{
+				"id": "bad43ec8-f3c7-444b-bffc-056727372336",
+				"method": "DELETE"
+			},
+			{
+				"id": "fd85a27d-207d-4d35-9959-37385637f10c",
+				"method": "DELETE"
+			},
+			{
+				"id": "31f96f59-f3b2-4c2e-af47-0626878d52c0",
+				"method": "DELETE"
+			}
+		]
+	}
+}
