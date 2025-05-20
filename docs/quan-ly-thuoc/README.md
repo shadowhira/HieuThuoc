@@ -92,6 +92,16 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 - [ ] **Phân tích lỗi**
 - [ ] **Đề xuất cải tiến**
 - [ ] **Viết báo cáo kiểm thử**
+- [ ] **Viết testcase bằng văn bản**:
+  - [ ] Tạo file CSV/Excel theo mẫu testcase tiếng Việt
+  - [ ] Viết testcase chi tiết cho từng chức năng theo cấu trúc sau:
+    - **Thông tin chung**: Tên chức năng, kết quả kiểm thử trên các trình duyệt
+    - **Mô tả**: Mô tả ngắn gọn về testcase
+    - **Các bước thực hiện**: Liệt kê chi tiết từng bước thực hiện
+    - **Kết quả mong đợi**: Mô tả kết quả mong đợi sau khi thực hiện
+    - **Kết quả thực tế**: Ghi nhận kết quả thực tế trên từng trình duyệt
+    - **Trạng thái**: Passed/Failed/Not Run/NA
+    - **Ghi chú**: Thông tin bổ sung (nếu có)
 
 ## 📊 THEO DÕI TIẾN ĐỘ
 
@@ -104,6 +114,7 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 | Giai đoạn 5: Kiểm thử giao diện | 0% | |
 | Giai đoạn 6: Kiểm thử hệ thống | 0% | |
 | Giai đoạn 7: Tổng hợp và báo cáo | 0% | |
+| - Viết testcase bằng văn bản | 0% | |
 
 ## 🔍 TEST CASE QUAN TRỌNG
 
@@ -180,6 +191,8 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 4. **Theo dõi lỗi**: Sử dụng công cụ quản lý lỗi để theo dõi các lỗi phát hiện và trạng thái xử lý.
 
 5. **Cập nhật tài liệu**: Cập nhật tài liệu kiểm thử khi có thay đổi trong yêu cầu hoặc thiết kế.
+
+6. **Kết hợp testcase văn bản và tự động**: Hoàn thiện các autotest trước, sau đó viết testcase bằng văn bản theo mẫu đã cung cấp để đảm bảo tính đầy đủ và chi tiết của quá trình kiểm thử.
 
 ## 📞 HỖ TRỢ
 
