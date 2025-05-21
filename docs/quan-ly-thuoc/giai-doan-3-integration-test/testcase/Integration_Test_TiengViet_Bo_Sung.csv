@@ -1,0 +1,72 @@
+Function Name,Kiểm thử tích hợp - Quản lý thuốc (Bổ sung),,,,,
+Test Result,Postman,MockMvc,,,,
+Total,15,15,,,,
+Passed,0,0,,,,
+Failed,0,0,,,,
+Not Run,15,15,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Postman,MockMvc,
+I. Kiểm thử tích hợp giữa các service,,,,,,
+INTEG_SERVICE_001,Kiểm thử tích hợp giữa ThuocService và LoaiThuocService khi thêm thuốc,"1. Tạo một đối tượng ThuocDTO với loaiThuocId không tồn tại
+2. Gọi phương thức ThuocService.create(thuocDTO)
+3. Kiểm tra kết quả trả về","3. Response có status 404 và thông báo ""Loại thuốc không tồn tại""",Not Run,Not Run,
+INTEG_SERVICE_002,Kiểm thử tích hợp giữa ThuocService và NhaSanXuatService khi thêm thuốc,"1. Tạo một đối tượng ThuocDTO với nhaSanXuatId không tồn tại
+2. Gọi phương thức ThuocService.create(thuocDTO)
+3. Kiểm tra kết quả trả về","3. Response có status 404 và thông báo ""Nhà sản xuất không tồn tại""",Not Run,Not Run,
+INTEG_SERVICE_003,Kiểm thử tích hợp giữa ThuocService và DoiTuongService khi thêm thuốc,"1. Tạo một đối tượng ThuocDTO với danh sách doiTuongIds chứa ID không tồn tại
+2. Gọi phương thức ThuocService.create(thuocDTO)
+3. Kiểm tra kết quả trả về","3. Response có status 404 và thông báo ""Đối tượng sử dụng không tồn tại""",Not Run,Not Run,
+INTEG_SERVICE_004,Kiểm thử tích hợp giữa LoaiThuocService và DanhMucThuocService khi thêm loại thuốc,"1. Tạo một đối tượng LoaiThuocDTO với danhMucThuocId không tồn tại
+2. Gọi phương thức LoaiThuocService.create(loaiThuocDTO)
+3. Kiểm tra kết quả trả về","3. Response có status 404 và thông báo ""Danh mục thuốc không tồn tại""",Not Run,Not Run,
+INTEG_SERVICE_005,Kiểm thử tích hợp giữa ThuocService và ThanhPhanThuocService khi thêm thuốc,"1. Tạo một đối tượng ThuocDTO với danh sách thanhPhanThuocs hợp lệ
+2. Gọi phương thức ThuocService.create(thuocDTO)
+3. Kiểm tra kết quả trả về
+4. Kiểm tra danh sách thành phần thuốc đã được lưu","3. Response có status 200 và thông báo thành công
+4. Danh sách thành phần thuốc được lưu đúng với dữ liệu đầu vào",Not Run,Not Run,
+INTEG_SERVICE_006,Kiểm thử tích hợp giữa ThuocService và UploadImageService khi thêm thuốc có hình ảnh,"1. Tạo một đối tượng ThuocDTO với file hình ảnh hợp lệ
+2. Gọi phương thức ThuocService.create(thuocDTO)
+3. Kiểm tra kết quả trả về
+4. Kiểm tra URL hình ảnh đã được lưu","3. Response có status 200 và thông báo thành công
+4. URL hình ảnh được lưu đúng với định dạng ""Thuoc_[id]""",Not Run,Not Run,
+II. Kiểm thử tích hợp với cơ sở dữ liệu,,,,,,
+INTEG_DB_001,Kiểm thử tích hợp với database khi thêm thuốc,"1. Tạo một đối tượng ThuocDTO hợp lệ
+2. Gọi phương thức ThuocService.create(thuocDTO)
+3. Kiểm tra kết quả trả về
+4. Truy vấn database để kiểm tra dữ liệu đã được lưu","3. Response có status 200 và thông báo thành công
+4. Dữ liệu trong database khớp với dữ liệu đầu vào",Not Run,Not Run,
+INTEG_DB_002,Kiểm thử tích hợp với database khi cập nhật thuốc,"1. Tạo một đối tượng ThuocDTO với ID đã tồn tại và thông tin cập nhật
+2. Gọi phương thức ThuocService.update(thuocDTO)
+3. Kiểm tra kết quả trả về
+4. Truy vấn database để kiểm tra dữ liệu đã được cập nhật","3. Response có status 200 và thông báo thành công
+4. Dữ liệu trong database đã được cập nhật theo đúng thông tin mới",Not Run,Not Run,
+INTEG_DB_003,Kiểm thử tích hợp với database khi xóa thuốc,"1. Lấy ID của một thuốc đã tồn tại
+2. Gọi phương thức ThuocService.delete(id)
+3. Kiểm tra kết quả trả về
+4. Truy vấn database để kiểm tra dữ liệu đã bị xóa","3. Response có status 200 và thông báo thành công
+4. Không tìm thấy dữ liệu thuốc với ID đã xóa trong database",Not Run,Not Run,
+INTEG_DB_004,Kiểm thử tích hợp với database khi tìm kiếm thuốc,"1. Tạo một đối tượng SearchThuocDTO với các tiêu chí tìm kiếm
+2. Gọi phương thức ThuocService.search(searchThuocDTO)
+3. Kiểm tra kết quả trả về
+4. Truy vấn database trực tiếp với cùng tiêu chí và so sánh kết quả","3. Response có status 200 và thông báo thành công
+4. Kết quả tìm kiếm từ service khớp với kết quả truy vấn trực tiếp từ database",Not Run,Not Run,
+INTEG_DB_005,Kiểm thử tích hợp với database khi phân trang danh sách thuốc,"1. Tạo một đối tượng SearchThuocDTO với thông tin phân trang (currentPage=1, size=5)
+2. Gọi phương thức ThuocService.search(searchThuocDTO)
+3. Kiểm tra kết quả trả về
+4. Truy vấn database trực tiếp với cùng tiêu chí phân trang và so sánh kết quả","3. Response có status 200, thông báo thành công và chứa thông tin phân trang đúng
+4. Kết quả phân trang từ service khớp với kết quả truy vấn trực tiếp từ database",Not Run,Not Run,
+III. Kiểm thử tích hợp API,,,,,,
+INTEG_API_001,Kiểm thử tích hợp API thêm thuốc với multipart/form-data,"1. Chuẩn bị dữ liệu thuốc hợp lệ và file hình ảnh
+2. Gửi request POST đến API /thuoc/create với Content-Type là multipart/form-data
+3. Kiểm tra response","3. Response có status 200, thông báo thành công và chứa thông tin thuốc vừa thêm",Not Run,Not Run,
+INTEG_API_002,Kiểm thử tích hợp API cập nhật thuốc với multipart/form-data,"1. Chuẩn bị dữ liệu cập nhật thuốc hợp lệ và file hình ảnh mới
+2. Gửi request PUT đến API /thuoc/update với Content-Type là multipart/form-data
+3. Kiểm tra response","3. Response có status 200, thông báo thành công và chứa thông tin thuốc vừa cập nhật",Not Run,Not Run,
+INTEG_API_003,Kiểm thử tích hợp API tìm kiếm thuốc với nhiều tiêu chí,"1. Chuẩn bị đối tượng SearchThuocDTO với nhiều tiêu chí tìm kiếm (tên, loại thuốc, nhà sản xuất, khoảng giá)
+2. Gửi request POST đến API /thuoc/search
+3. Kiểm tra response","3. Response có status 200, thông báo thành công và chứa danh sách thuốc phù hợp với tiêu chí tìm kiếm",Not Run,Not Run,
+INTEG_API_004,Kiểm thử tích hợp API lấy thuốc bán chạy,"1. Chuẩn bị đối tượng SearchDTO với thông tin phân trang
+2. Gửi request POST đến API /thuoc/getThuocBanChay
+3. Kiểm tra response","3. Response có status 200, thông báo thành công và chứa danh sách thuốc bán chạy được sắp xếp theo số lượng bán",Not Run,Not Run,

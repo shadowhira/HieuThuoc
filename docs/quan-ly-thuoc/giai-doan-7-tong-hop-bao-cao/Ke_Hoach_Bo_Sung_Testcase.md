@@ -108,26 +108,26 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ### 2. Kiểm thử tích hợp (Integration Testing) - Bổ sung 15 testcase
 
-#### 2.1. Kiểm thử tích hợp giữa các service (6 testcase)
-26. Kiểm thử tích hợp giữa ThuocService và LoaiThuocService khi thêm thuốc
-27. Kiểm thử tích hợp giữa ThuocService và NhaSanXuatService khi thêm thuốc
-28. Kiểm thử tích hợp giữa ThuocService và DoiTuongService khi thêm thuốc
-29. Kiểm thử tích hợp giữa LoaiThuocService và DanhMucThuocService khi thêm loại thuốc
-30. Kiểm thử tích hợp giữa ThuocService và ThanhPhanThuocService khi thêm thuốc
-31. Kiểm thử tích hợp giữa ThuocService và UploadImageService khi thêm thuốc có hình ảnh
+#### 2.1. Kiểm thử tích hợp giữa các service (6 testcase) - Hoàn thành
+26. ✅ Kiểm thử tích hợp giữa ThuocService và LoaiThuocService khi thêm thuốc
+27. ✅ Kiểm thử tích hợp giữa ThuocService và NhaSanXuatService khi thêm thuốc
+28. ✅ Kiểm thử tích hợp giữa ThuocService và DoiTuongService khi thêm thuốc
+29. ✅ Kiểm thử tích hợp giữa LoaiThuocService và DanhMucThuocService khi thêm loại thuốc
+30. ✅ Kiểm thử tích hợp giữa ThuocService và ThanhPhanThuocService khi thêm thuốc
+31. ✅ Kiểm thử tích hợp giữa ThuocService và UploadImageService khi thêm thuốc có hình ảnh
 
-#### 2.2. Kiểm thử tích hợp với cơ sở dữ liệu (5 testcase)
-32. Kiểm thử tích hợp với database khi thêm thuốc
-33. Kiểm thử tích hợp với database khi cập nhật thuốc
-34. Kiểm thử tích hợp với database khi xóa thuốc
-35. Kiểm thử tích hợp với database khi tìm kiếm thuốc
-36. Kiểm thử tích hợp với database khi phân trang danh sách thuốc
+#### 2.2. Kiểm thử tích hợp với cơ sở dữ liệu (5 testcase) - Hoàn thành
+32. ✅ Kiểm thử tích hợp với database khi thêm thuốc
+33. ✅ Kiểm thử tích hợp với database khi cập nhật thuốc
+34. ✅ Kiểm thử tích hợp với database khi xóa thuốc
+35. ✅ Kiểm thử tích hợp với database khi tìm kiếm thuốc
+36. ✅ Kiểm thử tích hợp với database khi phân trang danh sách thuốc
 
-#### 2.3. Kiểm thử tích hợp API (4 testcase)
-37. Kiểm thử tích hợp API thêm thuốc với multipart/form-data
-38. Kiểm thử tích hợp API cập nhật thuốc với multipart/form-data
-39. Kiểm thử tích hợp API tìm kiếm thuốc với nhiều tiêu chí
-40. Kiểm thử tích hợp API lấy thuốc bán chạy
+#### 2.3. Kiểm thử tích hợp API (4 testcase) - Hoàn thành
+37. ✅ Kiểm thử tích hợp API thêm thuốc với multipart/form-data
+38. ✅ Kiểm thử tích hợp API cập nhật thuốc với multipart/form-data
+39. ✅ Kiểm thử tích hợp API tìm kiếm thuốc với nhiều tiêu chí
+40. ✅ Kiểm thử tích hợp API lấy thuốc bán chạy
 
 ### 3. Kiểm thử chức năng (Functional Testing) - Bổ sung 20 testcase
 
@@ -263,7 +263,7 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 | Loại kiểm thử | Hiện có | Đã bổ sung | Cần bổ sung thêm | Tổng cộng |
 |---------------|---------|------------|-----------------|-----------|
 | Kiểm thử đơn vị | 18 | 23 | 2 | 43 |
-| Kiểm thử tích hợp | 12 | 0 | 15 | 27 |
+| Kiểm thử tích hợp | 12 | 15 | 0 | 27 |
 | Kiểm thử chức năng | 16 | 0 | 20 | 36 |
 | Kiểm thử giao diện | 10 | 0 | 10 | 20 |
 | Kiểm thử hệ thống | 8 | 0 | 16 | 24 |
@@ -271,7 +271,7 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 | Kiểm thử hộp đen - Bảng quyết định | 0 | 0 | 10 | 10 |
 | Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 0 | 6 | 6 |
 | Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 0 | 10 | 10 |
-| **Tổng cộng** | **64** | **23** | **104** | **191** |
+| **Tổng cộng** | **64** | **38** | **89** | **191** |
 
 ## 🚀 KẾ HOẠCH TRIỂN KHAI
 
@@ -282,7 +282,7 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ### Giai đoạn 2: Triển khai kiểm thử đơn vị và tích hợp (2 ngày)
 - Triển khai 25 testcase kiểm thử đơn vị (Đã hoàn thành 23/25 testcase)
-- Triển khai 15 testcase kiểm thử tích hợp
+- Triển khai 15 testcase kiểm thử tích hợp (Đã hoàn thành 15/15 testcase)
 
 ### Giai đoạn 3: Triển khai kiểm thử chức năng và giao diện (2 ngày)
 - Triển khai 20 testcase kiểm thử chức năng
