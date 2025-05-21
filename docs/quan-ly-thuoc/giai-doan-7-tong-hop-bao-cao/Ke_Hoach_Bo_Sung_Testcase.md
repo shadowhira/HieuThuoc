@@ -207,56 +207,56 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ### 6. Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên - Bổ sung 15 testcase
 
-87. Kiểm thử thêm thuốc với tên thuốc = 1 ký tự (biên dưới)
-88. Kiểm thử thêm thuốc với tên thuốc = 2 ký tự (biên dưới + 1)
-89. Kiểm thử thêm thuốc với tên thuốc = 99 ký tự (biên trên - 1)
-90. Kiểm thử thêm thuốc với tên thuốc = 100 ký tự (biên trên)
-91. Kiểm thử thêm thuốc với tên thuốc = 101 ký tự (biên trên + 1)
-92. Kiểm thử thêm thuốc với giá nhập = 0 (biên dưới)
-93. Kiểm thử thêm thuốc với giá nhập = -1 (biên dưới - 1)
-94. Kiểm thử thêm thuốc với giá nhập = 999999999 (biên trên)
-95. Kiểm thử thêm thuốc với giá nhập = 1000000000 (biên trên + 1)
-96. Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại (biên dưới)
-97. Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại - 1 ngày (biên dưới - 1)
-98. Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại + 1 ngày (biên dưới + 1)
-99. Kiểm thử thêm thuốc với hạn sử dụng = 10 năm sau (biên trên)
-100. Kiểm thử thêm thuốc với hạn sử dụng = 10 năm + 1 ngày sau (biên trên + 1)
-101. Kiểm thử thêm thuốc với số lượng = 2147483647 (Integer.MAX_VALUE)
+87. ✅ Kiểm thử thêm thuốc với tên thuốc = 1 ký tự (biên dưới)
+88. ✅ Kiểm thử thêm thuốc với tên thuốc = 2 ký tự (biên dưới + 1)
+89. ✅ Kiểm thử thêm thuốc với tên thuốc = 99 ký tự (biên trên - 1)
+90. ✅ Kiểm thử thêm thuốc với tên thuốc = 100 ký tự (biên trên)
+91. ✅ Kiểm thử thêm thuốc với tên thuốc = 101 ký tự (biên trên + 1)
+92. ✅ Kiểm thử thêm thuốc với giá nhập = 0 (biên dưới)
+93. ✅ Kiểm thử thêm thuốc với giá nhập = -1 (biên dưới - 1)
+94. ✅ Kiểm thử thêm thuốc với giá nhập = 999999999 (biên trên)
+95. ✅ Kiểm thử thêm thuốc với giá nhập = 1000000000 (biên trên + 1)
+96. ✅ Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại (biên dưới)
+97. ✅ Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại - 1 ngày (biên dưới - 1)
+98. ✅ Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại + 1 ngày (biên dưới + 1)
+99. ✅ Kiểm thử thêm thuốc với hạn sử dụng = 10 năm sau (biên trên)
+100. ✅ Kiểm thử thêm thuốc với hạn sử dụng = 10 năm + 1 ngày sau (biên trên + 1)
+101. ✅ Kiểm thử thêm thuốc với số lượng = 2147483647 (Integer.MAX_VALUE)
 
 ### 7. Kiểm thử hộp đen - Bảng quyết định - Bổ sung 10 testcase
 
-102. Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
-103. Kiểm thử thêm thuốc với (tên không hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
-104. Kiểm thử thêm thuốc với (tên hợp lệ, mã không hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
-105. Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập không hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
-106. Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán không hợp lệ, hạn sử dụng hợp lệ)
-107. Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng không hợp lệ)
-108. Kiểm thử thêm thuốc với (tên không hợp lệ, mã không hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
-109. Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập không hợp lệ, giá bán không hợp lệ, hạn sử dụng hợp lệ)
-110. Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng không hợp lệ, loại thuốc không tồn tại)
-111. Kiểm thử thêm thuốc với (tên không hợp lệ, mã không hợp lệ, giá nhập không hợp lệ, giá bán không hợp lệ, hạn sử dụng không hợp lệ)
+102. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
+103. ✅ Kiểm thử thêm thuốc với (tên không hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
+104. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã không hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
+105. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập không hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
+106. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán không hợp lệ, hạn sử dụng hợp lệ)
+107. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng không hợp lệ)
+108. ✅ Kiểm thử thêm thuốc với (tên không hợp lệ, mã không hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)
+109. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập không hợp lệ, giá bán không hợp lệ, hạn sử dụng hợp lệ)
+110. ✅ Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng không hợp lệ, loại thuốc không tồn tại)
+111. ✅ Kiểm thử thêm thuốc với (tên không hợp lệ, mã không hợp lệ, giá nhập không hợp lệ, giá bán không hợp lệ, hạn sử dụng không hợp lệ)
 
 ### 8. Kiểm thử hộp đen - Kiểm thử trạng thái - Bổ sung 6 testcase
 
-112. Kiểm thử chuyển trạng thái thuốc từ "Còn hàng" sang "Sắp hết hàng" khi số lượng < nguongCanhBao
-113. Kiểm thử chuyển trạng thái thuốc từ "Sắp hết hàng" sang "Hết hàng" khi số lượng = 0
-114. Kiểm thử chuyển trạng thái thuốc từ "Hết hàng" sang "Còn hàng" khi nhập thêm hàng
-115. Kiểm thử chuyển trạng thái thuốc từ "Còn hạn" sang "Sắp hết hạn" khi còn 30 ngày
-116. Kiểm thử chuyển trạng thái thuốc từ "Sắp hết hạn" sang "Hết hạn" khi đến ngày hết hạn
-117. Kiểm thử chuyển trạng thái thuốc từ "Hết hạn" sang "Còn hạn" khi cập nhật hạn sử dụng mới
+112. ✅ Kiểm thử chuyển trạng thái thuốc từ "Còn hàng" sang "Sắp hết hàng" khi số lượng < nguongCanhBao
+113. ✅ Kiểm thử chuyển trạng thái thuốc từ "Sắp hết hàng" sang "Hết hàng" khi số lượng = 0
+114. ✅ Kiểm thử chuyển trạng thái thuốc từ "Hết hàng" sang "Còn hàng" khi nhập thêm hàng
+115. ✅ Kiểm thử chuyển trạng thái thuốc từ "Còn hạn" sang "Sắp hết hạn" khi còn 30 ngày
+116. ✅ Kiểm thử chuyển trạng thái thuốc từ "Sắp hết hạn" sang "Hết hạn" khi đến ngày hết hạn
+117. ✅ Kiểm thử chuyển trạng thái thuốc từ "Hết hạn" sang "Còn hạn" khi cập nhật hạn sử dụng mới
 
 ### 9. Kiểm thử hộp trắng - Kiểm thử đường dẫn - Bổ sung 10 testcase
 
-118. Kiểm thử đường dẫn trong phương thức create() khi tất cả điều kiện đều true
-119. Kiểm thử đường dẫn trong phương thức create() khi điều kiện kiểm tra mã thuốc đã tồn tại là true
-120. Kiểm thử đường dẫn trong phương thức create() khi điều kiện kiểm tra tên thuốc hợp lệ là false
-121. Kiểm thử đường dẫn trong phương thức update() khi tất cả điều kiện đều true
-122. Kiểm thử đường dẫn trong phương thức update() khi điều kiện kiểm tra ID thuốc tồn tại là false
-123. Kiểm thử đường dẫn trong phương thức update() khi điều kiện kiểm tra mã thuốc đã tồn tại là true
-124. Kiểm thử đường dẫn trong phương thức delete() khi điều kiện kiểm tra ID thuốc tồn tại là true
-125. Kiểm thử đường dẫn trong phương thức delete() khi điều kiện kiểm tra ID thuốc tồn tại là false
-126. Kiểm thử đường dẫn trong phương thức search() với nhiều điều kiện tìm kiếm
-127. Kiểm thử đường dẫn trong phương thức validateThuoc() với các nhánh điều kiện khác nhau
+118. ✅ Kiểm thử đường dẫn trong phương thức create() khi tất cả điều kiện đều true
+119. ✅ Kiểm thử đường dẫn trong phương thức create() khi điều kiện kiểm tra mã thuốc đã tồn tại là true
+120. ✅ Kiểm thử đường dẫn trong phương thức create() khi điều kiện kiểm tra tên thuốc hợp lệ là false
+121. ✅ Kiểm thử đường dẫn trong phương thức update() khi tất cả điều kiện đều true
+122. ✅ Kiểm thử đường dẫn trong phương thức update() khi điều kiện kiểm tra ID thuốc tồn tại là false
+123. ❌ Kiểm thử đường dẫn trong phương thức update() khi điều kiện kiểm tra mã thuốc đã tồn tại là true
+124. ✅ Kiểm thử đường dẫn trong phương thức delete() khi điều kiện kiểm tra ID thuốc tồn tại là true
+125. ✅ Kiểm thử đường dẫn trong phương thức delete() khi điều kiện kiểm tra ID thuốc tồn tại là false
+126. ✅ Kiểm thử đường dẫn trong phương thức search() với nhiều điều kiện tìm kiếm
+127. ❌ Kiểm thử đường dẫn trong phương thức validateThuoc() với các nhánh điều kiện khác nhau
 
 ## 📊 TỔNG HỢP TESTCASE
 
@@ -267,11 +267,11 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 | Kiểm thử chức năng | 16 | 20 | 0 | 36 |
 | Kiểm thử giao diện | 10 | 10 | 0 | 20 |
 | Kiểm thử hệ thống | 8 | 16 | 0 | 24 |
-| Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên | 0 | 0 | 15 | 15 |
-| Kiểm thử hộp đen - Bảng quyết định | 0 | 0 | 10 | 10 |
-| Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 0 | 6 | 6 |
-| Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 0 | 10 | 10 |
-| **Tổng cộng** | **64** | **84** | **43** | **191** |
+| Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên | 0 | 15 | 0 | 15 |
+| Kiểm thử hộp đen - Bảng quyết định | 0 | 10 | 0 | 10 |
+| Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 6 | 0 | 6 |
+| Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 8 | 2 | 10 |
+| **Tổng cộng** | **64** | **123** | **4** | **191** |
 
 ## 🚀 KẾ HOẠCH TRIỂN KHAI
 
