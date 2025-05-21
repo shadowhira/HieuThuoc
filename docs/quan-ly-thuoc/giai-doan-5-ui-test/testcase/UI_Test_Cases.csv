@@ -1,0 +1,72 @@
+ID,Tên testcase,Mô tả,Điều kiện tiên quyết,Các bước thực hiện,Kết quả mong đợi,Kết quả thực tế,Trạng thái,Ghi chú
+UI-01,Hiển thị tiêu đề trang chính xác,"Kiểm tra tiêu đề trang danh sách thuốc hiển thị chính xác","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc","Tiêu đề trang hiển thị chính xác","Tiêu đề trang hiển thị chính xác","Pass","Testcase đã có"
+UI-02,Hiển thị bảng dữ liệu,"Kiểm tra bảng dữ liệu hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc","Bảng dữ liệu hiển thị đúng","Bảng dữ liệu hiển thị đúng","Pass","Testcase đã có"
+UI-03,Hiển thị các nút thao tác trên mỗi dòng,"Kiểm tra các nút thao tác trên mỗi dòng hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc","Các nút thao tác hiển thị đúng","Các nút thao tác hiển thị đúng","Pass","Testcase đã có"
+UI-04,Kiểm tra bố cục tổng thể của trang,"Kiểm tra bố cục tổng thể của trang danh sách thuốc","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc","Bố cục tổng thể hiển thị đúng","Bố cục tổng thể hiển thị đúng","Pass","Testcase đã có"
+UI-05,Kiểm tra hiển thị form tìm kiếm,"Kiểm tra form tìm kiếm hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc","Form tìm kiếm hiển thị đúng","Form tìm kiếm hiển thị đúng","Pass","Testcase đã có"
+UI-06,Hiển thị form thêm thuốc,"Kiểm tra form thêm thuốc hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Nhấn nút Thêm thuốc","Form thêm thuốc hiển thị đúng","Form thêm thuốc hiển thị đúng","Pass","Testcase đã có"
+UI-07,Hiển thị form sửa thuốc,"Kiểm tra form sửa thuốc hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Nhấn nút Sửa trên một dòng bất kỳ","Form sửa thuốc hiển thị đúng","Form sửa thuốc hiển thị đúng","Pass","Testcase đã có"
+UI-08,Hiển thị thông báo lỗi khi nhập liệu không hợp lệ,"Kiểm tra thông báo lỗi hiển thị khi nhập liệu không hợp lệ","Đã đăng nhập với tài khoản admin","1. Truy cập trang thêm thuốc
+2. Nhấn nút Thêm mà không nhập dữ liệu","Thông báo lỗi hiển thị đúng","Thông báo lỗi hiển thị đúng","Pass","Testcase đã có"
+UI-09,Hiển thị form tìm kiếm,"Kiểm tra form tìm kiếm hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc","Form tìm kiếm hiển thị đúng","Form tìm kiếm hiển thị đúng","Pass","Testcase đã có"
+UI-10,Hiển thị kết quả tìm kiếm,"Kiểm tra kết quả tìm kiếm hiển thị đúng","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Nhập từ khóa tìm kiếm
+3. Nhấn nút Tìm","Kết quả tìm kiếm hiển thị đúng","Kết quả tìm kiếm hiển thị đúng","Pass","Testcase đã có"
+UI-11,Hiển thị đúng trên màn hình desktop,"Kiểm tra giao diện hiển thị đúng trên màn hình desktop","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình desktop (1280x800)
+2. Truy cập trang danh sách thuốc","Giao diện hiển thị đúng trên màn hình desktop","Giao diện hiển thị đúng trên màn hình desktop","Pass","Testcase đã có"
+UI-12,Hiển thị đúng trên màn hình tablet,"Kiểm tra giao diện hiển thị đúng trên màn hình tablet","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình tablet (768x1024)
+2. Truy cập trang danh sách thuốc","Giao diện hiển thị đúng trên màn hình tablet","Giao diện hiển thị đúng trên màn hình tablet","Pass","Testcase đã có"
+UI-13,Hiển thị đúng trên màn hình mobile,"Kiểm tra giao diện hiển thị đúng trên màn hình mobile","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình mobile (375x667)
+2. Truy cập trang danh sách thuốc","Giao diện hiển thị đúng trên màn hình mobile","Giao diện hiển thị đúng trên màn hình mobile","Pass","Testcase đã có"
+UI-14,Kiểm tra form thêm mới thuốc trên màn hình desktop,"Kiểm tra form thêm mới thuốc hiển thị đúng trên màn hình desktop","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình desktop (1280x800)
+2. Truy cập trang danh sách thuốc
+3. Nhấn nút Thêm thuốc","Form thêm mới thuốc hiển thị đúng trên màn hình desktop","Form thêm mới thuốc hiển thị đúng trên màn hình desktop","Pass","Testcase đã có"
+UI-15,Kiểm tra form thêm mới thuốc trên màn hình tablet,"Kiểm tra form thêm mới thuốc hiển thị đúng trên màn hình tablet","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình tablet (768x1024)
+2. Truy cập trang danh sách thuốc
+3. Nhấn nút Thêm thuốc","Form thêm mới thuốc hiển thị đúng trên màn hình tablet","Form thêm mới thuốc hiển thị đúng trên màn hình tablet","Pass","Testcase đã có"
+UI-16,Kiểm tra form thêm mới thuốc trên màn hình mobile,"Kiểm tra form thêm mới thuốc hiển thị đúng trên màn hình mobile","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình mobile (375x667)
+2. Truy cập trang danh sách thuốc
+3. Nhấn nút Thêm thuốc","Form thêm mới thuốc hiển thị đúng trên màn hình mobile","Form thêm mới thuốc hiển thị đúng trên màn hình mobile","Pass","Testcase đã có"
+UI-17,Kiểm tra trang chi tiết thuốc trên các kích thước màn hình,"Kiểm tra trang chi tiết thuốc hiển thị đúng trên các kích thước màn hình","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình desktop (1280x800)
+2. Truy cập trang chi tiết thuốc
+3. Thiết lập kích thước màn hình tablet (768x1024)
+4. Thiết lập kích thước màn hình mobile (375x667)","Trang chi tiết thuốc hiển thị đúng trên các kích thước màn hình","Trang chi tiết thuốc hiển thị đúng trên các kích thước màn hình","Pass","Testcase đã có"
+UI-18,Kiểm thử responsive trên màn hình điện thoại (width < 576px),"Kiểm tra giao diện hiển thị đúng trên màn hình điện thoại","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình điện thoại (375x667)
+2. Truy cập trang danh sách thuốc
+3. Kiểm tra các phần tử UI hiển thị đúng","Giao diện hiển thị đúng trên màn hình điện thoại","Giao diện hiển thị đúng trên màn hình điện thoại","Pass","Testcase mới"
+UI-19,Kiểm thử responsive trên màn hình tablet (width 768px - 992px),"Kiểm tra giao diện hiển thị đúng trên màn hình tablet","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình tablet (768x1024)
+2. Truy cập trang danh sách thuốc
+3. Kiểm tra các phần tử UI hiển thị đúng","Giao diện hiển thị đúng trên màn hình tablet","Giao diện hiển thị đúng trên màn hình tablet","Pass","Testcase mới"
+UI-20,Kiểm thử responsive trên màn hình desktop lớn (width > 1200px),"Kiểm tra giao diện hiển thị đúng trên màn hình desktop lớn","Đã đăng nhập với tài khoản admin","1. Thiết lập kích thước màn hình desktop lớn (1920x1080)
+2. Truy cập trang danh sách thuốc
+3. Kiểm tra các phần tử UI hiển thị đúng","Giao diện hiển thị đúng trên màn hình desktop lớn","Giao diện hiển thị đúng trên màn hình desktop lớn","Pass","Testcase mới"
+UI-21,Kiểm thử accessibility với keyboard navigation,"Kiểm tra khả năng điều hướng bằng bàn phím","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Kiểm tra focus vào ô tìm kiếm
+3. Nhập từ khóa tìm kiếm và nhấn Enter
+4. Kiểm tra có thể tab đến các nút thao tác","Có thể điều hướng bằng bàn phím","Có thể điều hướng bằng bàn phím","Pass","Testcase mới"
+UI-22,Kiểm thử accessibility với screen reader,"Kiểm tra khả năng đọc bằng screen reader","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Kiểm tra các phần tử có thuộc tính aria-label hoặc alt
+3. Kiểm tra bảng có cấu trúc đúng cho screen reader
+4. Kiểm tra form tìm kiếm có label hoặc placeholder","Các phần tử có thuộc tính hỗ trợ screen reader","Các phần tử có thuộc tính hỗ trợ screen reader","Pass","Testcase mới"
+UI-23,Kiểm thử accessibility với high contrast mode,"Kiểm tra khả năng hiển thị trong chế độ tương phản cao","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Kiểm tra độ tương phản của text
+3. Kiểm tra các nút có đủ độ tương phản
+4. Kiểm tra các link có đủ độ tương phản
+5. Kiểm tra form tìm kiếm có đủ độ tương phản","Các phần tử có đủ độ tương phản","Các phần tử có đủ độ tương phản","Pass","Testcase mới"
+UI-24,Kiểm thử hiển thị thông báo lỗi inline,"Kiểm tra hiển thị thông báo lỗi inline khi nhập liệu không hợp lệ","Đã đăng nhập với tài khoản admin","1. Truy cập trang thêm thuốc
+2. Nhấn nút Thêm mà không nhập dữ liệu
+3. Kiểm tra hiển thị thông báo lỗi inline
+4. Kiểm tra vị trí hiển thị thông báo lỗi","Thông báo lỗi inline hiển thị đúng","Thông báo lỗi inline hiển thị đúng","Pass","Testcase mới"
+UI-25,Kiểm thử hiển thị tooltip khi hover,"Kiểm tra hiển thị tooltip khi hover vào các phần tử","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Hover vào nút thao tác
+3. Kiểm tra tooltip hiển thị","Tooltip hiển thị đúng","Tooltip hiển thị đúng","Pass","Testcase mới"
+UI-26,Kiểm thử hiển thị loading spinner khi tải dữ liệu,"Kiểm tra hiển thị loading spinner khi tải dữ liệu","Đã đăng nhập với tài khoản admin","1. Chặn request API để tạo độ trễ
+2. Truy cập trang danh sách thuốc
+3. Kiểm tra hiển thị loading spinner
+4. Đợi API hoàn thành","Loading spinner hiển thị đúng","Loading spinner hiển thị đúng","Pass","Testcase mới"
+UI-27,Kiểm thử hiển thị modal xác nhận khi xóa,"Kiểm tra hiển thị modal xác nhận khi xóa","Đã đăng nhập với tài khoản admin","1. Truy cập trang danh sách thuốc
+2. Nhấn nút xóa trên dòng đầu tiên
+3. Kiểm tra hiển thị modal xác nhận
+4. Nhấn nút Hủy để đóng modal","Modal xác nhận hiển thị đúng","Modal xác nhận hiển thị đúng","Pass","Testcase mới"

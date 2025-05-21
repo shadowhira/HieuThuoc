@@ -265,13 +265,13 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 | Kiểm thử đơn vị | 18 | 23 | 2 | 43 |
 | Kiểm thử tích hợp | 12 | 15 | 0 | 27 |
 | Kiểm thử chức năng | 16 | 20 | 0 | 36 |
-| Kiểm thử giao diện | 10 | 0 | 10 | 20 |
+| Kiểm thử giao diện | 10 | 10 | 0 | 20 |
 | Kiểm thử hệ thống | 8 | 0 | 16 | 24 |
 | Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên | 0 | 0 | 15 | 15 |
 | Kiểm thử hộp đen - Bảng quyết định | 0 | 0 | 10 | 10 |
 | Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 0 | 6 | 6 |
 | Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 0 | 10 | 10 |
-| **Tổng cộng** | **64** | **58** | **69** | **191** |
+| **Tổng cộng** | **64** | **68** | **59** | **191** |
 
 ## 🚀 KẾ HOẠCH TRIỂN KHAI
 
@@ -286,7 +286,7 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ### Giai đoạn 3: Triển khai kiểm thử chức năng và giao diện (2 ngày)
 - Triển khai 20 testcase kiểm thử chức năng (Đã hoàn thành 20/20 testcase)
-- Triển khai 10 testcase kiểm thử giao diện
+- Triển khai 10 testcase kiểm thử giao diện (Đã hoàn thành 10/10 testcase)
 
 ### Giai đoạn 4: Triển khai kiểm thử hệ thống (1 ngày)
 - Triển khai 16 testcase kiểm thử hệ thống

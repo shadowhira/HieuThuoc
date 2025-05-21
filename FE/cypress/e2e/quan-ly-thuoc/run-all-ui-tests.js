@@ -4,6 +4,8 @@ import './them-sua-thuoc-ui-test.cy.js';
 import './chi-tiet-thuoc-ui-test.cy.js';
 import './tim-kiem-thuoc-ui-test.cy.js';
 import './responsive-ui-test.cy.js';
+import './accessibility-ui-test.cy.js';
+import './advanced-ui-test.cy.js';
 
 describe('Chạy tất cả các test case kiểm thử giao diện', () => {
   it('Chạy tất cả các test case', () => {
