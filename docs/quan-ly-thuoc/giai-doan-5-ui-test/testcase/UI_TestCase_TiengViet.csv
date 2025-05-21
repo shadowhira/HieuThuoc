@@ -1,0 +1,230 @@
+Function Name,Kiểm thử giao diện Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,32,32,,,,
+Passed,32,0,,,,
+Failed,0,0,,,,
+Not Run,0,32,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+"I. Kiểm thử giao diện ""Danh sách thuốc""",,,,,,
+UI_DS_001,"Kiểm tra hiển thị tiêu đề trang ""Danh sách thuốc""","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra tiêu đề trang","3. Tiêu đề trang ""Quản lý thuốc"" được hiển thị đúng",Passed,Not Run,
+UI_DS_002,Kiểm tra hiển thị bảng danh sách thuốc,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra bảng danh sách thuốc","3. Bảng danh sách thuốc hiển thị đầy đủ với các cột:
+- Mã thuốc
+- Tên thuốc
+- Loại thuốc
+- Giá bán
+- Số lượng
+- Thao tác",Passed,Not Run,
+UI_DS_003,Kiểm tra hiển thị nút thêm mới thuốc,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra nút thêm mới thuốc","3. Nút ""Thêm thuốc"" hiển thị đúng và có thể nhấn được",Passed,Not Run,
+UI_DS_004,Kiểm tra hiển thị phân trang,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra phân trang","3. Phân trang hiển thị đúng với các nút:
+- Trang trước
+- Số trang
+- Trang sau",Passed,Not Run,
+UI_DS_005,Kiểm tra hiển thị các nút thao tác trên mỗi dòng,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra các nút thao tác trên dòng đầu tiên","3. Các nút thao tác hiển thị đúng:
+- Nút Xem chi tiết
+- Nút Sửa
+- Nút Xóa",Passed,Not Run,
+UI_DS_006,Kiểm tra bố cục tổng thể của trang,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra bố cục tổng thể","3. Bố cục trang hiển thị đúng:
+- Header
+- Nội dung chính
+- Footer",Passed,Not Run,
+UI_DS_007,Kiểm tra hiển thị form tìm kiếm,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra form tìm kiếm","3. Form tìm kiếm hiển thị đúng:
+- Ô nhập từ khóa
+- Nút tìm kiếm",Passed,Not Run,
+UI_DS_008,Kiểm tra hiển thị dữ liệu trong bảng,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra dữ liệu trong bảng","3. Dữ liệu trong bảng hiển thị đúng:
+- Các cột có dữ liệu
+- Định dạng dữ liệu đúng",Passed,Not Run,
+"II. Kiểm thử giao diện ""Thêm/Sửa thuốc""",,,,,,
+UI_TS_001,"Kiểm tra hiển thị form ""Thêm mới thuốc""","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Kiểm tra form thêm mới thuốc","4. Form thêm mới thuốc hiển thị đúng với các trường:
+- Tên thuốc
+- Mã thuốc
+- Loại thuốc
+- Nhà sản xuất
+- Đơn vị tính
+- Giá nhập
+- Giá bán
+- Số lượng
+- Ngưỡng cảnh báo
+- Công dụng
+- Hướng dẫn sử dụng
+- Nút Thêm
+- Nút Hủy",Passed,Not Run,
+UI_TS_002,"Kiểm tra hiển thị form ""Sửa thuốc""","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Sửa"" trên dòng đầu tiên
+4. Kiểm tra form sửa thuốc","4. Form sửa thuốc hiển thị đúng với các trường đã có dữ liệu:
+- Tên thuốc
+- Mã thuốc
+- Loại thuốc
+- Nhà sản xuất
+- Đơn vị tính
+- Giá nhập
+- Giá bán
+- Số lượng
+- Ngưỡng cảnh báo
+- Công dụng
+- Hướng dẫn sử dụng
+- Nút Cập nhật
+- Nút Hủy",Passed,Not Run,
+UI_TS_003,Kiểm tra hiển thị thông báo lỗi khi nhập liệu không hợp lệ,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Không nhập dữ liệu vào các trường bắt buộc
+5. Nhấn nút ""Thêm""
+6. Kiểm tra thông báo lỗi","6. Thông báo lỗi hiển thị đúng bên dưới các trường bắt buộc",Passed,Not Run,
+UI_TS_004,Kiểm tra bố cục form thêm mới thuốc,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Kiểm tra bố cục form","4. Bố cục form hiển thị đúng:
+- Tiêu đề form
+- Các trường nhập liệu
+- Các nút thao tác",Passed,Not Run,
+UI_TS_005,Kiểm tra các trường bắt buộc trong form thêm mới,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Kiểm tra các trường bắt buộc","4. Các trường bắt buộc được đánh dấu (*):
+- Tên thuốc
+- Mã thuốc
+- Loại thuốc
+- Giá bán",Passed,Not Run,
+UI_TS_006,Kiểm tra quay lại trang danh sách,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Nhấn nút ""Hủy""
+5. Kiểm tra quay lại trang danh sách","5. Quay lại trang danh sách thuốc",Passed,Not Run,
+"III. Kiểm thử giao diện ""Chi tiết thuốc""",,,,,,
+UI_CT_001,"Kiểm tra hiển thị trang ""Chi tiết thuốc""","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Xem chi tiết"" trên dòng đầu tiên
+4. Kiểm tra trang chi tiết thuốc","4. Trang chi tiết thuốc hiển thị đúng với các thông tin:
+- Mã thuốc
+- Tên thuốc
+- Loại thuốc
+- Nhà sản xuất
+- Đơn vị tính
+- Giá nhập
+- Giá bán
+- Số lượng
+- Ngưỡng cảnh báo
+- Công dụng
+- Hướng dẫn sử dụng
+- Nút Quay lại",Passed,Not Run,
+UI_CT_002,Kiểm tra quay lại trang danh sách,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Xem chi tiết"" trên dòng đầu tiên
+4. Nhấn nút ""Quay lại""
+5. Kiểm tra quay lại trang danh sách","5. Quay lại trang danh sách thuốc",Passed,Not Run,
+UI_CT_003,Kiểm tra bố cục trang chi tiết thuốc,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Xem chi tiết"" trên dòng đầu tiên
+4. Kiểm tra bố cục trang","4. Bố cục trang hiển thị đúng:
+- Tiêu đề trang
+- Thông tin chi tiết
+- Nút Quay lại",Passed,Not Run,
+UI_CT_004,Kiểm tra hiển thị thông tin chi tiết,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Xem chi tiết"" trên dòng đầu tiên
+4. Kiểm tra thông tin chi tiết","4. Thông tin chi tiết hiển thị đúng:
+- Các trường thông tin có dữ liệu
+- Định dạng dữ liệu đúng",Passed,Not Run,
+"IV. Kiểm thử giao diện ""Tìm kiếm thuốc""",,,,,,
+UI_TK_001,"Kiểm tra hiển thị form ""Tìm kiếm thuốc""","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Kiểm tra form tìm kiếm thuốc","3. Form tìm kiếm thuốc hiển thị đúng với:
+- Ô nhập từ khóa tìm kiếm
+- Nút Tìm kiếm",Passed,Not Run,
+UI_TK_002,Kiểm tra hiển thị kết quả tìm kiếm,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhập từ khóa tìm kiếm hợp lệ
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra kết quả tìm kiếm","5. Kết quả tìm kiếm hiển thị đúng với các thuốc phù hợp với từ khóa",Passed,Not Run,
+UI_TK_003,Kiểm tra hiển thị thông báo khi không có kết quả tìm kiếm,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhập từ khóa tìm kiếm không tồn tại
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra thông báo","5. Bảng hiển thị không có dữ liệu hoặc có thông báo ""Không tìm thấy kết quả""",Passed,Not Run,
+UI_TK_004,Kiểm tra tìm kiếm theo loại thuốc,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Chọn loại thuốc
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra kết quả tìm kiếm","5. Kết quả tìm kiếm hiển thị đúng với các thuốc thuộc loại đã chọn",Passed,Not Run,
+UI_TK_005,Kiểm tra khả năng xóa từ khóa tìm kiếm,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhập từ khóa tìm kiếm
+4. Xóa từ khóa tìm kiếm
+5. Kiểm tra ô tìm kiếm","5. Ô tìm kiếm trống",Passed,Not Run,
+UI_TK_006,Kiểm tra tìm kiếm với từ khóa ngắn,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhập từ khóa tìm kiếm ngắn (1 ký tự)
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra kết quả tìm kiếm","5. Kết quả tìm kiếm hiển thị đúng",Passed,Not Run,
+UI_TK_007,Kiểm tra tìm kiếm với từ khóa dài,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhập từ khóa tìm kiếm dài
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra kết quả tìm kiếm","5. Kết quả tìm kiếm hiển thị đúng",Passed,Not Run,
+"V. Kiểm thử tính responsive",,,,,,
+UI_RS_001,Kiểm tra hiển thị trên màn hình desktop,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Thiết lập kích thước màn hình desktop (1280x800)
+4. Kiểm tra hiển thị","4. Giao diện hiển thị đúng trên màn hình desktop:
+- Các thành phần hiển thị đầy đủ
+- Bố cục hợp lý
+- Không có thanh cuộn ngang",Passed,Not Run,
+UI_RS_002,Kiểm tra hiển thị trên màn hình tablet,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Thiết lập kích thước màn hình tablet (768x1024)
+4. Kiểm tra hiển thị","4. Giao diện hiển thị đúng trên màn hình tablet:
+- Các thành phần hiển thị đầy đủ
+- Bố cục điều chỉnh phù hợp
+- Không có thanh cuộn ngang",Passed,Not Run,
+UI_RS_003,Kiểm tra hiển thị trên màn hình mobile,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Thiết lập kích thước màn hình mobile (375x667)
+4. Kiểm tra hiển thị","4. Giao diện hiển thị đúng trên màn hình mobile:
+- Các thành phần hiển thị đầy đủ
+- Bố cục điều chỉnh phù hợp với màn hình nhỏ
+- Menu thu gọn",Passed,Not Run,
+UI_RS_004,Kiểm tra form thêm mới thuốc trên màn hình desktop,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Thiết lập kích thước màn hình desktop (1280x800)
+5. Kiểm tra hiển thị form","5. Form thêm mới thuốc hiển thị đúng trên màn hình desktop",Passed,Not Run,
+UI_RS_005,Kiểm tra form thêm mới thuốc trên màn hình tablet,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Thiết lập kích thước màn hình tablet (768x1024)
+5. Kiểm tra hiển thị form","5. Form thêm mới thuốc hiển thị đúng trên màn hình tablet",Passed,Not Run,
+UI_RS_006,Kiểm tra form thêm mới thuốc trên màn hình mobile,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Thiết lập kích thước màn hình mobile (375x667)
+5. Kiểm tra hiển thị form","5. Form thêm mới thuốc hiển thị đúng trên màn hình mobile",Passed,Not Run,
+UI_RS_007,Kiểm tra trang chi tiết thuốc trên các kích thước màn hình,"1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Xem chi tiết"" trên dòng đầu tiên
+4. Kiểm tra hiển thị trên các kích thước màn hình:
+   - Desktop (1280x800)
+   - Tablet (768x1024)
+   - Mobile (375x667)","4. Trang chi tiết thuốc hiển thị đúng trên tất cả các kích thước màn hình",Passed,Not Run,

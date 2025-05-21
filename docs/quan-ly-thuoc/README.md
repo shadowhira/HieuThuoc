@@ -27,6 +27,10 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - **[bao-cao/Bao_Cao_Tien_Do_Giai_Doan_4.md](./giai-doan-4-functional-test/bao-cao/Bao_Cao_Tien_Do_Giai_Doan_4.md)**: Báo cáo tiến độ giai đoạn 4
   - **[postman-test/](./giai-doan-4-functional-test/postman-test)**: Test case cho API bằng Postman
   - **[cypress-test/](./giai-doan-4-functional-test/cypress-test)**: Test case cho giao diện bằng Cypress
+- **[giai-doan-5-ui-test](./giai-doan-5-ui-test)**: Tài liệu và test case giai đoạn 5 (Kiểm thử giao diện)
+  - **[README.md](./giai-doan-5-ui-test/README.md)**: Tổng quan về giai đoạn 5
+  - **[bao-cao/Bao_Cao_Tien_Do_Giai_Doan_5.md](./giai-doan-5-ui-test/bao-cao/Bao_Cao_Tien_Do_Giai_Doan_5.md)**: Báo cáo tiến độ giai đoạn 5
+  - **[testcase/UI_TestCase_TiengViet.csv](./giai-doan-5-ui-test/testcase/UI_TestCase_TiengViet.csv)**: Test case văn bản cho kiểm thử giao diện
 
 ## 🚀 QUY TRÌNH TRIỂN KHAI KIỂM THỬ
 
