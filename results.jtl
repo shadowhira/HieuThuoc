@@ -449,3 +449,153 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 1747799049068,2,Đăng nhập,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8888 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Quản lý thuốc 1-10,text,false,,2582,0,1,1,http://localhost:8888/hieuthuoc/dangnhap,0,0,2
 1747799049071,3,Lấy danh sách thuốc,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8888 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Quản lý thuốc 1-10,text,false,,2582,0,1,1,http://localhost:8888/hieuthuoc/thuoc/search,0,0,3
 1747799049075,1,Tìm kiếm thuốc,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8888 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused",Quản lý thuốc 1-10,text,false,,2582,0,1,1,http://localhost:8888/hieuthuoc/thuoc/search,0,0,1
+1747837924069,254,Đăng nhập,200,,Quản lý thuốc 1-1,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,235,0,60
+1747837924309,185,Đăng nhập,200,,Quản lý thuốc 1-2,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,185,0,2
+1747837924428,99,Lấy danh sách thuốc,200,,Quản lý thuốc 1-1,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,98,0,0
+1747837924527,24,Tìm kiếm thuốc,200,,Quản lý thuốc 1-1,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,24,0,0
+1747837924495,58,Lấy danh sách thuốc,200,,Quản lý thuốc 1-2,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,58,0,0
+1747837924553,22,Tìm kiếm thuốc,200,,Quản lý thuốc 1-2,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,21,0,0
+1747837924553,319,Đăng nhập,200,,Quản lý thuốc 1-1,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,318,0,0
+1747837924576,299,Đăng nhập,200,,Quản lý thuốc 1-2,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,299,0,0
+1747837924873,68,Lấy danh sách thuốc,200,,Quản lý thuốc 1-1,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,67,0,0
+1747837924877,69,Lấy danh sách thuốc,200,,Quản lý thuốc 1-2,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,68,0,0
+1747837924942,33,Tìm kiếm thuốc,200,,Quản lý thuốc 1-1,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,33,0,0
+1747837924947,39,Tìm kiếm thuốc,200,,Quản lý thuốc 1-2,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,39,0,0
+1747837924805,248,Đăng nhập,200,,Quản lý thuốc 1-3,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,247,0,2
+1747837925054,69,Lấy danh sách thuốc,200,,Quản lý thuốc 1-3,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,69,0,0
+1747837925124,17,Tìm kiếm thuốc,200,,Quản lý thuốc 1-3,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,17,0,0
+1747837924976,187,Đăng nhập,200,,Quản lý thuốc 1-1,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,186,0,0
+1747837924987,182,Đăng nhập,200,,Quản lý thuốc 1-2,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,181,0,0
+1747837925164,100,Lấy danh sách thuốc,200,,Quản lý thuốc 1-1,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,100,0,0
+1747837925171,97,Lấy danh sách thuốc,200,,Quản lý thuốc 1-2,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,96,0,0
+1747837925265,17,Tìm kiếm thuốc,200,,Quản lý thuốc 1-1,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,16,0,0
+1747837925269,14,Tìm kiếm thuốc,200,,Quản lý thuốc 1-2,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,14,0,0
+1747837925142,203,Đăng nhập,200,,Quản lý thuốc 1-3,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,202,0,0
+1747837925346,35,Lấy danh sách thuốc,200,,Quản lý thuốc 1-3,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,35,0,0
+1747837925382,24,Tìm kiếm thuốc,200,,Quản lý thuốc 1-3,text,true,,1840,1185,4,4,http://localhost:8888/hieuthuoc/thuoc/search,23,0,0
+1747837925284,165,Đăng nhập,200,,Quản lý thuốc 1-2,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,165,0,0
+1747837925283,166,Đăng nhập,200,,Quản lý thuốc 1-1,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,166,0,0
+1747837925304,178,Đăng nhập,200,,Quản lý thuốc 1-4,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,178,0,1
+1747837925450,64,Lấy danh sách thuốc,200,,Quản lý thuốc 1-1,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,64,0,0
+1747837925450,64,Lấy danh sách thuốc,200,,Quản lý thuốc 1-2,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,64,0,0
+1747837925515,18,Tìm kiếm thuốc,200,,Quản lý thuốc 1-1,text,true,,1840,1185,4,4,http://localhost:8888/hieuthuoc/thuoc/search,18,0,0
+1747837925515,18,Tìm kiếm thuốc,200,,Quản lý thuốc 1-2,text,true,,1840,1185,4,4,http://localhost:8888/hieuthuoc/thuoc/search,18,0,0
+1747837925483,69,Lấy danh sách thuốc,200,,Quản lý thuốc 1-4,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,69,0,0
+1747837925553,17,Tìm kiếm thuốc,200,,Quản lý thuốc 1-4,text,true,,1840,1185,4,4,http://localhost:8888/hieuthuoc/thuoc/search,17,0,0
+1747837925407,169,Đăng nhập,200,,Quản lý thuốc 1-3,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,168,0,0
+1747837925577,34,Lấy danh sách thuốc,200,,Quản lý thuốc 1-3,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,34,0,0
+1747837925612,18,Tìm kiếm thuốc,200,,Quản lý thuốc 1-3,text,true,,1840,1185,4,4,http://localhost:8888/hieuthuoc/thuoc/search,18,0,0
+1747837925534,162,Đăng nhập,200,,Quản lý thuốc 1-2,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,162,0,0
+1747837925534,162,Đăng nhập,200,,Quản lý thuốc 1-1,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,162,0,0
+1747837925571,190,Đăng nhập,200,,Quản lý thuốc 1-4,text,true,,1377,241,4,4,http://localhost:8888/hieuthuoc/dangnhap,190,0,0
+1747837925697,79,Lấy danh sách thuốc,200,,Quản lý thuốc 1-1,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,79,0,0
+1747837925697,83,Lấy danh sách thuốc,200,,Quản lý thuốc 1-2,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,82,0,0
+1747837925781,24,Tìm kiếm thuốc,200,,Quản lý thuốc 1-2,text,true,,1840,1185,5,5,http://localhost:8888/hieuthuoc/thuoc/search,23,0,0
+1747837925777,34,Tìm kiếm thuốc,200,,Quản lý thuốc 1-1,text,true,,1840,1185,5,5,http://localhost:8888/hieuthuoc/thuoc/search,34,0,0
+1747837925763,71,Lấy danh sách thuốc,200,,Quản lý thuốc 1-4,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,70,0,0
+1747837925631,209,Đăng nhập,200,,Quản lý thuốc 1-3,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,209,0,0
+1747837925835,15,Tìm kiếm thuốc,200,,Quản lý thuốc 1-4,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,15,0,0
+1747837925841,52,Lấy danh sách thuốc,200,,Quản lý thuốc 1-3,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,52,0,0
+1747837925894,18,Tìm kiếm thuốc,200,,Quản lý thuốc 1-3,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,17,0,0
+1747837925804,172,Đăng nhập,200,,Quản lý thuốc 1-5,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,172,0,1
+1747837925978,28,Lấy danh sách thuốc,200,,Quản lý thuốc 1-5,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,27,0,0
+1747837925851,161,Đăng nhập,200,,Quản lý thuốc 1-4,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,160,0,0
+1747837926006,13,Tìm kiếm thuốc,200,,Quản lý thuốc 1-5,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,13,0,0
+1747837926013,34,Lấy danh sách thuốc,200,,Quản lý thuốc 1-4,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,34,0,0
+1747837926047,16,Tìm kiếm thuốc,200,,Quản lý thuốc 1-4,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,16,0,0
+1747837925912,151,Đăng nhập,200,,Quản lý thuốc 1-3,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,151,0,0
+1747837926064,31,Lấy danh sách thuốc,200,,Quản lý thuốc 1-3,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,31,0,0
+1747837926096,12,Tìm kiếm thuốc,200,,Quản lý thuốc 1-3,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,12,0,0
+1747837926021,138,Đăng nhập,200,,Quản lý thuốc 1-5,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,138,0,0
+1747837926160,27,Lấy danh sách thuốc,200,,Quản lý thuốc 1-5,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,27,0,0
+1747837926064,134,Đăng nhập,200,,Quản lý thuốc 1-4,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,134,0,0
+1747837926188,16,Tìm kiếm thuốc,200,,Quản lý thuốc 1-5,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,16,0,0
+1747837926199,53,Lấy danh sách thuốc,200,,Quản lý thuốc 1-4,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,53,0,0
+1747837926255,13,Tìm kiếm thuốc,200,,Quản lý thuốc 1-4,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,13,0,0
+1747837926205,173,Đăng nhập,200,,Quản lý thuốc 1-5,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,172,0,0
+1747837926379,34,Lấy danh sách thuốc,200,,Quản lý thuốc 1-5,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,34,0,0
+1747837926269,144,Đăng nhập,200,,Quản lý thuốc 1-4,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,144,0,0
+1747837926414,14,Tìm kiếm thuốc,200,,Quản lý thuốc 1-5,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,14,0,0
+1747837926414,40,Lấy danh sách thuốc,200,,Quản lý thuốc 1-4,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,40,0,0
+1747837926303,179,Đăng nhập,200,,Quản lý thuốc 1-6,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,179,0,1
+1747837926455,38,Tìm kiếm thuốc,200,,Quản lý thuốc 1-4,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,37,0,0
+1747837926483,56,Lấy danh sách thuốc,200,,Quản lý thuốc 1-6,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,56,0,0
+1747837926540,27,Tìm kiếm thuốc,200,,Quản lý thuốc 1-6,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,27,0,0
+1747837926430,312,Đăng nhập,200,,Quản lý thuốc 1-5,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,312,0,0
+1747837926568,225,Đăng nhập,200,,Quản lý thuốc 1-6,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,225,0,0
+1747837926743,61,Lấy danh sách thuốc,200,,Quản lý thuốc 1-5,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,60,0,0
+1747837926804,21,Tìm kiếm thuốc,200,,Quản lý thuốc 1-5,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,21,0,0
+1747837926795,50,Lấy danh sách thuốc,200,,Quản lý thuốc 1-6,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,50,0,0
+1747837926846,37,Tìm kiếm thuốc,200,,Quản lý thuốc 1-6,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,37,0,0
+1747837926804,196,Đăng nhập,200,,Quản lý thuốc 1-7,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,196,0,2
+1747837926826,195,Đăng nhập,200,,Quản lý thuốc 1-5,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,195,0,0
+1747837927003,64,Lấy danh sách thuốc,200,,Quản lý thuốc 1-7,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,63,0,0
+1747837926884,196,Đăng nhập,200,,Quản lý thuốc 1-6,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,196,0,0
+1747837927024,59,Lấy danh sách thuốc,200,,Quản lý thuốc 1-5,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,58,0,0
+1747837927068,20,Tìm kiếm thuốc,200,,Quản lý thuốc 1-7,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,20,0,0
+1747837927084,33,Tìm kiếm thuốc,200,,Quản lý thuốc 1-5,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,32,0,0
+1747837927082,153,Lấy danh sách thuốc,200,,Quản lý thuốc 1-6,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,152,0,0
+1747837927236,38,Tìm kiếm thuốc,200,,Quản lý thuốc 1-6,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,37,0,0
+1747837927089,223,Đăng nhập,200,,Quản lý thuốc 1-7,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,222,0,0
+1747837927314,63,Lấy danh sách thuốc,200,,Quản lý thuốc 1-7,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,63,0,0
+1747837927378,24,Tìm kiếm thuốc,200,,Quản lý thuốc 1-7,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,24,0,0
+1747837927276,175,Đăng nhập,200,,Quản lý thuốc 1-6,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,175,0,0
+1747837927305,189,Đăng nhập,200,,Quản lý thuốc 1-8,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,189,0,1
+1747837927452,63,Lấy danh sách thuốc,200,,Quản lý thuốc 1-6,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,62,0,0
+1747837927495,40,Lấy danh sách thuốc,200,,Quản lý thuốc 1-8,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,39,0,0
+1747837927516,22,Tìm kiếm thuốc,200,,Quản lý thuốc 1-6,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,22,0,0
+1747837927535,21,Tìm kiếm thuốc,200,,Quản lý thuốc 1-8,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,20,0,0
+1747837927404,189,Đăng nhập,200,,Quản lý thuốc 1-7,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,188,0,0
+1747837927594,49,Lấy danh sách thuốc,200,,Quản lý thuốc 1-7,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,48,0,0
+1747837927643,22,Tìm kiếm thuốc,200,,Quản lý thuốc 1-7,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,22,0,0
+1747837927539,211,Đăng nhập,200,,Quản lý thuốc 1-6,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,211,0,0
+1747837927556,208,Đăng nhập,200,,Quản lý thuốc 1-8,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,208,0,0
+1747837927752,50,Lấy danh sách thuốc,200,,Quản lý thuốc 1-6,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,50,0,0
+1747837927765,50,Lấy danh sách thuốc,200,,Quản lý thuốc 1-8,text,true,,12901,1181,4,4,http://localhost:8888/hieuthuoc/thuoc/search,50,0,0
+1747837927803,20,Tìm kiếm thuốc,200,,Quản lý thuốc 1-6,text,true,,1840,1185,4,4,http://localhost:8888/hieuthuoc/thuoc/search,19,0,0
+1747837927816,19,Tìm kiếm thuốc,200,,Quản lý thuốc 1-8,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,19,0,0
+1747837927666,205,Đăng nhập,200,,Quản lý thuốc 1-7,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,205,0,0
+1747837927873,47,Lấy danh sách thuốc,200,,Quản lý thuốc 1-7,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,47,0,0
+1747837927922,16,Tìm kiếm thuốc,200,,Quản lý thuốc 1-7,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,15,0,0
+1747837927802,185,Đăng nhập,200,,Quản lý thuốc 1-9,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,185,0,1
+1747837927836,171,Đăng nhập,200,,Quản lý thuốc 1-8,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,171,0,0
+1747837927989,105,Lấy danh sách thuốc,200,,Quản lý thuốc 1-9,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,105,0,0
+1747837928094,43,Tìm kiếm thuốc,200,,Quản lý thuốc 1-9,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,43,0,0
+1747837928009,134,Lấy danh sách thuốc,200,,Quản lý thuốc 1-8,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,134,0,0
+1747837928144,15,Tìm kiếm thuốc,200,,Quản lý thuốc 1-8,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,15,0,0
+1747837927939,233,Đăng nhập,200,,Quản lý thuốc 1-7,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,233,0,0
+1747837928173,31,Lấy danh sách thuốc,200,,Quản lý thuốc 1-7,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,30,0,0
+1747837928204,40,Tìm kiếm thuốc,200,,Quản lý thuốc 1-7,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,40,0,0
+1747837928138,152,Đăng nhập,200,,Quản lý thuốc 1-9,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,152,0,0
+1747837928159,162,Đăng nhập,200,,Quản lý thuốc 1-8,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,162,0,0
+1747837928291,52,Lấy danh sách thuốc,200,,Quản lý thuốc 1-9,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,52,0,0
+1747837928344,17,Tìm kiếm thuốc,200,,Quản lý thuốc 1-9,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,17,0,0
+1747837928323,48,Lấy danh sách thuốc,200,,Quản lý thuốc 1-8,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,47,0,0
+1747837928371,16,Tìm kiếm thuốc,200,,Quản lý thuốc 1-8,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,16,0,0
+1747837928305,159,Đăng nhập,200,,Quản lý thuốc 1-10,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,158,0,2
+1747837928466,52,Lấy danh sách thuốc,200,,Quản lý thuốc 1-10,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,52,0,0
+1747837928362,167,Đăng nhập,200,,Quản lý thuốc 1-9,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,167,0,0
+1747837928519,17,Tìm kiếm thuốc,200,,Quản lý thuốc 1-10,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,17,0,0
+1747837928388,165,Đăng nhập,200,,Quản lý thuốc 1-8,text,true,,1377,241,3,3,http://localhost:8888/hieuthuoc/dangnhap,165,0,0
+1747837928530,58,Lấy danh sách thuốc,200,,Quản lý thuốc 1-9,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,57,0,0
+1747837928556,47,Lấy danh sách thuốc,200,,Quản lý thuốc 1-8,text,true,,12901,1181,3,3,http://localhost:8888/hieuthuoc/thuoc/search,47,0,0
+1747837928588,18,Tìm kiếm thuốc,200,,Quản lý thuốc 1-9,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,17,0,0
+1747837928604,13,Tìm kiếm thuốc,200,,Quản lý thuốc 1-8,text,true,,1840,1185,3,3,http://localhost:8888/hieuthuoc/thuoc/search,13,0,0
+1747837928537,148,Đăng nhập,200,,Quản lý thuốc 1-10,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,148,0,0
+1747837928686,21,Lấy danh sách thuốc,200,,Quản lý thuốc 1-10,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,21,0,0
+1747837928709,26,Tìm kiếm thuốc,200,,Quản lý thuốc 1-10,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,26,0,0
+1747837928606,140,Đăng nhập,200,,Quản lý thuốc 1-9,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,140,0,0
+1747837928747,25,Lấy danh sách thuốc,200,,Quản lý thuốc 1-9,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,25,0,0
+1747837928772,11,Tìm kiếm thuốc,200,,Quản lý thuốc 1-9,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,11,0,0
+1747837928735,132,Đăng nhập,200,,Quản lý thuốc 1-10,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,132,0,0
+1747837928868,33,Lấy danh sách thuốc,200,,Quản lý thuốc 1-10,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,33,0,0
+1747837928902,12,Tìm kiếm thuốc,200,,Quản lý thuốc 1-10,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,11,0,0
+1747837928783,135,Đăng nhập,200,,Quản lý thuốc 1-9,text,true,,1377,241,2,2,http://localhost:8888/hieuthuoc/dangnhap,135,0,0
+1747837928919,27,Lấy danh sách thuốc,200,,Quản lý thuốc 1-9,text,true,,12901,1181,2,2,http://localhost:8888/hieuthuoc/thuoc/search,26,0,0
+1747837928946,12,Tìm kiếm thuốc,200,,Quản lý thuốc 1-9,text,true,,1840,1185,2,2,http://localhost:8888/hieuthuoc/thuoc/search,11,0,0
+1747837928914,136,Đăng nhập,200,,Quản lý thuốc 1-10,text,true,,1377,241,1,1,http://localhost:8888/hieuthuoc/dangnhap,135,0,0
+1747837929050,26,Lấy danh sách thuốc,200,,Quản lý thuốc 1-10,text,true,,12901,1181,1,1,http://localhost:8888/hieuthuoc/thuoc/search,26,0,0
+1747837929076,10,Tìm kiếm thuốc,200,,Quản lý thuốc 1-10,text,true,,1840,1185,1,1,http://localhost:8888/hieuthuoc/thuoc/search,10,0,0
+1747837929086,121,Đăng nhập,200,,Quản lý thuốc 1-10,text,true,,1377,241,1,1,http://localhost:8888/hieuthuoc/dangnhap,121,0,0
+1747837929207,35,Lấy danh sách thuốc,200,,Quản lý thuốc 1-10,text,true,,12901,1181,1,1,http://localhost:8888/hieuthuoc/thuoc/search,35,0,0
+1747837929242,10,Tìm kiếm thuốc,200,,Quản lý thuốc 1-10,text,true,,1840,1185,1,1,http://localhost:8888/hieuthuoc/thuoc/search,10,0,0

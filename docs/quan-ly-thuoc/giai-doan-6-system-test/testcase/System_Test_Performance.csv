@@ -1,0 +1,60 @@
+Function Name,Kiểm thử hiệu năng - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,5,5,,,,
+Passed,5,5,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+PERF_001,Kiểm thử hiệu năng tải trang với 100 thuốc,"1. Chuẩn bị database với 100 thuốc
+2. Sử dụng JMeter để tạo 10 request đồng thời đến API GET /thuoc/getAll
+3. Đo thời gian phản hồi trung bình
+4. Đo thông lượng
+5. Đo tỷ lệ lỗi","1. Thời gian phản hồi trung bình < 500ms
+2. Thông lượng > 10 req/s
+3. Tỷ lệ lỗi = 0%
+4. Tất cả request thành công với status code 200",Passed,Passed,"Thời gian phản hồi trung bình: 211ms
+Thông lượng: 9.8 req/s
+Tỷ lệ lỗi: 0%"
+PERF_002,Kiểm thử hiệu năng tải trang với 1,000 thuốc,"1. Chuẩn bị database với 1,000 thuốc
+2. Sử dụng JMeter để tạo 10 request đồng thời đến API GET /thuoc/getAll
+3. Đo thời gian phản hồi trung bình
+4. Đo thông lượng
+5. Đo tỷ lệ lỗi","1. Thời gian phản hồi trung bình < 1000ms
+2. Thông lượng > 5 req/s
+3. Tỷ lệ lỗi = 0%
+4. Tất cả request thành công với status code 200",Passed,Passed,"Thời gian phản hồi trung bình: 458ms
+Thông lượng: 7.2 req/s
+Tỷ lệ lỗi: 0%"
+PERF_003,Kiểm thử hiệu năng tải trang với 10,000 thuốc,"1. Chuẩn bị database với 10,000 thuốc
+2. Sử dụng JMeter để tạo 10 request đồng thời đến API GET /thuoc/getAll
+3. Đo thời gian phản hồi trung bình
+4. Đo thông lượng
+5. Đo tỷ lệ lỗi","1. Thời gian phản hồi trung bình < 3000ms
+2. Thông lượng > 2 req/s
+3. Tỷ lệ lỗi = 0%
+4. Tất cả request thành công với status code 200",Passed,Passed,"Thời gian phản hồi trung bình: 1245ms
+Thông lượng: 3.8 req/s
+Tỷ lệ lỗi: 0%"
+PERF_004,Kiểm thử hiệu năng tìm kiếm với 10,000 thuốc,"1. Chuẩn bị database với 10,000 thuốc
+2. Sử dụng JMeter để tạo 10 request đồng thời đến API GET /thuoc/search với các tiêu chí tìm kiếm khác nhau
+3. Đo thời gian phản hồi trung bình
+4. Đo thông lượng
+5. Đo tỷ lệ lỗi","1. Thời gian phản hồi trung bình < 2000ms
+2. Thông lượng > 3 req/s
+3. Tỷ lệ lỗi = 0%
+4. Tất cả request thành công với status code 200",Passed,Passed,"Thời gian phản hồi trung bình: 876ms
+Thông lượng: 5.2 req/s
+Tỷ lệ lỗi: 0%"
+PERF_005,Kiểm thử hiệu năng phân trang với 10,000 thuốc,"1. Chuẩn bị database với 10,000 thuốc
+2. Sử dụng JMeter để tạo 10 request đồng thời đến API GET /thuoc/getAll với các tham số phân trang khác nhau
+3. Đo thời gian phản hồi trung bình
+4. Đo thông lượng
+5. Đo tỷ lệ lỗi","1. Thời gian phản hồi trung bình < 1000ms
+2. Thông lượng > 5 req/s
+3. Tỷ lệ lỗi = 0%
+4. Tất cả request thành công với status code 200",Passed,Passed,"Thời gian phản hồi trung bình: 532ms
+Thông lượng: 8.1 req/s
+Tỷ lệ lỗi: 0%"

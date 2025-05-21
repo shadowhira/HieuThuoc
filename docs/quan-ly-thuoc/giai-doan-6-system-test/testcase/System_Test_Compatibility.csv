@@ -1,0 +1,43 @@
+Function Name,Kiểm thử tương thích - Quản lý thuốc,,,,,
+Test Result,Firefox,Safari,Opera,,,
+Total,3,3,3,,,
+Passed,3,3,3,,,
+Failed,0,0,0,,,
+Not Run,0,0,0,,,
+NA,0,0,0,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,,Notes
+,,,Firefox,Safari,Opera,
+COMP_001,Kiểm thử tương thích trên Firefox,"1. Mở trang quản lý thuốc trên Firefox
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","1. Tất cả các chức năng hoạt động đúng
+2. Giao diện hiển thị đúng, không bị lỗi
+3. Các nút, form, bảng hiển thị đúng vị trí
+4. Không có lỗi JavaScript
+5. Responsive design hoạt động đúng",Passed,NA,NA,"Tất cả các chức năng hoạt động đúng trên Firefox, giao diện hiển thị đúng"
+COMP_002,Kiểm thử tương thích trên Safari,"1. Mở trang quản lý thuốc trên Safari
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","1. Tất cả các chức năng hoạt động đúng
+2. Giao diện hiển thị đúng, không bị lỗi
+3. Các nút, form, bảng hiển thị đúng vị trí
+4. Không có lỗi JavaScript
+5. Responsive design hoạt động đúng",NA,Passed,NA,"Tất cả các chức năng hoạt động đúng trên Safari, giao diện hiển thị đúng"
+COMP_003,Kiểm thử tương thích trên Opera,"1. Mở trang quản lý thuốc trên Opera
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","1. Tất cả các chức năng hoạt động đúng
+2. Giao diện hiển thị đúng, không bị lỗi
+3. Các nút, form, bảng hiển thị đúng vị trí
+4. Không có lỗi JavaScript
+5. Responsive design hoạt động đúng",NA,NA,Passed,"Tất cả các chức năng hoạt động đúng trên Opera, giao diện hiển thị đúng"

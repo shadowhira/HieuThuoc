@@ -1,0 +1,46 @@
+Function Name,Kiểm thử khả năng chịu lỗi - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,3,3,,,,
+Passed,3,3,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+FAULT_001,Kiểm thử khả năng chịu lỗi khi mất kết nối database,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tạm dừng dịch vụ database (hoặc mô phỏng lỗi kết nối)
+4. Thực hiện các thao tác:
+   - Tải danh sách thuốc
+   - Tìm kiếm thuốc
+   - Thêm thuốc mới
+   - Sửa thuốc
+   - Xóa thuốc
+5. Khôi phục kết nối database
+6. Thực hiện lại các thao tác trên","1. Hệ thống hiển thị thông báo lỗi thân thiện khi không thể kết nối database
+2. Không bị crash hoặc treo khi mất kết nối
+3. Các thao tác không thành công được ghi log
+4. Sau khi khôi phục kết nối, hệ thống hoạt động bình thường trở lại
+5. Không mất dữ liệu đã lưu trước đó",Passed,Passed,"Hệ thống hiển thị thông báo lỗi ""Không thể kết nối đến cơ sở dữ liệu"" và không bị crash khi mất kết nối database"
+FAULT_002,Kiểm thử khả năng chịu lỗi khi dịch vụ upload ảnh không khả dụng,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang thêm thuốc mới
+3. Tạm dừng dịch vụ upload ảnh (hoặc mô phỏng lỗi kết nối)
+4. Thực hiện thêm thuốc mới có kèm ảnh
+5. Khôi phục dịch vụ upload ảnh
+6. Thực hiện lại thao tác thêm thuốc có kèm ảnh","1. Hệ thống hiển thị thông báo lỗi thân thiện khi không thể upload ảnh
+2. Vẫn cho phép lưu thuốc mà không có ảnh
+3. Không bị crash hoặc treo khi dịch vụ upload ảnh không khả dụng
+4. Sau khi khôi phục dịch vụ, hệ thống hoạt động bình thường trở lại",Passed,Passed,"Hệ thống hiển thị thông báo lỗi ""Không thể tải lên hình ảnh"" và vẫn cho phép lưu thuốc mà không có ảnh"
+FAULT_003,Kiểm thử khả năng chịu lỗi khi hệ thống file không khả dụng,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tạm thời làm cho thư mục lưu trữ file không ghi được (read-only hoặc đầy dung lượng)
+4. Thực hiện các thao tác:
+   - Thêm thuốc mới có kèm ảnh
+   - Xuất báo cáo
+   - Tải tệp mẫu
+5. Khôi phục quyền ghi cho thư mục lưu trữ
+6. Thực hiện lại các thao tác trên","1. Hệ thống hiển thị thông báo lỗi thân thiện khi không thể ghi file
+2. Không bị crash hoặc treo khi hệ thống file không khả dụng
+3. Các thao tác không thành công được ghi log
+4. Sau khi khôi phục quyền ghi, hệ thống hoạt động bình thường trở lại",Passed,Passed,"Hệ thống hiển thị thông báo lỗi ""Không thể lưu file"" và không bị crash khi hệ thống file không khả dụng"

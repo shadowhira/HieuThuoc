@@ -1,0 +1,48 @@
+Function Name,Kiểm thử bảo mật - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,5,5,,,,
+Passed,5,5,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+SEC_001,Kiểm thử bảo mật - SQL Injection trong tìm kiếm thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhập các chuỗi SQL Injection vào ô tìm kiếm:
+   - ' OR '1'='1
+   - '; DROP TABLE thuoc; --
+   - ' UNION SELECT * FROM users; --
+4. Nhấn nút ""Tìm kiếm""","1. Hệ thống không bị lỗi
+2. Không hiển thị dữ liệu nhạy cảm
+3. Hệ thống xử lý đúng chuỗi tìm kiếm (escape hoặc parameterized query)
+4. Không có lỗi 500 hoặc lỗi SQL",Passed,Passed,"Hệ thống đã xử lý đúng các chuỗi SQL Injection, không có lỗi SQL hoặc lộ dữ liệu nhạy cảm"
+SEC_002,Kiểm thử bảo mật - XSS trong mô tả thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang thêm thuốc mới
+3. Nhập các chuỗi XSS vào ô mô tả thuốc:
+   - <script>alert('XSS')</script>
+   - <img src=""x"" onerror=""alert('XSS')"">
+   - javascript:alert('XSS')
+4. Lưu thuốc
+5. Xem chi tiết thuốc vừa thêm","1. Hệ thống không thực thi mã JavaScript
+2. Các thẻ HTML độc hại bị loại bỏ hoặc escape
+3. Không hiển thị hộp thoại alert
+4. Nội dung hiển thị dưới dạng text thông thường",Passed,Passed,"Hệ thống đã xử lý đúng các chuỗi XSS, không thực thi mã JavaScript độc hại"
+SEC_003,Kiểm thử bảo mật - CSRF khi thêm/sửa thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Sử dụng công cụ kiểm tra mạng (Network) trong DevTools
+3. Thực hiện thêm thuốc mới
+4. Kiểm tra request gửi đi có chứa token CSRF hoặc header bảo mật
+5. Thử gửi request không có token CSRF hoặc header bảo mật","1. Request thêm thuốc có chứa token CSRF hoặc header bảo mật
+2. Request không có token CSRF hoặc header bảo mật bị từ chối
+3. Hệ thống trả về lỗi 403 Forbidden cho request không hợp lệ",Passed,Passed,"Hệ thống đã kiểm tra token CSRF hoặc header bảo mật, từ chối các request không hợp lệ"
+SEC_004,Kiểm thử bảo mật - Authentication bypass,"1. Truy cập trực tiếp vào URL quản lý thuốc mà không đăng nhập
+2. Thử sửa URL để truy cập vào các trang quản trị
+3. Thử gửi request API trực tiếp đến các endpoint quản lý thuốc mà không có token JWT","1. Hệ thống chuyển hướng về trang đăng nhập
+2. Không thể truy cập vào các trang quản trị khi chưa đăng nhập
+3. Các request API không có token JWT bị từ chối với lỗi 401 Unauthorized",Passed,Passed,"Hệ thống đã kiểm tra xác thực người dùng, không cho phép truy cập khi chưa đăng nhập"
+SEC_005,Kiểm thử bảo mật - Unauthorized access,"1. Đăng nhập vào hệ thống với quyền user thông thường (không phải admin)
+2. Thử truy cập vào các trang quản lý thuốc
+3. Thử gửi request API trực tiếp đến các endpoint quản lý thuốc với token JWT của user thông thường","1. Hệ thống hiển thị thông báo không có quyền truy cập
+2. Không thể truy cập vào các trang quản trị khi không có quyền
+3. Các request API với token JWT không có quyền bị từ chối với lỗi 403 Forbidden",Passed,Passed,"Hệ thống đã kiểm tra phân quyền người dùng, không cho phép truy cập khi không có quyền"
