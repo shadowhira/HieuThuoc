@@ -131,31 +131,31 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ### 3. Kiểm thử chức năng (Functional Testing) - Bổ sung 20 testcase
 
-#### 3.1. Kiểm thử chức năng tìm kiếm nâng cao (10 testcase)
-41. Kiểm thử tìm kiếm thuốc theo khoảng giá (minGiaBan, maxGiaBan)
-42. Kiểm thử tìm kiếm thuốc theo loại thuốc
-43. Kiểm thử tìm kiếm thuốc theo nhà sản xuất
-44. Kiểm thử tìm kiếm thuốc theo danh mục thuốc
-45. Kiểm thử tìm kiếm thuốc theo đối tượng sử dụng
-46. Kiểm thử tìm kiếm thuốc theo trạng thái
-47. Kiểm thử tìm kiếm thuốc kết hợp nhiều tiêu chí
-48. Kiểm thử tìm kiếm thuốc với kết quả trống
-49. Kiểm thử tìm kiếm thuốc với từ khóa đặc biệt (có dấu, ký tự đặc biệt)
-50. Kiểm thử tìm kiếm thuốc với phân trang
+#### 3.1. Kiểm thử chức năng tìm kiếm nâng cao (10 testcase) - Hoàn thành
+41. ✅ Kiểm thử tìm kiếm thuốc theo khoảng giá (minGiaBan, maxGiaBan)
+42. ✅ Kiểm thử tìm kiếm thuốc theo loại thuốc
+43. ✅ Kiểm thử tìm kiếm thuốc theo nhà sản xuất
+44. ✅ Kiểm thử tìm kiếm thuốc theo danh mục thuốc
+45. ✅ Kiểm thử tìm kiếm thuốc theo đối tượng sử dụng
+46. ✅ Kiểm thử tìm kiếm thuốc theo trạng thái
+47. ✅ Kiểm thử tìm kiếm thuốc kết hợp nhiều tiêu chí
+48. ✅ Kiểm thử tìm kiếm thuốc với kết quả trống
+49. ✅ Kiểm thử tìm kiếm thuốc với từ khóa đặc biệt (có dấu, ký tự đặc biệt)
+50. ✅ Kiểm thử tìm kiếm thuốc với phân trang
 
-#### 3.2. Kiểm thử quản lý loại thuốc (5 testcase)
-51. Kiểm thử thêm loại thuốc thành công
-52. Kiểm thử thêm loại thuốc với tên đã tồn tại
-53. Kiểm thử cập nhật loại thuốc thành công
-54. Kiểm thử xóa loại thuốc thành công
-55. Kiểm thử xóa loại thuốc đang được sử dụng bởi thuốc
+#### 3.2. Kiểm thử quản lý loại thuốc (5 testcase) - Hoàn thành
+51. ✅ Kiểm thử thêm loại thuốc thành công
+52. ✅ Kiểm thử thêm loại thuốc với tên đã tồn tại
+53. ✅ Kiểm thử cập nhật loại thuốc thành công
+54. ✅ Kiểm thử xóa loại thuốc thành công
+55. ✅ Kiểm thử xóa loại thuốc đang được sử dụng bởi thuốc
 
-#### 3.3. Kiểm thử quản lý danh mục thuốc (5 testcase)
-56. Kiểm thử thêm danh mục thuốc thành công
-57. Kiểm thử thêm danh mục thuốc với tên đã tồn tại
-58. Kiểm thử cập nhật danh mục thuốc thành công
-59. Kiểm thử xóa danh mục thuốc thành công
-60. Kiểm thử xóa danh mục thuốc đang được sử dụng bởi loại thuốc
+#### 3.3. Kiểm thử quản lý danh mục thuốc (5 testcase) - Hoàn thành
+56. ✅ Kiểm thử thêm danh mục thuốc thành công
+57. ✅ Kiểm thử thêm danh mục thuốc với tên đã tồn tại
+58. ✅ Kiểm thử cập nhật danh mục thuốc thành công
+59. ✅ Kiểm thử xóa danh mục thuốc thành công
+60. ✅ Kiểm thử xóa danh mục thuốc đang được sử dụng bởi loại thuốc
 
 
 
@@ -264,14 +264,14 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 |---------------|---------|------------|-----------------|-----------|
 | Kiểm thử đơn vị | 18 | 23 | 2 | 43 |
 | Kiểm thử tích hợp | 12 | 15 | 0 | 27 |
-| Kiểm thử chức năng | 16 | 0 | 20 | 36 |
+| Kiểm thử chức năng | 16 | 20 | 0 | 36 |
 | Kiểm thử giao diện | 10 | 0 | 10 | 20 |
 | Kiểm thử hệ thống | 8 | 0 | 16 | 24 |
 | Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên | 0 | 0 | 15 | 15 |
 | Kiểm thử hộp đen - Bảng quyết định | 0 | 0 | 10 | 10 |
 | Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 0 | 6 | 6 |
 | Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 0 | 10 | 10 |
-| **Tổng cộng** | **64** | **38** | **89** | **191** |
+| **Tổng cộng** | **64** | **58** | **69** | **191** |
 
 ## 🚀 KẾ HOẠCH TRIỂN KHAI
 
@@ -285,7 +285,7 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 - Triển khai 15 testcase kiểm thử tích hợp (Đã hoàn thành 15/15 testcase)
 
 ### Giai đoạn 3: Triển khai kiểm thử chức năng và giao diện (2 ngày)
-- Triển khai 20 testcase kiểm thử chức năng
+- Triển khai 20 testcase kiểm thử chức năng (Đã hoàn thành 20/20 testcase)
 - Triển khai 10 testcase kiểm thử giao diện
 
 ### Giai đoạn 4: Triển khai kiểm thử hệ thống (1 ngày)

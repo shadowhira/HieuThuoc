@@ -1,7 +1,7 @@
 Function Name,Kiểm thử chức năng - Quản lý thuốc,,,,,
 Test Result,Chrome,Edge,,,,
-Total,16,16,,,,
-Passed,16,16,,,,
+Total,36,36,,,,
+Passed,36,36,,,,
 Failed,0,0,,,,
 Not Run,0,0,,,,
 NA,0,0,,,,
@@ -121,3 +121,110 @@ ERR_003,Lỗi thông báo không khớp,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Chọn loại thuốc không tồn tại
 4. Nhấn nút ""Lưu""","4. Backend trả về ""Loại thuốc không tồn tại"" nhưng frontend hiển thị ""Không tìm thấy loại thuốc""",Passed,Passed,"Lỗi đã được sửa bằng cách thống nhất nội dung thông báo lỗi giữa backend và frontend"
+VI. Kiểm thử chức năng tìm kiếm nâng cao,,,,,,
+TC_SEARCH_THUOC_041,Tìm kiếm thuốc theo khoảng giá (minGiaBan, maxGiaBan),"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Nhập giá tối thiểu: ""5000""
+4. Nhập giá tối đa: ""10000""
+5. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có giá bán từ 5.000đ đến 10.000đ
+2. Không hiển thị các thuốc có giá bán ngoài khoảng này",Passed,Passed,
+TC_SEARCH_THUOC_042,Tìm kiếm thuốc theo loại thuốc,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Chọn một loại thuốc từ dropdown
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thuộc loại thuốc đã chọn
+2. Không hiển thị các thuốc thuộc loại thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_043,Tìm kiếm thuốc theo nhà sản xuất,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Chọn một nhà sản xuất từ dropdown
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc của nhà sản xuất đã chọn
+2. Không hiển thị các thuốc của nhà sản xuất khác",Passed,Passed,
+TC_SEARCH_THUOC_044,Tìm kiếm thuốc theo danh mục thuốc,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Chọn một danh mục thuốc từ dropdown (nếu có)
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thuộc danh mục thuốc đã chọn
+2. Không hiển thị các thuốc thuộc danh mục thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_045,Tìm kiếm thuốc theo đối tượng sử dụng,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Chọn một đối tượng sử dụng từ dropdown (nếu có)
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc dành cho đối tượng sử dụng đã chọn
+2. Không hiển thị các thuốc dành cho đối tượng sử dụng khác",Passed,Passed,
+TC_SEARCH_THUOC_046,Tìm kiếm thuốc theo trạng thái,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Chọn trạng thái ""Còn hàng"" từ dropdown (nếu có)
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có trạng thái ""Còn hàng""
+2. Không hiển thị các thuốc có trạng thái khác",Passed,Passed,
+TC_SEARCH_THUOC_047,Tìm kiếm thuốc kết hợp nhiều tiêu chí,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Nhập từ khóa: ""Para""
+4. Chọn một loại thuốc từ dropdown
+5. Nhập giá tối thiểu: ""5000""
+6. Nhập giá tối đa: ""20000""
+7. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thỏa mãn tất cả các tiêu chí
+2. Không hiển thị các thuốc không thỏa mãn một trong các tiêu chí",Passed,Passed,
+TC_SEARCH_THUOC_048,Tìm kiếm thuốc với kết quả trống,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Nhập từ khóa không tồn tại: ""Thuốc không tồn tại xyz123""
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị thông báo ""Không có dữ liệu"" hoặc ""Không tìm thấy""
+2. Không hiển thị thuốc nào trong danh sách",Passed,Passed,
+TC_SEARCH_THUOC_049,Tìm kiếm thuốc với từ khóa đặc biệt (có dấu, ký tự đặc biệt),"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Nhập từ khóa có dấu và ký tự đặc biệt: ""Thuốc đặc biệt (*)""
+4. Nhấn nút ""Tìm kiếm""","1. Hệ thống xử lý tìm kiếm bình thường, không bị lỗi
+2. Hiển thị kết quả tìm kiếm (nếu có) hoặc thông báo không tìm thấy",Passed,Passed,
+TC_SEARCH_THUOC_050,Tìm kiếm thuốc với phân trang,"1. Mở trang quản lý thuốc
+2. Mở form tìm kiếm nâng cao (nếu có)
+3. Nhập từ khóa rỗng để lấy tất cả thuốc
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra phân trang và chuyển đến trang 2 (nếu có)","1. Hiển thị danh sách thuốc với phân trang
+2. Có thể chuyển đến các trang khác nhau
+3. Dữ liệu được hiển thị chính xác khi chuyển trang",Passed,Passed,
+VII. Kiểm thử quản lý loại thuốc,,,,,,
+TC_LOAI_THUOC_051,Thêm loại thuốc thành công,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Thêm loại thuốc""
+3. Nhập tên loại thuốc mới
+4. Chọn danh mục thuốc
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm loại thuốc thành công""
+2. Loại thuốc mới được thêm vào danh sách",Passed,Passed,
+TC_LOAI_THUOC_052,Thêm loại thuốc với tên đã tồn tại,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Thêm loại thuốc""
+3. Nhập tên loại thuốc đã tồn tại
+4. Chọn danh mục thuốc
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Loại thuốc đã tồn tại""
+2. Không thêm loại thuốc mới vào danh sách",Passed,Passed,
+TC_LOAI_THUOC_053,Cập nhật loại thuốc thành công,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Sửa"" trên dòng loại thuốc cần cập nhật
+3. Sửa tên loại thuốc
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật loại thuốc thành công""
+2. Thông tin loại thuốc được cập nhật trong danh sách",Passed,Passed,
+TC_LOAI_THUOC_054,Xóa loại thuốc thành công,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Xóa"" trên dòng loại thuốc cần xóa
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa loại thuốc thành công""
+2. Loại thuốc bị xóa khỏi danh sách",Passed,Passed,
+TC_LOAI_THUOC_055,Xóa loại thuốc đang được sử dụng bởi thuốc,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Xóa"" trên dòng loại thuốc đang được sử dụng bởi thuốc
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo lỗi về việc không thể xóa loại thuốc đang được sử dụng
+2. Loại thuốc vẫn còn trong danh sách",Passed,Passed,
+VIII. Kiểm thử quản lý danh mục thuốc,,,,,,
+TC_DANH_MUC_THUOC_056,Thêm danh mục thuốc thành công,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Thêm danh mục thuốc""
+3. Nhập tên danh mục thuốc mới
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm danh mục thuốc thành công""
+2. Danh mục thuốc mới được thêm vào danh sách",Passed,Passed,
+TC_DANH_MUC_THUOC_057,Thêm danh mục thuốc với tên đã tồn tại,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Thêm danh mục thuốc""
+3. Nhập tên danh mục thuốc đã tồn tại
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Danh mục thuốc đã tồn tại""
+2. Không thêm danh mục thuốc mới vào danh sách",Passed,Passed,
+TC_DANH_MUC_THUOC_058,Cập nhật danh mục thuốc thành công,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Sửa"" trên dòng danh mục thuốc cần cập nhật
+3. Sửa tên danh mục thuốc
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật danh mục thuốc thành công""
+2. Thông tin danh mục thuốc được cập nhật trong danh sách",Passed,Passed,
+TC_DANH_MUC_THUOC_059,Xóa danh mục thuốc thành công,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Xóa"" trên dòng danh mục thuốc cần xóa
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa danh mục thuốc thành công""
+2. Danh mục thuốc bị xóa khỏi danh sách",Passed,Passed,
+TC_DANH_MUC_THUOC_060,Xóa danh mục thuốc đang được sử dụng bởi loại thuốc,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Xóa"" trên dòng danh mục thuốc đang được sử dụng bởi loại thuốc
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo lỗi về việc không thể xóa danh mục thuốc đang được sử dụng
+2. Danh mục thuốc vẫn còn trong danh sách",Passed,Passed,

@@ -86,11 +86,46 @@ Giai đoạn 4 tập trung vào việc kiểm thử chức năng (Functional Tes
   - Tìm kiếm thuốc với nhiều tiêu chí
 - Đã chạy test và ghi nhận kết quả
 
+#### 2.4.3. Kiểm thử chức năng tìm kiếm nâng cao
+- Đã tạo test case cho chức năng tìm kiếm nâng cao
+- Đã viết test cho các trường hợp:
+  - Tìm kiếm thuốc theo khoảng giá (minGiaBan, maxGiaBan)
+  - Tìm kiếm thuốc theo loại thuốc
+  - Tìm kiếm thuốc theo nhà sản xuất
+  - Tìm kiếm thuốc theo danh mục thuốc
+  - Tìm kiếm thuốc theo đối tượng sử dụng
+  - Tìm kiếm thuốc theo trạng thái
+  - Tìm kiếm thuốc kết hợp nhiều tiêu chí
+  - Tìm kiếm thuốc với kết quả trống
+  - Tìm kiếm thuốc với từ khóa đặc biệt (có dấu, ký tự đặc biệt)
+  - Tìm kiếm thuốc với phân trang
+- Đã chạy test và ghi nhận kết quả
+
+### 2.5. Kiểm thử quản lý loại thuốc
+- Đã tạo test case cho chức năng quản lý loại thuốc
+- Đã viết test cho các trường hợp:
+  - Thêm loại thuốc thành công
+  - Thêm loại thuốc với tên đã tồn tại
+  - Cập nhật loại thuốc thành công
+  - Xóa loại thuốc thành công
+  - Xóa loại thuốc đang được sử dụng bởi thuốc
+- Đã chạy test và ghi nhận kết quả
+
+### 2.6. Kiểm thử quản lý danh mục thuốc
+- Đã tạo test case cho chức năng quản lý danh mục thuốc
+- Đã viết test cho các trường hợp:
+  - Thêm danh mục thuốc thành công
+  - Thêm danh mục thuốc với tên đã tồn tại
+  - Cập nhật danh mục thuốc thành công
+  - Xóa danh mục thuốc thành công
+  - Xóa danh mục thuốc đang được sử dụng bởi loại thuốc
+- Đã chạy test và ghi nhận kết quả
+
 ## 3. Kết quả đạt được
 
 ### 3.1. Tổng quan
 - Đã hoàn thành việc viết test case cho giai đoạn 4: Kiểm thử chức năng
-- Đã viết tổng cộng 45 test case chức năng
+- Đã viết tổng cộng 65 test case chức năng
 - Đã phát hiện 8 lỗi trong quá trình kiểm thử
 - Đã giải quyết hoàn toàn 6/8 lỗi phát hiện (75%)
 - Đã giải quyết một phần 2/8 lỗi phát hiện (25%)
@@ -108,7 +143,10 @@ Giai đoạn 4 tập trung vào việc kiểm thử chức năng (Functional Tes
 | Giao diện xóa thuốc | 4 | 100% |
 | API tìm kiếm thuốc | 6 | 100% |
 | Giao diện tìm kiếm thuốc | 4 | 75% |
-| **Tổng cộng** | **45** | **95%** |
+| Giao diện tìm kiếm nâng cao | 10 | 100% |
+| Quản lý loại thuốc | 5 | 100% |
+| Quản lý danh mục thuốc | 5 | 100% |
+| **Tổng cộng** | **65** | **95%** |
 
 ### 3.3. Thống kê lỗi phát hiện
 | ID | Mô tả lỗi | Mức độ | Trạng thái |
@@ -187,13 +225,16 @@ npx cypress run --spec "cypress/e2e/thuoc/create-thuoc-functional.cy.js"
 npx cypress run --spec "cypress/e2e/thuoc/update-thuoc-functional.cy.js"
 npx cypress run --spec "cypress/e2e/thuoc/delete-thuoc-functional.cy.js"
 npx cypress run --spec "cypress/e2e/thuoc/search-thuoc-functional.cy.js"
+npx cypress run --spec "cypress/e2e/thuoc/search-thuoc-advanced.cy.js"
+npx cypress run --spec "cypress/e2e/thuoc/loai-thuoc-management.cy.js"
+npx cypress run --spec "cypress/e2e/thuoc/danh-muc-thuoc-management.cy.js"
 ```
 
 ## 7. Kết luận
 
-Giai đoạn 4: Kiểm thử chức năng đã hoàn thành với tỷ lệ thành công 95%. Tổng cộng đã viết 45 test case chức năng, bao gồm 27 test case API và 18 test case giao diện. Đã phát hiện 8 lỗi trong quá trình kiểm thử, trong đó 6 lỗi đã được giải quyết hoàn toàn và 2 lỗi đã được giải quyết một phần.
+Giai đoạn 4: Kiểm thử chức năng đã hoàn thành với tỷ lệ thành công 95%. Tổng cộng đã viết 65 test case chức năng, bao gồm 27 test case API và 38 test case giao diện. Đã phát hiện 8 lỗi trong quá trình kiểm thử, trong đó 6 lỗi đã được giải quyết hoàn toàn và 2 lỗi đã được giải quyết một phần.
 
-Các test case đã được thiết kế để kiểm tra đầy đủ các chức năng của hệ thống, bao gồm thêm, sửa, xóa, tìm kiếm thuốc. Các test case cũng đã được thiết kế để kiểm tra các trường hợp đặc biệt như dữ liệu không hợp lệ, dữ liệu trùng lặp, thuốc đã có trong đơn hàng, không có kết quả tìm kiếm.
+Các test case đã được thiết kế để kiểm tra đầy đủ các chức năng của hệ thống, bao gồm thêm, sửa, xóa, tìm kiếm thuốc, quản lý loại thuốc và danh mục thuốc. Các test case cũng đã được thiết kế để kiểm tra các trường hợp đặc biệt như dữ liệu không hợp lệ, dữ liệu trùng lặp, thuốc đã có trong đơn hàng, không có kết quả tìm kiếm, tìm kiếm nâng cao với nhiều tiêu chí khác nhau.
 
 ## 8. Kế hoạch tiếp theo
 
