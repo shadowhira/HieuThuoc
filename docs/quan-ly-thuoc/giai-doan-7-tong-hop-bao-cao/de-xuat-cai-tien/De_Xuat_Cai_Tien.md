@@ -18,7 +18,7 @@ Dựa trên kết quả kiểm thử và phân tích lỗi, chúng tôi đề xu
 | ID | Đề xuất | Mức độ ưu tiên | Lợi ích | Độ phức tạp | Thời gian ước tính |
 |----|---------|----------------|---------|-------------|-------------------|
 | FE_001 | Thêm tính năng lọc thuốc theo nhiều tiêu chí hơn | Cao | Giúp người dùng tìm kiếm thuốc nhanh chóng và chính xác hơn | Trung bình | 3 ngày |
-| FE_002 | Thêm tính năng xuất/nhập danh sách thuốc từ/vào file Excel | Cao | Giúp người dùng quản lý thuốc hàng loạt, tiết kiệm thời gian | Cao | 5 ngày |
+| FE_002 | Thêm tính năng lọc thuốc theo khoảng giá và hạn sử dụng | Cao | Giúp người dùng tìm kiếm thuốc theo khoảng giá và hạn sử dụng | Trung bình | 3 ngày |
 | FE_003 | Thêm tính năng quét mã vạch để tìm kiếm thuốc | Trung bình | Giúp người dùng tìm kiếm thuốc nhanh chóng bằng cách quét mã vạch | Cao | 7 ngày |
 | FE_004 | Thêm tính năng gợi ý thuốc tương tự | Thấp | Giúp người dùng tìm kiếm thuốc tương tự khi thuốc cần tìm không có sẵn | Trung bình | 4 ngày |
 | FE_005 | Thêm tính năng theo dõi lịch sử thay đổi thuốc | Trung bình | Giúp người dùng theo dõi các thay đổi của thuốc theo thời gian | Cao | 6 ngày |
@@ -40,20 +40,20 @@ Dựa trên kết quả kiểm thử và phân tích lỗi, chúng tôi đề xu
 2. Cập nhật API tìm kiếm thuốc để hỗ trợ các tiêu chí lọc mới
 3. Cập nhật giao diện hiển thị kết quả tìm kiếm
 
-##### FE_002: Thêm tính năng xuất/nhập danh sách thuốc từ/vào file Excel
+##### FE_002: Thêm tính năng lọc thuốc theo khoảng giá và hạn sử dụng
 
-**Mô tả**: Hiện tại, người dùng phải thêm từng thuốc một, rất tốn thời gian khi cần thêm nhiều thuốc cùng lúc. Chúng tôi đề xuất thêm tính năng xuất/nhập danh sách thuốc từ/vào file Excel:
-- Xuất danh sách thuốc ra file Excel theo mẫu chuẩn
-- Nhập danh sách thuốc từ file Excel vào hệ thống
-- Hỗ trợ cập nhật hàng loạt thông tin thuốc qua file Excel
+**Mô tả**: Hiện tại, chức năng tìm kiếm thuốc chỉ hỗ trợ tìm kiếm theo tên, mã, loại thuốc và nhà sản xuất. Chúng tôi đề xuất thêm tính năng lọc thuốc theo khoảng giá và hạn sử dụng:
+- Lọc theo khoảng giá (từ giá - đến giá)
+- Lọc theo hạn sử dụng (còn hạn, sắp hết hạn, hết hạn)
+- Lọc theo khoảng thời gian hạn sử dụng (từ ngày - đến ngày)
 
-**Lợi ích**: Giúp người dùng quản lý thuốc hàng loạt, tiết kiệm thời gian, đặc biệt là khi cần thêm nhiều thuốc cùng lúc hoặc cập nhật thông tin hàng loạt.
+**Lợi ích**: Giúp người dùng tìm kiếm thuốc theo khoảng giá và hạn sử dụng, đặc biệt hữu ích khi cần tìm thuốc trong một khoảng giá cụ thể hoặc cần kiểm tra thuốc sắp hết hạn.
 
 **Cách triển khai**:
-1. Tạo mẫu file Excel chuẩn cho danh sách thuốc
-2. Phát triển tính năng xuất danh sách thuốc ra file Excel
-3. Phát triển tính năng nhập danh sách thuốc từ file Excel
-4. Phát triển tính năng kiểm tra và xác thực dữ liệu từ file Excel
+1. Thêm các trường lọc khoảng giá vào form tìm kiếm thuốc
+2. Thêm các trường lọc hạn sử dụng vào form tìm kiếm thuốc
+3. Cập nhật API tìm kiếm thuốc để hỗ trợ các tiêu chí lọc mới
+4. Cập nhật giao diện hiển thị kết quả tìm kiếm
 
 ##### FE_003: Thêm tính năng quét mã vạch để tìm kiếm thuốc
 

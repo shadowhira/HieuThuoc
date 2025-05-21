@@ -539,7 +539,6 @@ Kế hoạch tiếp theo bao gồm:
 
 1. Triển khai các đề xuất cải tiến đã nêu:
    - Thêm tính năng lọc thuốc theo nhiều tiêu chí hơn
-   - Thêm tính năng xuất/nhập danh sách thuốc từ/vào file Excel
    - Tối ưu hóa truy vấn cơ sở dữ liệu để tăng tốc độ tìm kiếm
    - Cải thiện giao diện người dùng trên thiết bị di động
    - Tăng cường kiểm tra quyền truy cập
@@ -598,6 +597,7 @@ Biểu đồ tổng hợp kết quả kiểm thử được lưu trữ trong th�
 2. **Tài liệu kiểm thử**:
    - [Kế hoạch triển khai kiểm thử](../../Ke_Hoach_Trien_Khai_Kiem_Thu.md)
    - [Tài liệu kiểm thử tổng hợp](../../Tai_Lieu_Kiem_Thu_Tong_Hop.md)
+   - [Kế hoạch bổ sung testcase](../Ke_Hoach_Bo_Sung_Testcase.md)
 
 3. **Tài liệu công cụ kiểm thử**:
    - [Tài liệu JUnit](https://junit.org/junit5/docs/current/user-guide/)
