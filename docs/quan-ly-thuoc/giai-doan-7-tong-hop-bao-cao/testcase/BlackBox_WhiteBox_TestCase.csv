@@ -1,0 +1,233 @@
+Function Name,Kiểm thử hộp đen và hộp trắng - Quản lý thuốc,,,,,
+Test Result,Java,,,,,
+Total,41,,,,,
+Passed,38,,,,,
+Failed,3,,,,,
+Not Run,0,,,,,
+NA,0,,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Java,,
+"I. Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên",,,,,,
+BV_001,"Kiểm thử thêm thuốc với tên thuốc = 1 ký tự (biên dưới)","1. Tạo đối tượng ThuocDTO với tên thuốc = 1 ký tự (""A"")
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_002,"Kiểm thử thêm thuốc với tên thuốc = 2 ký tự (biên dưới + 1)","1. Tạo đối tượng ThuocDTO với tên thuốc = 2 ký tự (""AB"")
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_003,"Kiểm thử thêm thuốc với tên thuốc = 99 ký tự (biên trên - 1)","1. Tạo đối tượng ThuocDTO với tên thuốc = 99 ký tự
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_004,"Kiểm thử thêm thuốc với tên thuốc = 100 ký tự (biên trên)","1. Tạo đối tượng ThuocDTO với tên thuốc = 100 ký tự
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_005,"Kiểm thử thêm thuốc với tên thuốc = 101 ký tự (biên trên + 1)","1. Tạo đối tượng ThuocDTO với tên thuốc = 101 ký tự
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Tên thuốc không hợp lệ""
+- data = null",Passed,,
+BV_006,"Kiểm thử thêm thuốc với giá nhập = 0 (biên dưới)","1. Tạo đối tượng ThuocDTO với giá nhập = 0
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_007,"Kiểm thử thêm thuốc với giá nhập = -1 (biên dưới - 1)","1. Tạo đối tượng ThuocDTO với giá nhập = -1
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Giá nhập không hợp lệ""
+- data = null",Passed,,
+BV_008,"Kiểm thử thêm thuốc với giá nhập = 999999999 (biên trên)","1. Tạo đối tượng ThuocDTO với giá nhập = 999999999
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_009,"Kiểm thử thêm thuốc với giá nhập = 1000000000 (biên trên + 1)","1. Tạo đối tượng ThuocDTO với giá nhập = 1000000000
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Giá nhập không hợp lệ""
+- data = null",Passed,,
+BV_010,"Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại (biên dưới)","1. Tạo đối tượng ThuocDTO với hạn sử dụng = ngày hiện tại
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_011,"Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại - 1 ngày (biên dưới - 1)","1. Tạo đối tượng ThuocDTO với hạn sử dụng = ngày hiện tại - 1 ngày
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Hạn sử dụng không hợp lệ""
+- data = null",Passed,,
+BV_012,"Kiểm thử thêm thuốc với hạn sử dụng = ngày hiện tại + 1 ngày (biên dưới + 1)","1. Tạo đối tượng ThuocDTO với hạn sử dụng = ngày hiện tại + 1 ngày
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_013,"Kiểm thử thêm thuốc với hạn sử dụng = 10 năm sau (biên trên)","1. Tạo đối tượng ThuocDTO với hạn sử dụng = 10 năm sau
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+BV_014,"Kiểm thử thêm thuốc với hạn sử dụng = 10 năm + 1 ngày sau (biên trên + 1)","1. Tạo đối tượng ThuocDTO với hạn sử dụng = 10 năm + 1 ngày sau
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Hạn sử dụng không hợp lệ""
+- data = null",Passed,,
+BV_015,"Kiểm thử thêm thuốc với số lượng = 2147483647 (Integer.MAX_VALUE)","1. Tạo đối tượng ThuocDTO với số lượng = 2147483647
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+"II. Kiểm thử hộp đen - Bảng quyết định",,,,,,
+DT_001,"Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với tất cả các trường hợp lệ
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo",Passed,,
+DT_002,"Kiểm thử thêm thuốc với (tên không hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với tên thuốc không hợp lệ (rỗng)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Tên thuốc không hợp lệ""
+- data = null",Passed,,
+DT_003,"Kiểm thử thêm thuốc với (tên hợp lệ, mã không hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với mã thuốc không hợp lệ (rỗng)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Mã thuốc không hợp lệ""
+- data = null",Passed,,
+DT_004,"Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập không hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với giá nhập không hợp lệ (-1)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Giá nhập không hợp lệ""
+- data = null",Passed,,
+DT_005,"Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán không hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với giá bán không hợp lệ (-1)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Giá bán không hợp lệ""
+- data = null",Passed,,
+DT_006,"Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng không hợp lệ)","1. Tạo đối tượng ThuocDTO với hạn sử dụng không hợp lệ (quá khứ)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Hạn sử dụng không hợp lệ""
+- data = null",Passed,,
+DT_007,"Kiểm thử thêm thuốc với (tên không hợp lệ, mã không hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với tên thuốc và mã thuốc không hợp lệ (rỗng)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Tên thuốc không hợp lệ""
+- data = null",Passed,,
+DT_008,"Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập không hợp lệ, giá bán không hợp lệ, hạn sử dụng hợp lệ)","1. Tạo đối tượng ThuocDTO với giá nhập và giá bán không hợp lệ (-1)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Giá nhập không hợp lệ""
+- data = null",Passed,,
+DT_009,"Kiểm thử thêm thuốc với (tên hợp lệ, mã hợp lệ, giá nhập hợp lệ, giá bán hợp lệ, hạn sử dụng không hợp lệ, loại thuốc không tồn tại)","1. Tạo đối tượng ThuocDTO với hạn sử dụng không hợp lệ (quá khứ) và loại thuốc không tồn tại
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Hạn sử dụng không hợp lệ""
+- data = null",Passed,,
+DT_010,"Kiểm thử thêm thuốc với (tên không hợp lệ, mã không hợp lệ, giá nhập không hợp lệ, giá bán không hợp lệ, hạn sử dụng không hợp lệ)","1. Tạo đối tượng ThuocDTO với tất cả các trường không hợp lệ
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Tên thuốc không hợp lệ""
+- data = null",Passed,,
+"III. Kiểm thử hộp đen - Kiểm thử trạng thái",,,,,,
+ST_001,"Kiểm thử chuyển trạng thái thuốc từ 'Còn hàng' sang 'Sắp hết hàng' khi số lượng < nguongCanhBao","1. Tạo đối tượng Thuoc với trạng thái 'Còn hàng', số lượng = 100, ngưỡng cảnh báo = 20
+2. Tạo đối tượng ThuocDTO để cập nhật với số lượng = 15 (< ngưỡng cảnh báo)
+3. Gọi phương thức update() của ThuocService","3. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật với số lượng = 15 và trạng thái vẫn là true (còn hàng) nhưng có cảnh báo",Passed,,
+ST_002,"Kiểm thử chuyển trạng thái thuốc từ 'Sắp hết hàng' sang 'Hết hàng' khi số lượng = 0","1. Tạo đối tượng Thuoc với trạng thái 'Sắp hết hàng', số lượng = 15, ngưỡng cảnh báo = 20
+2. Tạo đối tượng ThuocDTO để cập nhật với số lượng = 0
+3. Gọi phương thức update() của ThuocService","3. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật với số lượng = 0 và trạng thái = false (hết hàng)",Passed,,
+ST_003,"Kiểm thử chuyển trạng thái thuốc từ 'Hết hàng' sang 'Còn hàng' khi nhập thêm hàng","1. Tạo đối tượng Thuoc với trạng thái 'Hết hàng', số lượng = 0, ngưỡng cảnh báo = 20
+2. Tạo đối tượng ThuocDTO để cập nhật với số lượng = 50
+3. Gọi phương thức update() của ThuocService","3. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật với số lượng = 50 và trạng thái = true (còn hàng)",Passed,,
+ST_004,"Kiểm thử chuyển trạng thái thuốc từ 'Còn hạn' sang 'Sắp hết hạn' khi còn 30 ngày","1. Tạo đối tượng Thuoc với hạn sử dụng còn 60 ngày
+2. Tạo đối tượng ThuocDTO để cập nhật với hạn sử dụng còn 25 ngày
+3. Gọi phương thức update() của ThuocService","3. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật với hạn sử dụng còn 25 ngày và có cảnh báo",Passed,,
+ST_005,"Kiểm thử chuyển trạng thái thuốc từ 'Sắp hết hạn' sang 'Hết hạn' khi đến ngày hết hạn","1. Tạo đối tượng Thuoc với hạn sử dụng còn 15 ngày
+2. Tạo đối tượng ThuocDTO để cập nhật với hạn sử dụng = ngày hiện tại
+3. Gọi phương thức update() của ThuocService","3. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật với hạn sử dụng = ngày hiện tại và có cảnh báo hết hạn",Passed,,
+ST_006,"Kiểm thử chuyển trạng thái thuốc từ 'Hết hạn' sang 'Còn hạn' khi cập nhật hạn sử dụng mới","1. Tạo đối tượng Thuoc với hạn sử dụng đã qua 1 ngày
+2. Tạo đối tượng ThuocDTO để cập nhật với hạn sử dụng = 1 năm sau
+3. Gọi phương thức update() của ThuocService","3. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật với hạn sử dụng = 1 năm sau",Passed,,
+"IV. Kiểm thử hộp trắng - Kiểm thử đường dẫn",,,,,,
+PC_001,"Kiểm thử đường dẫn trong phương thức create() khi tất cả điều kiện đều true","1. Tạo đối tượng ThuocDTO với tất cả các trường hợp lệ
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được tạo
+- Các phương thức được gọi: existsByMaThuoc, existsByTenThuoc, findById (loại thuốc), findById (nhà sản xuất), save",Passed,,
+PC_002,"Kiểm thử đường dẫn trong phương thức create() khi điều kiện kiểm tra mã thuốc đã tồn tại là true","1. Tạo đối tượng ThuocDTO với mã thuốc đã tồn tại
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 409
+- msg = ""Mã thuốc đã tồn tại""
+- data = null
+- Các phương thức được gọi: existsByMaThuoc",Passed,,
+PC_003,"Kiểm thử đường dẫn trong phương thức create() khi điều kiện kiểm tra tên thuốc hợp lệ là false","1. Tạo đối tượng ThuocDTO với tên thuốc không hợp lệ (rỗng)
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Tên thuốc không hợp lệ""
+- data = null
+- Các phương thức được gọi: existsByMaThuoc, existsByTenThuoc",Passed,,
+PC_004,"Kiểm thử đường dẫn trong phương thức update() khi tất cả điều kiện đều true","1. Tạo đối tượng ThuocDTO với ID tồn tại và tất cả các trường hợp lệ
+2. Gọi phương thức update() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = đối tượng Thuoc đã được cập nhật
+- Các phương thức được gọi: findById, findById (loại thuốc), findById (nhà sản xuất), save",Passed,,
+PC_005,"Kiểm thử đường dẫn trong phương thức update() khi điều kiện kiểm tra ID thuốc tồn tại là false","1. Tạo đối tượng ThuocDTO với ID không tồn tại
+2. Gọi phương thức update() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 409
+- msg = ""Không tìm thấy thuốc""
+- data = null
+- Các phương thức được gọi: findById",Passed,,
+PC_006,"Kiểm thử đường dẫn trong phương thức update() khi điều kiện kiểm tra mã thuốc đã tồn tại là true","1. Tạo đối tượng ThuocDTO với ID tồn tại và mã thuốc đã tồn tại ở thuốc khác
+2. Gọi phương thức update() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 409
+- msg = ""Mã thuốc đã tồn tại""
+- data = null
+- Các phương thức được gọi: findById, existsByMaThuoc, findByMaThuoc",Failed,,
+PC_007,"Kiểm thử đường dẫn trong phương thức delete() khi điều kiện kiểm tra ID thuốc tồn tại là true","1. Gọi phương thức delete() của ThuocService với ID tồn tại","1. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = null
+- Các phương thức được gọi: existsById, deleteById",Passed,,
+PC_008,"Kiểm thử đường dẫn trong phương thức delete() khi điều kiện kiểm tra ID thuốc tồn tại là false","1. Gọi phương thức delete() của ThuocService với ID không tồn tại","1. Phương thức trả về ResponseDTO với:
+- status = 409
+- msg = ""Không tìm thấy thuốc""
+- data = null
+- Các phương thức được gọi: existsById",Passed,,
+PC_009,"Kiểm thử đường dẫn trong phương thức search() với nhiều điều kiện tìm kiếm","1. Tạo đối tượng SearchThuocDTO với nhiều điều kiện tìm kiếm
+2. Gọi phương thức search() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 200
+- msg = ""Thành công""
+- data = PageDTO chứa danh sách thuốc
+- Các phương thức được gọi: search",Passed,,
+PC_010,"Kiểm thử đường dẫn trong phương thức validateThuoc() với các nhánh điều kiện khác nhau","1. Tạo đối tượng ThuocDTO với nhiều trường không hợp lệ
+2. Gọi phương thức create() của ThuocService","2. Phương thức trả về ResponseDTO với:
+- status = 400
+- msg = ""Tên thuốc không hợp lệ"" (lỗi đầu tiên được phát hiện)
+- data = null
+- Các phương thức được gọi: existsByMaThuoc, existsByTenThuoc",Failed,,
