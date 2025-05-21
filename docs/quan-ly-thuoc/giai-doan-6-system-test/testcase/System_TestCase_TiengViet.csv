@@ -1,0 +1,115 @@
+ID,Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+"I. Kiểm thử luồng nghiệp vụ (End-to-End Testing)",,,,,,
+E2E_001,"Kiểm tra luồng thêm thuốc mới","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Nhấn nút ""Thêm thuốc""
+4. Nhập đầy đủ thông tin thuốc mới
+5. Nhấn nút ""Thêm""
+6. Kiểm tra thông báo thành công
+7. Kiểm tra quay lại trang danh sách
+8. Tìm kiếm thuốc vừa thêm","1. Đăng nhập thành công
+2. Hiển thị trang Quản lý thuốc
+3. Hiển thị form thêm mới thuốc
+4. Nhập thông tin thành công
+5. Gửi request thêm thuốc
+6. Hiển thị thông báo thêm thuốc thành công
+7. Quay lại trang danh sách thuốc
+8. Tìm thấy thuốc vừa thêm trong danh sách",Pass,Not Run,"Đã chạy thành công trên Chrome"
+E2E_002,"Kiểm tra luồng sửa thông tin thuốc","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Tìm kiếm thuốc cần sửa
+4. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
+5. Sửa thông tin thuốc
+6. Nhấn nút ""Cập nhật""
+7. Kiểm tra thông báo thành công
+8. Kiểm tra quay lại trang danh sách
+9. Tìm kiếm thuốc vừa sửa","1. Đăng nhập thành công
+2. Hiển thị trang Quản lý thuốc
+3. Tìm thấy thuốc cần sửa
+4. Hiển thị form sửa thuốc
+5. Sửa thông tin thành công
+6. Gửi request cập nhật thuốc
+7. Hiển thị thông báo cập nhật thuốc thành công
+8. Quay lại trang danh sách thuốc
+9. Tìm thấy thuốc với thông tin đã cập nhật",Pass,Not Run,"Đã chạy thành công trên Chrome"
+E2E_003,"Kiểm tra luồng xóa thuốc","1. Đăng nhập vào hệ thống với tài khoản admin
+2. Truy cập vào trang Quản lý thuốc (/sys/product)
+3. Tìm kiếm thuốc cần xóa
+4. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+5. Xác nhận xóa
+6. Kiểm tra thông báo thành công
+7. Tìm kiếm thuốc vừa xóa","1. Đăng nhập thành công
+2. Hiển thị trang Quản lý thuốc
+3. Tìm thấy thuốc cần xóa
+4. Hiển thị hộp thoại xác nhận xóa
+5. Gửi request xóa thuốc
+6. Hiển thị thông báo xóa thuốc thành công
+7. Không tìm thấy thuốc đã xóa trong danh sách",Pass,Not Run,"Đã chạy thành công trên Chrome"
+"II. Kiểm thử hiệu năng (Performance Testing)",,,,,,
+PERF_001,"Kiểm tra hiệu năng API danh sách thuốc","1. Chuẩn bị JMeter Test Plan
+2. Cấu hình Thread Group với 10 người dùng, ramp-up 5 giây, lặp lại 5 lần
+3. Thêm HTTP Request cho API lấy danh sách thuốc
+4. Chạy Test Plan
+5. Phân tích kết quả","1. JMeter Test Plan được chuẩn bị
+2. Thread Group được cấu hình
+3. HTTP Request được thêm
+4. Test Plan chạy thành công
+5. Thời gian phản hồi trung bình < 500ms
+   Thông lượng > 10 request/giây
+   Tỷ lệ lỗi = 0%",Pass,Not Run,"Đã tạo và chạy JMeter Test Plan"
+PERF_002,"Kiểm tra hiệu năng API tìm kiếm thuốc","1. Chuẩn bị JMeter Test Plan
+2. Cấu hình Thread Group với 10 người dùng, ramp-up 5 giây, lặp lại 5 lần
+3. Thêm HTTP Request cho API tìm kiếm thuốc
+4. Chạy Test Plan
+5. Phân tích kết quả","1. JMeter Test Plan được chuẩn bị
+2. Thread Group được cấu hình
+3. HTTP Request được thêm
+4. Test Plan chạy thành công
+5. Thời gian phản hồi trung bình < 500ms
+   Thông lượng > 10 request/giây
+   Tỷ lệ lỗi = 0%",Pass,Not Run,"Đã tạo và chạy JMeter Test Plan"
+PERF_003,"Kiểm tra hiệu năng API thêm thuốc","1. Chuẩn bị JMeter Test Plan
+2. Cấu hình Thread Group với 5 người dùng, ramp-up 5 giây, lặp lại 3 lần
+3. Thêm HTTP Request cho API thêm thuốc
+4. Chạy Test Plan
+5. Phân tích kết quả","1. JMeter Test Plan được chuẩn bị
+2. Thread Group được cấu hình
+3. HTTP Request được thêm
+4. Test Plan chạy thành công
+5. Thời gian phản hồi trung bình < 1000ms
+   Thông lượng > 5 request/giây
+   Tỷ lệ lỗi = 0%",Pass,Not Run,"Đã tạo và chạy JMeter Test Plan"
+PERF_004,"Kiểm tra hiệu năng API sửa thuốc","1. Chuẩn bị JMeter Test Plan
+2. Cấu hình Thread Group với 5 người dùng, ramp-up 5 giây, lặp lại 3 lần
+3. Thêm HTTP Request cho API sửa thuốc
+4. Chạy Test Plan
+5. Phân tích kết quả","1. JMeter Test Plan được chuẩn bị
+2. Thread Group được cấu hình
+3. HTTP Request được thêm
+4. Test Plan chạy thành công
+5. Thời gian phản hồi trung bình < 1000ms
+   Thông lượng > 5 request/giây
+   Tỷ lệ lỗi = 0%",Pass,Not Run,"Đã tạo và chạy JMeter Test Plan"
+PERF_005,"Kiểm tra hiệu năng API xóa thuốc","1. Chuẩn bị JMeter Test Plan
+2. Cấu hình Thread Group với 5 người dùng, ramp-up 5 giây, lặp lại 3 lần
+3. Thêm HTTP Request cho API xóa thuốc
+4. Chạy Test Plan
+5. Phân tích kết quả","1. JMeter Test Plan được chuẩn bị
+2. Thread Group được cấu hình
+3. HTTP Request được thêm
+4. Test Plan chạy thành công
+5. Thời gian phản hồi trung bình < 1000ms
+   Thông lượng > 5 request/giây
+   Tỷ lệ lỗi = 0%",Pass,Not Run,"Đã tạo và chạy JMeter Test Plan"
+"III. Kiểm thử tương thích (Compatibility Testing)",,,,,,
+COMP_001,"Kiểm tra tương thích trên Chrome","1. Cấu hình BrowserStack với trình duyệt Chrome
+2. Chạy test case End-to-End trên Chrome
+3. Phân tích kết quả","1. BrowserStack được cấu hình
+2. Test case chạy thành công
+3. Tất cả test case đều pass trên Chrome",Pass,Not Run,"Đã chạy thành công trên Chrome"
+COMP_002,"Kiểm tra tương thích trên Edge","1. Cấu hình BrowserStack với trình duyệt Edge
+2. Chạy test case End-to-End trên Edge
+3. Phân tích kết quả","1. BrowserStack được cấu hình
+2. Test case chạy thành công
+3. Tất cả test case đều pass trên Edge",Not Run,Not Run,"Chưa thực hiện do không có Edge"

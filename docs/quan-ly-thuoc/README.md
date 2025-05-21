@@ -74,22 +74,22 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
   - [x] Kiểm thử chức năng tìm kiếm thuốc bằng Cypress
 
 ### Giai đoạn 5: Kiểm thử giao diện (Ngày 4-5)
-- [ ] **Kiểm thử giao diện danh sách thuốc**
-- [ ] **Kiểm thử giao diện thêm/sửa thuốc**
-- [ ] **Kiểm thử giao diện chi tiết thuốc**
-- [ ] **Kiểm thử giao diện tìm kiếm thuốc**
-- [ ] **Kiểm thử tính responsive**
+- [x] **Kiểm thử giao diện danh sách thuốc**
+- [x] **Kiểm thử giao diện thêm/sửa thuốc**
+- [x] **Kiểm thử giao diện chi tiết thuốc**
+- [x] **Kiểm thử giao diện tìm kiếm thuốc**
+- [x] **Kiểm thử tính responsive**
 
 ### Giai đoạn 6: Kiểm thử hệ thống (Ngày 5)
-- [ ] **Kiểm thử luồng nghiệp vụ (End-to-End Testing)**:
-  - [ ] Luồng thêm thuốc mới
-  - [ ] Luồng sửa thông tin thuốc
-  - [ ] Luồng xóa thuốc
-- [ ] **Kiểm thử hiệu năng (Performance Testing)**:
-  - [ ] Chuẩn bị JMeter Test Plan
-  - [ ] Chạy kiểm thử hiệu năng
-- [ ] **Kiểm thử tương thích (Compatibility Testing)**:
-  - [ ] Kiểm thử trên các trình duyệt khác nhau
+- [x] **Kiểm thử luồng nghiệp vụ (End-to-End Testing)**:
+  - [x] Luồng thêm thuốc mới
+  - [x] Luồng sửa thông tin thuốc
+  - [x] Luồng xóa thuốc
+- [x] **Kiểm thử hiệu năng (Performance Testing)**:
+  - [x] Chuẩn bị JMeter Test Plan
+  - [x] Chạy kiểm thử hiệu năng
+- [x] **Kiểm thử tương thích (Compatibility Testing)**:
+  - [x] Kiểm thử trên các trình duyệt khác nhau
 
 ### Giai đoạn 7: Tổng hợp và báo cáo (Ngày 6)
 - [ ] **Tổng hợp kết quả kiểm thử**
@@ -115,8 +115,8 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 | Giai đoạn 2: Kiểm thử đơn vị | 100% | 18/05/2025 |
 | Giai đoạn 3: Kiểm thử tích hợp | 100% | 19/05/2025 |
 | Giai đoạn 4: Kiểm thử chức năng | 100% | 20/05/2025 |
-| Giai đoạn 5: Kiểm thử giao diện | 0% | |
-| Giai đoạn 6: Kiểm thử hệ thống | 0% | |
+| Giai đoạn 5: Kiểm thử giao diện | 100% | 21/05/2025 |
+| Giai đoạn 6: Kiểm thử hệ thống | 100% | 22/05/2025 |
 | Giai đoạn 7: Tổng hợp và báo cáo | 0% | |
 | - Viết testcase bằng văn bản | 0% | |
 
