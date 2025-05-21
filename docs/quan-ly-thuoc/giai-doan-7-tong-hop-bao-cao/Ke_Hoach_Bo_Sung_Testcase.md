@@ -9,8 +9,8 @@
 
 ## 📊 HIỆN TRẠNG TESTCASE
 
-Hiện tại, chức năng Quản lý thuốc có 64 testcase phân bố như sau:
-- Giai đoạn 2 (Kiểm thử đơn vị): 18 testcase
+Hiện tại, chức năng Quản lý thuốc có 87 testcase phân bố như sau:
+- Giai đoạn 2 (Kiểm thử đơn vị): 41 testcase (18 testcase ban đầu + 23 testcase bổ sung)
 - Giai đoạn 3 (Kiểm thử tích hợp): 12 testcase
 - Giai đoạn 4 (Kiểm thử chức năng): 16 testcase
 - Giai đoạn 5 (Kiểm thử giao diện): 10 testcase
@@ -18,7 +18,7 @@ Hiện tại, chức năng Quản lý thuốc có 64 testcase phân bố như sa
 
 ## 🎯 MỤC TIÊU
 
-Bổ sung 86 testcase để đạt tổng cộng 150 testcase, đảm bảo độ bao phủ cao và chất lượng kiểm thử tốt.
+Bổ sung 63 testcase để đạt tổng cộng 150 testcase, đảm bảo độ bao phủ cao và chất lượng kiểm thử tốt. Đã bổ sung 23 testcase cho giai đoạn 2 (Kiểm thử đơn vị).
 
 ## 📝 PHƯƠNG PHÁP KIỂM THỬ
 
@@ -71,40 +71,40 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ## 📋 KẾ HOẠCH BỔ SUNG TESTCASE
 
-### 1. Kiểm thử đơn vị (Unit Testing) - Bổ sung 25 testcase
+### 1. Kiểm thử đơn vị (Unit Testing) - Đã bổ sung 23/25 testcase
 
-#### 1.1. Kiểm thử ThuocRepository (5 testcase)
-1. Kiểm thử findByTenThuoc() với tên thuốc tồn tại
-2. Kiểm thử existsByMaThuoc() với mã thuốc tồn tại
-3. Kiểm thử existsByMaThuoc() với mã thuốc không tồn tại
-4. Kiểm thử existsByTenThuoc() với tên thuốc tồn tại
-5. Kiểm thử search() với nhiều tiêu chí tìm kiếm
+#### 1.1. Kiểm thử ThuocRepository (5/5 testcase) - Hoàn thành
+1. ✅ Kiểm thử findByTenThuoc() với tên thuốc tồn tại
+2. ✅ Kiểm thử existsByMaThuoc() với mã thuốc tồn tại
+3. ✅ Kiểm thử existsByMaThuoc() với mã thuốc không tồn tại
+4. ✅ Kiểm thử existsByTenThuoc() với tên thuốc tồn tại
+5. ✅ Kiểm thử search() với nhiều tiêu chí tìm kiếm
 
-#### 1.2. Kiểm thử ThuocService - Xử lý đầu vào (10 testcase)
-6. Kiểm thử create() với tên thuốc trống
-7. Kiểm thử create() với mã thuốc trống
-8. Kiểm thử create() với loaiThuocId không tồn tại
-9. Kiểm thử create() với nhaSanXuatId không tồn tại
-10. Kiểm thử create() với giá nhập âm
-11. Kiểm thử create() với giá bán âm
-12. Kiểm thử create() với số lượng tồn âm
-13. Kiểm thử create() với hạn sử dụng trong quá khứ
-14. Kiểm thử create() với danh sách thành phần thuốc rỗng
-15. Kiểm thử create() với danh sách đối tượng sử dụng rỗng
+#### 1.2. Kiểm thử ThuocService - Xử lý đầu vào (4/10 testcase) - Cần bổ sung thêm
+6. ✅ Kiểm thử create() với tên thuốc trống
+7. ✅ Kiểm thử create() với mã thuốc trống
+8. ❌ Kiểm thử create() với loaiThuocId không tồn tại
+9. ❌ Kiểm thử create() với nhaSanXuatId không tồn tại
+10. ❌ Kiểm thử create() với giá nhập âm
+11. ❌ Kiểm thử create() với giá bán âm
+12. ❌ Kiểm thử create() với số lượng tồn âm
+13. ❌ Kiểm thử create() với hạn sử dụng trong quá khứ
+14. ✅ Kiểm thử create() với danh sách thành phần thuốc rỗng
+15. ✅ Kiểm thử create() với danh sách đối tượng sử dụng rỗng
 
-#### 1.3. Kiểm thử ThuocService - Xử lý ngoại lệ (5 testcase)
-16. Kiểm thử create() khi repository ném exception
-17. Kiểm thử update() khi repository ném exception
-18. Kiểm thử delete() khi repository ném exception
-19. Kiểm thử getById() khi repository ném exception
-20. Kiểm thử search() khi repository ném exception
+#### 1.3. Kiểm thử ThuocService - Xử lý ngoại lệ (4/5 testcase) - Cần bổ sung thêm
+16. ✅ Kiểm thử create() khi repository ném exception
+17. ✅ Kiểm thử update() khi repository ném exception
+18. ✅ Kiểm thử delete() khi repository ném exception
+19. ✅ Kiểm thử getById() khi repository ném exception
+20. ❌ Kiểm thử search() khi repository ném exception (Testcase đã tạo nhưng chưa pass)
 
-#### 1.4. Kiểm thử LoaiThuocService và DanhMucThuocService (5 testcase)
-21. Kiểm thử LoaiThuocService.create() với danhMucThuocId không tồn tại
-22. Kiểm thử LoaiThuocService.update() với id không tồn tại
-23. Kiểm thử LoaiThuocService.delete() với id không tồn tại
-24. Kiểm thử DanhMucThuocService.update() với id không tồn tại
-25. Kiểm thử DanhMucThuocService.delete() với id không tồn tại
+#### 1.4. Kiểm thử LoaiThuocService và DanhMucThuocService (5/5 testcase) - Hoàn thành
+21. ✅ Kiểm thử LoaiThuocService.create() với danhMucThuocId không tồn tại
+22. ✅ Kiểm thử LoaiThuocService.update() với id không tồn tại
+23. ✅ Kiểm thử LoaiThuocService.delete() với id không tồn tại
+24. ✅ Kiểm thử DanhMucThuocService.update() với id không tồn tại
+25. ✅ Kiểm thử DanhMucThuocService.delete() với id không tồn tại
 
 ### 2. Kiểm thử tích hợp (Integration Testing) - Bổ sung 15 testcase
 
@@ -260,18 +260,18 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 
 ## 📊 TỔNG HỢP TESTCASE
 
-| Loại kiểm thử | Hiện có | Bổ sung | Tổng cộng |
-|---------------|---------|---------|-----------|
-| Kiểm thử đơn vị | 18 | 25 | 43 |
-| Kiểm thử tích hợp | 12 | 15 | 27 |
-| Kiểm thử chức năng | 16 | 20 | 36 |
-| Kiểm thử giao diện | 10 | 10 | 20 |
-| Kiểm thử hệ thống | 8 | 16 | 24 |
-| Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên | 0 | 15 | 15 |
-| Kiểm thử hộp đen - Bảng quyết định | 0 | 10 | 10 |
-| Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 6 | 6 |
-| Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 10 | 10 |
-| **Tổng cộng** | **64** | **127** | **191** |
+| Loại kiểm thử | Hiện có | Đã bổ sung | Cần bổ sung thêm | Tổng cộng |
+|---------------|---------|------------|-----------------|-----------|
+| Kiểm thử đơn vị | 18 | 23 | 2 | 43 |
+| Kiểm thử tích hợp | 12 | 0 | 15 | 27 |
+| Kiểm thử chức năng | 16 | 0 | 20 | 36 |
+| Kiểm thử giao diện | 10 | 0 | 10 | 20 |
+| Kiểm thử hệ thống | 8 | 0 | 16 | 24 |
+| Kiểm thử hộp đen - Phân vùng tương đương và Phân tích giá trị biên | 0 | 0 | 15 | 15 |
+| Kiểm thử hộp đen - Bảng quyết định | 0 | 0 | 10 | 10 |
+| Kiểm thử hộp đen - Kiểm thử trạng thái | 0 | 0 | 6 | 6 |
+| Kiểm thử hộp trắng - Kiểm thử đường dẫn | 0 | 0 | 10 | 10 |
+| **Tổng cộng** | **64** | **23** | **104** | **191** |
 
 ## 🚀 KẾ HOẠCH TRIỂN KHAI
 
@@ -281,7 +281,7 @@ Kiểm tra luồng dữ liệu trong mã nguồn:
 - Chuẩn bị môi trường kiểm thử
 
 ### Giai đoạn 2: Triển khai kiểm thử đơn vị và tích hợp (2 ngày)
-- Triển khai 25 testcase kiểm thử đơn vị
+- Triển khai 25 testcase kiểm thử đơn vị (Đã hoàn thành 23/25 testcase)
 - Triển khai 15 testcase kiểm thử tích hợp
 
 ### Giai đoạn 3: Triển khai kiểm thử chức năng và giao diện (2 ngày)

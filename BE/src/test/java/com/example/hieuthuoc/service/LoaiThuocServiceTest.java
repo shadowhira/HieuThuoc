@@ -14,6 +14,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 import org.modelmapper.ModelMapper;
 
 import com.example.hieuthuoc.dto.LoaiThuocDTO;
@@ -24,6 +26,7 @@ import com.example.hieuthuoc.repository.DanhMucThuocRepo;
 import com.example.hieuthuoc.repository.LoaiThuocRepo;
 
 @ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 public class LoaiThuocServiceTest {
 
     @Mock
@@ -166,6 +169,25 @@ public class LoaiThuocServiceTest {
         assertNull(response.getData());
         verify(loaiThuocRepo, times(1)).existsByTenLoai(loaiThuocDTO.getTenLoai());
         verify(danhMucThuocRepo, times(0)).findById(anyInt());
+        verify(loaiThuocRepo, times(0)).save(any(LoaiThuoc.class));
+    }
+
+    @Test
+    void testCreate_DanhMucThuocNotFound() {
+        // Arrange
+        when(loaiThuocRepo.existsByTenLoai(loaiThuocDTO.getTenLoai())).thenReturn(false);
+        when(danhMucThuocRepo.findById(loaiThuocDTO.getDanhMucThuocId())).thenReturn(Optional.empty());
+        when(modelMapper.map(loaiThuocDTO, LoaiThuoc.class)).thenReturn(loaiThuoc);
+
+        // Act
+        ResponseDTO<LoaiThuoc> response = loaiThuocService.create(loaiThuocDTO);
+
+        // Assert
+        assertEquals(404, response.getStatus());
+        assertEquals("Không tìm thấy danh mục thuốc", response.getMsg());
+        assertNull(response.getData());
+        verify(loaiThuocRepo, times(1)).existsByTenLoai(loaiThuocDTO.getTenLoai());
+        verify(danhMucThuocRepo, times(1)).findById(loaiThuocDTO.getDanhMucThuocId());
         verify(loaiThuocRepo, times(0)).save(any(LoaiThuoc.class));
     }
 

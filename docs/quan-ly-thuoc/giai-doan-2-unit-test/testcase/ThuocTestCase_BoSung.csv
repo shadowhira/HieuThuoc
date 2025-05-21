@@ -1,0 +1,100 @@
+ID,Tên testcase,Mô tả,Điều kiện tiên quyết,Các bước thực hiện,Kết quả mong đợi,Kết quả thực tế,Trạng thái,Ghi chú
+1,ThuocRepoTest_findByTenThuoc_WithExistingName,Kiểm thử phương thức findByTenThuoc() với tên thuốc tồn tại,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về Page<Thuoc> khi gọi findByTenThuoc()
+3. Gọi phương thức findByTenThuoc() với tên thuốc tồn tại","1. Kết quả trả về không null
+2. Tổng số phần tử là 1
+3. Tên thuốc trong kết quả đúng với tên thuốc tìm kiếm",Đúng như mong đợi,Pass,
+2,ThuocRepoTest_existsByMaThuoc_WithExistingCode,Kiểm thử phương thức existsByMaThuoc() với mã thuốc tồn tại,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về true khi gọi existsByMaThuoc()
+3. Gọi phương thức existsByMaThuoc() với mã thuốc tồn tại","1. Kết quả trả về là true",Đúng như mong đợi,Pass,
+3,ThuocRepoTest_existsByMaThuoc_WithNonExistingCode,Kiểm thử phương thức existsByMaThuoc() với mã thuốc không tồn tại,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về false khi gọi existsByMaThuoc()
+3. Gọi phương thức existsByMaThuoc() với mã thuốc không tồn tại","1. Kết quả trả về là false",Đúng như mong đợi,Pass,
+4,ThuocRepoTest_existsByTenThuoc_WithExistingName,Kiểm thử phương thức existsByTenThuoc() với tên thuốc tồn tại,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về true khi gọi existsByTenThuoc()
+3. Gọi phương thức existsByTenThuoc() với tên thuốc tồn tại","1. Kết quả trả về là true",Đúng như mong đợi,Pass,
+5,ThuocRepoTest_search_WithMultipleCriteria,Kiểm thử phương thức search() với nhiều tiêu chí tìm kiếm,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về Page<Thuoc> khi gọi search()
+3. Gọi phương thức search() với nhiều tiêu chí tìm kiếm","1. Kết quả trả về không null
+2. Tổng số phần tử là 1
+3. Tên thuốc trong kết quả đúng với tên thuốc mong đợi",Đúng như mong đợi,Pass,
+6,ThuocServiceTest_getById_Success,Kiểm thử phương thức getById() của ThuocService khi tìm thấy thuốc,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về Optional<Thuoc> khi gọi findById()
+3. Gọi phương thức getById() của ThuocService","1. Status code là 200
+2. Message là ""Thành công""
+3. Data chứa thuốc đúng với thuốc mong đợi",Đúng như mong đợi,Pass,
+7,ThuocServiceTest_getById_NotFound,Kiểm thử phương thức getById() của ThuocService khi không tìm thấy thuốc,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về Optional.empty() khi gọi findById()
+3. Gọi phương thức getById() của ThuocService","1. Status code là 409
+2. Message là ""Không tìm thấy thuốc""
+3. Data là null",Đúng như mong đợi,Pass,
+8,ThuocServiceTest_search_Success,Kiểm thử phương thức search() của ThuocService,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock trả về Page<Thuoc> khi gọi search()
+3. Gọi phương thức search() của ThuocService","1. Status code là 200
+2. Message là ""Thành công""
+3. Data chứa danh sách thuốc đúng với mong đợi",Đúng như mong đợi,Pass,
+9,ThuocServiceTest_delete_Success,Kiểm thử phương thức delete() của ThuocService khi xóa thành công,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock không làm gì khi gọi deleteById()
+3. Gọi phương thức delete() của ThuocService","1. Status code là 200
+2. Message là ""Thành công""
+3. Data là null",Đúng như mong đợi,Pass,
+10,ThuocServiceTest_delete_Exception,Kiểm thử phương thức delete() của ThuocService khi xóa thất bại,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock ném ngoại lệ khi gọi deleteById()
+3. Gọi phương thức delete() của ThuocService","1. Ném ngoại lệ RuntimeException",Đúng như mong đợi,Pass,
+11,ThuocServiceInputTest_create_WithEmptyTenThuoc,Kiểm thử phương thức create() của ThuocService với tên thuốc trống,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo và các repository liên quan
+2. Thiết lập mock trả về các giá trị cần thiết
+3. Gọi phương thức create() với ThuocDTO có tên thuốc trống","1. Status code là 400
+2. Message là ""Tên thuốc không hợp lệ""
+3. Data là null",Không đúng như mong đợi,Fail,Cần sửa lại code để kiểm tra tên thuốc trống
+12,ThuocServiceInputTest_create_WithEmptyMaThuoc,Kiểm thử phương thức create() của ThuocService với mã thuốc trống,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo và các repository liên quan
+2. Thiết lập mock trả về các giá trị cần thiết
+3. Gọi phương thức create() với ThuocDTO có mã thuốc trống","1. Status code là 400
+2. Message là ""Mã thuốc không hợp lệ""
+3. Data là null",Không đúng như mong đợi,Fail,Cần sửa lại code để kiểm tra mã thuốc trống
+13,ThuocServiceInputTest_create_WithEmptyThanhPhanThuocs,Kiểm thử phương thức create() của ThuocService với danh sách thành phần thuốc rỗng,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo và các repository liên quan
+2. Thiết lập mock trả về các giá trị cần thiết
+3. Gọi phương thức create() với ThuocDTO có danh sách thành phần thuốc rỗng","1. Status code là 400
+2. Message là ""Danh sách thành phần thuốc không hợp lệ""
+3. Data là null",Không đúng như mong đợi,Fail,Cần sửa lại code để kiểm tra danh sách thành phần thuốc rỗng
+14,ThuocServiceInputTest_create_WithEmptyDoiTuongs,Kiểm thử phương thức create() của ThuocService với danh sách đối tượng sử dụng rỗng,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo và các repository liên quan
+2. Thiết lập mock trả về các giá trị cần thiết
+3. Gọi phương thức create() với ThuocDTO có danh sách đối tượng sử dụng rỗng","1. Status code là 400
+2. Message là ""Danh sách đối tượng sử dụng không hợp lệ""
+3. Data là null",Không đúng như mong đợi,Fail,Cần sửa lại code để kiểm tra danh sách đối tượng sử dụng rỗng
+15,ThuocServiceExceptionTest_create_WhenRepositoryThrowsException,Kiểm thử phương thức create() của ThuocService khi repository ném ngoại lệ,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo và các repository liên quan
+2. Thiết lập mock ném ngoại lệ khi gọi save()
+3. Gọi phương thức create() của ThuocService","1. Ném ngoại lệ RuntimeException",Đúng như mong đợi,Pass,
+16,ThuocServiceExceptionTest_update_WhenRepositoryThrowsException,Kiểm thử phương thức update() của ThuocService khi repository ném ngoại lệ,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo và các repository liên quan
+2. Thiết lập mock ném ngoại lệ khi gọi save()
+3. Gọi phương thức update() của ThuocService","1. Ném ngoại lệ RuntimeException",Đúng như mong đợi,Pass,
+17,ThuocServiceExceptionTest_getById_WhenRepositoryThrowsException,Kiểm thử phương thức getById() của ThuocService khi repository ném ngoại lệ,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock ném ngoại lệ khi gọi findById()
+3. Gọi phương thức getById() của ThuocService","1. Ném ngoại lệ RuntimeException",Đúng như mong đợi,Pass,
+18,ThuocServiceExceptionTest_search_WhenRepositoryThrowsException,Kiểm thử phương thức search() của ThuocService khi repository ném ngoại lệ,Đã có dữ liệu thuốc trong hệ thống,"1. Tạo mock cho ThuocRepo
+2. Thiết lập mock ném ngoại lệ khi gọi search()
+3. Gọi phương thức search() của ThuocService","1. Ném ngoại lệ RuntimeException",Không đúng như mong đợi,Fail,Cần sửa lại test case để đảm bảo ngoại lệ được ném ra
+19,LoaiThuocServiceTest_create_DanhMucThuocNotFound,Kiểm thử phương thức create() của LoaiThuocService với danhMucThuocId không tồn tại,Đã có dữ liệu loại thuốc trong hệ thống,"1. Tạo mock cho LoaiThuocRepo và DanhMucThuocRepo
+2. Thiết lập mock trả về Optional.empty() khi gọi findById()
+3. Gọi phương thức create() của LoaiThuocService","1. Status code là 404
+2. Message là ""Không tìm thấy danh mục thuốc""
+3. Data là null",Không đúng như mong đợi,Fail,Cần sửa lại test case để đảm bảo ngoại lệ được xử lý đúng
+20,LoaiThuocServiceTest_update_NotFound,Kiểm thử phương thức update() của LoaiThuocService với id không tồn tại,Đã có dữ liệu loại thuốc trong hệ thống,"1. Tạo mock cho LoaiThuocRepo
+2. Thiết lập mock trả về Optional.empty() khi gọi findById()
+3. Gọi phương thức update() của LoaiThuocService","1. Status code là 404
+2. Message là ""Không tìm thấy loại thuốc""
+3. Data là null",Đúng như mong đợi,Pass,
+21,LoaiThuocServiceTest_delete_NotFound,Kiểm thử phương thức delete() của LoaiThuocService với id không tồn tại,Đã có dữ liệu loại thuốc trong hệ thống,"1. Tạo mock cho LoaiThuocRepo
+2. Thiết lập mock trả về false khi gọi existsById()
+3. Gọi phương thức delete() của LoaiThuocService","1. Status code là 404
+2. Message là ""Không tìm thấy loại thuốc để xóa""
+3. Data là null",Đúng như mong đợi,Pass,
+22,DanhMucThuocServiceTest_update_NotFound,Kiểm thử phương thức update() của DanhMucThuocService với id không tồn tại,Đã có dữ liệu danh mục thuốc trong hệ thống,"1. Tạo mock cho DanhMucThuocRepo
+2. Thiết lập mock trả về Optional.empty() khi gọi findById()
+3. Gọi phương thức update() của DanhMucThuocService","1. Status code là 404
+2. Message là ""Không tìm thấy danh mục thuốc""
+3. Data là null",Đúng như mong đợi,Pass,
+23,DanhMucThuocServiceTest_delete_NotFound,Kiểm thử phương thức delete() của DanhMucThuocService với id không tồn tại,Đã có dữ liệu danh mục thuốc trong hệ thống,"1. Tạo mock cho DanhMucThuocRepo
+2. Thiết lập mock trả về false khi gọi existsById()
+3. Gọi phương thức delete() của DanhMucThuocService","1. Status code là 404
+2. Message là ""Không tìm thấy danh mục thuốc để xóa""
+3. Data là null",Đúng như mong đợi,Pass,

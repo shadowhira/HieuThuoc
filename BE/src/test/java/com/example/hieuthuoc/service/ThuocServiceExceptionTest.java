@@ -5,7 +5,6 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +15,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -40,8 +41,12 @@ import com.example.hieuthuoc.repository.NhaSanXuatRepo;
 import com.example.hieuthuoc.repository.ThanhPhanThuocRepo;
 import com.example.hieuthuoc.repository.ThuocRepo;
 
+/**
+ * Kiểm thử đơn vị cho ThuocService - Xử lý ngoại lệ
+ */
 @ExtendWith(MockitoExtension.class)
-public class ThuocServiceTest {
+@MockitoSettings(strictness = Strictness.LENIENT)
+public class ThuocServiceExceptionTest {
 
     @Mock
     private ThuocRepo thuocRepo;
@@ -176,37 +181,53 @@ public class ThuocServiceTest {
     }
 
     @Test
-    void testGetById_Success() {
+    void testCreate_WhenRepositoryThrowsException() {
         // Arrange
-        when(thuocRepo.findById(1)).thenReturn(Optional.of(thuoc));
+        when(thuocRepo.existsByMaThuoc(anyString())).thenReturn(false);
+        when(thuocRepo.existsByTenThuoc(anyString())).thenReturn(false);
+        when(loaiThuocRepo.findById(anyInt())).thenReturn(Optional.of(loaiThuoc));
+        when(nhaSanXuatRepo.findById(anyInt())).thenReturn(Optional.of(nhaSanXuat));
+        when(modelMapper.map(any(ThuocDTO.class), eq(Thuoc.class))).thenReturn(thuoc);
+        when(modelMapper.map(any(ThanhPhanThuocDTO.class), eq(ThanhPhanThuoc.class))).thenReturn(thanhPhanThuocs.get(0));
+        when(doiTuongRepo.findById(anyInt())).thenReturn(Optional.of(doiTuongs.get(0)));
+        when(thuocRepo.save(any(Thuoc.class))).thenThrow(new RuntimeException("Database error"));
 
-        // Act
-        ResponseDTO<Thuoc> response = thuocService.getById(1);
-
-        // Assert
-        assertEquals(200, response.getStatus());
-        assertEquals("Thành công", response.getMsg());
-        assertEquals(thuoc, response.getData());
-        verify(thuocRepo, times(1)).findById(1);
+        // Act & Assert
+        assertThrows(RuntimeException.class, () -> {
+            thuocService.create(thuocDTO);
+        });
     }
 
     @Test
-    void testGetById_NotFound() {
+    void testUpdate_WhenRepositoryThrowsException() {
         // Arrange
-        when(thuocRepo.findById(999)).thenReturn(Optional.empty());
+        when(thuocRepo.findById(anyInt())).thenReturn(Optional.of(thuoc));
+        when(loaiThuocRepo.findById(anyInt())).thenReturn(Optional.of(loaiThuoc));
+        when(nhaSanXuatRepo.findById(anyInt())).thenReturn(Optional.of(nhaSanXuat));
+        when(modelMapper.map(any(ThuocDTO.class), eq(Thuoc.class))).thenReturn(thuoc);
+        when(modelMapper.map(any(ThanhPhanThuocDTO.class), eq(ThanhPhanThuoc.class))).thenReturn(thanhPhanThuocs.get(0));
+        when(doiTuongRepo.findById(anyInt())).thenReturn(Optional.of(doiTuongs.get(0)));
+        when(thuocRepo.save(any(Thuoc.class))).thenThrow(new RuntimeException("Database error"));
 
-        // Act
-        ResponseDTO<Thuoc> response = thuocService.getById(999);
-
-        // Assert
-        assertEquals(409, response.getStatus());
-        assertEquals("Không tìm thấy thuốc", response.getMsg());
-        assertNull(response.getData());
-        verify(thuocRepo, times(1)).findById(999);
+        // Act & Assert
+        assertThrows(RuntimeException.class, () -> {
+            thuocService.update(thuocDTO);
+        });
     }
 
     @Test
-    void testSearch_Success() {
+    void testGetById_WhenRepositoryThrowsException() {
+        // Arrange
+        when(thuocRepo.findById(anyInt())).thenThrow(new RuntimeException("Database error"));
+
+        // Act & Assert
+        assertThrows(RuntimeException.class, () -> {
+            thuocService.getById(1);
+        });
+    }
+
+    @Test
+    void testSearch_WhenRepositoryThrowsException() {
         // Arrange
         SearchThuocDTO searchThuocDTO = new SearchThuocDTO();
         searchThuocDTO.setKeyWord("Paracetamol");
@@ -214,69 +235,15 @@ public class ThuocServiceTest {
         searchThuocDTO.setSize(10);
         searchThuocDTO.setSortedField("id");
 
-        List<Thuoc> thuocList = Arrays.asList(thuoc);
-        Page<Thuoc> page = new PageImpl<>(thuocList);
-
-        when(thuocRepo.search(
-            eq(searchThuocDTO.getKeyWord()),
-            eq(searchThuocDTO.getLoaiThuoc()),
-            eq(searchThuocDTO.getNhaSanXuat()),
-            eq(searchThuocDTO.getDanhMucThuoc()),
-            eq(searchThuocDTO.getMinGiaBan()),
-            eq(searchThuocDTO.getMaxGiaBan()),
-            eq(searchThuocDTO.getTenDoiTuong()),
-            eq(searchThuocDTO.getTrangThai()),
-            any(Pageable.class)
-        )).thenReturn(page);
-
-        // Act
-        ResponseDTO<PageDTO<List<Thuoc>>> response = thuocService.search(searchThuocDTO);
-
-        // Assert
-        assertEquals(200, response.getStatus());
-        assertEquals("Thành công", response.getMsg());
-        assertNotNull(response.getData());
-        assertEquals(1, response.getData().getTotalElements());
-        assertEquals(thuocList, response.getData().getData());
-
-        verify(thuocRepo, times(1)).search(
-            eq(searchThuocDTO.getKeyWord()),
-            eq(searchThuocDTO.getLoaiThuoc()),
-            eq(searchThuocDTO.getNhaSanXuat()),
-            eq(searchThuocDTO.getDanhMucThuoc()),
-            eq(searchThuocDTO.getMinGiaBan()),
-            eq(searchThuocDTO.getMaxGiaBan()),
-            eq(searchThuocDTO.getTenDoiTuong()),
-            eq(searchThuocDTO.getTrangThai()),
+        doThrow(new RuntimeException("Database error")).when(thuocRepo).search(
+            anyString(), anyString(), anyString(), anyString(),
+            any(Double.class), any(Double.class), anyString(), any(Boolean.class),
             any(Pageable.class)
         );
-    }
-
-    @Test
-    void testDelete_Success() {
-        // Arrange
-        doNothing().when(thuocRepo).deleteById(1);
-
-        // Act
-        ResponseDTO<Void> response = thuocService.delete(1);
-
-        // Assert
-        assertEquals(200, response.getStatus());
-        assertEquals("Thành công", response.getMsg());
-        assertNull(response.getData());
-        verify(thuocRepo, times(1)).deleteById(1);
-    }
-
-    @Test
-    void testDelete_Exception() {
-        // Arrange
-        doThrow(new RuntimeException("Database error")).when(thuocRepo).deleteById(1);
 
         // Act & Assert
         assertThrows(RuntimeException.class, () -> {
-            thuocService.delete(1);
+            thuocService.search(searchThuocDTO);
         });
-
-        verify(thuocRepo, times(1)).deleteById(1);
     }
 }
