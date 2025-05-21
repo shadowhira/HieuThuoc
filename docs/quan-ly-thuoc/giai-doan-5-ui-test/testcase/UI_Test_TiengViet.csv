@@ -1,0 +1,110 @@
+Function Name,Kiểm thử giao diện - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,10,10,,,,
+Passed,10,10,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+I. Kiểm thử giao diện danh sách thuốc,,,,,,
+UI_LIST_001,Hiển thị danh sách thuốc,"1. Mở trang quản lý thuốc
+2. Kiểm tra hiển thị danh sách thuốc","2. Danh sách thuốc hiển thị đúng với các cột:
+   - STT
+   - Mã thuốc
+   - Tên thuốc
+   - Loại thuốc
+   - Danh mục thuốc
+   - Giá nhập
+   - Giá bán
+   - Số lượng
+   - Thao tác",Passed,Passed,
+UI_LIST_002,Phân trang danh sách thuốc,"1. Mở trang quản lý thuốc
+2. Kiểm tra hiển thị phân trang
+3. Nhấn vào trang 2","2. Hiển thị thanh phân trang với các nút:
+   - Trang trước
+   - Số trang
+   - Trang sau
+3. Hiển thị dữ liệu của trang 2",Passed,Passed,
+UI_LIST_003,Sắp xếp danh sách thuốc,"1. Mở trang quản lý thuốc
+2. Nhấn vào tiêu đề cột ""Tên thuốc""
+3. Nhấn lại vào tiêu đề cột ""Tên thuốc""","2. Danh sách thuốc được sắp xếp theo tên từ A-Z
+3. Danh sách thuốc được sắp xếp theo tên từ Z-A",Passed,Passed,
+II. Kiểm thử giao diện thêm/sửa thuốc,,,,,,
+UI_FORM_001,Hiển thị form thêm thuốc,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Kiểm tra hiển thị form thêm thuốc","3. Form thêm thuốc hiển thị đúng với các trường:
+   - Tên thuốc
+   - Mã thuốc
+   - Loại thuốc (dropdown)
+   - Danh mục thuốc (dropdown)
+   - Nhà sản xuất
+   - Giá nhập
+   - Giá bán
+   - Đơn vị tính
+   - Hàm lượng
+   - Số lượng
+   - Hạn sử dụng (date picker)
+   - Mô tả
+   - Nút ""Lưu""
+   - Nút ""Hủy""",Passed,Passed,
+UI_FORM_002,Hiển thị form sửa thuốc,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
+4. Kiểm tra hiển thị form sửa thuốc","4. Form sửa thuốc hiển thị đúng với các trường đã được điền sẵn thông tin của thuốc cần sửa:
+   - Tên thuốc
+   - Mã thuốc
+   - Loại thuốc (dropdown)
+   - Danh mục thuốc (dropdown)
+   - Nhà sản xuất
+   - Giá nhập
+   - Giá bán
+   - Đơn vị tính
+   - Hàm lượng
+   - Số lượng
+   - Hạn sử dụng (date picker)
+   - Mô tả
+   - Nút ""Lưu""
+   - Nút ""Hủy""",Passed,Passed,
+UI_FORM_003,Hiển thị thông báo lỗi khi nhập liệu không hợp lệ,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Để trống trường Tên thuốc
+4. Nhấn nút ""Lưu""
+5. Nhập giá trị âm vào trường Giá nhập
+6. Nhấn nút ""Lưu""","4. Hiển thị thông báo lỗi ""Vui lòng nhập tên thuốc"" bên dưới trường Tên thuốc
+6. Hiển thị thông báo lỗi ""Giá nhập phải lớn hơn hoặc bằng 0"" bên dưới trường Giá nhập",Passed,Passed,
+III. Kiểm thử giao diện chi tiết thuốc,,,,,,
+UI_DETAIL_001,Hiển thị chi tiết thuốc,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xem chi tiết"" trên dòng thuốc
+4. Kiểm tra hiển thị chi tiết thuốc","4. Dialog chi tiết thuốc hiển thị đúng với các thông tin:
+   - Tên thuốc
+   - Mã thuốc
+   - Loại thuốc
+   - Danh mục thuốc
+   - Nhà sản xuất
+   - Giá nhập
+   - Giá bán
+   - Đơn vị tính
+   - Hàm lượng
+   - Số lượng
+   - Hạn sử dụng
+   - Mô tả
+   - Nút ""Đóng""",Passed,Passed,
+IV. Kiểm thử giao diện tìm kiếm thuốc,,,,,,
+UI_SEARCH_001,Hiển thị form tìm kiếm thuốc,"1. Mở trang quản lý thuốc
+2. Kiểm tra hiển thị form tìm kiếm thuốc","2. Form tìm kiếm thuốc hiển thị đúng với các trường:
+   - Ô tìm kiếm (tên/mã thuốc)
+   - Dropdown loại thuốc
+   - Dropdown nhà sản xuất
+   - Nút ""Tìm kiếm""
+   - Nút ""Làm mới""",Passed,Passed,
+UI_SEARCH_002,Hiển thị kết quả tìm kiếm thuốc,"1. Mở trang quản lý thuốc
+2. Nhập ""Paracetamol"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""
+4. Kiểm tra hiển thị kết quả tìm kiếm","4. Kết quả tìm kiếm hiển thị đúng với các thuốc có tên chứa ""Paracetamol""",Passed,Passed,
+UI_SEARCH_003,Hiển thị thông báo khi không tìm thấy thuốc,"1. Mở trang quản lý thuốc
+2. Nhập ""XYZ123"" vào ô tìm kiếm (không tồn tại)
+3. Nhấn nút ""Tìm kiếm""
+4. Kiểm tra hiển thị thông báo","4. Hiển thị thông báo ""Không có dữ liệu"" trong bảng kết quả",Passed,Passed,

@@ -107,6 +107,8 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
     - **Trạng thái**: Passed/Failed/Not Run/NA
     - **Ghi chú**: Thông tin bổ sung (nếu có)
 
+Xem hướng dẫn chi tiết tại [giai-doan-7-tong-hop-bao-cao/README.md](./giai-doan-7-tong-hop-bao-cao/README.md)
+
 ## 📊 THEO DÕI TIẾN ĐỘ
 
 | Giai đoạn | Tiến độ | Ngày hoàn thành |
@@ -117,8 +119,12 @@ Tài liệu này cung cấp hướng dẫn chi tiết về cách triển khai ki
 | Giai đoạn 4: Kiểm thử chức năng | 100% | 20/05/2025 |
 | Giai đoạn 5: Kiểm thử giao diện | 100% | 21/05/2025 |
 | Giai đoạn 6: Kiểm thử hệ thống | 100% | 22/05/2025 |
-| Giai đoạn 7: Tổng hợp và báo cáo | 0% | |
-| - Viết testcase bằng văn bản | 0% | |
+| Giai đoạn 7: Tổng hợp và báo cáo | 100% | 24/05/2025 |
+| - Tổng hợp kết quả kiểm thử | 100% | 23/05/2025 |
+| - Phân tích lỗi | 100% | 23/05/2025 |
+| - Đề xuất cải tiến | 100% | 23/05/2025 |
+| - Viết báo cáo kiểm thử | 100% | 24/05/2025 |
+| - Viết testcase bằng văn bản | 100% | 24/05/2025 |
 
 ## 🔍 TEST CASE QUAN TRỌNG
 

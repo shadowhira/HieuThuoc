@@ -1,0 +1,49 @@
+Function Name,Kiểm thử tích hợp - Quản lý thuốc,,,,,
+Test Result,Postman,MockMvc,,,,
+Total,12,10,,,,
+Passed,12,10,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Postman,MockMvc,
+I. Kiểm thử tích hợp Backend,,,,,,
+API_THUOC_001,Lấy danh sách thuốc,"1. Gửi request GET đến API /thuoc/getAll
+2. Kiểm tra response","2. Response có status 200 và chứa danh sách thuốc",Passed,Passed,
+API_THUOC_002,Tìm thuốc theo ID,"1. Gửi request GET đến API /thuoc/getById/{id}
+2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc",Passed,Passed,
+API_THUOC_003,Thêm thuốc mới,"1. Gửi request POST đến API /thuoc/create với dữ liệu hợp lệ
+2. Kiểm tra response","2. Response có status 201 và chứa thông tin thuốc vừa thêm",Passed,Passed,
+API_THUOC_004,Cập nhật thuốc,"1. Gửi request PUT đến API /thuoc/update với dữ liệu hợp lệ
+2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc vừa cập nhật",Passed,Passed,
+API_THUOC_005,Xóa thuốc,"1. Gửi request DELETE đến API /thuoc/delete/{id}
+2. Kiểm tra response","2. Response có status 200 và chứa thông báo xóa thành công",Passed,Passed,
+API_LOAI_THUOC_001,Lấy danh sách loại thuốc,"1. Gửi request GET đến API /loai-thuoc/getAll
+2. Kiểm tra response","2. Response có status 200 và chứa danh sách loại thuốc",Passed,Passed,
+API_LOAI_THUOC_002,Thêm loại thuốc mới,"1. Gửi request POST đến API /loai-thuoc/create với dữ liệu hợp lệ
+2. Kiểm tra response","2. Response có status 201 và chứa thông tin loại thuốc vừa thêm",Passed,Passed,
+API_LOAI_THUOC_003,Cập nhật loại thuốc,"1. Gửi request PUT đến API /loai-thuoc/update với dữ liệu hợp lệ
+2. Kiểm tra response","2. Response có status 200 và chứa thông tin loại thuốc vừa cập nhật",Passed,Passed,
+API_DANH_MUC_THUOC_001,Lấy danh sách danh mục thuốc,"1. Gửi request GET đến API /danh-muc-thuoc/getAll
+2. Kiểm tra response","2. Response có status 200 và chứa danh sách danh mục thuốc",Passed,Passed,
+API_DANH_MUC_THUOC_002,Thêm danh mục thuốc mới,"1. Gửi request POST đến API /danh-muc-thuoc/create với dữ liệu hợp lệ
+2. Kiểm tra response","2. Response có status 201 và chứa thông tin danh mục thuốc vừa thêm",Passed,Passed,
+II. Kiểm thử tích hợp Frontend-Backend,,,,,,
+FE_BE_001,Thêm thuốc và hiển thị trên giao diện,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Nhấn nút ""Lưu""
+5. Kiểm tra danh sách thuốc","5. Thuốc mới được thêm vào danh sách và hiển thị trên giao diện",Passed,NA,
+FE_BE_002,Sửa thuốc và hiển thị trên giao diện,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc cần sửa
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
+4. Sửa thông tin
+5. Nhấn nút ""Lưu""
+6. Kiểm tra danh sách thuốc","6. Thông tin thuốc được cập nhật và hiển thị trên giao diện",Passed,NA,
+III. Kiểm thử lỗi tích hợp,,,,,,
+ERR_001,Lỗi StackOverflowError do quan hệ hai chiều,"1. Tạo quan hệ hai chiều giữa DanhMucThuoc và LoaiThuoc
+2. Gọi API GET /danh-muc-thuoc/getAll
+3. Kiểm tra response","3. Xảy ra lỗi StackOverflowError do vòng lặp vô hạn khi serialize đối tượng",Passed,Passed,"Lỗi đã được sửa bằng cách thêm @JsonIgnore cho thuộc tính danhMucThuoc trong lớp LoaiThuoc"
+ERR_002,Lỗi phương thức HTTP không đúng cho multipart/form-data,"1. Gửi request PUT với multipart/form-data đến API /thuoc/update
+2. Kiểm tra response","2. Xảy ra lỗi 405 Method Not Allowed",Passed,Passed,"Lỗi đã được sửa bằng cách thay đổi API cập nhật thuốc để sử dụng phương thức POST thay vì PUT"

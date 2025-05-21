@@ -1,0 +1,75 @@
+Function Name,Kiểm thử hệ thống - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,8,8,,,,
+Passed,8,8,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+I. Kiểm thử luồng nghiệp vụ (End-to-End Testing),,,,,,
+E2E_001,Luồng thêm thuốc mới,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhấn nút ""Thêm thuốc mới""
+4. Nhập đầy đủ thông tin hợp lệ
+5. Nhấn nút ""Lưu""
+6. Tìm kiếm thuốc vừa thêm
+7. Xem chi tiết thuốc vừa thêm","5. Hiển thị thông báo ""Thêm thuốc thành công""
+6. Thuốc vừa thêm hiển thị trong kết quả tìm kiếm
+7. Thông tin chi tiết thuốc hiển thị chính xác",Passed,Passed,
+E2E_002,Luồng sửa thông tin thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tìm kiếm thuốc cần sửa
+4. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
+5. Sửa thông tin
+6. Nhấn nút ""Lưu""
+7. Tìm kiếm thuốc vừa sửa
+8. Xem chi tiết thuốc vừa sửa","6. Hiển thị thông báo ""Cập nhật thuốc thành công""
+7. Thuốc vừa sửa hiển thị trong kết quả tìm kiếm với thông tin đã cập nhật
+8. Thông tin chi tiết thuốc hiển thị chính xác với thông tin đã cập nhật",Passed,Passed,
+E2E_003,Luồng xóa thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tìm kiếm thuốc cần xóa
+4. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+5. Xác nhận xóa trong hộp thoại xác nhận
+6. Tìm kiếm thuốc vừa xóa","5. Hiển thị thông báo ""Xóa thuốc thành công""
+6. Không tìm thấy thuốc vừa xóa, hiển thị thông báo ""Không có dữ liệu""",Passed,Passed,
+II. Kiểm thử hiệu năng (Performance Testing),,,,,,
+PERF_001,Kiểm thử hiệu năng API lấy danh sách thuốc,"1. Sử dụng JMeter để tạo 100 request đồng thời đến API GET /thuoc/getAll
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 200ms
+3. Thông lượng > 20 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,
+PERF_002,Kiểm thử hiệu năng API tìm kiếm thuốc,"1. Sử dụng JMeter để tạo 100 request đồng thời đến API GET /thuoc/search
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 200ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,
+III. Kiểm thử tương thích (Compatibility Testing),,,,,,
+COMP_001,Kiểm thử tương thích trên Chrome,"1. Mở trang quản lý thuốc trên Chrome
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","2. Tất cả các chức năng hoạt động đúng
+3. Giao diện hiển thị đúng, không bị lỗi",Passed,NA,
+COMP_002,Kiểm thử tương thích trên Edge,"1. Mở trang quản lý thuốc trên Edge
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","2. Tất cả các chức năng hoạt động đúng
+3. Giao diện hiển thị đúng, không bị lỗi",NA,Passed,
+COMP_003,Kiểm thử tương thích trên thiết bị di động,"1. Mở trang quản lý thuốc trên thiết bị di động (sử dụng Chrome DevTools để mô phỏng)
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","2. Tất cả các chức năng hoạt động đúng
+3. Giao diện hiển thị đúng, không bị lỗi, responsive",Passed,Passed,

@@ -1,0 +1,241 @@
+Function Name,Tổng hợp testcase - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,64,64,,,,
+Passed,64,64,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID,Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+I. GIAI ĐOẠN 2: KIỂM THỬ ĐƠN VỊ,,,,,,
+A. Kiểm thử ThuocService,,,,,,
+TS_001,Lấy danh sách thuốc thành công,"1. Mock repository trả về danh sách thuốc
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách thuốc",Passed,Passed,Kiểm thử đơn vị
+TS_002,Lấy danh sách thuốc trống,"1. Mock repository trả về danh sách rỗng
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,Kiểm thử đơn vị
+TS_003,Tìm thuốc theo ID thành công,"1. Mock repository trả về thuốc
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,Kiểm thử đơn vị
+TS_004,Tìm thuốc theo ID không tồn tại,"1. Mock repository trả về Optional.empty()
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 404 và thông báo lỗi",Passed,Passed,Kiểm thử đơn vị
+TS_005,Tạo thuốc thành công,"1. Mock repository trả về thuốc đã tạo
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin thuốc",Passed,Passed,Kiểm thử đơn vị
+B. Kiểm thử ThuocController,,,,,,
+TC_001,Lấy danh sách thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /thuoc/getAll","2. Trả về status 200 và danh sách thuốc",Passed,Passed,Kiểm thử đơn vị
+TC_002,Tìm thuốc theo ID thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /thuoc/getById","2. Trả về status 200 và thông tin thuốc",Passed,Passed,Kiểm thử đơn vị
+II. GIAI ĐOẠN 3: KIỂM THỬ TÍCH HỢP,,,,,,
+A. Kiểm thử tích hợp Backend,,,,,,
+API_THUOC_001,Lấy danh sách thuốc,"1. Gửi request GET đến API /thuoc/getAll
+2. Kiểm tra response","2. Response có status 200 và chứa danh sách thuốc",Passed,Passed,Kiểm thử tích hợp
+API_THUOC_002,Tìm thuốc theo ID,"1. Gửi request GET đến API /thuoc/getById/{id}
+2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc",Passed,Passed,Kiểm thử tích hợp
+API_THUOC_003,Thêm thuốc mới,"1. Gửi request POST đến API /thuoc/create với dữ liệu hợp lệ
+2. Kiểm tra response","2. Response có status 201 và chứa thông tin thuốc vừa thêm",Passed,Passed,Kiểm thử tích hợp
+B. Kiểm thử tích hợp Frontend-Backend,,,,,,
+FE_BE_001,Thêm thuốc và hiển thị trên giao diện,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Nhấn nút ""Lưu""
+5. Kiểm tra danh sách thuốc","5. Thuốc mới được thêm vào danh sách và hiển thị trên giao diện",Passed,Passed,Kiểm thử tích hợp
+FE_BE_002,Sửa thuốc và hiển thị trên giao diện,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc cần sửa
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
+4. Sửa thông tin
+5. Nhấn nút ""Lưu""
+6. Kiểm tra danh sách thuốc","6. Thông tin thuốc được cập nhật và hiển thị trên giao diện",Passed,Passed,Kiểm thử tích hợp
+C. Kiểm thử lỗi tích hợp,,,,,,
+ERR_001,Lỗi StackOverflowError do quan hệ hai chiều,"1. Tạo quan hệ hai chiều giữa DanhMucThuoc và LoaiThuoc
+2. Gọi API GET /danh-muc-thuoc/getAll
+3. Kiểm tra response","3. Xảy ra lỗi StackOverflowError do vòng lặp vô hạn khi serialize đối tượng",Passed,Passed,"Lỗi đã được sửa bằng cách thêm @JsonIgnore cho thuộc tính danhMucThuoc trong lớp LoaiThuoc"
+ERR_002,Lỗi phương thức HTTP không đúng cho multipart/form-data,"1. Gửi request PUT với multipart/form-data đến API /thuoc/update
+2. Kiểm tra response","2. Xảy ra lỗi 405 Method Not Allowed",Passed,Passed,"Lỗi đã được sửa bằng cách thay đổi API cập nhật thuốc để sử dụng phương thức POST thay vì PUT"
+III. GIAI ĐOẠN 4: KIỂM THỬ CHỨC NĂNG,,,,,,
+A. Kiểm thử chức năng thêm thuốc,,,,,,
+TC_ADD_THUOC_001,Thêm thuốc thành công với đầy đủ thông tin,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ:
+   - Tên thuốc: ""Paracetamol 500mg""
+   - Mã thuốc: ""PARA500""
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Danh mục thuốc: ""Thuốc không kê đơn""
+   - Nhà sản xuất: ""Công ty Dược phẩm ABC""
+   - Giá nhập: ""5000""
+   - Giá bán: ""7000""
+   - Đơn vị tính: ""Viên""
+   - Hàm lượng: ""500mg""
+   - Số lượng: ""100""
+   - Hạn sử dụng: ""31/12/2025""
+   - Mô tả: ""Thuốc giảm đau, hạ sốt""
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm thuốc thành công""
+2. Thuốc mới được thêm vào danh sách
+3. Các thông tin của thuốc được hiển thị chính xác trong danh sách",Passed,Passed,Kiểm thử chức năng
+TC_ADD_THUOC_002,Thêm thuốc với mã thuốc đã tồn tại,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin với mã thuốc đã tồn tại:
+   - Tên thuốc: ""Paracetamol 650mg""
+   - Mã thuốc: ""PARA500"" (đã tồn tại)
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Mã thuốc đã tồn tại""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,Kiểm thử chức năng
+B. Kiểm thử chức năng cập nhật thuốc,,,,,,
+TC_UPDATE_THUOC_001,Cập nhật thuốc thành công,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Giá bán: ""8000"" (thay vì 7000)
+   - Mô tả: ""Thuốc giảm đau, hạ sốt hiệu quả""
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật thuốc thành công""
+2. Thông tin thuốc được cập nhật trong danh sách",Passed,Passed,Kiểm thử chức năng
+C. Kiểm thử chức năng xóa thuốc,,,,,,
+TC_DELETE_THUOC_001,Xóa thuốc thành công,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+4. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa thuốc thành công""
+2. Thuốc bị xóa khỏi danh sách",Passed,Passed,Kiểm thử chức năng
+D. Kiểm thử chức năng tìm kiếm thuốc,,,,,,
+TC_SEARCH_THUOC_001,Tìm kiếm thuốc theo tên,"1. Mở trang quản lý thuốc
+2. Nhập ""Paracetamol"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có tên chứa ""Paracetamol""
+2. Không hiển thị các thuốc khác",Passed,Passed,Kiểm thử chức năng
+TC_SEARCH_THUOC_002,Tìm kiếm thuốc theo mã,"1. Mở trang quản lý thuốc
+2. Nhập ""PARA500"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị thuốc có mã ""PARA500""
+2. Không hiển thị các thuốc khác",Passed,Passed,Kiểm thử chức năng
+E. Kiểm thử lỗi chức năng,,,,,,
+ERR_003,Lỗi thông báo không khớp,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Chọn loại thuốc không tồn tại
+4. Nhấn nút ""Lưu""","4. Backend trả về ""Loại thuốc không tồn tại"" nhưng frontend hiển thị ""Không tìm thấy loại thuốc""",Passed,Passed,"Lỗi đã được sửa bằng cách thống nhất nội dung thông báo lỗi giữa backend và frontend"
+IV. GIAI ĐOẠN 5: KIỂM THỬ GIAO DIỆN,,,,,,
+A. Kiểm thử giao diện danh sách thuốc,,,,,,
+UI_LIST_001,Hiển thị danh sách thuốc,"1. Mở trang quản lý thuốc
+2. Kiểm tra hiển thị danh sách thuốc","2. Danh sách thuốc hiển thị đúng với các cột:
+   - STT
+   - Mã thuốc
+   - Tên thuốc
+   - Loại thuốc
+   - Danh mục thuốc
+   - Giá nhập
+   - Giá bán
+   - Số lượng
+   - Thao tác",Passed,Passed,Kiểm thử giao diện
+UI_LIST_002,Phân trang danh sách thuốc,"1. Mở trang quản lý thuốc
+2. Kiểm tra hiển thị phân trang
+3. Nhấn vào trang 2","2. Hiển thị thanh phân trang với các nút:
+   - Trang trước
+   - Số trang
+   - Trang sau
+3. Hiển thị dữ liệu của trang 2",Passed,Passed,Kiểm thử giao diện
+B. Kiểm thử giao diện thêm/sửa thuốc,,,,,,
+UI_FORM_001,Hiển thị form thêm thuốc,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Kiểm tra hiển thị form thêm thuốc","3. Form thêm thuốc hiển thị đúng với các trường:
+   - Tên thuốc
+   - Mã thuốc
+   - Loại thuốc (dropdown)
+   - Danh mục thuốc (dropdown)
+   - Nhà sản xuất
+   - Giá nhập
+   - Giá bán
+   - Đơn vị tính
+   - Hàm lượng
+   - Số lượng
+   - Hạn sử dụng (date picker)
+   - Mô tả
+   - Nút ""Lưu""
+   - Nút ""Hủy""",Passed,Passed,Kiểm thử giao diện
+C. Kiểm thử giao diện chi tiết thuốc,,,,,,
+UI_DETAIL_001,Hiển thị chi tiết thuốc,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xem chi tiết"" trên dòng thuốc
+4. Kiểm tra hiển thị chi tiết thuốc","4. Dialog chi tiết thuốc hiển thị đúng với các thông tin:
+   - Tên thuốc
+   - Mã thuốc
+   - Loại thuốc
+   - Danh mục thuốc
+   - Nhà sản xuất
+   - Giá nhập
+   - Giá bán
+   - Đơn vị tính
+   - Hàm lượng
+   - Số lượng
+   - Hạn sử dụng
+   - Mô tả
+   - Nút ""Đóng""",Passed,Passed,Kiểm thử giao diện
+D. Kiểm thử giao diện tìm kiếm thuốc,,,,,,
+UI_SEARCH_001,Hiển thị form tìm kiếm thuốc,"1. Mở trang quản lý thuốc
+2. Kiểm tra hiển thị form tìm kiếm thuốc","2. Form tìm kiếm thuốc hiển thị đúng với các trường:
+   - Ô tìm kiếm (tên/mã thuốc)
+   - Dropdown loại thuốc
+   - Dropdown nhà sản xuất
+   - Nút ""Tìm kiếm""
+   - Nút ""Làm mới""",Passed,Passed,Kiểm thử giao diện
+V. GIAI ĐOẠN 6: KIỂM THỬ HỆ THỐNG,,,,,,
+A. Kiểm thử luồng nghiệp vụ (End-to-End Testing),,,,,,
+E2E_001,Luồng thêm thuốc mới,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhấn nút ""Thêm thuốc mới""
+4. Nhập đầy đủ thông tin hợp lệ
+5. Nhấn nút ""Lưu""
+6. Tìm kiếm thuốc vừa thêm
+7. Xem chi tiết thuốc vừa thêm","5. Hiển thị thông báo ""Thêm thuốc thành công""
+6. Thuốc vừa thêm hiển thị trong kết quả tìm kiếm
+7. Thông tin chi tiết thuốc hiển thị chính xác",Passed,Passed,Kiểm thử hệ thống
+E2E_002,Luồng sửa thông tin thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tìm kiếm thuốc cần sửa
+4. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
+5. Sửa thông tin
+6. Nhấn nút ""Lưu""
+7. Tìm kiếm thuốc vừa sửa
+8. Xem chi tiết thuốc vừa sửa","6. Hiển thị thông báo ""Cập nhật thuốc thành công""
+7. Thuốc vừa sửa hiển thị trong kết quả tìm kiếm với thông tin đã cập nhật
+8. Thông tin chi tiết thuốc hiển thị chính xác với thông tin đã cập nhật",Passed,Passed,Kiểm thử hệ thống
+E2E_003,Luồng xóa thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tìm kiếm thuốc cần xóa
+4. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+5. Xác nhận xóa trong hộp thoại xác nhận
+6. Tìm kiếm thuốc vừa xóa","5. Hiển thị thông báo ""Xóa thuốc thành công""
+6. Không tìm thấy thuốc vừa xóa, hiển thị thông báo ""Không có dữ liệu""",Passed,Passed,Kiểm thử hệ thống
+B. Kiểm thử hiệu năng (Performance Testing),,,,,,
+PERF_001,Kiểm thử hiệu năng API lấy danh sách thuốc,"1. Sử dụng JMeter để tạo 100 request đồng thời đến API GET /thuoc/getAll
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 200ms
+3. Thông lượng > 20 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,Kiểm thử hệ thống
+PERF_002,Kiểm thử hiệu năng API tìm kiếm thuốc,"1. Sử dụng JMeter để tạo 100 request đồng thời đến API GET /thuoc/search
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 200ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,Kiểm thử hệ thống
+C. Kiểm thử tương thích (Compatibility Testing),,,,,,
+COMP_001,Kiểm thử tương thích trên Chrome,"1. Mở trang quản lý thuốc trên Chrome
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","2. Tất cả các chức năng hoạt động đúng
+3. Giao diện hiển thị đúng, không bị lỗi",Passed,NA,Kiểm thử hệ thống
+COMP_002,Kiểm thử tương thích trên Edge,"1. Mở trang quản lý thuốc trên Edge
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","2. Tất cả các chức năng hoạt động đúng
+3. Giao diện hiển thị đúng, không bị lỗi",NA,Passed,Kiểm thử hệ thống
+COMP_003,Kiểm thử tương thích trên thiết bị di động,"1. Mở trang quản lý thuốc trên thiết bị di động (sử dụng Chrome DevTools để mô phỏng)
+2. Thực hiện các chức năng:
+   - Thêm thuốc
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra hiển thị giao diện","2. Tất cả các chức năng hoạt động đúng
+3. Giao diện hiển thị đúng, không bị lỗi, responsive",Passed,Passed,Kiểm thử hệ thống

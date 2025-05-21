@@ -1,0 +1,123 @@
+Function Name,Kiểm thử chức năng - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,16,16,,,,
+Passed,16,16,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+I. Kiểm thử chức năng thêm thuốc,,,,,,
+TC_ADD_THUOC_001,Thêm thuốc thành công với đầy đủ thông tin,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ:
+   - Tên thuốc: ""Paracetamol 500mg""
+   - Mã thuốc: ""PARA500""
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Danh mục thuốc: ""Thuốc không kê đơn""
+   - Nhà sản xuất: ""Công ty Dược phẩm ABC""
+   - Giá nhập: ""5000""
+   - Giá bán: ""7000""
+   - Đơn vị tính: ""Viên""
+   - Hàm lượng: ""500mg""
+   - Số lượng: ""100""
+   - Hạn sử dụng: ""31/12/2025""
+   - Mô tả: ""Thuốc giảm đau, hạ sốt""
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm thuốc thành công""
+2. Thuốc mới được thêm vào danh sách
+3. Các thông tin của thuốc được hiển thị chính xác trong danh sách",Passed,Passed,
+TC_ADD_THUOC_002,Thêm thuốc với mã thuốc đã tồn tại,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin với mã thuốc đã tồn tại:
+   - Tên thuốc: ""Paracetamol 650mg""
+   - Mã thuốc: ""PARA500"" (đã tồn tại)
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Mã thuốc đã tồn tại""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,
+TC_ADD_THUOC_003,Thêm thuốc với thông tin bắt buộc bị thiếu,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin thiếu trường bắt buộc:
+   - Tên thuốc: """"
+   - Mã thuốc: ""PARA600""
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Vui lòng nhập tên thuốc""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,
+TC_ADD_THUOC_004,Thêm thuốc với giá trị không hợp lệ,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin với giá trị không hợp lệ:
+   - Tên thuốc: ""Paracetamol 500mg""
+   - Mã thuốc: ""PARA600""
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Giá nhập: ""-5000"" (giá trị âm)
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Giá nhập phải lớn hơn hoặc bằng 0""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,
+II. Kiểm thử chức năng cập nhật thuốc,,,,,,
+TC_UPDATE_THUOC_001,Cập nhật thuốc thành công,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Giá bán: ""8000"" (thay vì 7000)
+   - Mô tả: ""Thuốc giảm đau, hạ sốt hiệu quả""
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật thuốc thành công""
+2. Thông tin thuốc được cập nhật trong danh sách",Passed,Passed,
+TC_UPDATE_THUOC_002,Cập nhật thuốc với mã thuốc đã tồn tại,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Mã thuốc: ""PARA600"" (đã tồn tại)
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Mã thuốc đã tồn tại""
+2. Thông tin thuốc không được cập nhật",Passed,Passed,
+TC_UPDATE_THUOC_003,Cập nhật thuốc với thông tin bắt buộc bị thiếu,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Tên thuốc: """" (xóa tên thuốc)
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Vui lòng nhập tên thuốc""
+2. Thông tin thuốc không được cập nhật",Passed,Passed,
+III. Kiểm thử chức năng xóa thuốc,,,,,,
+TC_DELETE_THUOC_001,Xóa thuốc thành công,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+4. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa thuốc thành công""
+2. Thuốc bị xóa khỏi danh sách",Passed,Passed,
+TC_DELETE_THUOC_002,Hủy xóa thuốc,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+4. Nhấn nút ""Hủy"" trong hộp thoại xác nhận","1. Hộp thoại xác nhận đóng lại
+2. Thuốc vẫn còn trong danh sách",Passed,Passed,
+IV. Kiểm thử chức năng tìm kiếm thuốc,,,,,,
+TC_SEARCH_THUOC_001,Tìm kiếm thuốc theo tên,"1. Mở trang quản lý thuốc
+2. Nhập ""Paracetamol"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có tên chứa ""Paracetamol""
+2. Không hiển thị các thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_002,Tìm kiếm thuốc theo mã,"1. Mở trang quản lý thuốc
+2. Nhập ""PARA500"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị thuốc có mã ""PARA500""
+2. Không hiển thị các thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_003,Tìm kiếm thuốc theo loại thuốc,"1. Mở trang quản lý thuốc
+2. Chọn ""Giảm đau không steroid"" trong dropdown loại thuốc
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thuộc loại ""Giảm đau không steroid""
+2. Không hiển thị các thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_004,Tìm kiếm thuốc theo nhà sản xuất,"1. Mở trang quản lý thuốc
+2. Chọn ""Công ty Dược phẩm ABC"" trong dropdown nhà sản xuất
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc của nhà sản xuất ""Công ty Dược phẩm ABC""
+2. Không hiển thị các thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_005,Tìm kiếm thuốc với nhiều tiêu chí,"1. Mở trang quản lý thuốc
+2. Nhập ""Paracetamol"" vào ô tìm kiếm
+3. Chọn ""Giảm đau không steroid"" trong dropdown loại thuốc
+4. Chọn ""Công ty Dược phẩm ABC"" trong dropdown nhà sản xuất
+5. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thỏa mãn tất cả các tiêu chí
+2. Không hiển thị các thuốc khác",Passed,Passed,
+TC_SEARCH_THUOC_006,Tìm kiếm thuốc không tồn tại,"1. Mở trang quản lý thuốc
+2. Nhập ""XYZ123"" vào ô tìm kiếm (không tồn tại)
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị thông báo ""Không có dữ liệu""
+2. Không hiển thị thuốc nào trong danh sách",Passed,Passed,
+V. Kiểm thử lỗi chức năng,,,,,,
+ERR_003,Lỗi thông báo không khớp,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Chọn loại thuốc không tồn tại
+4. Nhấn nút ""Lưu""","4. Backend trả về ""Loại thuốc không tồn tại"" nhưng frontend hiển thị ""Không tìm thấy loại thuốc""",Passed,Passed,"Lỗi đã được sửa bằng cách thống nhất nội dung thông báo lỗi giữa backend và frontend"

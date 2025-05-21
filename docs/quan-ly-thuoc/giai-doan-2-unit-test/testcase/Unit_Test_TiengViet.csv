@@ -1,0 +1,84 @@
+Function Name,Kiểm thử đơn vị - Quản lý thuốc,,,,,
+Test Result,JUnit,Mockito,,,,
+Total,18,15,,,,
+Passed,18,15,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,JUnit,Mockito,
+I. Kiểm thử ThuocService,,,,,,
+TS_001,Lấy danh sách thuốc thành công,"1. Mock repository trả về danh sách thuốc
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách thuốc",Passed,Passed,
+TS_002,Lấy danh sách thuốc trống,"1. Mock repository trả về danh sách rỗng
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,
+TS_003,Tìm thuốc theo ID thành công,"1. Mock repository trả về thuốc
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,
+TS_004,Tìm thuốc theo ID không tồn tại,"1. Mock repository trả về Optional.empty()
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 404 và thông báo lỗi",Passed,Passed,
+TS_005,Tạo thuốc thành công,"1. Mock repository trả về thuốc đã tạo
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin thuốc",Passed,Passed,
+TS_006,Cập nhật thuốc thành công,"1. Mock repository trả về thuốc đã cập nhật
+2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,
+TS_007,Xóa thuốc thành công,"1. Mock repository không ném exception
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,
+II. Kiểm thử LoaiThuocService,,,,,,
+LS_001,Lấy danh sách loại thuốc thành công,"1. Mock repository trả về danh sách loại thuốc
+2. Gọi phương thức getAllLoaiThuocs()","2. Trả về ResponseDTO với status 200 và danh sách loại thuốc",Passed,Passed,
+LS_002,Lấy danh sách loại thuốc trống,"1. Mock repository trả về danh sách rỗng
+2. Gọi phương thức getAllLoaiThuocs()","2. Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,
+LS_003,Tìm loại thuốc theo tên thành công,"1. Mock repository trả về danh sách loại thuốc
+2. Gọi phương thức searchByTenLoai()","2. Trả về ResponseDTO với status 200 và danh sách loại thuốc",Passed,Passed,
+LS_004,Tạo loại thuốc thành công,"1. Mock repository trả về loại thuốc đã tạo
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin loại thuốc",Passed,Passed,
+LS_005,Cập nhật loại thuốc thành công,"1. Mock repository trả về loại thuốc đã cập nhật
+2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin loại thuốc",Passed,Passed,
+LS_006,Xóa loại thuốc thành công,"1. Mock repository không ném exception
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,
+III. Kiểm thử DanhMucThuocService,,,,,,
+DS_001,Lấy danh sách danh mục thuốc thành công,"1. Mock repository trả về danh sách danh mục thuốc
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách danh mục thuốc",Passed,Passed,
+DS_002,Lấy danh sách danh mục thuốc trống,"1. Mock repository trả về danh sách rỗng
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,
+DS_003,Tìm danh mục thuốc theo tên thành công,"1. Mock repository trả về danh sách danh mục thuốc
+2. Gọi phương thức searchByTenDanhMuc()","2. Trả về ResponseDTO với status 200 và danh sách danh mục thuốc",Passed,Passed,
+DS_004,Tạo danh mục thuốc thành công,"1. Mock repository trả về danh mục thuốc đã tạo
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin danh mục thuốc",Passed,Passed,
+DS_005,Cập nhật danh mục thuốc thành công,"1. Mock repository trả về danh mục thuốc đã cập nhật
+2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin danh mục thuốc",Passed,Passed,
+DS_006,Xóa danh mục thuốc thành công,"1. Mock repository không ném exception
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,
+IV. Kiểm thử ThuocController,,,,,,
+TC_001,Lấy danh sách thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /thuoc/getAll","2. Trả về status 200 và danh sách thuốc",Passed,Passed,
+TC_002,Tìm thuốc theo ID thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /thuoc/getById","2. Trả về status 200 và thông tin thuốc",Passed,Passed,
+TC_003,Tạo thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API POST /thuoc/create","2. Trả về status 201 và thông tin thuốc",Passed,Passed,
+TC_004,Cập nhật thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API PUT /thuoc/update","2. Trả về status 200 và thông tin thuốc",Passed,Passed,
+TC_005,Xóa thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API DELETE /thuoc/delete","2. Trả về status 200 và thông báo thành công",Passed,Passed,
+V. Kiểm thử LoaiThuocController,,,,,,
+LC_001,Lấy danh sách loại thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /loai-thuoc/getAll","2. Trả về status 200 và danh sách loại thuốc",Passed,Passed,
+LC_002,Tìm loại thuốc theo tên thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /loai-thuoc/search","2. Trả về status 200 và danh sách loại thuốc",Passed,Passed,
+LC_003,Tạo loại thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API POST /loai-thuoc/create","2. Trả về status 201 và thông tin loại thuốc",Passed,Passed,
+LC_004,Cập nhật loại thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API PUT /loai-thuoc/update","2. Trả về status 200 và thông tin loại thuốc",Passed,Passed,
+LC_005,Xóa loại thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API DELETE /loai-thuoc/delete","2. Trả về status 200 và thông báo thành công",Passed,Passed,
+VI. Kiểm thử DanhMucThuocController,,,,,,
+DC_001,Lấy danh sách danh mục thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /danh-muc-thuoc/getAll","2. Trả về status 200 và danh sách danh mục thuốc",Passed,Passed,
+DC_002,Tìm danh mục thuốc theo tên thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API GET /danh-muc-thuoc/search","2. Trả về status 200 và danh sách danh mục thuốc",Passed,Passed,
+DC_003,Tạo danh mục thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API POST /danh-muc-thuoc/create","2. Trả về status 201 và thông tin danh mục thuốc",Passed,Passed,
+DC_004,Cập nhật danh mục thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API PUT /danh-muc-thuoc/update","2. Trả về status 200 và thông tin danh mục thuốc",Passed,Passed,
+DC_005,Xóa danh mục thuốc thành công,"1. Mock service trả về ResponseDTO thành công
+2. Gọi API DELETE /danh-muc-thuoc/delete","2. Trả về status 200 và thông báo thành công",Passed,Passed,
