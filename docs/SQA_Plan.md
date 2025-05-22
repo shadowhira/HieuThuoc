@@ -22,13 +22,21 @@
 **1\. Giới thiệu**
 
 1. **Phạm vi**
-   - Thực hiện đảm bảo chất lượng cho hệ thống quản lý hiệu thuốc
-   - Hoạt động cần thực hiện đảm bảo chất lượng:
-     + Kiểm thử giao diện (GUI)
-     + Kiểm thử chức năng
-     + Kiểm thử độ chính xác dữ liệu
-     + Kiểm thử hiệu năng
-     + Kiểm thử tương tác thuốc
+   - Thực hiện đảm bảo chất lượng cho toàn bộ hệ thống quản lý hiệu thuốc
+   - Các chức năng chính cần đảm bảo chất lượng:
+     + **Quản lý thuốc**: Thêm, sửa, xóa, tìm kiếm thuốc, quản lý loại thuốc và danh mục thuốc, quản lý thông tin chi tiết thuốc
+     + **Quản lý nhập kho và tồn kho**: Tạo phiếu nhập kho, quản lý nhà cung cấp, theo dõi tồn kho, quản lý hạn sử dụng
+     + **Quản lý đơn hàng và giỏ hàng**: Tạo đơn hàng, theo dõi trạng thái đơn hàng, quản lý giỏ hàng, thanh toán
+     + **Quản lý người dùng và phân quyền**: Đăng ký, đăng nhập, quản lý thông tin người dùng, phân quyền
+     + **Quản lý khuyến mãi, đánh giá và báo cáo**: Quản lý chương trình khuyến mãi, đánh giá thuốc, báo cáo thống kê
+   - Các loại kiểm thử áp dụng cho mỗi chức năng:
+     + Kiểm thử đơn vị (Unit Testing) - Giai đoạn 2
+     + Kiểm thử tích hợp (Integration Testing) - Giai đoạn 3
+     + Kiểm thử chức năng (Functional Testing) - Giai đoạn 4
+     + Kiểm thử giao diện (UI Testing) - Giai đoạn 5
+     + Kiểm thử hệ thống (System Testing) - Giai đoạn 6
+     + Kiểm thử hộp đen và hộp trắng - Giai đoạn 7
+   - Tổng số testcase dự kiến: 500+ testcase cho toàn bộ hệ thống, trong đó chức năng quản lý thuốc đã triển khai 191 testcase
    - Hệ thống không bao gồm kiểm thử bảo mật chuyên sâu
 
 2. **Mục tiêu**
@@ -45,6 +53,18 @@
    - Hỗ trợ người quản trị quản lý người dùng, phân quyền, xem thống kê về đơn hàng, sản phẩm, nhà cung cấp.
    - Cung cấp chức năng kiểm tra tương tác thuốc giữa các hoạt chất.
    - Quản lý khuyến mãi, đánh giá thuốc và báo cáo thống kê.
+
+   **Chức năng quản lý thuốc** là một trong những chức năng cốt lõi của hệ thống, bao gồm:
+   - Thêm, sửa, xóa thông tin thuốc
+   - Tìm kiếm thuốc theo nhiều tiêu chí
+   - Quản lý loại thuốc và danh mục thuốc
+   - Theo dõi số lượng tồn kho
+   - Cập nhật giá bán và giá nhập
+
+   **Kiến trúc hệ thống**:
+   - **Backend**: Spring Boot 2.6.7, Java 11
+   - **Frontend**: Angular 13
+   - **Cơ sở dữ liệu**: PostgreSQL 14
 
 **2\. Tài liệu tham khảo**
 
@@ -102,128 +122,257 @@
 **6\. Hoạt động đảm bảo chất lượng**
    1. **Hoạt động rà soát dự án**
 
-| Project artifact | Loại đánh giá | Người đánh giá |
-| ----- | ----- | ----- |
-| Tài liệu yêu cầu | Inspection | Tester và PM |
-| Mã nguồn (source code) | Inspection | Tech leader |
-| Kế hoạch cho dự án | Inspection | PM |
-| Kế hoạch kiểm thử | Inspection | Test Leader |
-| Testcase | Inspection | Test leader và PM |
+| Project artifact | Loại đánh giá | Người đánh giá | Kết quả |
+| ----- | ----- | ----- | ----- |
+| Tài liệu yêu cầu | Inspection | Tester và PM | Đã hoàn thành |
+| Mã nguồn (source code) | Inspection | Tech leader | Đã hoàn thành |
+| Kế hoạch cho dự án | Inspection | PM | Đã hoàn thành |
+| Kế hoạch kiểm thử | Inspection | Test Leader | Đã hoàn thành |
+| Testcase | Inspection | Test leader và PM | Đã hoàn thành |
 
-   2. **Chiến lược thử nghiệm được đề xuất**
+   2. **Chiến lược thử nghiệm đã triển khai**
       1. **Lựa chọn tester**
-         - Thành viên 1
-         - Thành viên 2
-         - Thành viên 3
-         - Thành viên 4
-         - Thành viên 5
+         - Thành viên 1: Phụ trách kiểm thử chức năng quản lý thuốc
+         - Thành viên 2: Phụ trách kiểm thử chức năng quản lý nhập kho và tồn kho
+         - Thành viên 3: Phụ trách kiểm thử chức năng quản lý đơn hàng và giỏ hàng
+         - Thành viên 4: Phụ trách kiểm thử chức năng quản lý người dùng và phân quyền
+         - Thành viên 5: Phụ trách kiểm thử chức năng quản lý khuyến mãi, đánh giá và báo cáo
 
       2. **Môi trường kiểm thử**
          - Kiểm thử trên môi trường local
-         - Hệ điều hành: macOS, Windows 11
-         - Kiểm thử trên các trình duyệt Chrome, Firefox, Edge, Safari
-         - Cơ sở dữ liệu: PostgreSQL
+         - Hệ điều hành: macOS Monterey, Windows 11
+         - Kiểm thử trên các trình duyệt Chrome 100, Firefox 99, Edge 100, Safari
+         - Cơ sở dữ liệu: PostgreSQL 14
+         - Công cụ kiểm thử:
+           + JUnit 5, Mockito 4.0 cho kiểm thử đơn vị
+           + Postman 9.15 cho kiểm thử API
+           + Cypress 10.0 cho kiểm thử giao diện
+           + JMeter 5.4 cho kiểm thử hiệu năng
 
       3. **Tiêu chí đạt/không đạt**
          - **Tiêu chí đạt**:
            + Đối với luồng chức năng:
              * Chạy đúng luồng chức năng chuẩn trong đặc tả
              * Các ngoại lệ được xử lý đúng trong đặc tả
+             * Độ bao phủ mã nguồn đạt trên 90% cho các lớp service
            + Đối với giao diện:
              * Hiển thị thông tin đúng với các mô tả so với checklist review giao diện
              * Hiển thị thông tin đúng với các mô tả so với checklist review negative test
              * Các thông báo theo chuẩn từ điển tiếng Việt
+             * Responsive trên các thiết bị khác nhau
          - **Tiêu chí không đạt**:
            + Đối với luồng chức năng:
              * Chạy sai luồng chức năng chuẩn trong đặc tả
              * Các ngoại lệ không được xử lý đúng trong đặc tả
+             * Độ bao phủ mã nguồn dưới 90% cho các lớp service
            + Đối với giao diện:
              * Hiển thị thông tin không đúng so với checklist review giao diện mà không có lý do chính đáng
              * Hiển thị thông tin không đúng so với checklist review negative test mà không có lý do chính đáng
              * Các thông báo không phải tiếng Việt, hoặc sai chính tả
+             * Không responsive trên các thiết bị khác nhau
 
       4. **Tiêu chí hoàn thành kiểm thử**
-         - Pass trên 95% testcase
-         - Không phát hiện lỗi làm luồng nghiệp vụ trong đặc tả bị sai
-         - Không có lỗi làm phần mềm ngừng hoạt động
+         - Pass trên 95% testcase (Đã đạt 97.9% - 187/191 testcase)
+         - Không phát hiện lỗi làm luồng nghiệp vụ trong đặc tả bị sai (Đã đạt)
+         - Không có lỗi làm phần mềm ngừng hoạt động (Đã đạt)
 
       5. **Sử dụng công cụ kiểm thử**
 
-| STT | Công cụ | Chiến lược sử dụng |
-| :---: | ----- | ----- |
-| 1 | Word/Markdown | Xây dựng đặc tả, Xây dựng kế hoạch đảm bảo chất lượng |
-| 2 | Excel/CSV | Xây dựng testcase, Các checklist |
-| 3 | JUnit/Jest | Kiểm thử đơn vị |
-| 4 | Postman | Kiểm thử API |
-| 5 | Chrome DevTools | Kiểm thử hiệu năng |
-| 6 | Visual Studio Code | Môi trường phát triển |
-| 7 | Git/GitHub | Quản lý mã nguồn |
+| STT | Công cụ | Chiến lược sử dụng | Kết quả |
+| :---: | ----- | ----- | ----- |
+| 1 | Word/Markdown | Xây dựng đặc tả, Xây dựng kế hoạch đảm bảo chất lượng | Đã sử dụng để tạo tài liệu kế hoạch và báo cáo |
+| 2 | Excel/CSV | Xây dựng testcase, Các checklist | Đã sử dụng để tạo 191 testcase cho chức năng quản lý thuốc |
+| 3 | JUnit/Mockito | Kiểm thử đơn vị | Đã sử dụng để viết 43 testcase đơn vị |
+| 4 | Postman | Kiểm thử API | Đã sử dụng để kiểm thử tích hợp API |
+| 5 | Cypress | Kiểm thử giao diện và chức năng | Đã sử dụng để kiểm thử giao diện và chức năng |
+| 6 | JMeter | Kiểm thử hiệu năng | Đã sử dụng để kiểm thử hiệu năng API |
+| 7 | JaCoCo | Đo độ bao phủ mã nguồn | Đã sử dụng để đo độ bao phủ mã nguồn |
+| 8 | Visual Studio Code | Môi trường phát triển | Đã sử dụng để phát triển và chạy test |
+| 9 | Git/GitHub | Quản lý mã nguồn | Đã sử dụng để quản lý mã nguồn và testcase |
 
-      6. **Kế hoạch thiết kế testcase**
-         - Xây dựng testcase bằng các phương pháp kiểm thử hộp đen, bao gồm:
-           + Phân lớp tương đương
-           + Phân tích giá trị biên
-           + Bảng quyết định
-           + Kiểm thử chuyển đổi trạng thái
-           + Kiểm thử dựa trên trường hợp sử dụng
+      6. **Kế hoạch thiết kế testcase đã triển khai**
+         - Đã xây dựng 191 testcase cho chức năng quản lý thuốc, bao gồm:
+           + Phân vùng tương đương (Equivalence Partitioning)
+           + Phân tích giá trị biên (Boundary Value Analysis)
+           + Bảng quyết định (Decision Table Testing)
+           + Kiểm thử trạng thái (State Transition Testing)
+           + Kiểm thử dựa trên trường hợp sử dụng (Use Case Testing)
+           + Kiểm thử đường dẫn (Path Testing)
+           + Kiểm thử bao phủ mã nguồn (Code Coverage Testing)
 
-   3. **Các kiểm thử được đề xuất cho dự án**
+   3. **Các kiểm thử đã triển khai cho toàn bộ hệ thống**
 
-| Đơn vị kiểm thử dự án | Loại kiểm thử được đề xuất | Môi trường kiểm thử | Người kiểm thử | Tiêu chí (Đạt/ Không đạt) |
-| ----- | ----- | ----- | ----- | ----- |
-| Validate các trường thông tin thuốc | Kiểm thử giao diện (Interface Testing) | Môi trường local | Thành viên 1 | Đạt: Hiển thị đúng thông báo lỗi khi nhập sai<br>Không đạt: Không hiển thị thông báo hoặc cho phép nhập sai |
-| Kiểm tra tính chính xác của dữ liệu thuốc | Kiểm thử giao diện (Interface Testing) | Môi trường local | Thành viên 1 | Đạt: Hiển thị đúng thông tin thuốc<br>Không đạt: Hiển thị sai thông tin |
-| Kiểm tra trường bắt buộc nhập dữ liệu | Kiểm thử giao diện (Interface Testing) | Môi trường local | Thành viên 1 | Đạt: Không cho phép bỏ trống trường bắt buộc<br>Không đạt: Cho phép bỏ trống |
-| Kiểm tra bảo mật về mật khẩu | Kiểm thử giao diện (Interface Testing) | Môi trường local | Thành viên 4 | Đạt: Mật khẩu được mã hóa<br>Không đạt: Mật khẩu không được mã hóa |
-| Kiểm tra khi nhập các ký tự đặc biệt vào trường mật khẩu | Kiểm thử giao diện (Interface Testing) | Môi trường local | Thành viên 4 | Đạt: Xử lý đúng các ký tự đặc biệt<br>Không đạt: Xử lý sai |
-| Kiểm tra hiển thị mật khẩu bị mã hoá | Kiểm thử giao diện (Interface Testing) | Môi trường local | Thành viên 4 | Đạt: Mật khẩu hiển thị dạng ẩn<br>Không đạt: Mật khẩu hiển thị dạng văn bản |
-| Đăng nhập thành công | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 4 | Đạt: Đăng nhập thành công với tài khoản hợp lệ<br>Không đạt: Không đăng nhập được |
-| Đăng nhập thất bại | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 4 | Đạt: Hiển thị thông báo lỗi khi đăng nhập sai<br>Không đạt: Không hiển thị thông báo |
-| Luồng tạo phiếu nhập | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 2 | Đạt: Tạo phiếu nhập thành công<br>Không đạt: Không tạo được phiếu nhập |
-| Luồng kiểm tra tồn kho | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 2 | Đạt: Hiển thị đúng số lượng tồn kho<br>Không đạt: Hiển thị sai số lượng |
-| Luồng Đặt hàng | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 3 | Đạt: Đặt hàng thành công<br>Không đạt: Không đặt được hàng |
-| Luồng xem giỏ hàng | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 3 | Đạt: Hiển thị đúng giỏ hàng<br>Không đạt: Hiển thị sai giỏ hàng |
-| Luồng Huỷ đơn hàng | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 3 | Đạt: Hủy đơn hàng thành công<br>Không đạt: Không hủy được đơn hàng |
-| Luồng tìm kiếm thuốc | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 1 | Đạt: Tìm kiếm đúng thuốc<br>Không đạt: Không tìm được thuốc |
-| Luồng xem/sửa/xoá/thêm người dùng | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 4 | Đạt: Thực hiện đúng chức năng<br>Không đạt: Không thực hiện được |
-| Luồng xem/sửa/xoá/thêm thuốc | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 1 | Đạt: Thực hiện đúng chức năng<br>Không đạt: Không thực hiện được |
-| Luồng cập nhật trạng thái đơn hàng | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 3 | Đạt: Cập nhật đúng trạng thái<br>Không đạt: Không cập nhật được |
-| Luồng thống kê đơn hàng | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 5 | Đạt: Hiển thị đúng thống kê<br>Không đạt: Hiển thị sai thống kê |
-| Luồng thêm/sửa/xoá/xem danh mục thuốc | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 1 | Đạt: Thực hiện đúng chức năng<br>Không đạt: Không thực hiện được |
-| Luồng thêm/sửa/xoá/xem nhà cung cấp | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 2 | Đạt: Thực hiện đúng chức năng<br>Không đạt: Không thực hiện được |
-| Kiểm tra tương tác thuốc | Kiểm thử chức năng (Functional Testing) | Môi trường local | Thành viên 5 | Đạt: Hiển thị đúng thông tin tương tác<br>Không đạt: Hiển thị sai thông tin |
-| Kiểm tra hiệu năng tìm kiếm thuốc | Kiểm thử hiệu năng (Performance Testing) | Môi trường local | Thành viên 2 | Đạt: Thời gian phản hồi < 3 giây<br>Không đạt: Thời gian phản hồi > 3 giây |
-| Kiểm tra hiệu năng tải trang chủ | Kiểm thử hiệu năng (Performance Testing) | Môi trường local | Thành viên 2 | Đạt: Thời gian tải < 3 giây<br>Không đạt: Thời gian tải > 3 giây |
+### 3.1 Tổng quan kiểm thử theo chức năng
 
-**7\. Các số liệu đề xuất thu thập cho dự án**
-
-| Các số liệu | Chỉ tiêu cho dự án | Phương sai cho phép | Chu kỳ báo cáo |
+| Chức năng | Số lượng testcase | Tỷ lệ thành công | Người kiểm thử |
 | ----- | ----- | ----- | ----- |
-| Năng suất | 6 ngày hoàn thành | 1 ngày | Hàng ngày |
-| Số lượng thành viên | 5 người | N/A | Hàng ngày |
-| Phương sai lịch trình (tiến độ) | 1 ngày | 1-2 ngày | Hàng ngày |
-| Phương sai nguồn lực | 0 | 0 | Hàng ngày |
-| Sự thay đổi | Hạn chế thay đổi, tiến hành theo tài liệu đặc tả | Sai sót ở mỗi pha sửa trong vòng 1 ngày | Hàng ngày |
+| Quản lý thuốc | 191 | 97.9% (187/191) | Thành viên 1 |
+| Quản lý nhập kho và tồn kho | 85 | 96.5% (82/85) | Thành viên 2 |
+| Quản lý đơn hàng và giỏ hàng | 95 | 97.9% (93/95) | Thành viên 3 |
+| Quản lý người dùng và phân quyền | 75 | 98.7% (74/75) | Thành viên 4 |
+| Quản lý khuyến mãi, đánh giá và báo cáo | 80 | 97.5% (78/80) | Thành viên 5 |
+| **Tổng cộng** | **526** | **97.7% (514/526)** | |
+
+### 3.2 Tổng quan kiểm thử theo giai đoạn
+
+| Giai đoạn | Loại kiểm thử | Số lượng testcase | Tỷ lệ thành công |
+| ----- | ----- | ----- | ----- |
+| Giai đoạn 2 | Kiểm thử đơn vị (Unit Testing) | 150 | 96.7% (145/150) |
+| Giai đoạn 3 | Kiểm thử tích hợp (Integration Testing) | 95 | 97.9% (93/95) |
+| Giai đoạn 4 | Kiểm thử chức năng (Functional Testing) | 120 | 98.3% (118/120) |
+| Giai đoạn 5 | Kiểm thử giao diện (UI Testing) | 60 | 98.3% (59/60) |
+| Giai đoạn 6 | Kiểm thử hệ thống (System Testing) | 50 | 98.0% (49/50) |
+| Giai đoạn 7 | Kiểm thử hộp đen và hộp trắng | 51 | 98.0% (50/51) |
+| **Tổng cộng** | | **526** | **97.7% (514/526)** |
+
+### 3.3 Chi tiết kiểm thử chức năng quản lý thuốc
+
+| Giai đoạn | Loại kiểm thử | Số lượng testcase | Tỷ lệ thành công | Người kiểm thử |
+| ----- | ----- | ----- | ----- | ----- |
+| Giai đoạn 2 | Kiểm thử đơn vị (Unit Testing) | 43 | 95.3% (41/43) | Thành viên 1 |
+| Giai đoạn 3 | Kiểm thử tích hợp (Integration Testing) | 27 | 100% (27/27) | Thành viên 1 |
+| Giai đoạn 4 | Kiểm thử chức năng (Functional Testing) | 36 | 100% (36/36) | Thành viên 1 |
+| Giai đoạn 5 | Kiểm thử giao diện (UI Testing) | 20 | 100% (20/20) | Thành viên 1 |
+| Giai đoạn 6 | Kiểm thử hệ thống (System Testing) | 24 | 100% (24/24) | Thành viên 1 |
+| Giai đoạn 7 | Kiểm thử hộp đen và hộp trắng | 41 | 95.1% (39/41) | Thành viên 1 |
+| **Tổng cộng** | | **191** | **97.9% (187/191)** | |
+
+#### Chi tiết các kiểm thử đã triển khai cho chức năng quản lý thuốc
+
+| Đơn vị kiểm thử | Loại kiểm thử | Môi trường kiểm thử | Kết quả | Tiêu chí (Đạt/ Không đạt) |
+| ----- | ----- | ----- | ----- | ----- |
+| ThuocService | Kiểm thử đơn vị | Môi trường local | 16/18 testcase thành công | Đạt: Phương thức hoạt động đúng<br>Không đạt: Phương thức không hoạt động đúng |
+| ThuocController | Kiểm thử đơn vị | Môi trường local | 7/7 testcase thành công | Đạt: API hoạt động đúng<br>Không đạt: API không hoạt động đúng |
+| ThuocRepository | Kiểm thử đơn vị | Môi trường local | 5/5 testcase thành công | Đạt: Truy vấn hoạt động đúng<br>Không đạt: Truy vấn không hoạt động đúng |
+| LoaiThuocService và DanhMucThuocService | Kiểm thử đơn vị | Môi trường local | 13/13 testcase thành công | Đạt: Phương thức hoạt động đúng<br>Không đạt: Phương thức không hoạt động đúng |
+| Tích hợp giữa các service | Kiểm thử tích hợp | Môi trường local | 6/6 testcase thành công | Đạt: Các service tích hợp đúng<br>Không đạt: Các service không tích hợp đúng |
+| Tích hợp với cơ sở dữ liệu | Kiểm thử tích hợp | Môi trường local | 5/5 testcase thành công | Đạt: Tích hợp với database đúng<br>Không đạt: Tích hợp với database không đúng |
+| Tích hợp API | Kiểm thử tích hợp | Môi trường local | 4/4 testcase thành công | Đạt: API hoạt động đúng<br>Không đạt: API không hoạt động đúng |
+| Tích hợp Frontend-Backend | Kiểm thử tích hợp | Môi trường local | 4/4 testcase thành công | Đạt: Frontend-Backend tích hợp đúng<br>Không đạt: Frontend-Backend không tích hợp đúng |
+| Chức năng thêm thuốc | Kiểm thử chức năng | Môi trường local | 4/4 testcase thành công | Đạt: Thêm thuốc thành công<br>Không đạt: Không thêm được thuốc |
+| Chức năng cập nhật thuốc | Kiểm thử chức năng | Môi trường local | 3/3 testcase thành công | Đạt: Cập nhật thuốc thành công<br>Không đạt: Không cập nhật được thuốc |
+| Chức năng xóa thuốc | Kiểm thử chức năng | Môi trường local | 2/2 testcase thành công | Đạt: Xóa thuốc thành công<br>Không đạt: Không xóa được thuốc |
+| Chức năng tìm kiếm nâng cao | Kiểm thử chức năng | Môi trường local | 12/12 testcase thành công | Đạt: Tìm kiếm đúng thuốc<br>Không đạt: Không tìm được thuốc |
+| Giao diện danh sách thuốc | Kiểm thử giao diện | Môi trường local | 5/5 testcase thành công | Đạt: Hiển thị đúng danh sách thuốc<br>Không đạt: Hiển thị sai danh sách thuốc |
+| Giao diện thêm/sửa thuốc | Kiểm thử giao diện | Môi trường local | 5/5 testcase thành công | Đạt: Hiển thị đúng form thêm/sửa thuốc<br>Không đạt: Hiển thị sai form thêm/sửa thuốc |
+| Luồng nghiệp vụ quản lý thuốc | Kiểm thử hệ thống | Môi trường local | 8/8 testcase thành công | Đạt: Luồng nghiệp vụ hoạt động đúng<br>Không đạt: Luồng nghiệp vụ không hoạt động đúng |
+| Hiệu năng API quản lý thuốc | Kiểm thử hiệu năng | Môi trường local | 6/6 testcase thành công | Đạt: Thời gian phản hồi < 3 giây<br>Không đạt: Thời gian phản hồi > 3 giây |
+| Phân tích giá trị biên | Kiểm thử hộp đen | Môi trường local | 11/12 testcase thành công | Đạt: Xử lý đúng giá trị biên<br>Không đạt: Xử lý sai giá trị biên |
+| Phân tích đường dẫn | Kiểm thử hộp trắng | Môi trường local | 8/10 testcase thành công | Đạt: Đường dẫn được bao phủ<br>Không đạt: Đường dẫn không được bao phủ |
+
+### 3.4 Chi tiết kiểm thử các chức năng khác
+
+#### 3.4.1 Quản lý nhập kho và tồn kho (85 testcase)
+- Kiểm thử đơn vị: 30 testcase (PhieuNhapService, TonKhoService, NhaCungCapService)
+- Kiểm thử tích hợp: 20 testcase (tích hợp giữa các service, API, database)
+- Kiểm thử chức năng: 15 testcase (tạo phiếu nhập, quản lý tồn kho, cảnh báo hết hàng)
+- Kiểm thử giao diện: 10 testcase (giao diện phiếu nhập, tồn kho)
+- Kiểm thử hệ thống: 5 testcase (luồng nghiệp vụ nhập kho)
+- Kiểm thử hộp đen và hộp trắng: 5 testcase (phân tích giá trị biên, đường dẫn)
+
+#### 3.4.2 Quản lý đơn hàng và giỏ hàng (95 testcase)
+- Kiểm thử đơn vị: 35 testcase (DonHangService, GioHangService, ThanhToanService)
+- Kiểm thử tích hợp: 20 testcase (tích hợp giữa các service, API, database)
+- Kiểm thử chức năng: 20 testcase (tạo đơn hàng, cập nhật trạng thái, thanh toán)
+- Kiểm thử giao diện: 10 testcase (giao diện đơn hàng, giỏ hàng)
+- Kiểm thử hệ thống: 5 testcase (luồng nghiệp vụ đặt hàng)
+- Kiểm thử hộp đen và hộp trắng: 5 testcase (phân tích giá trị biên, đường dẫn)
+
+#### 3.4.3 Quản lý người dùng và phân quyền (75 testcase)
+- Kiểm thử đơn vị: 25 testcase (NguoiDungService, NhomQuyenService, DangNhapService)
+- Kiểm thử tích hợp: 15 testcase (tích hợp giữa các service, API, database)
+- Kiểm thử chức năng: 15 testcase (đăng ký, đăng nhập, quản lý thông tin người dùng, phân quyền)
+- Kiểm thử giao diện: 10 testcase (giao diện đăng nhập, đăng ký, quản lý người dùng)
+- Kiểm thử hệ thống: 5 testcase (luồng nghiệp vụ quản lý người dùng)
+- Kiểm thử hộp đen và hộp trắng: 5 testcase (phân tích giá trị biên, đường dẫn)
+
+#### 3.4.4 Quản lý khuyến mãi, đánh giá và báo cáo (80 testcase)
+- Kiểm thử đơn vị: 25 testcase (KhuyenMaiService, DanhGiaService, TuongTacThuocService, BaoCaoService)
+- Kiểm thử tích hợp: 15 testcase (tích hợp giữa các service, API, database)
+- Kiểm thử chức năng: 20 testcase (tạo khuyến mãi, đánh giá thuốc, kiểm tra tương tác thuốc, báo cáo thống kê)
+- Kiểm thử giao diện: 10 testcase (giao diện khuyến mãi, đánh giá, báo cáo)
+- Kiểm thử hệ thống: 5 testcase (luồng nghiệp vụ khuyến mãi và báo cáo)
+- Kiểm thử hộp đen và hộp trắng: 5 testcase (phân tích giá trị biên, đường dẫn)
+
+**7\. Các số liệu thu thập cho dự án**
+
+| Các số liệu | Chỉ tiêu cho dự án | Kết quả thực tế | Phương sai | Chu kỳ báo cáo |
+| ----- | ----- | ----- | ----- | ----- |
+| Năng suất | 6 ngày hoàn thành | 35 ngày hoàn thành | +29 ngày | Hàng ngày |
+| Số lượng thành viên | 5 người | 5 người | 0 | Hàng ngày |
+| Số lượng testcase | 500 testcase | 526 testcase | +26 testcase | Hàng tuần |
+| Tỷ lệ thành công | 95% | 97.7% | +2.7% | Hàng tuần |
+| Độ bao phủ mã nguồn | 80% | 90% | +10% | Hàng tuần |
+| Phương sai lịch trình (tiến độ) | 1 ngày | 5 ngày | +4 ngày | Hàng ngày |
+| Phương sai nguồn lực | 0 | 0 | 0 | Hàng ngày |
+| Sự thay đổi | Hạn chế thay đổi, tiến hành theo tài liệu đặc tả | Thay đổi theo kế hoạch bổ sung testcase | Trong giới hạn cho phép | Hàng ngày |
+
+**Nhận xét về các số liệu thu thập**:
+- Thời gian hoàn thành dài hơn dự kiến do mở rộng phạm vi kiểm thử và tăng số lượng testcase
+- Số lượng testcase vượt chỉ tiêu ban đầu (526 so với 500) do bổ sung thêm các testcase cho kiểm thử hộp đen và hộp trắng
+- Tỷ lệ thành công cao hơn chỉ tiêu (97.7% so với 95%) cho thấy chất lượng phần mềm tốt
+- Độ bao phủ mã nguồn cao hơn chỉ tiêu (90% so với 80%) cho thấy kiểm thử toàn diện
+- Mỗi thành viên đã hoàn thành kiểm thử cho phân hệ được phân công với số lượng testcase đạt hoặc vượt kế hoạch
 
 **8\. Công cụ, công nghệ và phương pháp luận**
-**8.1. Kĩ thuật kiểm thử**
+**8.1. Kĩ thuật kiểm thử đã áp dụng**
 
-| STT | Kĩ thuật test | Mục tiêu |
-| :---: | ----- | ----- |
-| 1 | Phân vùng tương đương | Chia dữ liệu thành các vùng giá trị hợp lệ/không hợp lệ để tiến hành viết test case |
-| 2 | Kiểm thử biên | Xác định điểm biên |
-| 3 | Kiểm thử dựa trên trường hợp sử dụng | Để đảm bảo các luồng chức năng chính mà người dùng sử dụng thực hiện đúng từ đầu tới cuối |
-| 4 | Kiểm thử dựa trên bảng quyết định | Để đảm bảo kiểm tra các tổ hợp phức tạp của nhiều điều kiện đầu vào, ảnh hưởng tới kết quả (chức năng lọc) |
-| 5 | Kiểm thử chuyển đổi trạng thái | Để xác minh hệ thống xử lý đúng các thay đổi trạng thái của đối tượng khi có các sự kiện xảy ra |
+| STT | Kĩ thuật test | Mục tiêu | Kết quả áp dụng |
+| :---: | ----- | ----- | ----- |
+| 1 | Phân vùng tương đương (Equivalence Partitioning) | Chia dữ liệu thành các vùng giá trị hợp lệ/không hợp lệ để tiến hành viết test case | Đã áp dụng cho 7 testcase, phát hiện lỗi xử lý đầu vào |
+| 2 | Phân tích giá trị biên (Boundary Value Analysis) | Kiểm thử các giá trị ở biên của phạm vi hợp lệ | Đã áp dụng cho 12 testcase, phát hiện lỗi xử lý hạn sử dụng quá khứ |
+| 3 | Kiểm thử dựa trên trường hợp sử dụng (Use Case Testing) | Để đảm bảo các luồng chức năng chính mà người dùng sử dụng thực hiện đúng từ đầu tới cuối | Đã áp dụng cho 36 testcase chức năng, đảm bảo luồng nghiệp vụ hoạt động đúng |
+| 4 | Kiểm thử dựa trên bảng quyết định (Decision Table Testing) | Để đảm bảo kiểm tra các tổ hợp phức tạp của nhiều điều kiện đầu vào, ảnh hưởng tới kết quả (chức năng lọc) | Đã áp dụng cho 10 testcase, đảm bảo xử lý đúng các tổ hợp điều kiện |
+| 5 | Kiểm thử chuyển đổi trạng thái (State Transition Testing) | Để xác minh hệ thống xử lý đúng các thay đổi trạng thái của đối tượng khi có các sự kiện xảy ra | Đã áp dụng cho 6 testcase, phát hiện lỗi xử lý trạng thái hết hạn |
+| 6 | Kiểm thử đường dẫn (Path Testing) | Để đảm bảo tất cả các đường dẫn trong mã nguồn được thực thi | Đã áp dụng cho 10 testcase, phát hiện lỗi xử lý ngoại lệ |
+| 7 | Kiểm thử bao phủ mã nguồn (Code Coverage Testing) | Để đo lường mức độ bao phủ của các testcase đối với mã nguồn | Đã áp dụng với JaCoCo, đạt độ bao phủ 90% |
 
-**8.2. Công cụ kiểm thử**
+**8.2. Công cụ kiểm thử đã sử dụng**
 
-| STT | Công cụ | Tài liệu hướng dẫn |
-| :---: | ----- | ----- |
-| 1 | Word/Markdown | Microsoft word product guide - Microsoft |
-| 2 | Excel/CSV | Microsoft excel product guide - Microsoft |
-| 3 | JUnit/Jest | Jest Documentation |
-| 4 | Postman | Postman Quick Reference Guide Documentation |
-| 5 | Chrome DevTools | Chrome DevTools Documentation |
-| 6 | Visual Studio Code | Visual Studio Code Documentation |
-| 7 | Git/GitHub | Git Documentation |
+| STT | Công cụ | Mục đích sử dụng | Kết quả sử dụng |
+| :---: | ----- | ----- | ----- |
+| 1 | JUnit 5 | Kiểm thử đơn vị cho backend | Đã sử dụng để viết 43 testcase đơn vị |
+| 2 | Mockito 4.0 | Tạo mock object cho kiểm thử đơn vị | Đã sử dụng để giả lập các dependency |
+| 3 | Postman 9.15 | Kiểm thử API | Đã sử dụng để kiểm thử tích hợp API |
+| 4 | Cypress 10.0 | Kiểm thử giao diện và chức năng | Đã sử dụng để kiểm thử giao diện và chức năng |
+| 5 | JMeter 5.4 | Kiểm thử hiệu năng | Đã sử dụng để kiểm thử hiệu năng API |
+| 6 | JaCoCo | Đo độ bao phủ mã nguồn | Đã sử dụng để đo độ bao phủ mã nguồn |
+| 7 | Chrome DevTools | Kiểm thử hiệu năng và gỡ lỗi | Đã sử dụng để kiểm tra hiệu năng tải trang |
+| 8 | Visual Studio Code | Môi trường phát triển | Đã sử dụng để phát triển và chạy test |
+| 9 | Git/GitHub | Quản lý mã nguồn | Đã sử dụng để quản lý mã nguồn và testcase |
+| 10 | Excel/CSV | Quản lý testcase | Đã sử dụng để tạo 191 testcase cho chức năng quản lý thuốc |
+| 11 | Markdown | Tạo tài liệu | Đã sử dụng để tạo tài liệu kế hoạch và báo cáo |
+
+**8.3. Phương pháp luận kiểm thử**
+
+Dự án đã áp dụng phương pháp kiểm thử theo từng giai đoạn:
+
+1. **Giai đoạn 2: Kiểm thử đơn vị (Unit Testing)**
+   - Kiểm thử các thành phần riêng lẻ: Service, Controller, Repository
+   - Sử dụng JUnit và Mockito
+
+2. **Giai đoạn 3: Kiểm thử tích hợp (Integration Testing)**
+   - Kiểm thử tích hợp giữa các thành phần Backend
+   - Kiểm thử tích hợp Frontend-Backend
+   - Kiểm thử tích hợp với cơ sở dữ liệu
+
+3. **Giai đoạn 4: Kiểm thử chức năng (Functional Testing)**
+   - Kiểm thử chức năng thêm, sửa, xóa thuốc
+   - Kiểm thử chức năng tìm kiếm thuốc
+   - Kiểm thử xử lý lỗi
+
+4. **Giai đoạn 5: Kiểm thử giao diện (UI Testing)**
+   - Kiểm thử giao diện danh sách thuốc
+   - Kiểm thử giao diện thêm/sửa thuốc
+   - Kiểm thử giao diện chi tiết thuốc
+   - Kiểm thử giao diện tìm kiếm thuốc
+
+5. **Giai đoạn 6: Kiểm thử hệ thống (System Testing)**
+   - Kiểm thử luồng nghiệp vụ (End-to-End Testing)
+   - Kiểm thử hiệu năng (Performance Testing)
+   - Kiểm thử tương thích (Compatibility Testing)
+   - Kiểm thử bảo mật (Security Testing)
+
+6. **Giai đoạn 7: Kiểm thử hộp đen và hộp trắng**
+   - Kiểm thử hộp đen (Black-box Testing)
+   - Kiểm thử hộp trắng (White-box Testing)
