@@ -1,143 +1,117 @@
-Function Name,Kiểm thử tích hợp - Quản lý thuốc,,,,,
-Test Result,Postman,MockMvc,,,,
-Total,27,27,,,,
-Passed,27,27,,,,
-Failed,0,0,,,,
-Not Run,0,0,,,,
-NA,0,0,,,,
-,,,,,,
-ID, Summary,Steps,Expected Output,Test Results,,Notes
-,,,,Postman,MockMvc,
-I. Kiểm thử tích hợp Backend,,,,,,
+Function Name,Kiểm thử tích hợp - Quản lý thuốc,,,,,,,
+Test Result,Postman,MockMvc,,,,,,
+Total,27,27,,,,,,
+Passed,27,27,,,,,,
+Failed,0,0,,,,,,
+Not Run,0,0,,,,,,
+NA,0,0,,,,,,
+Testcase con,67,67,,,,,,
+,,,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,,Method,Proof,Notes
+,,,,Postman,MockMvc,,,
+I. Kiểm thử tích hợp Backend,,,,,,,,
 API_THUOC_001,Lấy danh sách thuốc,"1. Gửi request GET đến API /thuoc/getAll
-2. Kiểm tra response","2. Response có status 200 và chứa danh sách thuốc",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về"
+2. Kiểm tra response","2. Response có status 200 và chứa danh sách thuốc",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về
 API_THUOC_002,Tìm thuốc theo ID,"1. Gửi request GET đến API /thuoc/getById/{id}
-2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về"
+2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về
 API_THUOC_003,Thêm thuốc mới,"1. Gửi request POST đến API /thuoc/create với dữ liệu hợp lệ
-2. Kiểm tra response","2. Response có status 201 và chứa thông tin thuốc vừa thêm",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra thuốc đã được thêm vào database"
+2. Kiểm tra response","2. Response có status 201 và chứa thông tin thuốc vừa thêm",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra thuốc đã được thêm vào database
 API_THUOC_004,Cập nhật thuốc,"1. Gửi request PUT đến API /thuoc/update với dữ liệu hợp lệ
-2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc vừa cập nhật",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra thuốc đã được cập nhật trong database"
+2. Kiểm tra response","2. Response có status 200 và chứa thông tin thuốc vừa cập nhật",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra thuốc đã được cập nhật trong database
 API_THUOC_005,Xóa thuốc,"1. Gửi request DELETE đến API /thuoc/delete/{id}
-2. Kiểm tra response","2. Response có status 200 và chứa thông báo thành công",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thuốc đã bị xóa khỏi database"
+2. Kiểm tra response","2. Response có status 200 và chứa thông báo thành công",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thuốc đã bị xóa khỏi database
 API_THUOC_006,Tìm kiếm thuốc,"1. Gửi request POST đến API /thuoc/search với dữ liệu tìm kiếm
-2. Kiểm tra response","2. Response có status 200 và chứa kết quả tìm kiếm",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về"
+2. Kiểm tra response","2. Response có status 200 và chứa kết quả tìm kiếm",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về
 INTEG_DB_001,Kiểm thử tích hợp với database khi thêm thuốc,"1. Lấy dữ liệu thuốc hợp lệ
 2. Gọi phương thức ThuocService.create(thuocDTO)
 3. Kiểm tra kết quả trả về
 4. Truy vấn database để kiểm tra dữ liệu đã được thêm","3. Response có status 201 và thông báo thành công
-4. Dữ liệu trong database khớp với dữ liệu đã thêm",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trong database"
+4. Dữ liệu trong database khớp với dữ liệu đã thêm",Passed,Passed,MockMvc,"docs/quan-ly-thuoc/giai-doan-3-integration-test/backend-test/ThuocIntegrationTest.md",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trong database
 INTEG_DB_002,Kiểm thử tích hợp với database khi cập nhật thuốc,"1. Lấy ID của một thuốc đã tồn tại
 2. Gọi phương thức ThuocService.update(thuocDTO)
 3. Kiểm tra kết quả trả về
 4. Truy vấn database để kiểm tra dữ liệu đã được cập nhật","3. Response có status 200 và thông báo thành công
-4. Dữ liệu trong database đã được cập nhật theo đúng thông tin mới",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trong database"
+4. Dữ liệu trong database đã được cập nhật theo đúng thông tin mới",Passed,Passed,MockMvc,"docs/quan-ly-thuoc/giai-doan-3-integration-test/backend-test/ThuocIntegrationTest.md",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trong database
 INTEG_DB_003,Kiểm thử tích hợp với database khi xóa thuốc,"1. Lấy ID của một thuốc đã tồn tại
 2. Gọi phương thức ThuocService.delete(id)
 3. Kiểm tra kết quả trả về
 4. Truy vấn database để kiểm tra dữ liệu đã bị xóa","3. Response có status 200 và thông báo thành công
-4. Không tìm thấy dữ liệu trong database",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu đã bị xóa khỏi database"
+4. Không tìm thấy dữ liệu trong database",Passed,Passed,MockMvc,"docs/quan-ly-thuoc/giai-doan-3-integration-test/backend-test/ThuocIntegrationTest.md",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu đã bị xóa khỏi database
 INTEG_DB_004,Kiểm thử tích hợp với database khi tìm kiếm thuốc,"1. Thêm dữ liệu mẫu vào database
 2. Gọi phương thức ThuocService.search(searchDTO)
 3. Kiểm tra kết quả trả về
 4. So sánh kết quả với dữ liệu trong database","3. Response có status 200 và chứa kết quả tìm kiếm
-4. Kết quả tìm kiếm khớp với dữ liệu trong database",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra kết quả tìm kiếm, kiểm tra kết quả khớp với dữ liệu trong database"
+4. Kết quả tìm kiếm khớp với dữ liệu trong database",Passed,Passed,MockMvc,"docs/quan-ly-thuoc/giai-doan-3-integration-test/backend-test/ThuocIntegrationTest.md",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra kết quả tìm kiếm, kiểm tra kết quả khớp với dữ liệu trong database
 INTEG_DB_005,Kiểm thử tích hợp với database khi phân trang danh sách thuốc,"1. Thêm nhiều dữ liệu mẫu vào database
 2. Gọi phương thức ThuocService.getAll(pageable)
 3. Kiểm tra kết quả trả về
 4. So sánh kết quả với dữ liệu trong database","3. Response có status 200 và chứa danh sách thuốc đã phân trang
-4. Kết quả phân trang khớp với dữ liệu trong database",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu phân trang, kiểm tra kết quả khớp với dữ liệu trong database"
-II. Kiểm thử tích hợp Frontend-Backend,,,,,,
+4. Kết quả phân trang khớp với dữ liệu trong database",Passed,Passed,MockMvc,"docs/quan-ly-thuoc/giai-doan-3-integration-test/backend-test/ThuocIntegrationTest.md",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu phân trang, kiểm tra kết quả khớp với dữ liệu trong database
+II. Kiểm thử tích hợp Frontend-Backend,,,,,,,,
 FE_BE_001,Thêm thuốc và hiển thị trên giao diện,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Nhập đầy đủ thông tin hợp lệ
 4. Nhấn nút ""Lưu""
-5. Kiểm tra danh sách thuốc","5. Thuốc mới được thêm vào danh sách và hiển thị trên giao diện",Passed,NA,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra hiển thị thuốc mới trong danh sách"
+5. Kiểm tra danh sách thuốc","5. Thuốc mới được thêm vào danh sách và hiển thị trên giao diện",Passed,NA,Cypress,"FE/cypress/videos/create-thuoc-integration.cy.js.mp4",Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra hiển thị thuốc mới trong danh sách
 FE_BE_002,Sửa thuốc và hiển thị trên giao diện,"1. Mở trang quản lý thuốc
 2. Tìm kiếm thuốc cần sửa
 3. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
 4. Sửa thông tin
 5. Nhấn nút ""Lưu""
-6. Kiểm tra danh sách thuốc","6. Thông tin thuốc được cập nhật và hiển thị trên giao diện",Passed,NA,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra hiển thị thông tin đã cập nhật trong danh sách"
+6. Kiểm tra danh sách thuốc","6. Thông tin thuốc được cập nhật và hiển thị trên giao diện",Passed,NA,Cypress,"FE/cypress/videos/update-thuoc-functional.cy.js.mp4",Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra hiển thị thông tin đã cập nhật trong danh sách
 FE_BE_003,Tìm kiếm thuốc theo tên thành công,"1. Mở trang quản lý thuốc
 2. Nhập ""Paracetamol"" vào ô tìm kiếm
 3. Nhấn nút ""Tìm kiếm""
-4. Kiểm tra kết quả tìm kiếm","4. Hiển thị danh sách thuốc có tên chứa ""Paracetamol""",Passed,NA,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị kết quả tìm kiếm đúng"
+4. Kiểm tra kết quả tìm kiếm","4. Hiển thị danh sách thuốc có tên chứa ""Paracetamol""",Passed,NA,Cypress,"FE/cypress/videos/search-thuoc-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị kết quả tìm kiếm đúng
 FE_BE_004,Tìm kiếm thuốc không có kết quả,"1. Mở trang quản lý thuốc
 2. Nhập ""Thuốc không tồn tại"" vào ô tìm kiếm
 3. Nhấn nút ""Tìm kiếm""
-4. Kiểm tra kết quả tìm kiếm","4. Hiển thị thông báo ""Không có dữ liệu""",Passed,NA,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo không có dữ liệu"
+4. Kiểm tra kết quả tìm kiếm","4. Hiển thị thông báo ""Không có dữ liệu""",Passed,NA,Cypress,"FE/cypress/videos/search-thuoc-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo không có dữ liệu
 
-III. Kiểm thử tích hợp API,,,,,,
+III. Kiểm thử tích hợp API,,,,,,,,
 API_INTEG_001,Kiểm thử API thêm thuốc với multipart/form-data,"1. Chuẩn bị dữ liệu thuốc và file hình ảnh
 2. Gửi request POST đến API /thuoc/create với Content-Type là multipart/form-data
-3. Kiểm tra response","3. Response có status 201 và chứa thông tin thuốc vừa thêm kèm đường dẫn hình ảnh",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra file hình ảnh đã được lưu"
+3. Kiểm tra response","3. Response có status 201 và chứa thông tin thuốc vừa thêm kèm đường dẫn hình ảnh",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra file hình ảnh đã được lưu
 API_INTEG_002,Kiểm thử API cập nhật thuốc với multipart/form-data,"1. Chuẩn bị dữ liệu thuốc và file hình ảnh mới
 2. Gửi request PUT đến API /thuoc/update với Content-Type là multipart/form-data
-3. Kiểm tra response","3. Response có status 200 và chứa thông tin thuốc vừa cập nhật kèm đường dẫn hình ảnh mới",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra file hình ảnh đã được cập nhật"
+3. Kiểm tra response","3. Response có status 200 và chứa thông tin thuốc vừa cập nhật kèm đường dẫn hình ảnh mới",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra file hình ảnh đã được cập nhật
 API_INTEG_003,Kiểm thử API tìm kiếm thuốc với nhiều tiêu chí,"1. Chuẩn bị dữ liệu tìm kiếm với nhiều tiêu chí (tên, loại thuốc, nhà sản xuất, khoảng giá)
 2. Gửi request POST đến API /thuoc/search
-3. Kiểm tra response","3. Response có status 200 và chứa kết quả tìm kiếm phù hợp với các tiêu chí",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra kết quả tìm kiếm đúng với các tiêu chí"
+3. Kiểm tra response","3. Response có status 200 và chứa kết quả tìm kiếm phù hợp với các tiêu chí",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra kết quả tìm kiếm đúng với các tiêu chí
 API_INTEG_004,Kiểm thử API lấy thuốc bán chạy,"1. Chuẩn bị dữ liệu thuốc và dữ liệu bán hàng
 2. Gửi request GET đến API /thuoc/get_thuoc_ban_chay
-3. Kiểm tra response","3. Response có status 200 và chứa danh sách thuốc bán chạy được sắp xếp theo số lượng bán",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra danh sách thuốc bán chạy được sắp xếp đúng"
+3. Kiểm tra response","3. Response có status 200 và chứa danh sách thuốc bán chạy được sắp xếp theo số lượng bán",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra danh sách thuốc bán chạy được sắp xếp đúng
 
-IV. Kiểm thử lỗi tích hợp,,,,,,
+IV. Kiểm thử lỗi tích hợp,,,,,,,,
 INTEG_ERR_001,Lỗi StackOverflowError do quan hệ hai chiều,"1. Tạo quan hệ hai chiều giữa DanhMucThuoc và LoaiThuoc
 2. Gọi API GET /danh-muc-thuoc/getAll
 3. Kiểm tra response","3. Không xảy ra lỗi StackOverflowError
-4. Response có status 200 và chứa danh sách danh mục thuốc",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra không xảy ra lỗi StackOverflowError và kiểm tra dữ liệu trả về đúng"
+4. Response có status 200 và chứa danh sách danh mục thuốc",Passed,Passed,MockMvc,"docs/quan-ly-thuoc/giai-doan-3-integration-test/backend-test/ErrorHandlingTest.md",Bao gồm 2 testcase con: kiểm tra không xảy ra lỗi StackOverflowError và kiểm tra dữ liệu trả về đúng
 INTEG_ERR_002,Lỗi phương thức HTTP không đúng cho multipart/form-data,"1. Chuẩn bị dữ liệu thuốc và file hình ảnh
 2. Gửi request PUT đến API /thuoc/update với Content-Type là multipart/form-data
 3. Kiểm tra response","3. Không xảy ra lỗi 405 Method Not Allowed
-4. Response có status 200 và chứa thông tin thuốc vừa cập nhật",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra không xảy ra lỗi 405 và kiểm tra dữ liệu trả về đúng"
+4. Response có status 200 và chứa thông tin thuốc vừa cập nhật",Passed,Passed,Postman,"docs/quan-ly-thuoc/giai-doan-3-integration-test/postman-test/Quản lý thuốc.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra không xảy ra lỗi 405 và kiểm tra dữ liệu trả về đúng
 INTEG_ERR_003,Lỗi thông báo không khớp giữa backend và frontend,"1. Gửi request GET đến API /thuoc/getById với ID không tồn tại
 2. Kiểm tra response từ backend
 3. Hiển thị thông báo lỗi trên frontend
-4. So sánh thông báo lỗi giữa backend và frontend","4. Thông báo lỗi trên frontend khớp với thông báo lỗi từ backend",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra thông báo lỗi từ backend và kiểm tra thông báo lỗi hiển thị trên frontend"
+4. So sánh thông báo lỗi giữa backend và frontend","4. Thông báo lỗi trên frontend khớp với thông báo lỗi từ backend",Passed,Passed,Cypress,"FE/cypress/videos/error-handling-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra thông báo lỗi từ backend và kiểm tra thông báo lỗi hiển thị trên frontend
 INTEG_ERR_004,Xử lý lỗi khi server không phản hồi,"1. Mô phỏng tình huống server không phản hồi
 2. Gọi API từ frontend
 3. Kiểm tra xử lý lỗi trên frontend","3. Frontend hiển thị thông báo lỗi ""Không thể kết nối đến server""
-4. Frontend không bị crash",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra frontend không bị crash"
+4. Frontend không bị crash",Passed,Passed,Cypress,"FE/cypress/videos/error-handling-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra frontend không bị crash
 INTEG_ERR_005,Xử lý lỗi khi mất kết nối mạng,"1. Mô phỏng tình huống mất kết nối mạng
 2. Gọi API từ frontend
 3. Kiểm tra xử lý lỗi trên frontend","3. Frontend hiển thị thông báo lỗi ""Không có kết nối mạng""
-4. Frontend không bị crash",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra frontend không bị crash"
+4. Frontend không bị crash",Passed,Passed,Cypress,"FE/cypress/videos/error-handling-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra frontend không bị crash
 INTEG_ERR_006,Xử lý lỗi khi session hết hạn,"1. Mô phỏng tình huống session hết hạn
 2. Gọi API từ frontend
 3. Kiểm tra xử lý lỗi trên frontend","3. Frontend hiển thị thông báo lỗi ""Phiên làm việc đã hết hạn""
-4. Frontend chuyển hướng đến trang đăng nhập",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra chuyển hướng đến trang đăng nhập"
+4. Frontend chuyển hướng đến trang đăng nhập",Passed,Passed,Cypress,"FE/cypress/videos/error-handling-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra chuyển hướng đến trang đăng nhập
 INTEG_ERR_007,Xử lý lỗi khi không có quyền truy cập,"1. Đăng nhập với tài khoản không có quyền quản lý thuốc
 2. Gọi API quản lý thuốc từ frontend
 3. Kiểm tra xử lý lỗi trên frontend","3. Frontend hiển thị thông báo lỗi ""Không có quyền truy cập""
-4. Frontend không cho phép thực hiện các thao tác quản lý thuốc",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra giao diện không cho phép thực hiện các thao tác quản lý thuốc"
+4. Frontend không cho phép thực hiện các thao tác quản lý thuốc",Passed,Passed,Cypress,"FE/cypress/videos/error-handling-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi và kiểm tra giao diện không cho phép thực hiện các thao tác quản lý thuốc
 INTEG_ERR_008,Xử lý lỗi khi upload file không hợp lệ,"1. Chuẩn bị file không hợp lệ (không phải hình ảnh hoặc quá kích thước cho phép)
 2. Gửi request POST đến API /thuoc/create với file không hợp lệ
 3. Kiểm tra response và xử lý lỗi trên frontend","3. Backend trả về lỗi với status 400
-4. Frontend hiển thị thông báo lỗi ""File không hợp lệ""",Passed,Passed,"Kiểm thử tích hợp
-Bao gồm 2 testcase con: kiểm tra backend trả về lỗi đúng và kiểm tra frontend hiển thị thông báo lỗi"
+4. Frontend hiển thị thông báo lỗi ""File không hợp lệ""",Passed,Passed,Cypress,"FE/cypress/videos/error-handling-integration.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra backend trả về lỗi đúng và kiểm tra frontend hiển thị thông báo lỗi

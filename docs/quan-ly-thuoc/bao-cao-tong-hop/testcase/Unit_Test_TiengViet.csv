@@ -1,121 +1,90 @@
-Function Name,Kiểm thử đơn vị - Quản lý thuốc,,,,,
-Test Result,JUnit,Mockito,,,,
-Total,43,43,,,,
-Passed,41,41,,,,
-Failed,2,2,,,,
-Not Run,0,0,,,,
-NA,0,0,,,,
-,,,,,,
-ID, Summary,Steps,Expected Output,Test Results,,Notes
-,,,,JUnit,Mockito,
-I. Kiểm thử ThuocService,,,,,,
+Function Name,Kiểm thử đơn vị - Quản lý thuốc,,,,,,,
+Test Result,JUnit,Mockito,,,,,,
+Total,24,24,,,,,,
+Passed,22,22,,,,,,
+Failed,2,2,,,,,,
+Not Run,0,0,,,,,,
+NA,0,0,,,,,,
+Testcase con,73,73,,,,,,
+,,,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,,Method,Proof,Notes
+,,,,JUnit,Mockito,,,
+I. Kiểm thử ThuocService,,,,,,,,
 TS_001,Lấy danh sách thuốc thành công,"1. Mock repository trả về danh sách thuốc
-2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về"
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về
 TS_002,Lấy danh sách thuốc trống,"1. Mock repository trả về danh sách rỗng
-2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về rỗng"
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về rỗng
 TS_003,Tìm thuốc theo ID thành công,"1. Mock repository trả về thuốc
-2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu thuốc trả về"
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu thuốc trả về
 TS_004,Tìm thuốc theo ID không tồn tại,"1. Mock repository trả về Optional.empty()
-2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 404 và thông báo lỗi",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thông báo lỗi"
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 404 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thông báo lỗi
 TS_005,Tạo thuốc thành công,"1. Mock repository trả về thuốc đã tạo
-2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu thuốc trả về, kiểm tra gọi repository.save()"
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu thuốc trả về, kiểm tra gọi repository.save()
 TS_006,Cập nhật thuốc thành công,"1. Mock repository trả về thuốc đã cập nhật
-2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu thuốc trả về, kiểm tra gọi repository.save()"
+2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu thuốc trả về, kiểm tra gọi repository.save()
 TS_007,Xóa thuốc thành công,"1. Mock repository không ném exception
-2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi repository.deleteById()"
-II. Kiểm thử ThuocController,,,,,,
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi repository.deleteById()
+II. Kiểm thử ThuocController,,,,,,,,
 TC_001,Lấy danh sách thuốc thành công,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API GET /thuoc/getAll","2. Trả về status 200 và danh sách thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về"
+2. Gọi API GET /thuoc/getAll","2. Trả về status 200 và danh sách thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về
 TC_002,Tìm thuốc theo ID thành công,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API GET /thuoc/getById","2. Trả về status 200 và thông tin thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về"
+2. Gọi API GET /thuoc/getById","2. Trả về status 200 và thông tin thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về
 TC_003,Tạo thuốc thành công,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API POST /thuoc/create","2. Trả về status 201 và thông tin thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra gọi service.create()"
+2. Gọi API POST /thuoc/create","2. Trả về status 201 và thông tin thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra gọi service.create()
 TC_004,Cập nhật thuốc thành công,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API PUT /thuoc/update","2. Trả về status 200 và thông tin thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra gọi service.update()"
+2. Gọi API PUT /thuoc/update","2. Trả về status 200 và thông tin thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra gọi service.update()
 TC_005,Xóa thuốc thành công,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API DELETE /thuoc/delete","2. Trả về status 200 và thông báo thành công",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi service.delete()"
+2. Gọi API DELETE /thuoc/delete","2. Trả về status 200 và thông báo thành công",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi service.delete()
 TC_006,Tìm kiếm thuốc thành công,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API POST /thuoc/search","2. Trả về status 200 và kết quả tìm kiếm",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra gọi service.search()"
+2. Gọi API POST /thuoc/search","2. Trả về status 200 và kết quả tìm kiếm",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu JSON trả về, kiểm tra gọi service.search()
 TC_007,Lấy danh sách thuốc bán chạy,"1. Mock service trả về ResponseDTO thành công
-2. Gọi API GET /thuoc/get_thuoc_ban_chay","2. Trả về status 200 và danh sách thuốc bán chạy",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về"
-III. Kiểm thử ThuocRepository,,,,,,
+2. Gọi API GET /thuoc/get_thuoc_ban_chay","2. Trả về status 200 và danh sách thuốc bán chạy",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/controller-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu JSON trả về
+III. Kiểm thử ThuocRepository,,,,,,,,
 TR_001,Tìm thuốc theo tên thành công,"1. Tạo mock cho ThuocRepo
 2. Thiết lập mock trả về Page<Thuoc> khi gọi findByTenThuoc()
 3. Gọi phương thức findByTenThuoc() với tên thuốc tồn tại","3. Kết quả trả về không null
 4. Tổng số phần tử là 1
-5. Tên thuốc trong kết quả đúng với tên thuốc tìm kiếm",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra kết quả không null, kiểm tra số lượng phần tử, kiểm tra dữ liệu trả về"
+5. Tên thuốc trong kết quả đúng với tên thuốc tìm kiếm",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra kết quả không null, kiểm tra số lượng phần tử, kiểm tra dữ liệu trả về
 TR_002,Kiểm tra mã thuốc đã tồn tại,"1. Tạo mock cho ThuocRepo
 2. Thiết lập mock trả về true khi gọi existsByMaThuoc()
-3. Gọi phương thức existsByMaThuoc() với mã thuốc tồn tại","3. Kết quả trả về là true",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 1 testcase con: kiểm tra kết quả trả về là true"
+3. Gọi phương thức existsByMaThuoc() với mã thuốc tồn tại","3. Kết quả trả về là true",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 1 testcase con: kiểm tra kết quả trả về là true
 TR_003,Kiểm tra tên thuốc đã tồn tại,"1. Tạo mock cho ThuocRepo
 2. Thiết lập mock trả về true khi gọi existsByTenThuoc()
-3. Gọi phương thức existsByTenThuoc() với tên thuốc tồn tại","3. Kết quả trả về là true",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 1 testcase con: kiểm tra kết quả trả về là true"
+3. Gọi phương thức existsByTenThuoc() với tên thuốc tồn tại","3. Kết quả trả về là true",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 1 testcase con: kiểm tra kết quả trả về là true
 TR_004,Tìm kiếm thuốc theo nhiều tiêu chí,"1. Tạo mock cho ThuocRepo
 2. Thiết lập mock trả về Page<Thuoc> khi gọi search()
 3. Gọi phương thức search() với nhiều tiêu chí tìm kiếm","3. Kết quả trả về không null
 4. Tổng số phần tử là 1
-5. Tên thuốc trong kết quả đúng với tên thuốc mong đợi",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra kết quả không null, kiểm tra số lượng phần tử, kiểm tra dữ liệu trả về"
+5. Tên thuốc trong kết quả đúng với tên thuốc mong đợi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra kết quả không null, kiểm tra số lượng phần tử, kiểm tra dữ liệu trả về
 TR_005,Tìm kiếm thuốc với kết quả trống,"1. Tạo mock cho ThuocRepo
 2. Thiết lập mock trả về Page rỗng khi gọi search()
 3. Gọi phương thức search() với tiêu chí không có kết quả","3. Kết quả trả về không null
-4. Tổng số phần tử là 0",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra kết quả không null, kiểm tra số lượng phần tử là 0"
+4. Tổng số phần tử là 0",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra kết quả không null, kiểm tra số lượng phần tử là 0
 
-IV. Kiểm thử LoaiThuocService và DanhMucThuocService,,,,,,
+IV. Kiểm thử LoaiThuocService và DanhMucThuocService,,,,,,,,
 LTS_001,Lấy danh sách loại thuốc thành công,"1. Mock repository trả về danh sách loại thuốc
-2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách loại thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về"
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách loại thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về
 LTS_002,Tìm loại thuốc theo ID thành công,"1. Mock repository trả về loại thuốc
-2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin loại thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu loại thuốc trả về"
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin loại thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu loại thuốc trả về
 LTS_003,Tạo loại thuốc thành công,"1. Mock repository trả về loại thuốc đã tạo
-2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin loại thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu loại thuốc trả về, kiểm tra gọi repository.save()"
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin loại thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu loại thuốc trả về, kiểm tra gọi repository.save()
 LTS_004,Cập nhật loại thuốc thành công,"1. Mock repository trả về loại thuốc đã cập nhật
-2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin loại thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu loại thuốc trả về, kiểm tra gọi repository.save()"
+2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin loại thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu loại thuốc trả về, kiểm tra gọi repository.save()
 LTS_005,Xóa loại thuốc thành công,"1. Mock repository không ném exception
-2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi repository.deleteById()"
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi repository.deleteById()
 LTS_006,Xóa loại thuốc đang được sử dụng,"1. Mock repository ném DataIntegrityViolationException
-2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thông báo lỗi"
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thông báo lỗi
 DMTS_001,Lấy danh sách danh mục thuốc thành công,"1. Mock repository trả về danh sách danh mục thuốc
-2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách danh mục thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về"
+2. Gọi phương thức getAll()","2. Trả về ResponseDTO với status 200 và danh sách danh mục thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về
 DMTS_002,Tìm danh mục thuốc theo ID thành công,"1. Mock repository trả về danh mục thuốc
-2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin danh mục thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu danh mục thuốc trả về"
+2. Gọi phương thức getById()","2. Trả về ResponseDTO với status 200 và thông tin danh mục thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu danh mục thuốc trả về
 DMTS_003,Tạo danh mục thuốc thành công,"1. Mock repository trả về danh mục thuốc đã tạo
-2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin danh mục thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu danh mục thuốc trả về, kiểm tra gọi repository.save()"
+2. Gọi phương thức create()","2. Trả về ResponseDTO với status 201 và thông tin danh mục thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu danh mục thuốc trả về, kiểm tra gọi repository.save()
 DMTS_004,Cập nhật danh mục thuốc thành công,"1. Mock repository trả về danh mục thuốc đã cập nhật
-2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin danh mục thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu danh mục thuốc trả về, kiểm tra gọi repository.save()"
+2. Gọi phương thức update()","2. Trả về ResponseDTO với status 200 và thông tin danh mục thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra dữ liệu danh mục thuốc trả về, kiểm tra gọi repository.save()
 DMTS_005,Xóa danh mục thuốc thành công,"1. Mock repository không ném exception
-2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi repository.deleteById()"
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra gọi repository.deleteById()
 DMTS_006,Xóa danh mục thuốc đang được sử dụng,"1. Mock repository ném DataIntegrityViolationException
-2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thông báo lỗi"
+2. Gọi phương thức delete()","2. Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra thông báo lỗi
 DMTS_007,Lấy danh sách loại thuốc theo danh mục thuốc,"1. Mock repository trả về danh sách loại thuốc
-2. Gọi phương thức getLoaiThuocByDanhMucThuocId()","2. Trả về ResponseDTO với status 200 và danh sách loại thuốc",Passed,Passed,"Kiểm thử đơn vị
-Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về"
+2. Gọi phương thức getLoaiThuocByDanhMucThuocId()","2. Trả về ResponseDTO với status 200 và danh sách loại thuốc",Passed,Passed,JUnit,"docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 2 testcase con: kiểm tra status code và kiểm tra dữ liệu trả về
