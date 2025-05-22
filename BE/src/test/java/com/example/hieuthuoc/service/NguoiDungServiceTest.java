@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -66,7 +69,7 @@ public class NguoiDungServiceTest {
         nguoiDungDTO.setMatKhau("Password123@");
 
         nguoiDung = new NguoiDung();
-        nguoiDung.setId(1);
+        nguoiDung.setId(14);
         nguoiDung.setHoTen("Nguyễn Văn A");
         nguoiDung.setTenDangNhap("nguyenvana");
         nguoiDung.setEmail("nguyenvana@example.com");
@@ -171,5 +174,80 @@ public class NguoiDungServiceTest {
 
         verify(nguoiDungRepo, times(1)).findById(1);
         verify(nguoiDungRepo, times(1)).save(any(NguoiDung.class));
+    }
+
+    @Test
+    @DisplayName("QLHS_025: Kiểm thử cập nhật thông tin cá nhân thành công")
+    void testUpdateProfile_Success() {
+        // Arrange
+        NguoiDungDTO updateDTO = new NguoiDungDTO();
+        updateDTO.setId(14);
+        updateDTO.setHoTen("Nguyễn Văn B");
+        updateDTO.setSoDienThoai("0987654322");
+
+        when(nguoiDungRepo.findById(14)).thenReturn(Optional.of(nguoiDung));
+        when(nguoiDungRepo.save(any(NguoiDung.class))).thenReturn(nguoiDung);
+
+        // Act
+        ResponseDTO<NguoiDung> result = nguoiDungService.update(updateDTO);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(200, result.getStatus());
+        assertEquals("Thành công", result.getMsg());
+        verify(nguoiDungRepo, times(1)).save(any(NguoiDung.class));
+    }
+
+    @Test
+    @DisplayName("QLHS_027: Kiểm thử đổi mật khẩu thành công")
+    void testChangePassword_Success() {
+        // Arrange
+        NguoiDungDTO passwordDTO = new NguoiDungDTO();
+        passwordDTO.setId(10);
+        passwordDTO.setMatKhau("123456");
+        passwordDTO.setMatKhauMoi("newpassword123");
+
+        NguoiDung userForPasswordChange = new NguoiDung();
+        userForPasswordChange.setId(10);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        userForPasswordChange.setMatKhau(encoder.encode("123456"));
+
+        when(nguoiDungRepo.findById(10)).thenReturn(Optional.of(userForPasswordChange));
+        when(nguoiDungRepo.save(any(NguoiDung.class))).thenReturn(userForPasswordChange);
+
+        // Act
+        ResponseDTO<NguoiDung> result = nguoiDungService.changeMatKhau(passwordDTO);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(200, result.getStatus());
+        assertEquals("Đổi mật khẩu thành công.", result.getMsg());
+        verify(nguoiDungRepo, times(1)).save(any(NguoiDung.class));
+    }
+
+    @Test
+    @DisplayName("QLHS_028: Kiểm thử đổi mật khẩu với mật khẩu hiện tại không chính xác")
+    void testChangePassword_WrongCurrentPassword() {
+        // Arrange
+        NguoiDungDTO passwordDTO = new NguoiDungDTO();
+        passwordDTO.setId(10);
+        passwordDTO.setMatKhau("wrongpassword");
+        passwordDTO.setMatKhauMoi("newpassword123");
+
+        NguoiDung userForPasswordChange = new NguoiDung();
+        userForPasswordChange.setId(10);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        userForPasswordChange.setMatKhau(encoder.encode("123456"));
+
+        when(nguoiDungRepo.findById(10)).thenReturn(Optional.of(userForPasswordChange));
+
+        // Act
+        ResponseDTO<NguoiDung> result = nguoiDungService.changeMatKhau(passwordDTO);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(400, result.getStatus());
+        assertEquals("Mật khẩu không chính xác.", result.getMsg());
+        verify(nguoiDungRepo, never()).save(any(NguoiDung.class));
     }
 }

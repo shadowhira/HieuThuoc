@@ -1391,3 +1391,140 @@ void testValidatePhoneNumber_WithValidPhoneNumber_ShouldReturnTrue() {
 3. **Tự động hóa kiểm thử**:
    - Tích hợp kiểm thử vào quy trình CI/CD
    - Tự động hóa việc tạo báo cáo độ bao phủ mã nguồn
+
+#### QLHS_025: Kiểm thử cập nhật thông tin cá nhân
+
+**Mô tả**: Kiểm tra phương thức cập nhật thông tin cá nhân (họ tên và số điện thoại) cho người dùng có ID 14.
+
+**Các bước thực hiện**:
+
+1. Tạo đối tượng NguoiDungDTO với ID 14 và dữ liệu cập nhật
+2. Mock NguoiDungRepository để trả về người dùng hiện có
+3. Gọi phương thức update(nguoiDungDTO) của NguoiDungService
+4. Kiểm tra kết quả trả về
+
+**Kết quả mong đợi**:
+
+- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo thành công
+- Phương thức save của repository được gọi đúng một lần
+- Thông tin họ tên và số điện thoại được cập nhật chính xác
+
+**Mã kiểm thử**:
+
+```java
+@Test
+@DisplayName("QLHS_025: Kiểm thử cập nhật thông tin cá nhân thành công")
+void testUpdateProfile_Success() {
+    // Arrange
+    NguoiDungDTO updateDTO = new NguoiDungDTO();
+    updateDTO.setId(14);
+    updateDTO.setHoTen("Nguyễn Văn B");
+    updateDTO.setSoDienThoai("0987654322");
+
+    when(nguoiDungRepo.findById(14)).thenReturn(Optional.of(nguoiDung));
+    when(nguoiDungRepo.save(any(NguoiDung.class))).thenReturn(nguoiDung);
+
+    // Act
+    ResponseDTO<NguoiDung> result = nguoiDungService.update(updateDTO);
+
+    // Assert
+    assertNotNull(result);
+    assertEquals(200, result.getStatus());
+    assertEquals("Thành công", result.getMsg());
+    verify(nguoiDungRepo, times(1)).save(any(NguoiDung.class));
+}
+```
+
+#### QLHS_027: Kiểm thử đổi mật khẩu thành công
+
+**Mô tả**: Kiểm tra phương thức đổi mật khẩu cho người dùng có ID 10 với mật khẩu hiện tại là "123456".
+
+**Các bước thực hiện**:
+
+1. Tạo đối tượng NguoiDungDTO với ID 10 và thông tin mật khẩu
+2. Mock NguoiDungRepository để trả về người dùng hiện có
+3. Gọi phương thức changeMatKhau(nguoiDungDTO) của NguoiDungService
+4. Kiểm tra kết quả trả về
+
+**Kết quả mong đợi**:
+
+- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo đổi mật khẩu thành công
+- Phương thức save của repository được gọi đúng một lần
+- Mật khẩu mới được mã hóa và lưu chính xác
+
+**Mã kiểm thử**:
+
+```java
+@Test
+@DisplayName("QLHS_027: Kiểm thử đổi mật khẩu thành công")
+void testChangePassword_Success() {
+    // Arrange
+    NguoiDungDTO passwordDTO = new NguoiDungDTO();
+    passwordDTO.setId(10);
+    passwordDTO.setMatKhau("123456");
+    passwordDTO.setMatKhauMoi("newpassword123");
+
+    NguoiDung userForPasswordChange = new NguoiDung();
+    userForPasswordChange.setId(10);
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    userForPasswordChange.setMatKhau(encoder.encode("123456"));
+
+    when(nguoiDungRepo.findById(10)).thenReturn(Optional.of(userForPasswordChange));
+    when(nguoiDungRepo.save(any(NguoiDung.class))).thenReturn(userForPasswordChange);
+
+    // Act
+    ResponseDTO<NguoiDung> result = nguoiDungService.changeMatKhau(passwordDTO);
+
+    // Assert
+    assertNotNull(result);
+    assertEquals(200, result.getStatus());
+    assertEquals("Đổi mật khẩu thành công.", result.getMsg());
+    verify(nguoiDungRepo, times(1)).save(any(NguoiDung.class));
+}
+```
+
+#### QLHS_028: Kiểm thử đổi mật khẩu với mật khẩu hiện tại không chính xác
+
+**Mô tả**: Kiểm tra phương thức đổi mật khẩu khi nhập sai mật khẩu hiện tại.
+
+**Các bước thực hiện**:
+
+1. Tạo đối tượng NguoiDungDTO với ID 10 và mật khẩu hiện tại không chính xác
+2. Mock NguoiDungRepository để trả về người dùng hiện có
+3. Gọi phương thức changeMatKhau(nguoiDungDTO) của NguoiDungService
+4. Kiểm tra kết quả trả về
+
+**Kết quả mong đợi**:
+
+- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi mật khẩu không chính xác
+- Phương thức save của repository không được gọi
+
+**Mã kiểm thử**:
+
+```java
+@Test
+@DisplayName("QLHS_028: Kiểm thử đổi mật khẩu với mật khẩu hiện tại không chính xác")
+void testChangePassword_WrongCurrentPassword() {
+    // Arrange
+    NguoiDungDTO passwordDTO = new NguoiDungDTO();
+    passwordDTO.setId(10);
+    passwordDTO.setMatKhau("wrongpassword");
+    passwordDTO.setMatKhauMoi("newpassword123");
+
+    NguoiDung userForPasswordChange = new NguoiDung();
+    userForPasswordChange.setId(10);
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    userForPasswordChange.setMatKhau(encoder.encode("123456"));
+
+    when(nguoiDungRepo.findById(10)).thenReturn(Optional.of(userForPasswordChange));
+
+    // Act
+    ResponseDTO<NguoiDung> result = nguoiDungService.changeMatKhau(passwordDTO);
+
+    // Assert
+    assertNotNull(result);
+    assertEquals(400, result.getStatus());
+    assertEquals("Mật khẩu không chính xác.", result.getMsg());
+    verify(nguoiDungRepo, never()).save(any(NguoiDung.class));
+}
+```
