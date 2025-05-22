@@ -1,0 +1,229 @@
+Function Name,Kiểm thử hệ thống - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,24,24,,,,
+Passed,24,24,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+I. Kiểm thử luồng nghiệp vụ (End-to-End Testing),,,,,,
+E2E_001,Luồng thêm thuốc mới,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhấn nút ""Thêm thuốc mới""
+4. Nhập đầy đủ thông tin hợp lệ
+5. Nhấn nút ""Lưu""
+6. Tìm kiếm thuốc vừa thêm","5. Hiển thị thông báo ""Thêm thuốc thành công""
+6. Tìm thấy thuốc vừa thêm trong danh sách",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra hiển thị thuốc mới trong danh sách"
+E2E_002,Luồng cập nhật thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tìm kiếm thuốc cần cập nhật
+4. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+5. Sửa thông tin
+6. Nhấn nút ""Lưu""
+7. Tìm kiếm thuốc vừa cập nhật","6. Hiển thị thông báo ""Cập nhật thuốc thành công""
+7. Tìm thấy thuốc với thông tin đã được cập nhật",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra hiển thị thông tin đã cập nhật trong danh sách"
+E2E_003,Luồng xóa thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tìm kiếm thuốc cần xóa
+4. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+5. Xác nhận xóa trong hộp thoại xác nhận
+6. Tìm kiếm thuốc vừa xóa","5. Hiển thị thông báo ""Xóa thuốc thành công""
+6. Không tìm thấy thuốc vừa xóa, hiển thị thông báo ""Không có dữ liệu""",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị thông báo thành công, kiểm tra thuốc đã bị xóa khỏi danh sách"
+E2E_004,Luồng tìm kiếm thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhập thông tin tìm kiếm
+4. Nhấn nút ""Tìm kiếm""
+5. Kiểm tra kết quả tìm kiếm","5. Hiển thị danh sách thuốc phù hợp với tiêu chí tìm kiếm",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra gọi API thành công, kiểm tra hiển thị kết quả tìm kiếm, kiểm tra tính chính xác của kết quả tìm kiếm"
+E2E_005,Luồng quản lý loại thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý loại thuốc
+3. Thêm loại thuốc mới
+4. Cập nhật loại thuốc
+5. Xóa loại thuốc
+6. Kiểm tra danh sách loại thuốc","3. Hiển thị thông báo ""Thêm loại thuốc thành công""
+4. Hiển thị thông báo ""Cập nhật loại thuốc thành công""
+5. Hiển thị thông báo ""Xóa loại thuốc thành công""
+6. Danh sách loại thuốc được cập nhật tương ứng",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thêm loại thuốc, kiểm tra cập nhật loại thuốc, kiểm tra xóa loại thuốc"
+E2E_006,Luồng quản lý danh mục thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý danh mục thuốc
+3. Thêm danh mục thuốc mới
+4. Cập nhật danh mục thuốc
+5. Xóa danh mục thuốc
+6. Kiểm tra danh sách danh mục thuốc","3. Hiển thị thông báo ""Thêm danh mục thuốc thành công""
+4. Hiển thị thông báo ""Cập nhật danh mục thuốc thành công""
+5. Hiển thị thông báo ""Xóa danh mục thuốc thành công""
+6. Danh sách danh mục thuốc được cập nhật tương ứng",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thêm danh mục thuốc, kiểm tra cập nhật danh mục thuốc, kiểm tra xóa danh mục thuốc"
+E2E_007,Luồng nhập thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý nhập thuốc
+3. Tạo phiếu nhập thuốc mới
+4. Thêm thuốc vào phiếu nhập
+5. Lưu phiếu nhập
+6. Kiểm tra số lượng thuốc","5. Hiển thị thông báo ""Tạo phiếu nhập thành công""
+6. Số lượng thuốc được cập nhật tăng lên",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra tạo phiếu nhập, kiểm tra thêm thuốc vào phiếu nhập, kiểm tra cập nhật số lượng thuốc"
+E2E_008,Luồng xuất thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý xuất thuốc
+3. Tạo phiếu xuất thuốc mới
+4. Thêm thuốc vào phiếu xuất
+5. Lưu phiếu xuất
+6. Kiểm tra số lượng thuốc","5. Hiển thị thông báo ""Tạo phiếu xuất thành công""
+6. Số lượng thuốc được cập nhật giảm đi",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra tạo phiếu xuất, kiểm tra thêm thuốc vào phiếu xuất, kiểm tra cập nhật số lượng thuốc"
+II. Kiểm thử hiệu năng (Performance Testing),,,,,,
+PERF_001,Kiểm thử hiệu năng API lấy danh sách thuốc,"1. Sử dụng JMeter để tạo 100 request đồng thời đến API GET /thuoc/getAll
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 200ms
+3. Thông lượng > 20 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thời gian phản hồi, kiểm tra thông lượng, kiểm tra tỷ lệ lỗi"
+PERF_002,Kiểm thử hiệu năng API tìm kiếm thuốc,"1. Sử dụng JMeter để tạo 100 request đồng thời đến API POST /thuoc/search
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 300ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thời gian phản hồi, kiểm tra thông lượng, kiểm tra tỷ lệ lỗi"
+PERF_003,Kiểm thử hiệu năng API lấy thuốc bán chạy,"1. Sử dụng JMeter để tạo 50 request đồng thời đến API GET /thuoc/get_thuoc_ban_chay
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 250ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thời gian phản hồi, kiểm tra thông lượng, kiểm tra tỷ lệ lỗi"
+PERF_004,Kiểm thử hiệu năng API lấy thuốc theo loại thuốc,"1. Sử dụng JMeter để tạo 50 request đồng thời đến API GET /thuoc/get_by_loai_thuoc/{id}
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 250ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thời gian phản hồi, kiểm tra thông lượng, kiểm tra tỷ lệ lỗi"
+PERF_005,Kiểm thử hiệu năng API lấy thuốc theo danh mục thuốc,"1. Sử dụng JMeter để tạo 50 request đồng thời đến API GET /thuoc/get_by_danh_muc_thuoc/{id}
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 250ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thời gian phản hồi, kiểm tra thông lượng, kiểm tra tỷ lệ lỗi"
+PERF_006,Kiểm thử hiệu năng API lấy thuốc theo nhà sản xuất,"1. Sử dụng JMeter để tạo 50 request đồng thời đến API GET /thuoc/get_by_nha_san_xuat/{id}
+2. Đo thời gian phản hồi trung bình
+3. Đo thông lượng
+4. Đo tỷ lệ lỗi","2. Thời gian phản hồi trung bình < 250ms
+3. Thông lượng > 15 req/s
+4. Tỷ lệ lỗi = 0%",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra thời gian phản hồi, kiểm tra thông lượng, kiểm tra tỷ lệ lỗi"
+III. Kiểm thử tương thích (Compatibility Testing),,,,,,
+COMPAT_001,Kiểm thử trên trình duyệt Chrome,"1. Mở trang quản lý thuốc trên Chrome
+2. Thực hiện các chức năng cơ bản:
+   - Xem danh sách thuốc
+   - Thêm thuốc mới
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra giao diện và chức năng","3. Tất cả chức năng hoạt động đúng
+   - Giao diện hiển thị đúng
+   - Các nút bấm hoạt động đúng
+   - Thông báo hiển thị đúng
+   - Dữ liệu được cập nhật đúng",Passed,NA,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hiển thị giao diện, kiểm tra hoạt động của các chức năng, kiểm tra hiển thị thông báo"
+COMPAT_002,Kiểm thử trên trình duyệt Edge,"1. Mở trang quản lý thuốc trên Edge
+2. Thực hiện các chức năng cơ bản:
+   - Xem danh sách thuốc
+   - Thêm thuốc mới
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra giao diện và chức năng","3. Tất cả chức năng hoạt động đúng
+   - Giao diện hiển thị đúng
+   - Các nút bấm hoạt động đúng
+   - Thông báo hiển thị đúng
+   - Dữ liệu được cập nhật đúng",NA,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hiển thị giao diện, kiểm tra hoạt động của các chức năng, kiểm tra hiển thị thông báo"
+COMPAT_003,Kiểm thử trên trình duyệt Firefox,"1. Mở trang quản lý thuốc trên Firefox
+2. Thực hiện các chức năng cơ bản:
+   - Xem danh sách thuốc
+   - Thêm thuốc mới
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra giao diện và chức năng","3. Tất cả chức năng hoạt động đúng
+   - Giao diện hiển thị đúng
+   - Các nút bấm hoạt động đúng
+   - Thông báo hiển thị đúng
+   - Dữ liệu được cập nhật đúng",Passed,NA,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hiển thị giao diện, kiểm tra hoạt động của các chức năng, kiểm tra hiển thị thông báo"
+COMPAT_004,Kiểm thử trên trình duyệt Safari,"1. Mở trang quản lý thuốc trên Safari
+2. Thực hiện các chức năng cơ bản:
+   - Xem danh sách thuốc
+   - Thêm thuốc mới
+   - Sửa thuốc
+   - Xóa thuốc
+   - Tìm kiếm thuốc
+3. Kiểm tra giao diện và chức năng","3. Tất cả chức năng hoạt động đúng
+   - Giao diện hiển thị đúng
+   - Các nút bấm hoạt động đúng
+   - Thông báo hiển thị đúng
+   - Dữ liệu được cập nhật đúng",Passed,NA,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hiển thị giao diện, kiểm tra hoạt động của các chức năng, kiểm tra hiển thị thông báo"
+IV. Kiểm thử bảo mật (Security Testing),,,,,,
+SEC_001,Kiểm thử bảo mật - SQL Injection trong tìm kiếm thuốc,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhập các chuỗi SQL Injection vào ô tìm kiếm:
+   - ' OR '1'='1
+   - '; DROP TABLE thuoc; --
+   - ' UNION SELECT * FROM users; --
+4. Nhấn nút ""Tìm kiếm""","1. Hệ thống không bị lỗi
+2. Không hiển thị dữ liệu nhạy cảm
+3. Hệ thống xử lý đúng chuỗi tìm kiếm (escape hoặc parameterized query)
+4. Không có thay đổi dữ liệu trong database",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hệ thống không bị lỗi, kiểm tra không hiển thị dữ liệu nhạy cảm, kiểm tra không có thay đổi dữ liệu"
+SEC_002,Kiểm thử bảo mật - Cross-Site Scripting (XSS),"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Nhập các chuỗi XSS vào form thêm thuốc:
+   - <script>alert('XSS')</script>
+   - <img src=""x"" onerror=""alert('XSS')"">
+   - javascript:alert('XSS')
+4. Nhấn nút ""Lưu""","1. Hệ thống không bị lỗi
+2. Không thực thi mã JavaScript độc hại
+3. Hệ thống xử lý đúng chuỗi đầu vào (escape hoặc sanitize)",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hệ thống không bị lỗi, kiểm tra không thực thi mã JavaScript độc hại, kiểm tra xử lý đúng chuỗi đầu vào"
+SEC_003,Kiểm thử bảo mật - Cross-Site Request Forgery (CSRF),"1. Đăng nhập vào hệ thống với quyền admin
+2. Tạo một trang HTML giả mạo gửi request đến API thêm/sửa/xóa thuốc
+3. Mở trang HTML giả mạo trong trình duyệt đã đăng nhập","1. Hệ thống từ chối request giả mạo
+2. Không có thay đổi dữ liệu trong database
+3. Hệ thống yêu cầu CSRF token hợp lệ",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hệ thống từ chối request giả mạo, kiểm tra không có thay đổi dữ liệu, kiểm tra yêu cầu CSRF token"
+SEC_004,Kiểm thử bảo mật - Phân quyền truy cập API,"1. Đăng nhập vào hệ thống với quyền user (không có quyền quản lý thuốc)
+2. Gửi request trực tiếp đến các API quản lý thuốc:
+   - POST /thuoc/create
+   - PUT /thuoc/update
+   - DELETE /thuoc/delete/{id}","1. Hệ thống từ chối request với status 403 Forbidden
+2. Không có thay đổi dữ liệu trong database
+3. Hệ thống ghi log về việc truy cập trái phép",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hệ thống từ chối request, kiểm tra không có thay đổi dữ liệu, kiểm tra ghi log"
+SEC_005,Kiểm thử bảo mật - Upload file độc hại,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Tạo thuốc mới và upload file độc hại:
+   - File .php
+   - File .exe
+   - File .js
+4. Nhấn nút ""Lưu""","1. Hệ thống từ chối upload file độc hại
+2. Hiển thị thông báo lỗi ""File không hợp lệ""
+3. Chỉ cho phép upload file hình ảnh (.jpg, .png, .gif)",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra hệ thống từ chối upload file độc hại, kiểm tra hiển thị thông báo lỗi, kiểm tra chỉ cho phép upload file hình ảnh"
+SEC_006,Kiểm thử bảo mật - Dữ liệu nhạy cảm,"1. Đăng nhập vào hệ thống với quyền admin
+2. Mở trang quản lý thuốc
+3. Kiểm tra dữ liệu nhạy cảm trong response API:
+   - Thông tin người dùng
+   - Thông tin cấu hình hệ thống
+   - Thông tin kết nối database","1. Không hiển thị dữ liệu nhạy cảm trong response API
+2. Dữ liệu nhạy cảm được mã hóa hoặc ẩn đi
+3. Chỉ trả về dữ liệu cần thiết cho client",Passed,Passed,"Kiểm thử hệ thống
+Bao gồm 3 testcase con: kiểm tra không hiển thị dữ liệu nhạy cảm, kiểm tra dữ liệu nhạy cảm được mã hóa, kiểm tra chỉ trả về dữ liệu cần thiết"

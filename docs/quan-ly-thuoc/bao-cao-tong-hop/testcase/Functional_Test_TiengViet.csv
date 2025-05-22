@@ -1,0 +1,275 @@
+Function Name,Kiểm thử chức năng - Quản lý thuốc,,,,,
+Test Result,Chrome,Edge,,,,
+Total,36,36,,,,
+Passed,36,36,,,,
+Failed,0,0,,,,
+Not Run,0,0,,,,
+NA,0,0,,,,
+,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,Notes
+,,,,Chrome,Edge,
+I. Kiểm thử chức năng thêm thuốc,,,,,,
+TC_ADD_THUOC_001,Thêm thuốc thành công với đầy đủ thông tin,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ:
+   - Tên thuốc: ""Paracetamol 500mg""
+   - Mã thuốc: ""PARA500""
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Danh mục thuốc: ""Thuốc không kê đơn""
+   - Nhà sản xuất: ""Công ty Dược phẩm ABC""
+   - Giá nhập: ""5000""
+   - Giá bán: ""7000""
+   - Đơn vị tính: ""Viên""
+   - Hàm lượng: ""500mg""
+   - Số lượng: ""100""
+   - Hạn sử dụng: ""31/12/2025""
+   - Mô tả: ""Thuốc giảm đau, hạ sốt""
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm thuốc thành công""
+2. Thuốc mới được thêm vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 3 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thuốc mới trong danh sách, kiểm tra dữ liệu thuốc đúng với thông tin đã nhập"
+TC_ADD_THUOC_002,Thêm thuốc với mã thuốc đã tồn tại,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin với mã thuốc đã tồn tại:
+   - Tên thuốc: ""Paracetamol 500mg New""
+   - Mã thuốc: ""PARA500"" (đã tồn tại)
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Mã thuốc đã tồn tại""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách"
+TC_ADD_THUOC_003,Thêm thuốc với thông tin bắt buộc bị thiếu,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin với tên thuốc bị thiếu:
+   - Tên thuốc: """" (để trống)
+   - Mã thuốc: ""PARA600""
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Vui lòng nhập tên thuốc""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách"
+TC_ADD_THUOC_004,Thêm thuốc với giá trị không hợp lệ,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập thông tin với giá trị không hợp lệ:
+   - Tên thuốc: ""Paracetamol 500mg""
+   - Mã thuốc: ""PARA600""
+   - Loại thuốc: ""Giảm đau không steroid""
+   - Giá nhập: ""-5000"" (giá trị âm)
+   - Các thông tin khác hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Giá nhập phải lớn hơn hoặc bằng 0""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách"
+TC_ADD_THUOC_005,Thêm thuốc với hình ảnh,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Tải lên hình ảnh thuốc
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm thuốc thành công""
+2. Thuốc mới được thêm vào danh sách với hình ảnh",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 3 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thuốc mới trong danh sách, kiểm tra hình ảnh thuốc được lưu trữ"
+TC_ADD_THUOC_006,Thêm thuốc với hình ảnh không hợp lệ,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Tải lên file không phải hình ảnh (ví dụ: file .txt)
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""File không hợp lệ""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách"
+TC_ADD_THUOC_007,Thêm thuốc với hình ảnh quá kích thước cho phép,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Tải lên hình ảnh có kích thước > 5MB
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Kích thước file quá lớn""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách"
+TC_ADD_THUOC_008,Thêm thuốc với hạn sử dụng quá khứ,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Thêm thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Nhập hạn sử dụng là ngày trong quá khứ
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Hạn sử dụng phải là ngày trong tương lai""
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách"
+II. Kiểm thử chức năng cập nhật thuốc,,,,,,
+TC_UPDATE_THUOC_001,Cập nhật thuốc thành công,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Tên thuốc: ""Paracetamol 500mg Updated""
+   - Giá bán: ""8000""
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật thuốc thành công""
+2. Thông tin thuốc được cập nhật trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 3 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thông tin thuốc được cập nhật trong danh sách, kiểm tra dữ liệu thuốc đúng với thông tin đã sửa"
+TC_UPDATE_THUOC_002,Cập nhật thuốc với thông tin không hợp lệ,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Giá bán: ""-8000"" (giá trị âm)
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Giá bán phải lớn hơn hoặc bằng 0""
+2. Thông tin thuốc không được cập nhật",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra thông tin thuốc không thay đổi trong danh sách"
+TC_UPDATE_THUOC_003,Cập nhật thuốc với thông tin bắt buộc bị thiếu,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin:
+   - Tên thuốc: """" (xóa tên thuốc)
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Vui lòng nhập tên thuốc""
+2. Thông tin thuốc không được cập nhật",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra thông tin thuốc không thay đổi trong danh sách"
+TC_UPDATE_THUOC_004,Cập nhật thuốc với hình ảnh mới,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin và tải lên hình ảnh mới
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật thuốc thành công""
+2. Thông tin thuốc và hình ảnh được cập nhật",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 3 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thông tin thuốc được cập nhật, kiểm tra hình ảnh mới được lưu trữ"
+TC_UPDATE_THUOC_005,Cập nhật thuốc với hình ảnh không hợp lệ,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin và tải lên file không phải hình ảnh
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""File không hợp lệ""
+2. Thông tin thuốc không được cập nhật",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra thông tin thuốc không thay đổi"
+TC_UPDATE_THUOC_006,Cập nhật thuốc với hạn sử dụng quá khứ,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Sửa"" trên dòng thuốc cần cập nhật
+4. Sửa thông tin với hạn sử dụng là ngày trong quá khứ
+5. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Hạn sử dụng phải là ngày trong tương lai""
+2. Thông tin thuốc không được cập nhật",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra thông tin thuốc không thay đổi"
+III. Kiểm thử chức năng xóa thuốc,,,,,,
+TC_DELETE_THUOC_001,Xóa thuốc thành công,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+4. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa thuốc thành công""
+2. Thuốc bị xóa khỏi danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thuốc đã bị xóa khỏi danh sách"
+TC_DELETE_THUOC_002,Hủy xóa thuốc,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc có mã ""PARA500""
+3. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+4. Nhấn nút ""Hủy"" trong hộp thoại xác nhận","1. Hộp thoại xác nhận đóng lại
+2. Thuốc vẫn còn trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hộp thoại xác nhận đóng lại, kiểm tra thuốc vẫn còn trong danh sách"
+TC_DELETE_THUOC_003,Xóa thuốc đang được sử dụng bởi đơn hàng,"1. Mở trang quản lý thuốc
+2. Tìm kiếm thuốc đang được sử dụng bởi đơn hàng
+3. Nhấn nút ""Xóa"" trên dòng thuốc cần xóa
+4. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo lỗi ""Không thể xóa thuốc đang được sử dụng bởi đơn hàng""
+2. Thuốc vẫn còn trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra thuốc vẫn còn trong danh sách"
+IV. Kiểm thử chức năng tìm kiếm thuốc,,,,,,
+TC_SEARCH_THUOC_001,Tìm kiếm thuốc theo tên,"1. Mở trang quản lý thuốc
+2. Nhập ""Paracetamol"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có tên chứa ""Paracetamol""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_002,Tìm kiếm thuốc theo mã,"1. Mở trang quản lý thuốc
+2. Nhập ""PARA500"" vào ô tìm kiếm
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị thuốc có mã ""PARA500""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_003,Tìm kiếm thuốc theo loại thuốc,"1. Mở trang quản lý thuốc
+2. Chọn ""Giảm đau không steroid"" trong dropdown loại thuốc
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thuộc loại ""Giảm đau không steroid""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_004,Tìm kiếm thuốc theo nhà sản xuất,"1. Mở trang quản lý thuốc
+2. Chọn ""Công ty Dược phẩm ABC"" trong dropdown nhà sản xuất
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc của nhà sản xuất ""Công ty Dược phẩm ABC""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_005,Tìm kiếm thuốc theo danh mục thuốc,"1. Mở trang quản lý thuốc
+2. Chọn ""Thuốc không kê đơn"" trong dropdown danh mục thuốc
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thuộc danh mục ""Thuốc không kê đơn""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_006,Tìm kiếm thuốc theo đối tượng sử dụng,"1. Mở trang quản lý thuốc
+2. Chọn ""Người lớn"" trong dropdown đối tượng sử dụng
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc dành cho đối tượng ""Người lớn""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_007,Tìm kiếm thuốc theo trạng thái,"1. Mở trang quản lý thuốc
+2. Chọn ""Còn hàng"" trong dropdown trạng thái
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có trạng thái ""Còn hàng""
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_008,Tìm kiếm thuốc theo khoảng giá,"1. Mở trang quản lý thuốc
+2. Nhập ""5000"" vào ô Giá từ
+3. Nhập ""10000"" vào ô Giá đến
+4. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc có giá bán từ 5000 đến 10000
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_009,Tìm kiếm thuốc kết hợp nhiều tiêu chí,"1. Mở trang quản lý thuốc
+2. Nhập ""Paracetamol"" vào ô tìm kiếm
+3. Chọn ""Giảm đau không steroid"" trong dropdown loại thuốc
+4. Chọn ""Công ty Dược phẩm ABC"" trong dropdown nhà sản xuất
+5. Nhấn nút ""Tìm kiếm""","1. Hiển thị danh sách thuốc thỏa mãn tất cả các tiêu chí
+2. Không hiển thị các thuốc khác",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị danh sách thuốc đúng, kiểm tra không hiển thị các thuốc khác"
+TC_SEARCH_THUOC_010,Tìm kiếm thuốc không tồn tại,"1. Mở trang quản lý thuốc
+2. Nhập ""XYZ123"" vào ô tìm kiếm (không tồn tại)
+3. Nhấn nút ""Tìm kiếm""","1. Hiển thị thông báo ""Không có dữ liệu""
+2. Không hiển thị thuốc nào trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo, kiểm tra không hiển thị thuốc nào"
+TC_SEARCH_THUOC_011,Tìm kiếm thuốc với từ khóa đặc biệt,"1. Mở trang quản lý thuốc
+2. Nhập ""Para'cetamol"" vào ô tìm kiếm (có ký tự đặc biệt)
+3. Nhấn nút ""Tìm kiếm""","1. Hệ thống xử lý đúng ký tự đặc biệt
+2. Hiển thị kết quả tìm kiếm phù hợp hoặc thông báo không có dữ liệu",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra xử lý ký tự đặc biệt, kiểm tra hiển thị kết quả đúng"
+TC_SEARCH_THUOC_012,Tìm kiếm thuốc với phân trang,"1. Mở trang quản lý thuốc
+2. Nhấn nút ""Tìm kiếm"" để hiển thị tất cả thuốc
+3. Nhấn vào trang 2 trong phân trang","3. Hiển thị danh sách thuốc của trang 2",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra chuyển trang thành công, kiểm tra hiển thị dữ liệu đúng của trang 2"
+
+V. Kiểm thử quản lý loại thuốc,,,,,,
+TC_LOAI_THUOC_001,Thêm loại thuốc thành công,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Thêm loại thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm loại thuốc thành công""
+2. Loại thuốc mới được thêm vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra loại thuốc mới trong danh sách"
+TC_LOAI_THUOC_002,Thêm loại thuốc với tên đã tồn tại,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Thêm loại thuốc mới""
+3. Nhập tên loại thuốc đã tồn tại
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Tên loại thuốc đã tồn tại""
+2. Không thêm loại thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có loại thuốc mới trong danh sách"
+TC_LOAI_THUOC_003,Cập nhật loại thuốc thành công,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Sửa"" trên dòng loại thuốc cần cập nhật
+3. Sửa thông tin
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật loại thuốc thành công""
+2. Thông tin loại thuốc được cập nhật trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thông tin loại thuốc được cập nhật"
+TC_LOAI_THUOC_004,Xóa loại thuốc thành công,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Xóa"" trên dòng loại thuốc cần xóa
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa loại thuốc thành công""
+2. Loại thuốc bị xóa khỏi danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra loại thuốc đã bị xóa khỏi danh sách"
+TC_LOAI_THUOC_005,Xóa loại thuốc đang được sử dụng bởi thuốc,"1. Mở trang quản lý loại thuốc
+2. Nhấn nút ""Xóa"" trên dòng loại thuốc đang được sử dụng bởi thuốc
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo lỗi ""Không thể xóa loại thuốc đang được sử dụng bởi thuốc""
+2. Loại thuốc vẫn còn trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra loại thuốc vẫn còn trong danh sách"
+
+VI. Kiểm thử quản lý danh mục thuốc,,,,,,
+TC_DANH_MUC_THUOC_001,Thêm danh mục thuốc thành công,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Thêm danh mục thuốc mới""
+3. Nhập đầy đủ thông tin hợp lệ
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm danh mục thuốc thành công""
+2. Danh mục thuốc mới được thêm vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra danh mục thuốc mới trong danh sách"
+TC_DANH_MUC_THUOC_002,Thêm danh mục thuốc với tên đã tồn tại,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Thêm danh mục thuốc mới""
+3. Nhập tên danh mục thuốc đã tồn tại
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Tên danh mục thuốc đã tồn tại""
+2. Không thêm danh mục thuốc mới vào danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có danh mục thuốc mới trong danh sách"
+TC_DANH_MUC_THUOC_003,Cập nhật danh mục thuốc thành công,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Sửa"" trên dòng danh mục thuốc cần cập nhật
+3. Sửa thông tin
+4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Cập nhật danh mục thuốc thành công""
+2. Thông tin danh mục thuốc được cập nhật trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thông tin danh mục thuốc được cập nhật"
+TC_DANH_MUC_THUOC_004,Xóa danh mục thuốc thành công,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Xóa"" trên dòng danh mục thuốc cần xóa
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo ""Xóa danh mục thuốc thành công""
+2. Danh mục thuốc bị xóa khỏi danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra danh mục thuốc đã bị xóa khỏi danh sách"
+TC_DANH_MUC_THUOC_005,Xóa danh mục thuốc đang được sử dụng bởi loại thuốc,"1. Mở trang quản lý danh mục thuốc
+2. Nhấn nút ""Xóa"" trên dòng danh mục thuốc đang được sử dụng bởi loại thuốc
+3. Xác nhận xóa trong hộp thoại xác nhận","1. Hiển thị thông báo lỗi ""Không thể xóa danh mục thuốc đang được sử dụng bởi loại thuốc""
+2. Danh mục thuốc vẫn còn trong danh sách",Passed,Passed,"Kiểm thử chức năng
+Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra danh mục thuốc vẫn còn trong danh sách"
