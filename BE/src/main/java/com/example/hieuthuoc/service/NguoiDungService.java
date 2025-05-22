@@ -104,6 +104,9 @@ class NguoiDungServiceImpl implements NguoiDungService, UserDetailsService {
 	public ResponseDTO<NguoiDung> create(NguoiDungDTO nguoiDungDTO) {
 		NguoiDung nguoiDung = modelMapper.map(nguoiDungDTO, NguoiDung.class);
 
+		// Đảm bảo ID là null để cơ sở dữ liệu tự động tạo
+		nguoiDung.setId(null);
+
 		if (nguoiDungRepo.findByTenDangNhap(nguoiDung.getTenDangNhap()) != null) {
 			return ResponseDTO.<NguoiDung>builder().status(400).msg("Tên đăng nhập đã tồn tại.").build();
 		}
@@ -115,8 +118,17 @@ class NguoiDungServiceImpl implements NguoiDungService, UserDetailsService {
 		nguoiDung.setMatKhau(new BCryptPasswordEncoder().encode(nguoiDung.getMatKhau()));
 
 		List<NhomQuyen> nhomQuyens = new ArrayList<>();
-		for (NhomQuyen nhomQuyen : nguoiDung.getNhomQuyens()) {
-			nhomQuyens.add(nhomQuyenRepo.findById(nhomQuyen.getId()).get());
+		// Kiểm tra null trước khi truy cập danh sách nhomQuyens
+		if (nguoiDungDTO.getNhomQuyenIds() != null && !nguoiDungDTO.getNhomQuyenIds().isEmpty()) {
+			for (Integer nhomQuyenId : nguoiDungDTO.getNhomQuyenIds()) {
+				nhomQuyenRepo.findById(nhomQuyenId).ifPresent(nhomQuyens::add);
+			}
+		} else {
+			// Nếu không có nhóm quyền được chỉ định, gán mặc định là KHACH_HANG
+			NhomQuyen khachHangRole = nhomQuyenRepo.findByTenNhomQuyen("KHACH_HANG");
+			if (khachHangRole != null) {
+				nhomQuyens.add(khachHangRole);
+			}
 		}
 		nguoiDung.setNhomQuyens(nhomQuyens);
 
@@ -153,6 +165,9 @@ class NguoiDungServiceImpl implements NguoiDungService, UserDetailsService {
 	@Transactional
 	public ResponseDTO<NguoiDung> register(NguoiDungDTO nguoiDungDTO) {
 		NguoiDung nguoiDung = modelMapper.map(nguoiDungDTO, NguoiDung.class);
+
+		// Đảm bảo ID là null để cơ sở dữ liệu tự động tạo
+		nguoiDung.setId(null);
 
 		if (nguoiDungRepo.findByTenDangNhap(nguoiDung.getTenDangNhap()) != null) {
 			return ResponseDTO.<NguoiDung>builder().status(400).msg("Tên đăng nhập đã tồn tại.").build();
@@ -243,7 +258,7 @@ class NguoiDungServiceImpl implements NguoiDungService, UserDetailsService {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		if (!passwordEncoder.matches(nguoiDungDTO.getMatKhau(), nguoiDung.getMatKhau())) {
 			return ResponseDTO.<NguoiDung>builder().status(400).msg("Mật khẩu không chính xác.").build();
-		} 
+		}
 
 		// Mã hóa mật khẩu mới
 		nguoiDung.setMatKhau(passwordEncoder.encode(nguoiDungDTO.getMatKhauMoi()));

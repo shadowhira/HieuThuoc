@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "85777cd6-efb3-4df4-9dc5-2e7f1ee91e89",
+		"name": "Test_Quan_ly_nguoi_dung_va_phan_quyen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33742428"
+	},
+	"item": [
+		{
+			"name": "dang_ky",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"hoTen\": \"Người dùng mới\",\r\n  \"tenDangNhap\": \"newuser1\",\r\n  \"matKhau\": \"123456\",\r\n  \"email\": \"newuser1@example.com\",\r\n  \"soDienThoai\": \"0987654321\",\r\n  \"diaChi\": \"Hà Nội\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dang_nhap",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenDangNhap\": \"admin2\",\r\n  \"matKhau\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/dangnhap",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"dangnhap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "danh_sach_nguoi_dung",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJsYXN0TmFtZSI6IkFkbWluIDIiLCJuaG9tUXV5ZW5zIjpbeyJuaG9tUXV5ZW4iOiJBRE1JTiIsImNodWNOYW5ncyI6WyJRdeG6o24gbMO9IHRodeG7kWMiLCJRdeG6o24gbMO9IGtodXnhur9uIG3Do2kiLCJYw7NhIG5nxrDhu51pIGTDuW5nIiwiUXXhuqNuIGzDvSBuaMOzbSBxdXnhu4FuIiwiUXXhuqNuIGzDvSDEkcahbiBow6BuZyIsIlF14bqjbiBsw70gbmfGsOG7nWkgZMO5bmciLCJRdeG6o24gbMO9IG5o4bqtcCBraG8iLCJYZW0gYsOhbyBjw6FvIl19XSwiaWQiOjEsInN1YiI6ImFkbWluMiIsImlhdCI6MTc0NzY2OTg5NiwiZXhwIjoyMTA3NjY5ODk2fQ.7wGJWWH2lgYQTFWpzQbC-mn2jp5hDiAOZxiegyb7j-s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"keyWord\": \"\",\r\n  \"currentPage\": 0,\r\n  \"size\": 10,\r\n  \"sortedField\": \"id\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lay_nguoi_dung_theo_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/get?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cap_nhat_nguoi_dung",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 13,\r\n  \"hoTen\": \"Người dùng đã cập nhật\",\r\n  \"email\": \"updated@example.com\",\r\n  \"soDienThoai\": \"0987654322\",\r\n  \"diaChi\": \"Hà Nội cập nhật\",\r\n  \"nhomQuyenIds\": [1, 2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xoa_nguoi_dung",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/delete?id=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "thay_doi_mat_khau_nguoi_dung",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 12,\r\n  \"matKhau\": \"123456\",\r\n  \"matKhauMoi\": \"654321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/change_matkhau",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"change_matkhau"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "quen_mat_khau",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/forgot_matkhau?email=user@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"forgot_matkhau"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "user@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doi_avatar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nguoidung/change_avatar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nguoidung",
+						"change_avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "danh_sach_nhom_quyen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"keyWord\": \"\",\r\n  \"currentPage\": 0,\r\n  \"size\": 10,\r\n  \"sortedField\": \"id\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nhomquyen/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nhomquyen",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lay_nhom_quyen_theo_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nhomquyen/get?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nhomquyen",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tao_nhom_quyen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenNhomQuyen\": \"NHOM_MOI\",\r\n  \"moTa\": \"Nhóm quyền mới\",\r\n  \"chucNangs\": [\r\n    {\"id\": 1},\r\n    {\"id\": 2}\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nhomquyen/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nhomquyen",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cap_nhat_nhom_quyen",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 6,\r\n  \"tenNhomQuyen\": \"NHOM_MOI_UPDATED\",\r\n  \"moTa\": \"Nhóm quyền đã cập nhật\",\r\n  \"chucNangs\": [\r\n    {\"id\": 1},\r\n    {\"id\": 2},\r\n    {\"id\": 3}\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nhomquyen/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nhomquyen",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xoa_nhom_quyen",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/nhomquyen/delete?id=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"nhomquyen",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "danh_sach_chuc_nang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/chucnang/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"chucnang",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tao_chuc_nang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenChucNang\": \"Quản lý đơn hàng CRUD\",\r\n  \"hanhDong\": \"CRUD_ORDER\",\r\n  \"moTa\": \"Quản lý thông tin đơn hàng\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/chucnang/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"chucnang",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cap_nhat_chuc_nang",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 9,\r\n  \"tenChucNang\": \"Quản lý đơn hàng cập nhật\",\r\n  \"hanhDong\": \"CRUD_ORDER_UPDATED\",\r\n  \"moTa\": \"Quản lý thông tin đơn hàng đã cập nhật\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/chucnang/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"chucnang",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xoa_chuc_nang",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/hieuthuoc/chucnang/delete?id=9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"hieuthuoc",
+						"chucnang",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

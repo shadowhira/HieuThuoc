@@ -16,10 +16,11 @@ public class NguoiDungDTO {
     private String diaChi;
     private String soDienThoai;
     private Boolean trangThai = true;
-    
+
     private String matKhauMoi;
     private MultipartFile file;
 
 	private List<NhomQuyenDTO> nhomQuyens;
+    private List<Integer> nhomQuyenIds; // Danh sách ID của các nhóm quyền
     // Có thể thêm các trường khác nếu cần
 }
