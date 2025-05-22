@@ -20,6 +20,8 @@ public interface ChucNangService {
 	ResponseDTO<ChucNang> update(ChucNangDTO chucNangDTO);
 
 	ResponseDTO<Void> delete(Integer id);
+
+	ResponseDTO<ChucNang> getById(Integer id);
 }
 
 @Service
@@ -38,19 +40,23 @@ class ChucNangServiceImpl implements ChucNangService {
 	@Override
 	@Transactional
 	public ResponseDTO<ChucNang> create(ChucNangDTO chucNangDTO) {
+		if (chucNangRepo.existsByTenChucNang(chucNangDTO.getTenChucNang())) {
+			return ResponseDTO.<ChucNang>builder().status(409).msg("Chức năng đã tồn tại").build();
+		}
 		ChucNang chucNang = modelMapper.map(chucNangDTO, ChucNang.class);
-		return ResponseDTO.<ChucNang>builder().status(200).msg("Thành công").data(chucNangRepo.save(chucNang)).build();
+		return ResponseDTO.<ChucNang>builder().status(201).msg("Tạo chức năng thành công").data(chucNangRepo.save(chucNang)).build();
 	}
 
 	@Override
 	@Transactional
 	public ResponseDTO<ChucNang> update(ChucNangDTO chucNangDTO) {
-		ChucNang chucNang = modelMapper.map(chucNangDTO, ChucNang.class);
-		ChucNang currentChucNang = chucNangRepo.findById(chucNang.getId()).orElse(null);
-		if (currentChucNang != null) {
-			return ResponseDTO.<ChucNang>builder().status(200).msg("Thành công").data(chucNangRepo.save(chucNang)).build();
+		ChucNang currentChucNang = chucNangRepo.findById(chucNangDTO.getId()).orElse(null);
+		if (currentChucNang == null) {
+			return ResponseDTO.<ChucNang>builder().status(404).msg("Không tìm thấy chức năng").build();
 		}
-		return ResponseDTO.<ChucNang>builder().status(409).msg("Không tìm thấy chức năng").build();
+
+		ChucNang chucNang = modelMapper.map(chucNangDTO, ChucNang.class);
+		return ResponseDTO.<ChucNang>builder().status(200).msg("Cập nhật chức năng thành công").data(chucNangRepo.save(chucNang)).build();
 	}
 
 	@Override
@@ -58,5 +64,14 @@ class ChucNangServiceImpl implements ChucNangService {
 	public ResponseDTO<Void> delete(Integer id) {
 		chucNangRepo.deleteById(id);
 		return ResponseDTO.<Void>builder().status(200).msg("Thành công").build();
+	}
+
+	@Override
+	public ResponseDTO<ChucNang> getById(Integer id) {
+		ChucNang chucNang = chucNangRepo.findById(id).orElse(null);
+		if (chucNang != null) {
+			return ResponseDTO.<ChucNang>builder().status(200).msg("Thành công").data(chucNang).build();
+		}
+		return ResponseDTO.<ChucNang>builder().status(404).msg("Không tìm thấy chức năng").build();
 	}
 }

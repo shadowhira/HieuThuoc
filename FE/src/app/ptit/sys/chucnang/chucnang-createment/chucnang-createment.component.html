@@ -92,19 +92,22 @@
       </textarea>
     </div>
   </div>
-  <!-- 
+
   <ng-template pTemplate="footer">
-    <p-button
-      icon="pi pi-times"
-      (click)="displayModal = false"
-      label="Hủy"
-      styleClass="btn btn-danger"
-    ></p-button>
-    <p-button
-      icon="pi pi-check"
-      label="Lưu"
-      (click)="onSave()"
-      styleClass="btn btn-success"
-    ></p-button>
-  </ng-template> -->
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-danger me-2" (click)="onCancel()">
+        <i class="ri-close-line align-middle me-1"></i>
+        Hủy
+      </button>
+      <button
+        *ngIf="typeModal == CommonConstant.TYPE_UPDATE"
+        type="button"
+        class="btn btn-success"
+        (click)="onSave()"
+      >
+        <i class="ri-check-line align-middle me-1"></i>
+        Lưu
+      </button>
+    </div>
+  </ng-template>
 </p-dialog>

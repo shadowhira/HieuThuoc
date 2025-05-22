@@ -114,7 +114,31 @@ export class ChucNangComponent implements OnInit {
     this.getData();
   }
 
-  handeSave(chucnang: ChucNang) {}
+  handeSave(chucnang: ChucNang) {
+    if (!chucnang.id) {
+      this.chucnangService.create(chucnang).subscribe((resp) => {
+        if (resp.status == CommonConstant.STATUS_OK_201) {
+          this.toastService.success("Tạo chức năng thành công");
+          this.getData();
+        } else if (resp.status == CommonConstant.STATUS_OK_409) {
+          this.toastService.error(resp.msg);
+        } else {
+          this.toastService.error("Tạo chức năng thất bại");
+        }
+      });
+    } else {
+      this.chucnangService.update(chucnang).subscribe((resp) => {
+        if (resp.status == CommonConstant.STATUS_OK_200) {
+          this.toastService.success("Cập nhật chức năng thành công");
+          this.getData();
+        } else if (resp.status == CommonConstant.STATUS_OK_409) {
+          this.toastService.error(resp.msg);
+        } else {
+          this.toastService.error("Cập nhật chức năng thất bại");
+        }
+      });
+    }
+  }
 
   delete(chucnang: ChucNang) {
     this.chucnangService.delete(chucnang.id).subscribe((resp) => {

@@ -14,7 +14,15 @@ INSERT INTO loai_thuoc (id, ten_loai, mo_ta) VALUES
 (8, 'Antidiabetic', 'Thuốc điều trị đái tháo đường'),
 (9, 'Lipid-lowering', 'Thuốc hạ lipid máu'),
 (10, 'Antihistamine', 'Thuốc kháng histamine'),
-(11, 'Proton pump inhibitor', 'Thuốc ức chế bơm proton');
+(11, 'Proton pump inhibitor', 'Thuốc ức chế bơm proton'),
+(12, 'H2 blocker', 'Thuốc đối kháng thụ thể H2'),
+(13, 'Bronchodilator', 'Thuốc giãn phế quản'),
+(14, 'Antihistamine', 'Thuốc kháng histamine'),
+(15, 'Multivitamin', 'Đa vitamin tổng hợp'),
+(16, 'Vitamin C', 'Vitamin C'),
+(17, 'Vitamin D', 'Vitamin D'),
+(18, 'Corticosteroid', 'Thuốc corticosteroid'),
+(19, 'Antifungal', 'Thuốc chống nấm');
 
 -- Nhà sản xuất data
 INSERT INTO nha_san_xuat (id, ten_nha_san_xuat, dia_chi, email, so_dien_thoai) VALUES
@@ -22,7 +30,12 @@ INSERT INTO nha_san_xuat (id, ten_nha_san_xuat, dia_chi, email, so_dien_thoai) V
 (2, 'Công ty Dược phẩm TP.HCM', 'TP.HCM', 'contact@hcm-pharma.com', '0987654322'),
 (3, 'Công ty Dược phẩm Đà Nẵng', 'Đà Nẵng', 'contact@danang-pharma.com', '0987654323'),
 (4, 'Công ty Dược phẩm Cần Thơ', 'Cần Thơ', 'contact@cantho-pharma.com', '0987654324'),
-(5, 'Công ty Dược phẩm Hải Phòng', 'Hải Phòng', 'contact@haiphong-pharma.com', '0987654325');
+(5, 'Công ty Dược phẩm Hải Phòng', 'Hải Phòng', 'contact@haiphong-pharma.com', '0987654325'),
+(6, 'GlaxoSmithKline', 'London, UK', 'contact@gsk.com', '+44123456789'),
+(7, 'Bayer', 'Leverkusen, Germany', 'contact@bayer.com', '+49123456789'),
+(8, 'Roche', 'Basel, Switzerland', 'contact@roche.com', '+41123456780'),
+(9, 'AstraZeneca', 'Cambridge, UK', 'contact@astrazeneca.com', '+44123456780'),
+(10, 'Johnson & Johnson', 'New Jersey, USA', 'contact@jnj.com', '+12123456780');
 
 -- Nhà cung cấp data
 INSERT INTO nha_cung_cap (id, ten_nha_cung_cap, dia_chi, email, so_dien_thoai) VALUES
@@ -53,23 +66,42 @@ INSERT INTO nguoi_dung (id, ten_dang_nhap, mat_khau, ho_ten, email, so_dien_thoa
 (9, 'customer6', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 6', 'customer6@gmail.com', '0987654329', 'Hải Phòng', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 (10, 'customer7', '$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe', 'Customer 7', 'customer7@gmail.com', '0987654330', 'Cần Thơ', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
+-- Thuốc từ ID 1-15 (từ data.sql)
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(1, 'Amoxicillin 500mg', 'T001', 'B001', 1, 1, 'Viên', 'Viên nén', 'Hộp 10 vỉ x 10 viên', 'VD-12345', '2025-12-31', 1000, 1500, 1000, 100, 'Điều trị nhiễm khuẩn đường hô hấp, tiết niệu, da và mô mềm', 'Nhiễm khuẩn đường hô hấp, tiết niệu, da và mô mềm', 'Mẫn cảm với penicillin, suy gan, suy thận nặng', 'Uống 1 viên/lần, ngày 3 lần, uống sau khi ăn', 'Thuốc kháng sinh nhóm beta-lactam', 'amoxicillin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(2, 'Paracetamol 500mg', 'T002', 'B002', 5, 2, 'Viên', 'Viên nén', 'Hộp 10 vỉ x 10 viên', 'VD-12346', '2025-12-31', 500, 800, 2000, 200, 'Giảm đau, hạ sốt', 'Đau nhẹ đến vừa, sốt', 'Mẫn cảm với paracetamol, suy gan nặng', 'Uống 1-2 viên/lần, cách nhau ít nhất 4 giờ, không quá 8 viên/ngày', 'Thuốc giảm đau, hạ sốt', 'paracetamol.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(3, 'Omeprazole 20mg', 'T003', 'B003', 11, 3, 'Viên', 'Viên nang', 'Hộp 3 vỉ x 10 viên', 'VD-12347', '2025-12-31', 2000, 3000, 500, 50, 'Điều trị loét dạ dày, tá tràng, trào ngược dạ dày thực quản', 'Loét dạ dày, tá tràng, trào ngược dạ dày thực quản', 'Mẫn cảm với omeprazole', 'Uống 1 viên/ngày, trước bữa ăn sáng', 'Thuốc ức chế bơm proton', 'omeprazole.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(4, 'Atenolol 50mg', 'T004', 'B004', 7, 4, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12348', '2025-12-31', 1500, 2500, 300, 30, 'Điều trị tăng huyết áp, đau thắt ngực', 'Tăng huyết áp, đau thắt ngực', 'Suy tim không kiểm soát được, nhịp tim chậm', 'Uống 1 viên/ngày, vào buổi sáng', 'Thuốc chẹn beta giao cảm', 'atenolol.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(5, 'Cetirizine 10mg', 'T005', 'B005', 14, 5, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12349', '2025-12-31', 1200, 2000, 400, 40, 'Điều trị các triệu chứng dị ứng', 'Viêm mũi dị ứng, mày đay', 'Mẫn cảm với cetirizine, suy thận nặng', 'Uống 1 viên/ngày, vào buổi tối', 'Thuốc kháng histamine', 'cetirizine.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(6, 'Vitamin C 500mg', 'T006', 'B006', 16, 6, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12350', '2025-12-31', 800, 1200, 1000, 100, 'Bổ sung vitamin C', 'Thiếu vitamin C, tăng cường miễn dịch', 'Sỏi thận, tăng oxalat niệu', 'Uống 1 viên/ngày, sau bữa ăn', 'Vitamin C', 'vitaminc.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(7, 'Hydrocortisone 1%', 'T007', 'B007', 18, 7, 'Tuýp', 'Kem', 'Tuýp 10g', 'VD-12351', '2025-12-31', 3000, 5000, 200, 20, 'Điều trị viêm da, ngứa', 'Viêm da, ngứa, dị ứng da', 'Nhiễm khuẩn da, mụn trứng cá', 'Bôi lên vùng da bị bệnh, ngày 2-3 lần', 'Thuốc corticosteroid dạng bôi', 'hydrocortisone.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(8, 'Metformin 500mg', 'T008', 'B008', 8, 8, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12352', '2025-12-31', 1000, 1800, 500, 50, 'Điều trị đái tháo đường type 2', 'Đái tháo đường type 2', 'Suy thận, suy gan, nhiễm toan chuyển hóa', 'Uống 1 viên/lần, ngày 2 lần, sau bữa ăn', 'Thuốc điều trị đái tháo đường', 'metformin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(9, 'Losartan 50mg', 'T009', 'B009', 8, 9, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12353', '2025-12-31', 2000, 3500, 300, 30, 'Điều trị tăng huyết áp, suy tim', 'Tăng huyết áp, suy tim', 'Phụ nữ có thai, suy gan nặng', 'Uống 1 viên/ngày, vào buổi sáng', 'Thuốc ức chế thụ thể angiotensin II', 'losartan.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(10, 'Salbutamol 2mg', 'T010', 'B010', 13, 10, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12354', '2025-12-31', 1500, 2500, 400, 40, 'Điều trị hen phế quản, bệnh phổi tắc nghẽn mạn tính', 'Hen phế quản, bệnh phổi tắc nghẽn mạn tính', 'Tăng nhạy cảm với salbutamol', 'Uống 1 viên/lần, ngày 3-4 lần', 'Thuốc giãn phế quản', 'salbutamol.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(11, 'Ciprofloxacin 500mg', 'T011', 'B011', 4, 1, 'Viên', 'Viên nén', 'Hộp 1 vỉ x 10 viên', 'VD-12355', '2025-12-31', 2500, 4000, 300, 30, 'Điều trị nhiễm khuẩn đường tiết niệu, hô hấp, da', 'Nhiễm khuẩn đường tiết niệu, hô hấp, da', 'Mẫn cảm với quinolone, phụ nữ có thai', 'Uống 1 viên/lần, ngày 2 lần, cách nhau 12 giờ', 'Thuốc kháng sinh nhóm quinolone', 'ciprofloxacin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(12, 'Ibuprofen 400mg', 'T012', 'B012', 6, 2, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12356', '2025-12-31', 1200, 2000, 600, 60, 'Giảm đau, kháng viêm', 'Đau nhức, viêm khớp, đau kinh', 'Loét dạ dày, tá tràng, suy thận, suy gan', 'Uống 1 viên/lần, ngày 3 lần, sau khi ăn', 'Thuốc kháng viêm không steroid', 'ibuprofen.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(13, 'Ranitidine 150mg', 'T013', 'B013', 12, 3, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12357', '2025-12-31', 1500, 2500, 400, 40, 'Điều trị loét dạ dày, tá tràng, trào ngược dạ dày thực quản', 'Loét dạ dày, tá tràng, trào ngược dạ dày thực quản', 'Mẫn cảm với ranitidine', 'Uống 1 viên/lần, ngày 2 lần, sáng và tối', 'Thuốc đối kháng thụ thể H2', 'ranitidine.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(14, 'Amlodipine 5mg', 'T014', 'B014', 9, 4, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12358', '2025-12-31', 1800, 3000, 300, 30, 'Điều trị tăng huyết áp, đau thắt ngực', 'Tăng huyết áp, đau thắt ngực', 'Hạ huyết áp, suy tim nặng', 'Uống 1 viên/ngày, vào buổi sáng', 'Thuốc chẹn kênh canxi', 'amlodipine.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C'),
+(15, 'Loratadine 10mg', 'T015', 'B015', 14, 5, 'Viên', 'Viên nén', 'Hộp 3 vỉ x 10 viên', 'VD-12359', '2025-12-31', 1000, 1800, 500, 50, 'Điều trị các triệu chứng dị ứng', 'Viêm mũi dị ứng, mày đay', 'Mẫn cảm với loratadine', 'Uống 1 viên/ngày', 'Thuốc kháng histamine', 'loratadine.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C');
+
 -- Additional Medicine Data
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Azithromycin 500mg', 'T016', 'B016', 3, 1, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 6 viên', 'VD-12360', '2026-06-30', 3000, 5000, 300, 30, 'Điều trị nhiễm khuẩn đường hô hấp, da và mô mềm', 'Nhiễm khuẩn đường hô hấp trên và dưới, nhiễm khuẩn da và mô mềm', 'Mẫn cảm với macrolide, suy gan nặng', 'Uống 1 viên/ngày, trong 3 ngày liên tiếp', 'Thuốc kháng sinh nhóm macrolide', 'azithromycin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Cefixime 200mg', 'T017', 'B017', 2, 2, 'Viên', 'Viên nang', 'Hộp 10 vỉ x 10 viên', 'VD-12361', '2026-06-30', 2500, 4000, 500, 50, 'Điều trị nhiễm khuẩn đường hô hấp, tiết niệu', 'Nhiễm khuẩn đường hô hấp, tiết niệu, tai mũi họng', 'Mẫn cảm với cephalosporin', 'Uống 1 viên/lần, ngày 2 lần, sau khi ăn', 'Thuốc kháng sinh nhóm cephalosporin thế hệ 3', 'cefixime.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Levofloxacin 500mg', 'T018', 'B018', 4, 3, 'Viên', 'Viên nén bao phim', 'Hộp 1 vỉ x 10 viên', 'VD-12362', '2026-06-30', 3500, 5500, 400, 40, 'Điều trị nhiễm khuẩn đường hô hấp, tiết niệu, da', 'Viêm phổi, viêm phế quản, nhiễm khuẩn tiết niệu, nhiễm khuẩn da', 'Mẫn cảm với quinolone, trẻ em dưới 18 tuổi, phụ nữ có thai', 'Uống 1 viên/ngày, trong 7-14 ngày tùy theo mức độ nhiễm khuẩn', 'Thuốc kháng sinh nhóm quinolone', 'levofloxacin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Diclofenac 50mg', 'T019', 'B019', 6, 4, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12363', '2026-06-30', 1000, 1800, 600, 60, 'Giảm đau, kháng viêm', 'Đau nhức xương khớp, viêm khớp, đau lưng, đau đầu', 'Loét dạ dày, tá tràng, suy thận, suy gan, phụ nữ có thai 3 tháng cuối', 'Uống 1 viên/lần, ngày 2-3 lần, sau khi ăn', 'Thuốc kháng viêm không steroid', 'diclofenac.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Pantoprazole 40mg', 'T020', 'B020', 11, 5, 'Viên', 'Viên nén bao tan trong ruột', 'Hộp 3 vỉ x 10 viên', 'VD-12364', '2026-06-30', 2200, 3500, 400, 40, 'Điều trị loét dạ dày, tá tràng, trào ngược dạ dày thực quản', 'Loét dạ dày, tá tràng, trào ngược dạ dày thực quản, hội chứng Zollinger-Ellison', 'Mẫn cảm với pantoprazole', 'Uống 1 viên/ngày, trước bữa ăn sáng', 'Thuốc ức chế bơm proton', 'pantoprazole.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Metformin 500mg', 'T021', 'B021', 8, 1, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12365', '2026-06-30', 1500, 2500, 500, 50, 'Điều trị đái tháo đường type 2', 'Đái tháo đường type 2, hội chứng buồng trứng đa nang', 'Suy thận, suy gan, nhiễm toan chuyển hóa, phụ nữ có thai', 'Uống 1 viên/lần, ngày 2-3 lần, sau khi ăn', 'Thuốc điều trị đái tháo đường', 'metformin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Losartan 50mg', 'T022', 'B022', 7, 2, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12366', '2026-06-30', 2000, 3200, 400, 40, 'Điều trị tăng huyết áp, suy tim', 'Tăng huyết áp, suy tim, bảo vệ thận ở bệnh nhân đái tháo đường', 'Phụ nữ có thai, suy gan nặng', 'Uống 1 viên/ngày, có thể uống cùng hoặc không cùng bữa ăn', 'Thuốc ức chế thụ thể angiotensin II', 'losartan.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
-INSERT INTO thuoc (ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
-('Atorvastatin 20mg', 'T023', 'B023', 9, 3, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12367', '2026-06-30', 2500, 4000, 300, 30, 'Điều trị tăng cholesterol máu', 'Tăng cholesterol máu, dự phòng bệnh tim mạch', 'Phụ nữ có thai, cho con bú, bệnh gan tiến triển', 'Uống 1 viên/ngày, vào buổi tối', 'Thuốc ức chế HMG-CoA reductase', 'atorvastatin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+-- Đảm bảo ID được chỉ định rõ ràng để tránh lỗi khóa ngoại
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(16, 'Azithromycin 500mg', 'T016', 'B016', 3, 1, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 6 viên', 'VD-12360', '2026-06-30', 3000, 5000, 300, 30, 'Điều trị nhiễm khuẩn đường hô hấp, da và mô mềm', 'Nhiễm khuẩn đường hô hấp trên và dưới, nhiễm khuẩn da và mô mềm', 'Mẫn cảm với macrolide, suy gan nặng', 'Uống 1 viên/ngày, trong 3 ngày liên tiếp', 'Thuốc kháng sinh nhóm macrolide', 'azithromycin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(17, 'Cefixime 200mg', 'T017', 'B017', 2, 2, 'Viên', 'Viên nang', 'Hộp 10 vỉ x 10 viên', 'VD-12361', '2026-06-30', 2500, 4000, 500, 50, 'Điều trị nhiễm khuẩn đường hô hấp, tiết niệu', 'Nhiễm khuẩn đường hô hấp, tiết niệu, tai mũi họng', 'Mẫn cảm với cephalosporin', 'Uống 1 viên/lần, ngày 2 lần, sau khi ăn', 'Thuốc kháng sinh nhóm cephalosporin thế hệ 3', 'cefixime.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(18, 'Levofloxacin 500mg', 'T018', 'B018', 4, 3, 'Viên', 'Viên nén bao phim', 'Hộp 1 vỉ x 10 viên', 'VD-12362', '2026-06-30', 3500, 5500, 400, 40, 'Điều trị nhiễm khuẩn đường hô hấp, tiết niệu, da', 'Viêm phổi, viêm phế quản, nhiễm khuẩn tiết niệu, nhiễm khuẩn da', 'Mẫn cảm với quinolone, trẻ em dưới 18 tuổi, phụ nữ có thai', 'Uống 1 viên/ngày, trong 7-14 ngày tùy theo mức độ nhiễm khuẩn', 'Thuốc kháng sinh nhóm quinolone', 'levofloxacin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(19, 'Diclofenac 50mg', 'T019', 'B019', 6, 4, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12363', '2026-06-30', 1000, 1800, 600, 60, 'Giảm đau, kháng viêm', 'Đau nhức xương khớp, viêm khớp, đau lưng, đau đầu', 'Loét dạ dày, tá tràng, suy thận, suy gan, phụ nữ có thai 3 tháng cuối', 'Uống 1 viên/lần, ngày 2-3 lần, sau khi ăn', 'Thuốc kháng viêm không steroid', 'diclofenac.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(20, 'Pantoprazole 40mg', 'T020', 'B020', 11, 5, 'Viên', 'Viên nén bao tan trong ruột', 'Hộp 3 vỉ x 10 viên', 'VD-12364', '2026-06-30', 2200, 3500, 400, 40, 'Điều trị loét dạ dày, tá tràng, trào ngược dạ dày thực quản', 'Loét dạ dày, tá tràng, trào ngược dạ dày thực quản, hội chứng Zollinger-Ellison', 'Mẫn cảm với pantoprazole', 'Uống 1 viên/ngày, trước bữa ăn sáng', 'Thuốc ức chế bơm proton', 'pantoprazole.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(21, 'Metformin 500mg', 'T021', 'B021', 8, 1, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12365', '2026-06-30', 1500, 2500, 500, 50, 'Điều trị đái tháo đường type 2', 'Đái tháo đường type 2, hội chứng buồng trứng đa nang', 'Suy thận, suy gan, nhiễm toan chuyển hóa, phụ nữ có thai', 'Uống 1 viên/lần, ngày 2-3 lần, sau khi ăn', 'Thuốc điều trị đái tháo đường', 'metformin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(22, 'Losartan 50mg', 'T022', 'B022', 7, 2, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12366', '2026-06-30', 2000, 3200, 400, 40, 'Điều trị tăng huyết áp, suy tim', 'Tăng huyết áp, suy tim, bảo vệ thận ở bệnh nhân đái tháo đường', 'Phụ nữ có thai, suy gan nặng', 'Uống 1 viên/ngày, có thể uống cùng hoặc không cùng bữa ăn', 'Thuốc ức chế thụ thể angiotensin II', 'losartan.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
+INSERT INTO thuoc (id, ten_thuoc, ma_thuoc, ma_vach, loai_thuoc_id, nha_san_xuat_id, don_vi, che_bao, quy_cach, so_dang_ky, han_su_dung, gia_nhap, gia_ban, so_luong_ton, nguong_canh_bao, cong_dung, chi_dinh, chong_chi_dinh, huong_dan_su_dung, mo_ta_ngan, avatar, trang_thai, ghi_chu) VALUES
+(23, 'Atorvastatin 20mg', 'T023', 'B023', 9, 3, 'Viên', 'Viên nén bao phim', 'Hộp 3 vỉ x 10 viên', 'VD-12367', '2026-06-30', 2500, 4000, 300, 30, 'Điều trị tăng cholesterol máu', 'Tăng cholesterol máu, dự phòng bệnh tim mạch', 'Phụ nữ có thai, cho con bú, bệnh gan tiến triển', 'Uống 1 viên/ngày, vào buổi tối', 'Thuốc ức chế HMG-CoA reductase', 'atorvastatin.jpg', true, 'Bảo quản ở nhiệt độ dưới 30 độ C, tránh ánh sáng');
 
 -- Additional Medicine Components
 INSERT INTO thanh_phan_thuoc (thuoc_id, ten_thanh_phan, ham_luong, don_vi) VALUES
@@ -122,12 +154,12 @@ INSERT INTO ton_kho (thuoc_id, so_lo, han_su_dung, so_luong, vi_tri, created_at,
 (23, 'LO046', '2026-03-31', 150, 'Kệ W2', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 -- Additional Import Receipt Data
-INSERT INTO phieu_nhap (nha_cung_cap_id, nguoi_dung_id, tong_tien, created_at, update_at) VALUES
-(1, 3, 2500000, '2024-01-15', '2024-01-15'),
-(2, 4, 3000000, '2024-02-15', '2024-02-15'),
-(3, 3, 2800000, '2024-03-15', '2024-03-15'),
-(1, 4, 2200000, '2024-03-20', '2024-03-20'),
-(2, 3, 1800000, '2024-03-25', '2024-03-25');
+INSERT INTO phieu_nhap (id, nha_cung_cap_id, nguoi_dung_id, tong_tien, created_at, update_at) VALUES
+(6, 1, 3, 2500000, '2024-01-15', '2024-01-15'),
+(7, 2, 4, 3000000, '2024-02-15', '2024-02-15'),
+(8, 3, 3, 2800000, '2024-03-15', '2024-03-15'),
+(9, 1, 4, 2200000, '2024-03-20', '2024-03-20'),
+(10, 2, 3, 1800000, '2024-03-25', '2024-03-25');
 
 -- Additional Import Receipt Details
 INSERT INTO chi_tiet_phieu_nhap (phieu_nhap_id, thuoc_id, han_su_dung, so_luong, don_gia) VALUES

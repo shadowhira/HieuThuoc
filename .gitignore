@@ -4,6 +4,7 @@ Thumbs.db
 desktop.ini
 
 # Các thư mục và file của IDE
+/node_modules
 .idea/
 .vscode/
 *.sublime-project

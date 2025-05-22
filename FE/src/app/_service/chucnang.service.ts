@@ -55,7 +55,7 @@ export class ChucNangService {
   }
 
   update(request: any): Observable<any> {
-    const apiUrl = environment.backApiUrl + `/danhgia/update`;
+    const apiUrl = environment.backApiUrl + `/chucnang/update`;
     const headers: HttpHeaders = HeadersUtil.getHeaders();
 
     return this.http.put(`${apiUrl}`, request, {
