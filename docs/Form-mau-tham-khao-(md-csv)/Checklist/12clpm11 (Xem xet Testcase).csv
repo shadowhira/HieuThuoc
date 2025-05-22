@@ -1,49 +1,49 @@
 Checklist review Kịch bản test,,,,,
 ,,,,,
-Mã dự án,,,,,
-Phiên bản của sản phẩm,,,,,
-Phân hệ,,,,,
-Người xem xét,,,,,
-Ngày xem xét,,,,,
-Lần xem xét,,,,,
-Độ lớn sản phẩm,,,,,
-Nguồn lực dùng cho xem xét (MH),,,,,
+Mã dự án,HieuThuocNe,,,,
+Phiên bản của sản phẩm,1.0,,,,
+Phân hệ,Quản lý thuốc,,,,
+Người xem xét,Nhóm Kiểm thử Hiệu thuốc,,,,
+Ngày xem xét,30/05/2025,,,,
+Lần xem xét,1,,,,
+Độ lớn sản phẩm,Trung bình,,,,
+Nguồn lực dùng cho xem xét (MH),40,,,,
 ,,,,,
 Vấn đề,Có,Không,N/A,Ghi chú,Điều kiện
 Kiểm soát tài liệu,,,,,
-Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,,,,,Bắt buộc
-Mẫu tài liệu có phải là mẫu mới nhất không?,,,,,Bắt buộc
-"Trang tiêu đề có bao gồm đủ tên tài liệu, phiên bản và tên công ty, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",,,,,Bắt buộc
-"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",,,,,Bắt buộc
-Đánh số trang có theo đúng quy định: số thứ tự/tổng số trang?,,,,,Bắt buộc
-"Trang ký có bao gồm đủ Người lập, Người xem xét & Người phê duyệt không?",,,,,Bắt buộc
-Có Bảng ghi nhận thay đổi không? ,,,,,Bắt buộc
-Đối với trường hợp phiên bản tài liệu > v1.0:,,,,,Bắt buộc
-Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,,,Bắt buộc
-Có liệt kê các tài liệu liên quan không?,,,,,Bắt buộc
+Tài liệu có tuân thủ theo yêu cầu kiểm soát tài liệu không:,x,,,Tài liệu tuân thủ đúng theo yêu cầu kiểm soát,Bắt buộc
+Mẫu tài liệu có phải là mẫu mới nhất không?,x,,,Sử dụng mẫu CSV mới nhất,Bắt buộc
+"Trang tiêu đề có bao gồm đủ tên tài liệu, phiên bản và tên công ty, mã dự án, mã hiệu tài liệu và thời gian ban hành không?",x,,,Đầy đủ thông tin theo yêu cầu,Bắt buộc
+"Đầu và cuối trang có bao gồm tên, phiên bản của tài liệu không?",x,,,Có đầy đủ thông tin,Bắt buộc
+Đánh số trang có theo đúng quy định: số thứ tự/tổng số trang?,x,,,Đánh số trang đúng quy định,Bắt buộc
+"Trang ký có bao gồm đủ Người lập, Người xem xét & Người phê duyệt không?",x,,,Đầy đủ thông tin người lập, xem xét và phê duyệt,Bắt buộc
+Có Bảng ghi nhận thay đổi không? ,x,,,Có bảng ghi nhận thay đổi,Bắt buộc
+Đối với trường hợp phiên bản tài liệu > v1.0:,,,x,Phiên bản hiện tại là v1.0,Bắt buộc
+Các nội dung ghi nhận trong Bảng ghi nhận thay đổi này có đầy đủ và đúng không?,,,x,Phiên bản hiện tại là v1.0,Bắt buộc
+Có liệt kê các tài liệu liên quan không?,x,,,Có liệt kê đầy đủ tài liệu liên quan,Bắt buộc
 Kiểm tra các Test Case,,,,,
-Có ID cho từng Test Case không?,,,,,Bắt buộc
-Test case có tham chiếu đến yêu cầu không?,,,,,Bắt buộc
+Có ID cho từng Test Case không?,x,,,Mỗi testcase đều có ID rõ ràng theo cấu trúc thống nhất,Bắt buộc
+Test case có tham chiếu đến yêu cầu không?,x,,,Các testcase đều tham chiếu đến yêu cầu chức năng,Bắt buộc
 "Với mỗi TestCaseID này, có mô tả rõ:",,,,,
-Các bước thực hiện (Step) cho từng TestCaseID có được mô tả đầy đủ chưa?,,,,,Bắt buộc
-Đầu vào (có thể chỉ đến file dữ liệu riêng)?,,,,,Bắt buộc
-Kết quả mong đợi cho mỗi đầu vào?,,,,,Bắt buộc
-"Có đưa ra tiêu chí để so sánh (đánh giá) giữa kết quả mong đợi của người sử dụng (từ URD, SRS) với kết quả mong đợi khi test không?",,,,,
+Các bước thực hiện (Step) cho từng TestCaseID có được mô tả đầy đủ chưa?,x,,,Các bước thực hiện được mô tả chi tiết và rõ ràng,Bắt buộc
+Đầu vào (có thể chỉ đến file dữ liệu riêng)?,x,,,Đầu vào được mô tả đầy đủ cho từng testcase,Bắt buộc
+Kết quả mong đợi cho mỗi đầu vào?,x,,,Kết quả mong đợi được mô tả rõ ràng,Bắt buộc
+"Có đưa ra tiêu chí để so sánh (đánh giá) giữa kết quả mong đợi của người sử dụng (từ URD, SRS) với kết quả mong đợi khi test không?",x,,,Có tiêu chí so sánh rõ ràng giữa kết quả thực tế và mong đợi,
 "Các Test Case để kiểm tra các trường, điều kiện bản ghi và cập nhật Database có bao gồm:",,,,,
-Điều kiện hợp lệ (Valid),,,,,Bắt buộc
-Điều kiện không hợp lệ (Invalid),,,,,Bắt buộc
-Test Case cho các báo cáo có bao gồm test data và kết quả cần phải đạt được không?,,,,,Bắt buộc
-Có mô tả những ràng buộc giữa các Test Case không?,,,,,Bắt buộc
+Điều kiện hợp lệ (Valid),x,,,Có đầy đủ testcase cho điều kiện hợp lệ,Bắt buộc
+Điều kiện không hợp lệ (Invalid),x,,,Có đầy đủ testcase cho điều kiện không hợp lệ,Bắt buộc
+Test Case cho các báo cáo có bao gồm test data và kết quả cần phải đạt được không?,x,,,Có testcase cho các báo cáo với dữ liệu test và kết quả mong đợi,Bắt buộc
+Có mô tả những ràng buộc giữa các Test Case không?,x,,,Có mô tả rõ ràng về ràng buộc giữa các testcase,Bắt buộc
 Xem xét các thủ tục test,,,,,
-Thủ tục có mô tả điều kiện bắt đầu và các bước xử lý của mỗi thủ tục test không?,,,,,
-Có mô tả phương pháp logon môi trường test không?,,,,,
-<Thêm nếu cần>,,,,,
-,,0,,0,
+Thủ tục có mô tả điều kiện bắt đầu và các bước xử lý của mỗi thủ tục test không?,x,,,Có mô tả đầy đủ điều kiện bắt đầu và các bước xử lý,
+Có mô tả phương pháp logon môi trường test không?,x,,,Có mô tả rõ ràng phương pháp đăng nhập vào môi trường test,
+Có mô tả cách thức thực hiện kiểm thử tự động không?,x,,,Có hướng dẫn chi tiết về cách thực hiện kiểm thử tự động,
+,,13,,0,
 * Nhận xét,,,,,
-,,,,,
-,,,,,
+Tài liệu testcase cho chức năng quản lý thuốc được xây dựng đầy đủ và chi tiết. Tổng cộng có 191 testcase bao gồm các giai đoạn kiểm thử đơn vị, tích hợp, chức năng, giao diện, hệ thống và kiểm thử hộp đen/hộp trắng. Các testcase được tổ chức theo cấu trúc rõ ràng, có ID và mô tả chi tiết các bước thực hiện, đầu vào và kết quả mong đợi.,,,,,
+Các testcase đã bao phủ đầy đủ các chức năng của module Quản lý thuốc, bao gồm thêm, sửa, xóa, tìm kiếm thuốc và quản lý loại thuốc, danh mục thuốc. Đặc biệt, các testcase đã áp dụng nhiều phương pháp kiểm thử khác nhau như phân vùng tương đương, phân tích giá trị biên, bảng quyết định và kiểm thử trạng thái.,,,,,
 * Đề xuất,,,,,
-,,,,,
+Cần bổ sung thêm 2 testcase cho kiểm thử đơn vị và 2 testcase cho kiểm thử hộp trắng theo kế hoạch bổ sung testcase để đạt đủ 191 testcase như đã đề ra.,,,,,
 [X] - Đạt,,,,,
 [   ] - Xem xét lại,,,,,
 [   ] - Khác,,,,,

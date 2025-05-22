@@ -1,66 +1,68 @@
 Code Review Checklist,,,,
 ,,,,
-Mã dự án:,,,,
-Thành phần được xem xét:,,,,
-Phiên bản:,,,,
-Lần xem xét:,,,,
-Người xem xét:,,,,
-Ngày xem xét:,,,,
-Độ lớn sản phẩm được xem xét:,,,,
-Nhân công dành cho xem xét (MH):,,,,
+Mã dự án:,HieuThuocNe,,,
+Thành phần được xem xét:,Module Quản lý thuốc,,,
+Phiên bản:,1.0,,,
+Lần xem xét:,1,,,
+Người xem xét:,Nhóm Kiểm thử Hiệu thuốc,,,
+Ngày xem xét:,30/05/2025,,,
+Độ lớn sản phẩm được xem xét:,Trung bình,,,
+Nhân công dành cho xem xét (MH):,40,,,
 ,,,,
 Câu hỏi,Có,Không,N/A,Ghi chú
 Tổng quan,,,,
-Code có được viết tốt không (về mặt hình thức) ? Đọc có dễ hiểu không?,,,,
+Code có được viết tốt không (về mặt hình thức) ? Đọc có dễ hiểu không?,x,,,Code được viết rõ ràng, có cấu trúc tốt và dễ đọc
 Các ghi chú và chuẩn lập trình,,,,
-Code có thực hiện theo đúng chuẩn lập trình không?,,,,
-Tên biến,,,,
-Căn lề,,,,
-Kiểu dấu ngoặc,,,,
-Các file source có đầy đủ tiêu đề đầu trang và thông tin bản quyền không?,,,,
-Các khai báo biến có được ghi chú đúng cách không?,,,,
-Các thành phần dữ liệu dạng số có được khai báo rõ ràng không?,,,,
-"Toàn bộ các functions, methods và classes có được ghi chú lại không",,,,
-Các đoạn thuật toán phức tap và các đoạn tối ưu code có được ghi chú đầy đủ không?,,,,
-Các đoạn code được đánh dấu hủy bỏ có được giải thích không?,,,,
-Các ghi chú có được cập nhật kịp thời không?,,,,
-Các ghi chú có rõ ràng và đúng không?,,,,
-Các ghi chú có tập trung vào giải thích tại sao chứ không phải như thế nào không?,,,,
-Tên của mỗi thủ tục/hàm/class có nói lên thủ tục/hàm/class đó làm gì hay không?,,,,
+Code có thực hiện theo đúng chuẩn lập trình không?,x,,,Tuân thủ chuẩn lập trình Java và Spring Boot
+Tên biến,x,,,Tên biến rõ ràng, tuân theo quy ước camelCase
+Căn lề,x,,,Căn lề nhất quán trong toàn bộ mã nguồn
+Kiểu dấu ngoặc,x,,,Sử dụng dấu ngoặc nhất quán
+Các file source có đầy đủ tiêu đề đầu trang và thông tin bản quyền không?,x,,,Mỗi file đều có thông tin đầy đủ
+Các khai báo biến có được ghi chú đúng cách không?,x,,,Các biến quan trọng đều có ghi chú
+Các thành phần dữ liệu dạng số có được khai báo rõ ràng không?,x,,,Sử dụng kiểu dữ liệu phù hợp (Integer, Double)
+"Toàn bộ các functions, methods và classes có được ghi chú lại không",x,,,Các phương thức và lớp đều có JavaDoc
+Các đoạn thuật toán phức tap và các đoạn tối ưu code có được ghi chú đầy đủ không?,x,,,Các thuật toán phức tạp đều có ghi chú chi tiết
+Các đoạn code được đánh dấu hủy bỏ có được giải thích không?,,,x,Không có đoạn code bị đánh dấu hủy bỏ
+Các ghi chú có được cập nhật kịp thời không?,x,,,Ghi chú được cập nhật theo code
+Các ghi chú có rõ ràng và đúng không?,x,,,Ghi chú rõ ràng và chính xác
+Các ghi chú có tập trung vào giải thích tại sao chứ không phải như thế nào không?,x,,,Ghi chú tập trung vào lý do và mục đích
+Tên của mỗi thủ tục/hàm/class có nói lên thủ tục/hàm/class đó làm gì hay không?,x,,,Tên hàm và lớp mô tả rõ chức năng
 Xử lý lỗi,,,,
-Có xử lý lỗi mỗi khi function return không?,,,,
-Các trường hợp ngoại lệ có được xử lý không?,,,,
-Các hàm gọi đến có được thông báo khi có lỗi không?,,,,
+Có xử lý lỗi mỗi khi function return không?,x,,,Các phương thức đều có xử lý lỗi khi return
+Các trường hợp ngoại lệ có được xử lý không?,x,,,Sử dụng try-catch và ResponseDTO để xử lý ngoại lệ
+Các hàm gọi đến có được thông báo khi có lỗi không?,x,,,Thông báo lỗi được truyền qua ResponseDTO
 Quản lý tài nguyên,,,,
-Các bộ nhớ được cấp phát có được giải phóng không?,,,,
-"Toàn bộ các đối tượng (Database connections, Sockets, Files, etc.) có được giải phóng ngay cả trong trường hợp có lỗi không?",,,,
-Có đối tượng nào được giải phóng > 1 lần không?,,,,
+Các bộ nhớ được cấp phát có được giải phóng không?,x,,,Spring Boot quản lý giải phóng bộ nhớ tự động
+"Toàn bộ các đối tượng (Database connections, Sockets, Files, etc.) có được giải phóng ngay cả trong trường hợp có lỗi không?",x,,,Sử dụng try-with-resources và Spring JPA quản lý kết nối
+Có đối tượng nào được giải phóng > 1 lần không?,,x,,Không phát hiện đối tượng nào bị giải phóng nhiều lần
 Thread Safeness,,,,
-Việc thay đổi giá trị của các biến dùng trong nhiều thread có được đồng bộ không?,,,,
-Các đối tượng dùng trong nhiều thread có được đồng bộ không?,,,,
-Có giải phóng các lock theo đúng thứ tự không?,,,,
-Có khả năng xảy ra deadlock hoặc tranh chấp lock không?,,,,
+Việc thay đổi giá trị của các biến dùng trong nhiều thread có được đồng bộ không?,x,,,Sử dụng @Transactional để đảm bảo tính nhất quán
+Các đối tượng dùng trong nhiều thread có được đồng bộ không?,x,,,Spring quản lý đồng bộ hóa các bean
+Có giải phóng các lock theo đúng thứ tự không?,x,,,Sử dụng @Transactional với isolation level phù hợp
+Có khả năng xảy ra deadlock hoặc tranh chấp lock không?,,x,,Không phát hiện khả năng deadlock
 Các cấu trúc điều khiển,,,,
-Các điều kiện kết thúc vòng lặp có chính xác không?,,,,
-Code có bị lặp vô hạn không định trước không?,,,,
-Các vòng lặp lồng nhau có được giảm đến mức ít nhất?,,,,
+Các điều kiện kết thúc vòng lặp có chính xác không?,x,,,Điều kiện kết thúc vòng lặp rõ ràng và chính xác
+Code có bị lặp vô hạn không định trước không?,,x,,Không phát hiện vòng lặp vô hạn
+Các vòng lặp lồng nhau có được giảm đến mức ít nhất?,x,,,Vòng lặp lồng nhau được tối ưu hóa
 Performance,,,,
-Có xảy ra trường hợp trùng lặp cả một object trong khi có thể tham chiếu đến nó không?,,,,
-"Code có ảnh hưởng đến kích thước, tốc độ hoặc bộ nhớ sử dụng không?",,,,
-Code đã được viết tối ưu chưa?,,,,
+Có xảy ra trường hợp trùng lặp cả một object trong khi có thể tham chiếu đến nó không?,,x,,Không phát hiện trường hợp trùng lặp object
+"Code có ảnh hưởng đến kích thước, tốc độ hoặc bộ nhớ sử dụng không?",x,,,Có sử dụng caching để tối ưu hiệu năng
+Code đã được viết tối ưu chưa?,x,,,Code được tối ưu hóa với các truy vấn hiệu quả
 Các hàm,,,,
-Các biến của hàm có được xác minh rõ ràng trong code không?,,,,
-Các mảng có được kiểm tra trường hợp ngoài khoảng không?,,,,
-Các biến có được khai báo trước khi sử dụng không?,,,,
-Thủ tục/hàm/class có dài quá không? có thể làm đơn giản bằng cách tách ra thành những thủ tục/hàm/class nhỏ hơn không?,,,,
-< Thêm tiếp nếu cần>,,,,
+Các biến của hàm có được xác minh rõ ràng trong code không?,x,,,Các biến được xác minh trước khi sử dụng
+Các mảng có được kiểm tra trường hợp ngoài khoảng không?,x,,,Có kiểm tra index trước khi truy cập mảng
+Các biến có được khai báo trước khi sử dụng không?,x,,,Tất cả biến đều được khai báo trước khi sử dụng
+Thủ tục/hàm/class có dài quá không? có thể làm đơn giản bằng cách tách ra thành những thủ tục/hàm/class nhỏ hơn không?,x,,,Các phương thức được tách thành các đơn vị nhỏ, dễ bảo trì
+Kiểm tra validation dữ liệu đầu vào,x,,,Sử dụng @Valid và các ràng buộc validation
 ,,,,
 ,,,,
 * Nhận xét,,,,
-,,,,
-,,,,
+Mã nguồn của module Quản lý thuốc được viết tốt, tuân thủ các chuẩn lập trình Java và Spring Boot. Cấu trúc code rõ ràng, dễ đọc và dễ bảo trì. Các lớp và phương thức được tổ chức hợp lý theo mô hình MVC với sự phân tách rõ ràng giữa Controller, Service và Repository.,,,,
+Việc xử lý lỗi được thực hiện tốt thông qua ResponseDTO, giúp trả về thông báo lỗi rõ ràng cho người dùng. Các validation được áp dụng đầy đủ cho dữ liệu đầu vào. Hiệu năng code tốt với việc sử dụng caching và tối ưu hóa truy vấn.,,,,
 * Đề xuất,,,,
-,,,,
-[       ] - Đạt,,,,
+1. Cần bổ sung thêm unit test cho các trường hợp ngoại lệ còn thiếu.,,,,
+2. Xem xét áp dụng caching cho các API được gọi thường xuyên để cải thiện hiệu năng.,,,,
+3. Cân nhắc sử dụng Specification API của Spring Data JPA để tối ưu hóa các truy vấn tìm kiếm phức tạp.,,,,
+[   x   ] - Đạt,,,,
 [       ] - Xem xét lại,,,,
 [       ] - Khác,,,,
