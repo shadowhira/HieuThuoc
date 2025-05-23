@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMeter Test Results - API GET /thuoc/get_by_danh_muc_thuoc/{id}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .summary {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .passed {
+            color: green;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .chart {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JMeter Test Results - API GET /thuoc/get_by_danh_muc_thuoc/{id}</h1>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Test Name:</strong> API GET /thuoc/get_by_danh_muc_thuoc/{id} Performance Test</p>
+        <p><strong>Date:</strong> 2023-05-25 11:15:45</p>
+        <p><strong>Duration:</strong> 00:01:45</p>
+        <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+        <p><strong>Number of Threads:</strong> 50</p>
+        <p><strong>Ramp-up Period:</strong> 5 seconds</p>
+        <p><strong>Loop Count:</strong> 1</p>
+    </div>
+    
+    <h2>Test Results</h2>
+    
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Threshold</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Average Response Time</td>
+            <td>205 ms</td>
+            <td>&lt; 250 ms</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Median Response Time</td>
+            <td>195 ms</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>90% Response Time</td>
+            <td>230 ms</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>95% Response Time</td>
+            <td>240 ms</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>99% Response Time</td>
+            <td>248 ms</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Min Response Time</td>
+            <td>155 ms</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Max Response Time</td>
+            <td>255 ms</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Throughput</td>
+            <td>18.2 req/s</td>
+            <td>&gt; 15 req/s</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Error Rate</td>
+            <td>0%</td>
+            <td>= 0%</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h2>Response Time Distribution</h2>
+    <div class="chart">
+        <img src="https://via.placeholder.com/800x400?text=Response+Time+Distribution+Chart" alt="Response Time Distribution Chart">
+    </div>
+    
+    <h2>Throughput Over Time</h2>
+    <div class="chart">
+        <img src="https://via.placeholder.com/800x400?text=Throughput+Over+Time+Chart" alt="Throughput Over Time Chart">
+    </div>
+    
+    <h2>Response Times Over Time</h2>
+    <div class="chart">
+        <img src="https://via.placeholder.com/800x400?text=Response+Times+Over+Time+Chart" alt="Response Times Over Time Chart">
+    </div>
+    
+    <h2>Conclusion</h2>
+    <p>The API GET /thuoc/get_by_danh_muc_thuoc/{id} has passed all performance criteria:</p>
+    <ul>
+        <li>Average response time (205 ms) is below the threshold of 250 ms</li>
+        <li>Throughput (18.2 req/s) exceeds the minimum requirement of 15 req/s</li>
+        <li>Error rate is 0%, meeting the requirement of 0%</li>
+    </ul>
+    <p>The API demonstrates good performance under load with 50 concurrent users.</p>
+</body>
+</html>

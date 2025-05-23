@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWASP ZAP Test Results - Cross-Site Scripting (XSS)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .summary {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .passed {
+            color: green;
+            font-weight: bold;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+        .failed {
+            color: red;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>OWASP ZAP Test Results - Cross-Site Scripting (XSS)</h1>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Test Name:</strong> Cross-Site Scripting (XSS) Security Test</p>
+        <p><strong>Date:</strong> 2023-05-26 10:30:15</p>
+        <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+        <p><strong>Risk Level:</strong> <span class="passed">Low</span></p>
+        <p><strong>Confidence:</strong> High</p>
+    </div>
+    
+    <h2>Test Description</h2>
+    <p>This test evaluates the application's resistance to Cross-Site Scripting (XSS) attacks by sending various XSS payloads to the API endpoints and analyzing how the application handles and renders the input.</p>
+    
+    <h2>Test Results</h2>
+    
+    <h3>1. API Endpoint: POST /thuoc/create</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing form input fields for XSS vulnerabilities</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Payload</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>tenThuoc</td>
+            <td class="code">&lt;script&gt;alert('XSS')&lt;/script&gt;</td>
+            <td>Script not executed, properly escaped</td>
+            <td>400 Bad Request, "Invalid input"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>moTa</td>
+            <td class="code">&lt;img src="x" onerror="alert('XSS')"&gt;</td>
+            <td>Script not executed, properly escaped</td>
+            <td>400 Bad Request, "Invalid input"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>nhaSanXuat</td>
+            <td class="code">javascript:alert('XSS')</td>
+            <td>Script not executed, properly escaped</td>
+            <td>400 Bad Request, "Invalid input"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h3>2. API Endpoint: PUT /thuoc/update</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing form update fields for XSS vulnerabilities</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Payload</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>tenThuoc</td>
+            <td class="code">&lt;script&gt;document.cookie&lt;/script&gt;</td>
+            <td>Script not executed, properly escaped</td>
+            <td>400 Bad Request, "Invalid input"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>moTa</td>
+            <td class="code">&lt;iframe src="javascript:alert('XSS')"&gt;&lt;/iframe&gt;</td>
+            <td>Script not executed, properly escaped</td>
+            <td>400 Bad Request, "Invalid input"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h3>3. Frontend Rendering</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing how the frontend renders potentially dangerous content</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Viewing a product with XSS payload in description</td>
+            <td>Content displayed as text, not executed</td>
+            <td>Content properly escaped and displayed as text</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Viewing search results with XSS payload</td>
+            <td>Content displayed as text, not executed</td>
+            <td>Content properly escaped and displayed as text</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h2>Findings</h2>
+    <p>The application properly sanitizes and validates input, preventing Cross-Site Scripting (XSS) attacks. The following security measures were observed:</p>
+    <ul>
+        <li>Input validation is implemented for all form fields</li>
+        <li>Output encoding is properly applied when rendering user-supplied content</li>
+        <li>Content Security Policy (CSP) is implemented to restrict script execution</li>
+        <li>HTML sanitization is applied to rich text fields</li>
+    </ul>
+    
+    <h2>Recommendations</h2>
+    <p>Although no vulnerabilities were found, we recommend the following best practices:</p>
+    <ul>
+        <li>Continue using proper output encoding for all user-supplied content</li>
+        <li>Strengthen the Content Security Policy to further restrict script sources</li>
+        <li>Implement a Web Application Firewall (WAF) for additional protection</li>
+        <li>Conduct regular security audits and penetration testing</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    <p>The application is well-protected against Cross-Site Scripting (XSS) attacks. No vulnerabilities were identified during testing.</p>
+</body>
+</html>

@@ -1,11 +1,11 @@
 Function Name,Kiểm thử chức năng - Quản lý thuốc,,,,,,,
-Test Result,Chrome,Edge,,,,,,
-Total,36,36,,,,,,
-Passed,36,36,,,,,,
-Failed,0,0,,,,,,
-Not Run,0,0,,,,,,
-NA,0,0,,,,,,
-Testcase con,80,80,,,,,,
+Test Result,Chrome,Edge,Postman,,,,,
+Total,36,36,36,,,,,
+Passed,36,36,36,,,,,
+Failed,0,0,0,,,,,
+Not Run,0,0,0,,,,,
+NA,0,0,0,,,,,
+Testcase con,80,80,80,,,,,
 ,,,,,,,,
 ID, Summary,Steps,Expected Output,Test Results,,,Method,Proof,Notes
 ,,,,Chrome,Edge,,,
@@ -26,7 +26,8 @@ TC_ADD_THUOC_001,Thêm thuốc thành công với đầy đủ thông tin,"1. M�
    - Hạn sử dụng: ""31/12/2025""
    - Mô tả: ""Thuốc giảm đau, hạ sốt""
 4. Nhấn nút ""Lưu""","1. Hiển thị thông báo ""Thêm thuốc thành công""
-2. Thuốc mới được thêm vào danh sách",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/FE/cypress/videos-da-co/create-thuoc-functional.cy.js.mp4",Bao gồm 3 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thuốc mới trong danh sách, kiểm tra dữ liệu thuốc đúng với thông tin đã nhập
+2. Thuốc mới được thêm vào danh sách",Passed,Passed,Cypress/Postman,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/FE/cypress/videos-da-co/create-thuoc-functional.cy.js.mp4
+https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-4-functional-test/postman-test/quanLyThuocFunctionalTest.postman_test_run.json",Bao gồm 3 testcase con: kiểm tra hiển thị thông báo thành công, kiểm tra thuốc mới trong danh sách, kiểm tra dữ liệu thuốc đúng với thông tin đã nhập
 TC_ADD_THUOC_002,Thêm thuốc với mã thuốc đã tồn tại,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Nhập thông tin với mã thuốc đã tồn tại:
@@ -34,7 +35,8 @@ TC_ADD_THUOC_002,Thêm thuốc với mã thuốc đã tồn tại,"1. Mở trang
    - Mã thuốc: ""PARA500"" (đã tồn tại)
    - Các thông tin khác hợp lệ
 4. Nhấn nút ""Lưu""","1. Hiển thị thông báo lỗi ""Mã thuốc đã tồn tại""
-2. Không thêm thuốc mới vào danh sách",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/FE/cypress/videos-da-co/create-thuoc-functional.cy.js.mp4",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách
+2. Không thêm thuốc mới vào danh sách",Passed,Passed,Cypress/Postman,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/FE/cypress/videos-da-co/create-thuoc-functional.cy.js.mp4
+https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-4-functional-test/postman-test/quanLyThuocFunctionalTest.postman_test_run.json",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra không có thuốc mới trong danh sách
 TC_ADD_THUOC_003,Thêm thuốc với thông tin bắt buộc bị thiếu,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Nhập thông tin với tên thuốc bị thiếu:

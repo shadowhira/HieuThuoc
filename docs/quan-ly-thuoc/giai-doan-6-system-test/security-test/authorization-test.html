@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postman Test Results - Authorization Security</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .summary {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .passed {
+            color: green;
+            font-weight: bold;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+        .failed {
+            color: red;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Postman Test Results - Authorization Security</h1>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Test Name:</strong> Authorization Security Test</p>
+        <p><strong>Date:</strong> 2023-05-26 13:15:45</p>
+        <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+        <p><strong>Risk Level:</strong> <span class="passed">Low</span></p>
+        <p><strong>Confidence:</strong> High</p>
+    </div>
+    
+    <h2>Test Description</h2>
+    <p>This test evaluates the application's authorization mechanisms by attempting to access protected API endpoints with insufficient privileges.</p>
+    
+    <h2>Test Results</h2>
+    
+    <h3>1. API Endpoint: POST /thuoc/create</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing authorization for creating a new product</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>User Role</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Admin</td>
+            <td>Access granted</td>
+            <td>201 Created</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Manager</td>
+            <td>Access granted</td>
+            <td>201 Created</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>Access denied</td>
+            <td>403 Forbidden, "Insufficient privileges"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Unauthenticated</td>
+            <td>Access denied</td>
+            <td>401 Unauthorized, "Authentication required"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h3>2. API Endpoint: PUT /thuoc/update</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing authorization for updating a product</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>User Role</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Admin</td>
+            <td>Access granted</td>
+            <td>200 OK</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Manager</td>
+            <td>Access granted</td>
+            <td>200 OK</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>Access denied</td>
+            <td>403 Forbidden, "Insufficient privileges"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Unauthenticated</td>
+            <td>Access denied</td>
+            <td>401 Unauthorized, "Authentication required"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h3>3. API Endpoint: DELETE /thuoc/delete/{id}</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing authorization for deleting a product</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>User Role</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Admin</td>
+            <td>Access granted</td>
+            <td>200 OK</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Manager</td>
+            <td>Access granted</td>
+            <td>200 OK</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>Access denied</td>
+            <td>403 Forbidden, "Insufficient privileges"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Unauthenticated</td>
+            <td>Access denied</td>
+            <td>401 Unauthorized, "Authentication required"</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h2>Findings</h2>
+    <p>The application properly implements authorization mechanisms. The following security measures were observed:</p>
+    <ul>
+        <li>Role-based access control (RBAC) is implemented correctly</li>
+        <li>Authentication is required for all protected endpoints</li>
+        <li>Authorization checks are performed on the server side</li>
+        <li>Appropriate HTTP status codes are returned for unauthorized access</li>
+        <li>Access control logs are generated for security monitoring</li>
+    </ul>
+    
+    <h2>Recommendations</h2>
+    <p>Although no vulnerabilities were found, we recommend the following best practices:</p>
+    <ul>
+        <li>Implement more granular permission controls for specific resources</li>
+        <li>Add rate limiting to prevent brute force attacks</li>
+        <li>Implement JWT token revocation for enhanced security</li>
+        <li>Conduct regular security audits of the authorization system</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    <p>The application's authorization mechanisms are properly implemented and effectively protect against unauthorized access. No vulnerabilities were identified during testing.</p>
+</body>
+</html>

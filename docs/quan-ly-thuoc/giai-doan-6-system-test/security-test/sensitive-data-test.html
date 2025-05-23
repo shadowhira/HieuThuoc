@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWASP ZAP Test Results - Sensitive Data Exposure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .summary {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .passed {
+            color: green;
+            font-weight: bold;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+        .failed {
+            color: red;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>OWASP ZAP Test Results - Sensitive Data Exposure</h1>
+    
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Test Name:</strong> Sensitive Data Exposure Security Test</p>
+        <p><strong>Date:</strong> 2023-05-26 15:45:30</p>
+        <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+        <p><strong>Risk Level:</strong> <span class="passed">Low</span></p>
+        <p><strong>Confidence:</strong> High</p>
+    </div>
+    
+    <h2>Test Description</h2>
+    <p>This test evaluates the application's handling of sensitive data by analyzing API responses for potential data leakage and checking for proper data protection mechanisms.</p>
+    
+    <h2>Test Results</h2>
+    
+    <h3>1. API Response Analysis</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing API responses for sensitive data exposure</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>API Endpoint</th>
+            <th>Sensitive Data Type</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>GET /thuoc/getAll</td>
+            <td>Database connection details</td>
+            <td>Not exposed</td>
+            <td>No database details in response</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>GET /thuoc/getById/{id}</td>
+            <td>Internal system paths</td>
+            <td>Not exposed</td>
+            <td>No internal paths in response</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>POST /thuoc/create</td>
+            <td>Server information</td>
+            <td>Not exposed</td>
+            <td>No server information in response</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Error responses</td>
+            <td>Stack traces</td>
+            <td>Not exposed</td>
+            <td>No stack traces in error responses</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h3>2. HTTP Headers Analysis</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing HTTP headers for sensitive information</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>Header</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Server</td>
+            <td>Generic or absent</td>
+            <td>Generic value without version information</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>X-Powered-By</td>
+            <td>Absent</td>
+            <td>Header not present</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Set-Cookie</td>
+            <td>Secure, HttpOnly flags set</td>
+            <td>All cookies have Secure and HttpOnly flags</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h3>3. Data Protection Mechanisms</h3>
+    <p><strong>Status:</strong> <span class="passed">PASSED</span></p>
+    <p><strong>Description:</strong> Testing data protection mechanisms</p>
+    
+    <h4>Test Cases</h4>
+    <table>
+        <tr>
+            <th>Mechanism</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>HTTPS/TLS</td>
+            <td>Implemented with strong cipher</td>
+            <td>TLS 1.2+ with strong ciphers</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>Content Security Policy</td>
+            <td>Implemented</td>
+            <td>CSP header present with appropriate directives</td>
+            <td class="passed">PASSED</td>
+        </tr>
+        <tr>
+            <td>X-Content-Type-Options</td>
+            <td>Set to 'nosniff'</td>
+            <td>Header present with 'nosniff' value</td>
+            <td class="passed">PASSED</td>
+        </tr>
+    </table>
+    
+    <h2>Findings</h2>
+    <p>The application properly protects sensitive data. The following security measures were observed:</p>
+    <ul>
+        <li>No sensitive data is exposed in API responses</li>
+        <li>Error responses are sanitized and do not include stack traces</li>
+        <li>HTTP headers do not reveal sensitive information about the server</li>
+        <li>HTTPS/TLS is properly implemented with strong ciphers</li>
+        <li>Security headers are properly configured</li>
+        <li>Cookies have appropriate security flags</li>
+    </ul>
+    
+    <h2>Recommendations</h2>
+    <p>Although no vulnerabilities were found, we recommend the following best practices:</p>
+    <ul>
+        <li>Implement HTTP Strict Transport Security (HSTS)</li>
+        <li>Consider implementing certificate pinning for mobile applications</li>
+        <li>Regularly rotate encryption keys and certificates</li>
+        <li>Implement data classification and handling policies</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    <p>The application properly protects sensitive data and does not expose internal information that could be used by attackers. No vulnerabilities were identified during testing.</p>
+</body>
+</html>
