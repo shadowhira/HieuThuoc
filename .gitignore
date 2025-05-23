@@ -17,9 +17,9 @@ desktop.ini
 .factorypath
 
 # Các file log
-*.log
-*.log.*
-*.gz
+# *.log
+# *.log.*
+# *.gz
 
 # Backend (Java/Maven)
 /BE/target/

@@ -1,0 +1,42 @@
+Function Name,Tổng hợp tất cả testcase - Quản lý thuốc,,,,,,,
+Test Result,JUnit,Mockito,Postman,MockMvc,Cypress,,,
+Total,191,191,27,27,40,,,
+Passed,191,191,27,27,40,,,
+Failed,0,0,0,0,0,,,
+Not Run,0,0,0,0,0,,,
+NA,0,0,0,0,0,,,
+Testcase con,243,243,67,67,120,,,
+,,,,,,,,
+ID, Summary,Steps,Expected Output,Test Results,,,Method,Proof,Notes
+,,,,,,,,,
+I. Kiểm thử đơn vị,,,,,,,,
+UT_001,Kiểm thử phương thức create() của ThuocService,"1. Tạo dữ liệu thuốc hợp lệ
+2. Gọi phương thức create()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 201 và thông tin thuốc vừa tạo",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trả về
+UT_002,Kiểm thử phương thức create() của ThuocService khi mã thuốc đã tồn tại,"1. Tạo dữ liệu thuốc với mã thuốc đã tồn tại
+2. Gọi phương thức create()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 409 và thông báo lỗi ""Mã thuốc đã tồn tại""",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo lỗi, kiểm tra dữ liệu trả về
+UT_003,Kiểm thử phương thức create() của ThuocService khi tên thuốc đã tồn tại,"1. Tạo dữ liệu thuốc với tên thuốc đã tồn tại
+2. Gọi phương thức create()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 409 và thông báo lỗi ""Tên thuốc đã tồn tại""",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo lỗi, kiểm tra dữ liệu trả về
+UT_004,Kiểm thử phương thức update() của ThuocService,"1. Tạo dữ liệu thuốc hợp lệ
+2. Gọi phương thức update()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 200 và thông tin thuốc vừa cập nhật",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trả về
+UT_005,Kiểm thử phương thức update() của ThuocService khi thuốc không tồn tại,"1. Tạo dữ liệu thuốc với ID không tồn tại
+2. Gọi phương thức update()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 404 và thông báo lỗi ""Không tìm thấy thuốc""",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo lỗi, kiểm tra dữ liệu trả về
+UT_006,Kiểm thử phương thức update() của ThuocService khi tên thuốc đã tồn tại,"1. Tạo dữ liệu thuốc với tên thuốc đã tồn tại
+2. Gọi phương thức update()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 409 và thông báo lỗi ""Tên thuốc đã tồn tại""",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo lỗi, kiểm tra dữ liệu trả về
+UT_007,Kiểm thử phương thức delete() của ThuocService,"1. Tạo dữ liệu thuốc hợp lệ
+2. Gọi phương thức delete()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 200 và thông báo thành công",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trả về
+UT_008,Kiểm thử phương thức delete() của ThuocService khi thuốc không tồn tại,"1. Tạo ID thuốc không tồn tại
+2. Gọi phương thức delete()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 404 và thông báo lỗi ""Không tìm thấy thuốc""",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo lỗi, kiểm tra dữ liệu trả về
+UT_009,Kiểm thử phương thức getById() của ThuocService,"1. Tạo ID thuốc hợp lệ
+2. Gọi phương thức getById()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 200 và thông tin thuốc",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo thành công, kiểm tra dữ liệu trả về
+UT_010,Kiểm thử phương thức getById() của ThuocService khi thuốc không tồn tại,"1. Tạo ID thuốc không tồn tại
+2. Gọi phương thức getById()
+3. Kiểm tra kết quả trả về","3. Kết quả trả về ResponseDTO với status 404 và thông báo lỗi ""Không tìm thấy thuốc""",Passed,Passed,,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/test-logs/service-tests.log",Bao gồm 3 testcase con: kiểm tra status code, kiểm tra thông báo lỗi, kiểm tra dữ liệu trả về

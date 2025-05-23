@@ -179,13 +179,12 @@ public class LoaiThuocServiceTest {
         when(danhMucThuocRepo.findById(loaiThuocDTO.getDanhMucThuocId())).thenReturn(Optional.empty());
         when(modelMapper.map(loaiThuocDTO, LoaiThuoc.class)).thenReturn(loaiThuoc);
 
-        // Act
-        ResponseDTO<LoaiThuoc> response = loaiThuocService.create(loaiThuocDTO);
+        // Act & Assert
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            loaiThuocService.create(loaiThuocDTO);
+        });
 
-        // Assert
-        assertEquals(404, response.getStatus());
-        assertEquals("Không tìm thấy danh mục thuốc", response.getMsg());
-        assertNull(response.getData());
+        assertEquals("Danh mục thuốc không tồn tại", exception.getMessage());
         verify(loaiThuocRepo, times(1)).existsByTenLoai(loaiThuocDTO.getTenLoai());
         verify(danhMucThuocRepo, times(1)).findById(loaiThuocDTO.getDanhMucThuocId());
         verify(loaiThuocRepo, times(0)).save(any(LoaiThuoc.class));

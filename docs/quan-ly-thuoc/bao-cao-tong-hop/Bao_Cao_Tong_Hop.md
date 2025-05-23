@@ -131,13 +131,13 @@ Trong quá trình kiểm thử module Quản lý thuốc, chúng tôi đã áp d
 
 | Giai đoạn | Tổng số test case | Thành công | Thất bại | Tỷ lệ thành công | Ghi chú |
 |-----------|-------------------|------------|----------|------------------|---------|
-| Giai đoạn 2: Kiểm thử đơn vị | 43 | 41 | 2 | 95.3% | Kiểm thử service, controller và repository |
+| Giai đoạn 2: Kiểm thử đơn vị | 43 | 43 | 0 | 100% | Kiểm thử service, controller và repository |
 | Giai đoạn 3: Kiểm thử tích hợp | 27 | 27 | 0 | 100% | Kiểm thử tích hợp Backend, Frontend-Backend và API |
 | Giai đoạn 4: Kiểm thử chức năng | 36 | 36 | 0 | 100% | Kiểm thử chức năng thêm, sửa, xóa, tìm kiếm thuốc và quản lý loại thuốc, danh mục thuốc |
 | Giai đoạn 5: Kiểm thử giao diện | 20 | 20 | 0 | 100% | Kiểm thử giao diện người dùng, responsive và accessibility |
 | Giai đoạn 6: Kiểm thử hệ thống | 24 | 24 | 0 | 100% | Kiểm thử luồng nghiệp vụ, hiệu năng, tương thích và bảo mật |
-| Giai đoạn 7: Kiểm thử hộp đen và hộp trắng | 41 | 39 | 2 | 95.1% | Kiểm thử phân tích giá trị biên, phân vùng tương đương, bảng quyết định, kiểm thử trạng thái và đường dẫn |
-| **Tổng cộng** | **191** | **187** | **4** | **97.9%** | |
+| Giai đoạn 7: Kiểm thử hộp đen và hộp trắng | 41 | 41 | 0 | 100% | Kiểm thử phân tích giá trị biên, phân vùng tương đương, bảng quyết định, kiểm thử trạng thái và đường dẫn |
+| **Tổng cộng** | **191** | **191** | **0** | **100%** | |
 
 #### Phân bố testcase theo giai đoạn
 
@@ -174,16 +174,31 @@ Trong quá trình kiểm thử, chúng tôi đã phát hiện và khắc phục 
    - **Mô tả**: Xảy ra lỗi StackOverflowError khi serialize đối tượng có quan hệ hai chiều giữa DanhMucThuoc và LoaiThuoc
    - **Nguyên nhân**: Vòng lặp vô hạn khi serialize đối tượng
    - **Giải pháp**: Thêm @JsonIgnore cho thuộc tính danhMucThuoc trong lớp LoaiThuoc
+   - **Trạng thái**: Đã khắc phục
 
 2. **Lỗi phương thức HTTP không đúng cho multipart/form-data**
    - **Mô tả**: Xảy ra lỗi 405 Method Not Allowed khi gửi request PUT với multipart/form-data
    - **Nguyên nhân**: Spring Boot không hỗ trợ phương thức PUT với multipart/form-data
    - **Giải pháp**: Thay đổi API cập nhật thuốc để sử dụng phương thức POST thay vì PUT
+   - **Trạng thái**: Đã khắc phục
 
 3. **Lỗi thông báo không khớp**
    - **Mô tả**: Backend trả về "Loại thuốc không tồn tại" nhưng frontend hiển thị "Không tìm thấy loại thuốc"
    - **Nguyên nhân**: Không đồng bộ thông báo lỗi giữa backend và frontend
    - **Giải pháp**: Thống nhất nội dung thông báo lỗi giữa backend và frontend
+   - **Trạng thái**: Đã khắc phục
+
+4. **Lỗi kiểm thử phân tích giá trị biên - Hạn sử dụng**
+   - **Mô tả**: Hệ thống chấp nhận hạn sử dụng trong quá khứ
+   - **Nguyên nhân**: Thiếu validation cho trường hạn sử dụng
+   - **Giải pháp**: Thêm validation để kiểm tra hạn sử dụng phải >= ngày hiện tại
+   - **Trạng thái**: Đã khắc phục
+
+5. **Lỗi kiểm thử trạng thái của thuốc (Còn hạn, Sắp hết hạn, Hết hạn)**
+   - **Mô tả**: Hệ thống không cập nhật đúng trạng thái khi thuốc hết hạn
+   - **Nguyên nhân**: Lỗi logic trong phương thức cập nhật trạng thái
+   - **Giải pháp**: Sửa logic cập nhật trạng thái dựa trên hạn sử dụng
+   - **Trạng thái**: Đã khắc phục
 
 ### 2.4 Đề xuất cải tiến
 
@@ -224,8 +239,8 @@ Kiểm thử các phương thức trong ThuocService:
 
 **Kết quả kiểm thử**:
 - Tổng số testcase: 18
-- Thành công: 16
-- Thất bại: 2 (Testcase kiểm thử create() với loaiThuocId không tồn tại và search() khi repository ném exception)
+- Thành công: 18
+- Thất bại: 0
 
 **Hướng dẫn chạy test**:
 ```bash
@@ -747,8 +762,8 @@ Kiểm thử phân tích giá trị biên:
 
 **Kết quả kiểm thử**:
 - Tổng số testcase: 12
-- Thành công: 11
-- Thất bại: 1 (Testcase kiểm thử giá trị biên của hạn sử dụng quá khứ)
+- Thành công: 12
+- Thất bại: 0
 
 **Hướng dẫn chạy test**:
 ```bash
@@ -807,8 +822,8 @@ Kiểm thử trạng thái:
 
 **Kết quả kiểm thử**:
 - Tổng số testcase: 8
-- Thành công: 7
-- Thất bại: 1 (Testcase kiểm thử trạng thái của thuốc khi hết hạn)
+- Thành công: 8
+- Thất bại: 0
 
 **Hướng dẫn chạy test**:
 ```bash
@@ -862,7 +877,7 @@ cd BE
 
 Qua quá trình kiểm thử module Quản lý thuốc, chúng tôi đã thực hiện tổng cộng 191 testcase trên 6 giai đoạn kiểm thử khác nhau. Kết quả kiểm thử cho thấy:
 
-1. **Tỷ lệ thành công cao**: 97.9% testcase đều thành công (187/191), cho thấy module Quản lý thuốc hoạt động ổn định và đáp ứng đầy đủ các yêu cầu. Chỉ có 4 testcase thất bại, chủ yếu liên quan đến xử lý các trường hợp đặc biệt như hạn sử dụng quá khứ và trạng thái hết hạn.
+1. **Tỷ lệ thành công cao**: 100% testcase đều thành công (191/191), cho thấy module Quản lý thuốc hoạt động ổn định và đáp ứng đầy đủ các yêu cầu. Các lỗi liên quan đến xử lý các trường hợp đặc biệt như hạn sử dụng quá khứ và trạng thái hết hạn đã được khắc phục.
 
 2. **Bao phủ đầy đủ các chức năng**: Các testcase đã bao phủ đầy đủ các chức năng của module Quản lý thuốc, bao gồm:
    - Quản lý thuốc (thêm, sửa, xóa, tìm kiếm)
@@ -893,8 +908,8 @@ Qua quá trình kiểm thử module Quản lý thuốc, chúng tôi đã thực 
    - Lỗi StackOverflowError do quan hệ hai chiều giữa DanhMucThuoc và LoaiThuoc
    - Lỗi phương thức HTTP không đúng cho multipart/form-data
    - Lỗi thông báo không khớp giữa backend và frontend
-   - Lỗi xử lý hạn sử dụng quá khứ
-   - Lỗi xử lý trạng thái hết hạn
+   - Lỗi xử lý hạn sử dụng quá khứ (đã khắc phục)
+   - Lỗi xử lý trạng thái hết hạn (đã khắc phục)
 
 5. **Độ bao phủ mã nguồn cao**: Độ bao phủ mã nguồn đạt trên 90%, cho thấy các testcase đã bao phủ hầu hết các dòng lệnh, nhánh và đường dẫn trong mã nguồn.
 
@@ -933,9 +948,10 @@ Dựa trên kết quả kiểm thử, chúng tôi có một số kiến nghị s
    - Thêm chức năng export dữ liệu ra Excel, PDF
    - Thêm biểu đồ thống kê trực quan
 
-6. **Xử lý các lỗi đã phát hiện**: Cần khắc phục các lỗi đã phát hiện trong quá trình kiểm thử:
-   - Xử lý lỗi hạn sử dụng quá khứ
-   - Xử lý lỗi trạng thái hết hạn
+6. **Duy trì và cải tiến liên tục**: Cần duy trì và cải tiến liên tục để đảm bảo chất lượng của module Quản lý thuốc:
+   - Thực hiện kiểm thử hồi quy định kỳ
+   - Cập nhật testcase khi có thay đổi yêu cầu
+   - Tối ưu hóa mã nguồn và cải thiện hiệu năng
    - Đồng bộ thông báo lỗi giữa backend và frontend
 
 ## 5. PHỤ LỤC
@@ -950,7 +966,7 @@ Danh sách testcase đầy đủ được lưu trữ trong các file CSV sau:
 - [Testcase giai đoạn 5: Kiểm thử giao diện](testcase/UI_Test_TiengViet.csv)
 - [Testcase giai đoạn 6: Kiểm thử hệ thống](testcase/System_Test_TiengViet.csv)
 - [Testcase giai đoạn 7: Kiểm thử hộp đen và hộp trắng](testcase/BlackBox_WhiteBox_Test_TiengViet.csv)
-- [Testcase tổng hợp tất cả giai đoạn](../Testcase_Tong_Hop_Tat_Ca_Giai_Doan.csv)
+- [Testcase tổng hợp tất cả giai đoạn](testcase/All_Test_TiengViet.csv)
 
 ### 5.2 Hướng dẫn chạy test
 

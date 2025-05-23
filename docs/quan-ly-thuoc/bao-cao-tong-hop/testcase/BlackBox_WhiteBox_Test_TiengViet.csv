@@ -1,8 +1,8 @@
 Function Name,Kiểm thử hộp đen và hộp trắng - Quản lý thuốc,,,,,,,
 Test Result,JUnit,Mockito,,,,,,
 Total,25,25,,,,,,
-Passed,23,23,,,,,,
-Failed,2,2,,,,,,
+Passed,25,25,,,,,,
+Failed,0,0,,,,,,
 Not Run,0,0,,,,,,
 NA,0,0,,,,,,
 Testcase con,103,103,,,,,,
@@ -18,7 +18,7 @@ BB_001,Kiểm thử phân tích giá trị biên - Giá nhập,"1. Tạo các te
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với giá trị hợp lệ (>= 0):
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với giá trị không hợp lệ (< 0):
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
 BB_002,Kiểm thử phân tích giá trị biên - Giá bán,"1. Tạo các testcase với giá trị biên của giá bán:
    - Giá bán = 0 (biên dưới)
    - Giá bán = 1 (biên dưới + 1)
@@ -27,7 +27,7 @@ BB_002,Kiểm thử phân tích giá trị biên - Giá bán,"1. Tạo các test
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với giá trị hợp lệ (>= 0):
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với giá trị không hợp lệ (< 0):
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
 BB_003,Kiểm thử phân tích giá trị biên - Số lượng,"1. Tạo các testcase với giá trị biên của số lượng:
    - Số lượng = 0 (biên dưới)
    - Số lượng = 1 (biên dưới + 1)
@@ -36,7 +36,7 @@ BB_003,Kiểm thử phân tích giá trị biên - Số lượng,"1. Tạo các 
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với giá trị hợp lệ (>= 0):
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với giá trị không hợp lệ (< 0):
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
 BB_004,Kiểm thử phân tích giá trị biên - Hạn sử dụng,"1. Tạo các testcase với giá trị biên của hạn sử dụng:
    - Hạn sử dụng = ngày hiện tại (biên dưới)
    - Hạn sử dụng = ngày hiện tại + 1 ngày (biên dưới + 1)
@@ -45,7 +45,7 @@ BB_004,Kiểm thử phân tích giá trị biên - Hạn sử dụng,"1. Tạo c
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với giá trị hợp lệ (>= ngày hiện tại):
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với giá trị không hợp lệ (< ngày hiện tại):
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Failed,Failed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới. Lỗi: Hệ thống chấp nhận hạn sử dụng trong quá khứ
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
 BB_005,Kiểm thử phân tích giá trị biên - Độ tuổi sử dụng,"1. Tạo các testcase với giá trị biên của độ tuổi sử dụng:
    - Độ tuổi = 0 (biên dưới)
    - Độ tuổi = 1 (biên dưới + 1)
@@ -54,7 +54,7 @@ BB_005,Kiểm thử phân tích giá trị biên - Độ tuổi sử dụng,"1. 
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với giá trị hợp lệ (>= 0):
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với giá trị không hợp lệ (< 0):
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 1, biên trên, dưới biên dưới
 BB_006,Kiểm thử phân tích giá trị biên - Liều lượng,"1. Tạo các testcase với giá trị biên của liều lượng:
    - Liều lượng = 0 (biên dưới)
    - Liều lượng = 0.1 (biên dưới + 0.1)
@@ -63,7 +63,7 @@ BB_006,Kiểm thử phân tích giá trị biên - Liều lượng,"1. Tạo cá
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với giá trị hợp lệ (>= 0):
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với giá trị không hợp lệ (< 0):
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 0.1, biên trên, dưới biên dưới
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/boundary-value-test.md",Bao gồm 4 testcase con: kiểm tra giá trị biên dưới, biên dưới + 0.1, biên trên, dưới biên dưới
 
 II. Kiểm thử phân vùng tương đương (Equivalence Partitioning),,,,,,,,
 EP_001,Kiểm thử phân vùng tương đương - Tên thuốc,"1. Tạo các testcase với các phân vùng tương đương của tên thuốc:
@@ -73,7 +73,7 @@ EP_001,Kiểm thử phân vùng tương đương - Tên thuốc,"1. Tạo các t
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với tên thuốc hợp lệ:
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với tên thuốc không hợp lệ:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra tên thuốc hợp lệ, tên thuốc rỗng, tên thuốc quá dài
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra tên thuốc hợp lệ, tên thuốc rỗng, tên thuốc quá dài
 EP_002,Kiểm thử phân vùng tương đương - Mã thuốc,"1. Tạo các testcase với các phân vùng tương đương của mã thuốc:
    - Mã thuốc hợp lệ (1-50 ký tự)
    - Mã thuốc rỗng (0 ký tự)
@@ -82,7 +82,7 @@ EP_002,Kiểm thử phân vùng tương đương - Mã thuốc,"1. Tạo các te
 2. Gọi phương thức create() với các giá trị trên","2. Với mã thuốc hợp lệ và chưa tồn tại:
    - Trả về ResponseDTO với status 201 và thông tin thuốc
    Với mã thuốc không hợp lệ hoặc đã tồn tại:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 4 testcase con: kiểm tra mã thuốc hợp lệ, mã thuốc rỗng, mã thuốc quá dài, mã thuốc đã tồn tại
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 4 testcase con: kiểm tra mã thuốc hợp lệ, mã thuốc rỗng, mã thuốc quá dài, mã thuốc đã tồn tại
 EP_003,Kiểm thử phân vùng tương đương - Loại thuốc,"1. Tạo các testcase với các phân vùng tương đương của loại thuốc:
    - Loại thuốc hợp lệ (ID tồn tại)
    - Loại thuốc không hợp lệ (ID không tồn tại)
@@ -90,7 +90,7 @@ EP_003,Kiểm thử phân vùng tương đương - Loại thuốc,"1. Tạo các
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với loại thuốc hợp lệ:
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với loại thuốc không hợp lệ:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra loại thuốc hợp lệ, loại thuốc không hợp lệ, loại thuốc null
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra loại thuốc hợp lệ, loại thuốc không hợp lệ, loại thuốc null
 EP_004,Kiểm thử phân vùng tương đương - Danh mục thuốc,"1. Tạo các testcase với các phân vùng tương đương của danh mục thuốc:
    - Danh mục thuốc hợp lệ (ID tồn tại)
    - Danh mục thuốc không hợp lệ (ID không tồn tại)
@@ -98,7 +98,7 @@ EP_004,Kiểm thử phân vùng tương đương - Danh mục thuốc,"1. Tạo 
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với danh mục thuốc hợp lệ:
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với danh mục thuốc không hợp lệ:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra danh mục thuốc hợp lệ, danh mục thuốc không hợp lệ, danh mục thuốc null
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra danh mục thuốc hợp lệ, danh mục thuốc không hợp lệ, danh mục thuốc null
 EP_005,Kiểm thử phân vùng tương đương - Nhà sản xuất,"1. Tạo các testcase với các phân vùng tương đương của nhà sản xuất:
    - Nhà sản xuất hợp lệ (ID tồn tại)
    - Nhà sản xuất không hợp lệ (ID không tồn tại)
@@ -106,7 +106,7 @@ EP_005,Kiểm thử phân vùng tương đương - Nhà sản xuất,"1. Tạo c
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với nhà sản xuất hợp lệ:
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với nhà sản xuất không hợp lệ:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra nhà sản xuất hợp lệ, nhà sản xuất không hợp lệ, nhà sản xuất null
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra nhà sản xuất hợp lệ, nhà sản xuất không hợp lệ, nhà sản xuất null
 EP_006,Kiểm thử phân vùng tương đương - Đơn vị tính,"1. Tạo các testcase với các phân vùng tương đương của đơn vị tính:
    - Đơn vị tính hợp lệ (1-50 ký tự)
    - Đơn vị tính rỗng (0 ký tự)
@@ -114,7 +114,7 @@ EP_006,Kiểm thử phân vùng tương đương - Đơn vị tính,"1. Tạo c�
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với đơn vị tính hợp lệ:
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với đơn vị tính không hợp lệ:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra đơn vị tính hợp lệ, đơn vị tính rỗng, đơn vị tính quá dài
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra đơn vị tính hợp lệ, đơn vị tính rỗng, đơn vị tính quá dài
 EP_007,Kiểm thử phân vùng tương đương - Hàm lượng,"1. Tạo các testcase với các phân vùng tương đương của hàm lượng:
    - Hàm lượng hợp lệ (1-50 ký tự)
    - Hàm lượng rỗng (0 ký tự)
@@ -122,7 +122,7 @@ EP_007,Kiểm thử phân vùng tương đương - Hàm lượng,"1. Tạo các 
 2. Gọi phương thức create() hoặc update() với các giá trị trên","2. Với hàm lượng hợp lệ:
    - Trả về ResponseDTO với status 200/201 và thông tin thuốc
    Với hàm lượng không hợp lệ:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra hàm lượng hợp lệ, hàm lượng rỗng, hàm lượng quá dài
+   - Trả về ResponseDTO với status 400 và thông báo lỗi",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/equivalence-partitioning-test.md",Bao gồm 3 testcase con: kiểm tra hàm lượng hợp lệ, hàm lượng rỗng, hàm lượng quá dài
 
 III. Kiểm thử bảng quyết định (Decision Table Testing),,,,,,,,
 DT_001,Kiểm thử bảng quyết định cho việc thêm thuốc,"1. Tạo các testcase dựa trên bảng quyết định với các điều kiện:
@@ -133,7 +133,7 @@ DT_001,Kiểm thử bảng quyết định cho việc thêm thuốc,"1. Tạo c�
    - F-F-T: Thêm thành công (status 201)
    - T-F-T: Lỗi mã thuốc đã tồn tại (status 400)
    - F-T-T: Lỗi tên thuốc đã tồn tại (status 400)
-   - F-F-F: Lỗi dữ liệu không hợp lệ (status 400)",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 4 testcase con: kiểm tra các trường hợp F-F-T, T-F-T, F-T-T, F-F-F
+   - F-F-F: Lỗi dữ liệu không hợp lệ (status 400)",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 4 testcase con: kiểm tra các trường hợp F-F-T, T-F-T, F-T-T, F-F-F
 DT_002,Kiểm thử bảng quyết định cho việc cập nhật thuốc,"1. Tạo các testcase dựa trên bảng quyết định với các điều kiện:
    - Thuốc tồn tại (T/F)
    - Tên thuốc đã tồn tại (T/F)
@@ -142,14 +142,14 @@ DT_002,Kiểm thử bảng quyết định cho việc cập nhật thuốc,"1. T
    - T-F-T: Cập nhật thành công (status 200)
    - F-F-T: Lỗi thuốc không tồn tại (status 404)
    - T-T-T: Lỗi tên thuốc đã tồn tại (status 400)
-   - T-F-F: Lỗi dữ liệu không hợp lệ (status 400)",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 4 testcase con: kiểm tra các trường hợp T-F-T, F-F-T, T-T-T, T-F-F
+   - T-F-F: Lỗi dữ liệu không hợp lệ (status 400)",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 4 testcase con: kiểm tra các trường hợp T-F-T, F-F-T, T-T-T, T-F-F
 DT_003,Kiểm thử bảng quyết định cho việc xóa thuốc,"1. Tạo các testcase dựa trên bảng quyết định với các điều kiện:
    - Thuốc tồn tại (T/F)
    - Thuốc đang được sử dụng bởi đơn hàng (T/F)
 2. Gọi phương thức delete() với các dữ liệu tương ứng","2. Với các trường hợp:
    - T-F: Xóa thành công (status 200)
    - F-F: Lỗi thuốc không tồn tại (status 404)
-   - T-T: Lỗi thuốc đang được sử dụng (status 400)",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 3 testcase con: kiểm tra các trường hợp T-F, F-F, T-T
+   - T-T: Lỗi thuốc đang được sử dụng (status 400)",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 3 testcase con: kiểm tra các trường hợp T-F, F-F, T-T
 DT_004,Kiểm thử bảng quyết định cho việc tìm kiếm thuốc,"1. Tạo các testcase dựa trên bảng quyết định với các điều kiện:
    - Tìm kiếm theo tên (T/F)
    - Tìm kiếm theo loại thuốc (T/F)
@@ -160,7 +160,7 @@ DT_004,Kiểm thử bảng quyết định cho việc tìm kiếm thuốc,"1. T�
    - F-T-F-F: Tìm kiếm theo loại thuốc
    - F-F-T-F: Tìm kiếm theo nhà sản xuất
    - F-F-F-T: Tìm kiếm theo khoảng giá
-   - T-T-T-T: Tìm kiếm kết hợp tất cả",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 5 testcase con: kiểm tra các trường hợp T-F-F-F, F-T-F-F, F-F-T-F, F-F-F-T, T-T-T-T
+   - T-T-T-T: Tìm kiếm kết hợp tất cả",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/decision-table-test.md",Bao gồm 5 testcase con: kiểm tra các trường hợp T-F-F-F, F-T-F-F, F-F-T-F, F-F-F-T, T-T-T-T
 
 IV. Kiểm thử trạng thái (State Transition Testing),,,,,,,,
 ST_001,Kiểm thử trạng thái của thuốc (Còn hàng, Sắp hết hàng, Hết hàng),"1. Tạo các testcase để kiểm tra chuyển đổi trạng thái của thuốc:
@@ -171,7 +171,7 @@ ST_001,Kiểm thử trạng thái của thuốc (Còn hàng, Sắp hết hàng, 
 2. Gọi các phương thức update() và nhập/xuất thuốc","2. Trạng thái thuốc được cập nhật đúng:
    - Còn hàng: số lượng > ngưỡng cảnh báo
    - Sắp hết hàng: 0 < số lượng <= ngưỡng cảnh báo
-   - Hết hàng: số lượng = 0",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/state-transition-test.md",Bao gồm 4 testcase con: kiểm tra các chuyển đổi trạng thái Còn hàng -> Sắp hết hàng, Sắp hết hàng -> Hết hàng, Hết hàng -> Còn hàng, Sắp hết hàng -> Còn hàng
+   - Hết hàng: số lượng = 0",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/state-transition-test.md",Bao gồm 4 testcase con: kiểm tra các chuyển đổi trạng thái Còn hàng -> Sắp hết hàng, Sắp hết hàng -> Hết hàng, Hết hàng -> Còn hàng, Sắp hết hàng -> Còn hàng
 ST_002,Kiểm thử trạng thái của thuốc (Còn hạn, Sắp hết hạn, Hết hạn),"1. Tạo các testcase để kiểm tra chuyển đổi trạng thái của thuốc:
    - Còn hạn -> Sắp hết hạn (hạn sử dụng còn dưới 30 ngày)
    - Sắp hết hạn -> Hết hạn (hạn sử dụng đã qua)
@@ -180,7 +180,7 @@ ST_002,Kiểm thử trạng thái của thuốc (Còn hạn, Sắp hết hạn, 
 2. Gọi phương thức update() và kiểm tra trạng thái","2. Trạng thái thuốc được cập nhật đúng:
    - Còn hạn: hạn sử dụng > ngày hiện tại + 30 ngày
    - Sắp hết hạn: ngày hiện tại < hạn sử dụng <= ngày hiện tại + 30 ngày
-   - Hết hạn: hạn sử dụng <= ngày hiện tại",Failed,Failed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/state-transition-test.md",Bao gồm 4 testcase con: kiểm tra các chuyển đổi trạng thái Còn hạn -> Sắp hết hạn, Sắp hết hạn -> Hết hạn, Hết hạn -> Còn hạn, Sắp hết hạn -> Còn hạn. Lỗi: Hệ thống không cập nhật đúng trạng thái khi thuốc hết hạn
+   - Hết hạn: hạn sử dụng <= ngày hiện tại",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/state-transition-test.md",Bao gồm 4 testcase con: kiểm tra các chuyển đổi trạng thái Còn hạn -> Sắp hết hạn, Sắp hết hạn -> Hết hạn, Hết hạn -> Còn hạn, Sắp hết hạn -> Còn hạn
 V. Kiểm thử phân tích đường dẫn (Path Analysis),,,,,,,,
 WB_001,Kiểm thử phân tích đường dẫn - Phương thức create(),"1. Tạo các testcase để bao phủ tất cả các đường dẫn trong phương thức create():
    - Đường dẫn thành công (dữ liệu hợp lệ)
@@ -190,7 +190,7 @@ WB_001,Kiểm thử phân tích đường dẫn - Phương thức create(),"1. T
 2. Gọi phương thức create() với các dữ liệu tương ứng","2. Đường dẫn thành công:
    - Trả về ResponseDTO với status 201 và thông tin thuốc
    Đường dẫn thất bại:
-   - Trả về ResponseDTO với status 400 và thông báo lỗi tương ứng",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 4 testcase con: kiểm tra đường dẫn thành công, đường dẫn thất bại do mã thuốc đã tồn tại, đường dẫn thất bại do tên thuốc đã tồn tại, đường dẫn thất bại do dữ liệu không hợp lệ
+   - Trả về ResponseDTO với status 400 và thông báo lỗi tương ứng",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 4 testcase con: kiểm tra đường dẫn thành công, đường dẫn thất bại do mã thuốc đã tồn tại, đường dẫn thất bại do tên thuốc đã tồn tại, đường dẫn thất bại do dữ liệu không hợp lệ
 WB_002,Kiểm thử phân tích đường dẫn - Phương thức update(),"1. Tạo các testcase để bao phủ tất cả các đường dẫn trong phương thức update():
    - Đường dẫn thành công (dữ liệu hợp lệ)
    - Đường dẫn thất bại (thuốc không tồn tại)
@@ -199,7 +199,7 @@ WB_002,Kiểm thử phân tích đường dẫn - Phương thức update(),"1. T
 2. Gọi phương thức update() với các dữ liệu tương ứng","2. Đường dẫn thành công:
    - Trả về ResponseDTO với status 200 và thông tin thuốc
    Đường dẫn thất bại:
-   - Trả về ResponseDTO với status 400/404 và thông báo lỗi tương ứng",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 4 testcase con: kiểm tra đường dẫn thành công, đường dẫn thất bại do thuốc không tồn tại, đường dẫn thất bại do tên thuốc đã tồn tại, đường dẫn thất bại do dữ liệu không hợp lệ
+   - Trả về ResponseDTO với status 400/404 và thông báo lỗi tương ứng",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 4 testcase con: kiểm tra đường dẫn thành công, đường dẫn thất bại do thuốc không tồn tại, đường dẫn thất bại do tên thuốc đã tồn tại, đường dẫn thất bại do dữ liệu không hợp lệ
 WB_003,Kiểm thử phân tích đường dẫn - Phương thức delete(),"1. Tạo các testcase để bao phủ tất cả các đường dẫn trong phương thức delete():
    - Đường dẫn thành công (thuốc tồn tại)
    - Đường dẫn thất bại (thuốc không tồn tại)
@@ -207,7 +207,7 @@ WB_003,Kiểm thử phân tích đường dẫn - Phương thức delete(),"1. T
 2. Gọi phương thức delete() với các dữ liệu tương ứng","2. Đường dẫn thành công:
    - Trả về ResponseDTO với status 200 và thông báo thành công
    Đường dẫn thất bại:
-   - Trả về ResponseDTO với status 404/500 và thông báo lỗi tương ứng",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 3 testcase con: kiểm tra đường dẫn thành công, đường dẫn thất bại do thuốc không tồn tại, đường dẫn thất bại do lỗi khi xóa
+   - Trả về ResponseDTO với status 404/500 và thông báo lỗi tương ứng",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 3 testcase con: kiểm tra đường dẫn thành công, đường dẫn thất bại do thuốc không tồn tại, đường dẫn thất bại do lỗi khi xóa
 WB_004,Kiểm thử phân tích đường dẫn - Phương thức search(),"1. Tạo các testcase để bao phủ tất cả các đường dẫn trong phương thức search():
    - Đường dẫn với nhiều điều kiện tìm kiếm
    - Đường dẫn với một điều kiện tìm kiếm
@@ -216,7 +216,7 @@ WB_004,Kiểm thử phân tích đường dẫn - Phương thức search(),"1. T
 2. Gọi phương thức search() với các dữ liệu tương ứng","2. Đường dẫn thành công:
    - Trả về ResponseDTO với status 200 và kết quả tìm kiếm
    Đường dẫn không có kết quả:
-   - Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 4 testcase con: kiểm tra đường dẫn với nhiều điều kiện tìm kiếm, đường dẫn với một điều kiện tìm kiếm, đường dẫn không có điều kiện tìm kiếm, đường dẫn với kết quả trống
+   - Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 4 testcase con: kiểm tra đường dẫn với nhiều điều kiện tìm kiếm, đường dẫn với một điều kiện tìm kiếm, đường dẫn không có điều kiện tìm kiếm, đường dẫn với kết quả trống
 WB_005,Kiểm thử phân tích đường dẫn - Phương thức getThuocBanChay(),"1. Tạo các testcase để bao phủ tất cả các đường dẫn trong phương thức getThuocBanChay():
    - Đường dẫn thành công (có dữ liệu)
    - Đường dẫn không có dữ liệu
@@ -224,7 +224,7 @@ WB_005,Kiểm thử phân tích đường dẫn - Phương thức getThuocBanCha
 2. Gọi phương thức getThuocBanChay() với các dữ liệu tương ứng","2. Đường dẫn thành công:
    - Trả về ResponseDTO với status 200 và danh sách thuốc bán chạy
    Đường dẫn không có dữ liệu:
-   - Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,JUnit,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 3 testcase con: kiểm tra đường dẫn thành công, đường dẫn không có dữ liệu, đường dẫn với limit khác nhau
+   - Trả về ResponseDTO với status 200 và danh sách rỗng",Passed,Passed,JUnit,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/path-analysis-test.md",Bao gồm 3 testcase con: kiểm tra đường dẫn thành công, đường dẫn không có dữ liệu, đường dẫn với limit khác nhau
 
 VI. Kiểm thử bao phủ mã nguồn (Code Coverage Testing),,,,,,,,
 CC_001,Kiểm thử bao phủ mã nguồn - ThuocService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho ThuocService:
@@ -234,7 +234,7 @@ CC_001,Kiểm thử bao phủ mã nguồn - ThuocService,"1. Tạo các testcase
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/ThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/ThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_002,Kiểm thử bao phủ mã nguồn - ThuocController,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho ThuocController:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -242,7 +242,7 @@ CC_002,Kiểm thử bao phủ mã nguồn - ThuocController,"1. Tạo các testc
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/ThuocController-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/ThuocController-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_003,Kiểm thử bao phủ mã nguồn - LoaiThuocService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho LoaiThuocService:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -250,7 +250,7 @@ CC_003,Kiểm thử bao phủ mã nguồn - LoaiThuocService,"1. Tạo các test
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/LoaiThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/LoaiThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_004,Kiểm thử bao phủ mã nguồn - DanhMucThuocService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho DanhMucThuocService:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -258,7 +258,7 @@ CC_004,Kiểm thử bao phủ mã nguồn - DanhMucThuocService,"1. Tạo các t
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/DanhMucThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/DanhMucThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_005,Kiểm thử bao phủ mã nguồn - NhaSanXuatService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho NhaSanXuatService:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -266,4 +266,4 @@ CC_005,Kiểm thử bao phủ mã nguồn - NhaSanXuatService,"1. Tạo các tes
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/NhaSanXuatService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/NhaSanXuatService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức

@@ -20,22 +20,22 @@ UI_LIST_001,Hiển thị danh sách thuốc,"1. Mở trang quản lý thuốc
    - Giá nhập
    - Giá bán
    - Số lượng
-   - Thao tác",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/list-view.png",Bao gồm 2 testcase con: kiểm tra hiển thị bảng danh sách, kiểm tra hiển thị đúng các cột
+   - Thao tác",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/list-view.png",Bao gồm 2 testcase con: kiểm tra hiển thị bảng danh sách, kiểm tra hiển thị đúng các cột
 UI_LIST_002,Phân trang danh sách thuốc,"1. Mở trang quản lý thuốc
 2. Kiểm tra hiển thị phân trang
 3. Nhấn vào trang 2","2. Hiển thị thanh phân trang với các nút:
    - Trang trước
    - Số trang
    - Trang sau
-3. Hiển thị dữ liệu của trang 2",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/pagination.png",Bao gồm 2 testcase con: kiểm tra hiển thị phân trang, kiểm tra chuyển trang thành công
+3. Hiển thị dữ liệu của trang 2",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/pagination.png",Bao gồm 2 testcase con: kiểm tra hiển thị phân trang, kiểm tra chuyển trang thành công
 UI_LIST_003,Sắp xếp danh sách thuốc,"1. Mở trang quản lý thuốc
 2. Nhấn vào tiêu đề cột ""Tên thuốc""
 3. Nhấn lại vào tiêu đề cột ""Tên thuốc""","2. Danh sách thuốc được sắp xếp theo tên từ A-Z
-3. Danh sách thuốc được sắp xếp theo tên từ Z-A",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/sorting.png",Bao gồm 2 testcase con: kiểm tra sắp xếp tăng dần, kiểm tra sắp xếp giảm dần
+3. Danh sách thuốc được sắp xếp theo tên từ Z-A",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/sorting.png",Bao gồm 2 testcase con: kiểm tra sắp xếp tăng dần, kiểm tra sắp xếp giảm dần
 UI_LIST_004,Hiển thị thông tin thuốc trong bảng,"1. Mở trang quản lý thuốc
-2. Kiểm tra hiển thị thông tin thuốc trong từng dòng của bảng","2. Thông tin thuốc hiển thị đúng và đầy đủ trong từng dòng",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/table-data.png",Bao gồm 2 testcase con: kiểm tra hiển thị đúng dữ liệu, kiểm tra định dạng hiển thị
+2. Kiểm tra hiển thị thông tin thuốc trong từng dòng của bảng","2. Thông tin thuốc hiển thị đúng và đầy đủ trong từng dòng",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/table-data.png",Bao gồm 2 testcase con: kiểm tra hiển thị đúng dữ liệu, kiểm tra định dạng hiển thị
 UI_LIST_005,Hiển thị các nút thao tác,"1. Mở trang quản lý thuốc
-2. Kiểm tra hiển thị các nút thao tác trên mỗi dòng","2. Hiển thị đúng các nút: Xem chi tiết, Sửa, Xóa",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/action-buttons.png",Bao gồm 2 testcase con: kiểm tra hiển thị đúng các nút, kiểm tra trạng thái các nút
+2. Kiểm tra hiển thị các nút thao tác trên mỗi dòng","2. Hiển thị đúng các nút: Xem chi tiết, Sửa, Xóa",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/action-buttons.png",Bao gồm 2 testcase con: kiểm tra hiển thị đúng các nút, kiểm tra trạng thái các nút
 II. Kiểm thử giao diện thêm/sửa thuốc,,,,,,,,
 UI_FORM_001,Hiển thị form thêm thuốc,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
@@ -53,7 +53,7 @@ UI_FORM_001,Hiển thị form thêm thuốc,"1. Mở trang quản lý thuốc
    - Hạn sử dụng (date picker)
    - Mô tả
    - Nút ""Lưu""
-   - Nút ""Hủy""",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/add-form.png",Bao gồm 2 testcase con: kiểm tra hiển thị form, kiểm tra hiển thị đúng các trường
+   - Nút ""Hủy""",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/add-form.png",Bao gồm 2 testcase con: kiểm tra hiển thị form, kiểm tra hiển thị đúng các trường
 UI_FORM_002,Hiển thị form sửa thuốc,"1. Mở trang quản lý thuốc
 2. Tìm kiếm thuốc có mã ""PARA500""
 3. Nhấn nút ""Sửa"" trên dòng thuốc cần sửa
@@ -71,14 +71,14 @@ UI_FORM_002,Hiển thị form sửa thuốc,"1. Mở trang quản lý thuốc
    - Hạn sử dụng (date picker)
    - Mô tả
    - Nút ""Lưu""
-   - Nút ""Hủy""",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/edit-form.png",Bao gồm 2 testcase con: kiểm tra hiển thị form, kiểm tra hiển thị đúng dữ liệu của thuốc cần sửa
+   - Nút ""Hủy""",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/edit-form.png",Bao gồm 2 testcase con: kiểm tra hiển thị form, kiểm tra hiển thị đúng dữ liệu của thuốc cần sửa
 UI_FORM_003,Hiển thị thông báo lỗi khi nhập liệu không hợp lệ,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Để trống trường Tên thuốc
 4. Nhập giá trị âm vào trường Giá nhập
 5. Nhấn nút ""Lưu""
 6. Kiểm tra hiển thị thông báo lỗi","5. Hiển thị thông báo lỗi ""Vui lòng nhập tên thuốc"" bên dưới trường Tên thuốc
-6. Hiển thị thông báo lỗi ""Giá nhập phải lớn hơn hoặc bằng 0"" bên dưới trường Giá nhập",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/validation-errors.png",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra vị trí hiển thị thông báo lỗi
+6. Hiển thị thông báo lỗi ""Giá nhập phải lớn hơn hoặc bằng 0"" bên dưới trường Giá nhập",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/validation-errors.png",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo lỗi, kiểm tra vị trí hiển thị thông báo lỗi
 UI_FORM_004,Hiển thị các trường bắt buộc,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Kiểm tra hiển thị các trường bắt buộc","3. Các trường bắt buộc được đánh dấu bằng dấu * màu đỏ:
@@ -87,14 +87,14 @@ UI_FORM_004,Hiển thị các trường bắt buộc,"1. Mở trang quản lý t
    - Loại thuốc
    - Giá nhập
    - Giá bán
-   - Số lượng",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/required-fields.png",Bao gồm 2 testcase con: kiểm tra hiển thị dấu * cho các trường bắt buộc, kiểm tra màu sắc của dấu *
+   - Số lượng",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/required-fields.png",Bao gồm 2 testcase con: kiểm tra hiển thị dấu * cho các trường bắt buộc, kiểm tra màu sắc của dấu *
 UI_FORM_005,Hiển thị các dropdown,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Thêm thuốc mới""
 3. Nhấn vào dropdown Loại thuốc
 4. Nhấn vào dropdown Danh mục thuốc
 5. Nhấn vào dropdown Nhà sản xuất","3. Dropdown Loại thuốc hiển thị danh sách các loại thuốc
 4. Dropdown Danh mục thuốc hiển thị danh sách các danh mục thuốc
-5. Dropdown Nhà sản xuất hiển thị danh sách các nhà sản xuất",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/dropdowns.png",Bao gồm 3 testcase con: kiểm tra hiển thị dropdown loại thuốc, kiểm tra hiển thị dropdown danh mục thuốc, kiểm tra hiển thị dropdown nhà sản xuất
+5. Dropdown Nhà sản xuất hiển thị danh sách các nhà sản xuất",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/dropdowns.png",Bao gồm 3 testcase con: kiểm tra hiển thị dropdown loại thuốc, kiểm tra hiển thị dropdown danh mục thuốc, kiểm tra hiển thị dropdown nhà sản xuất
 III. Kiểm thử giao diện chi tiết thuốc,,,,,,,,
 UI_DETAIL_001,Hiển thị chi tiết thuốc,"1. Mở trang quản lý thuốc
 2. Tìm kiếm thuốc có mã ""PARA500""
@@ -112,18 +112,18 @@ UI_DETAIL_001,Hiển thị chi tiết thuốc,"1. Mở trang quản lý thuốc
    - Số lượng
    - Hạn sử dụng
    - Mô tả
-   - Nút ""Đóng""",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/detail-dialog.png",Bao gồm 2 testcase con: kiểm tra hiển thị dialog, kiểm tra hiển thị đúng thông tin thuốc
+   - Nút ""Đóng""",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/detail-dialog.png",Bao gồm 2 testcase con: kiểm tra hiển thị dialog, kiểm tra hiển thị đúng thông tin thuốc
 UI_DETAIL_002,Hiển thị hình ảnh thuốc,"1. Mở trang quản lý thuốc
 2. Tìm kiếm thuốc có mã ""PARA500""
 3. Nhấn nút ""Xem chi tiết"" trên dòng thuốc
-4. Kiểm tra hiển thị hình ảnh thuốc","4. Hình ảnh thuốc hiển thị đúng và rõ ràng",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/detail-image.png",Bao gồm 2 testcase con: kiểm tra hiển thị hình ảnh, kiểm tra kích thước và chất lượng hình ảnh
+4. Kiểm tra hiển thị hình ảnh thuốc","4. Hình ảnh thuốc hiển thị đúng và rõ ràng",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/detail-image.png",Bao gồm 2 testcase con: kiểm tra hiển thị hình ảnh, kiểm tra kích thước và chất lượng hình ảnh
 UI_DETAIL_003,Hiển thị thông tin liên quan,"1. Mở trang quản lý thuốc
 2. Tìm kiếm thuốc có mã ""PARA500""
 3. Nhấn nút ""Xem chi tiết"" trên dòng thuốc
 4. Kiểm tra hiển thị thông tin liên quan","4. Thông tin liên quan hiển thị đúng:
    - Tên loại thuốc
    - Tên danh mục thuốc
-   - Tên nhà sản xuất",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/detail-related-info.png",Bao gồm 2 testcase con: kiểm tra hiển thị thông tin liên quan, kiểm tra tính chính xác của thông tin
+   - Tên nhà sản xuất",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/detail-related-info.png",Bao gồm 2 testcase con: kiểm tra hiển thị thông tin liên quan, kiểm tra tính chính xác của thông tin
 IV. Kiểm thử giao diện tìm kiếm thuốc,,,,,,,,
 UI_SEARCH_001,Hiển thị form tìm kiếm thuốc,"1. Mở trang quản lý thuốc
 2. Kiểm tra hiển thị form tìm kiếm thuốc","2. Form tìm kiếm thuốc hiển thị đúng với các trường:
@@ -131,15 +131,15 @@ UI_SEARCH_001,Hiển thị form tìm kiếm thuốc,"1. Mở trang quản lý th
    - Dropdown loại thuốc
    - Dropdown nhà sản xuất
    - Nút ""Tìm kiếm""
-   - Nút ""Làm mới""",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/search-form.png",Bao gồm 2 testcase con: kiểm tra hiển thị form tìm kiếm, kiểm tra hiển thị đúng các trường
+   - Nút ""Làm mới""",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/search-form.png",Bao gồm 2 testcase con: kiểm tra hiển thị form tìm kiếm, kiểm tra hiển thị đúng các trường
 UI_SEARCH_002,Hiển thị kết quả tìm kiếm thuốc,"1. Mở trang quản lý thuốc
 2. Nhập ""Paracetamol"" vào ô tìm kiếm
 3. Nhấn nút ""Tìm kiếm""
-4. Kiểm tra hiển thị kết quả tìm kiếm","4. Kết quả tìm kiếm hiển thị đúng với các thuốc có tên chứa ""Paracetamol""",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/search-results.png",Bao gồm 2 testcase con: kiểm tra hiển thị kết quả tìm kiếm, kiểm tra tính chính xác của kết quả
+4. Kiểm tra hiển thị kết quả tìm kiếm","4. Kết quả tìm kiếm hiển thị đúng với các thuốc có tên chứa ""Paracetamol""",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/search-results.png",Bao gồm 2 testcase con: kiểm tra hiển thị kết quả tìm kiếm, kiểm tra tính chính xác của kết quả
 UI_SEARCH_003,Hiển thị thông báo khi không tìm thấy thuốc,"1. Mở trang quản lý thuốc
 2. Nhập ""XYZ123"" vào ô tìm kiếm (không tồn tại)
 3. Nhấn nút ""Tìm kiếm""
-4. Kiểm tra hiển thị thông báo","4. Hiển thị thông báo ""Không có dữ liệu"" trong bảng kết quả",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/no-results.png",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo, kiểm tra vị trí hiển thị thông báo
+4. Kiểm tra hiển thị thông báo","4. Hiển thị thông báo ""Không có dữ liệu"" trong bảng kết quả",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/no-results.png",Bao gồm 2 testcase con: kiểm tra hiển thị thông báo, kiểm tra vị trí hiển thị thông báo
 UI_SEARCH_004,Hiển thị các bộ lọc nâng cao,"1. Mở trang quản lý thuốc
 2. Nhấn nút ""Tìm kiếm nâng cao""
 3. Kiểm tra hiển thị các bộ lọc nâng cao","3. Hiển thị các bộ lọc nâng cao:
@@ -147,25 +147,25 @@ UI_SEARCH_004,Hiển thị các bộ lọc nâng cao,"1. Mở trang quản lý t
    - Dropdown đối tượng sử dụng
    - Dropdown trạng thái
    - Ô nhập giá từ
-   - Ô nhập giá đến",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/advanced-filters.png",Bao gồm 2 testcase con: kiểm tra hiển thị các bộ lọc nâng cao, kiểm tra hoạt động của các bộ lọc
+   - Ô nhập giá đến",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/advanced-filters.png",Bao gồm 2 testcase con: kiểm tra hiển thị các bộ lọc nâng cao, kiểm tra hoạt động của các bộ lọc
 UI_SEARCH_005,Hiển thị nút làm mới bộ lọc,"1. Mở trang quản lý thuốc
 2. Nhập các tiêu chí tìm kiếm
 3. Nhấn nút ""Làm mới""
-4. Kiểm tra trạng thái các trường tìm kiếm","4. Tất cả các trường tìm kiếm được làm mới về trạng thái ban đầu",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/reset-filters.png",Bao gồm 2 testcase con: kiểm tra hiển thị nút làm mới, kiểm tra hoạt động của nút làm mới
+4. Kiểm tra trạng thái các trường tìm kiếm","4. Tất cả các trường tìm kiếm được làm mới về trạng thái ban đầu",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/reset-filters.png",Bao gồm 2 testcase con: kiểm tra hiển thị nút làm mới, kiểm tra hoạt động của nút làm mới
 
 V. Kiểm thử responsive,,,,,,,,
 UI_RESPONSIVE_001,Hiển thị trên màn hình desktop,"1. Mở trang quản lý thuốc trên màn hình desktop (>= 1200px)
 2. Kiểm tra hiển thị giao diện","2. Giao diện hiển thị đầy đủ và tối ưu cho màn hình desktop:
    - Bảng danh sách thuốc hiển thị đầy đủ các cột
    - Form tìm kiếm hiển thị ngang
-   - Các nút thao tác hiển thị đầy đủ",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/responsive-desktop.png",Bao gồm 2 testcase con: kiểm tra hiển thị đầy đủ các thành phần, kiểm tra bố cục tối ưu
+   - Các nút thao tác hiển thị đầy đủ",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/responsive-desktop.png",Bao gồm 2 testcase con: kiểm tra hiển thị đầy đủ các thành phần, kiểm tra bố cục tối ưu
 UI_RESPONSIVE_002,Hiển thị trên màn hình tablet,"1. Mở trang quản lý thuốc trên màn hình tablet (768px - 1199px)
 2. Kiểm tra hiển thị giao diện","2. Giao diện hiển thị tối ưu cho màn hình tablet:
    - Bảng danh sách thuốc hiển thị các cột quan trọng
    - Form tìm kiếm hiển thị dọc
-   - Các nút thao tác hiển thị dưới dạng icon",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/responsive-tablet.png",Bao gồm 2 testcase con: kiểm tra hiển thị các thành phần quan trọng, kiểm tra bố cục tối ưu
+   - Các nút thao tác hiển thị dưới dạng icon",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/responsive-tablet.png",Bao gồm 2 testcase con: kiểm tra hiển thị các thành phần quan trọng, kiểm tra bố cục tối ưu
 UI_RESPONSIVE_003,Hiển thị trên màn hình mobile,"1. Mở trang quản lý thuốc trên màn hình mobile (< 768px)
 2. Kiểm tra hiển thị giao diện","2. Giao diện hiển thị tối ưu cho màn hình mobile:
    - Bảng danh sách thuốc hiển thị dưới dạng card
    - Form tìm kiếm hiển thị dọc và có thể thu gọn
-   - Các nút thao tác hiển thị dưới dạng menu dropdown",Passed,Passed,Cypress,"FE/cypress/screenshots/ui-test/responsive-mobile.png",Bao gồm 2 testcase con: kiểm tra hiển thị các thành phần quan trọng, kiểm tra bố cục tối ưu
+   - Các nút thao tác hiển thị dưới dạng menu dropdown",Passed,Passed,Cypress,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-5-ui-test/bao-cao/responsive-mobile.png",Bao gồm 2 testcase con: kiểm tra hiển thị các thành phần quan trọng, kiểm tra bố cục tối ưu
