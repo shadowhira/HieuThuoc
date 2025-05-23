@@ -234,7 +234,7 @@ CC_001,Kiểm thử bao phủ mã nguồn - ThuocService,"1. Tạo các testcase
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/ThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/service-coverage.md",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_002,Kiểm thử bao phủ mã nguồn - ThuocController,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho ThuocController:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -242,7 +242,7 @@ CC_002,Kiểm thử bao phủ mã nguồn - ThuocController,"1. Tạo các testc
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/ThuocController-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/controller-coverage.md",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_003,Kiểm thử bao phủ mã nguồn - LoaiThuocService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho LoaiThuocService:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -250,7 +250,7 @@ CC_003,Kiểm thử bao phủ mã nguồn - LoaiThuocService,"1. Tạo các test
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/LoaiThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/service-coverage.md",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_004,Kiểm thử bao phủ mã nguồn - DanhMucThuocService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho DanhMucThuocService:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -258,7 +258,7 @@ CC_004,Kiểm thử bao phủ mã nguồn - DanhMucThuocService,"1. Tạo các t
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/DanhMucThuocService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/service-coverage.md",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
 CC_005,Kiểm thử bao phủ mã nguồn - NhaSanXuatService,"1. Tạo các testcase để đạt độ bao phủ mã nguồn cao cho NhaSanXuatService:
    - Bao phủ tất cả các phương thức
    - Bao phủ tất cả các nhánh điều kiện
@@ -266,4 +266,4 @@ CC_005,Kiểm thử bao phủ mã nguồn - NhaSanXuatService,"1. Tạo các tes
 2. Chạy các testcase và đo độ bao phủ mã nguồn","2. Độ bao phủ mã nguồn đạt > 90%
    - Bao phủ dòng lệnh > 90%
    - Bao phủ nhánh > 90%
-   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/NhaSanXuatService-coverage.html",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
+   - Bao phủ phương thức = 100%",Passed,Passed,JaCoCo,"https://github.com/shadowhira/HieuThuoc/blob/thanh-dev/docs/quan-ly-thuoc/giai-doan-7-blackbox-whitebox-test/code-coverage-test/service-coverage.md",Bao gồm 3 testcase con: kiểm tra bao phủ dòng lệnh, kiểm tra bao phủ nhánh, kiểm tra bao phủ phương thức
