@@ -1,0 +1,89 @@
+Function Name,Kiểm thử tích hợp quản lý người dùng và phân quyền,,,,,
+Test Result,Chrome,,,,,
+Total,15,,,,,
+Passed,15,,,,,
+Failed,0,,,,,
+Not Run,0,,,,,
+NA,0,,,,,
+,,,,,,
+,,,,,,
+ID,Summary,Steps,Expected Output,Current Ouput,Test Results,Notes
+,,,,,Chrome,
+I. Kiểm thử tích hợp đăng nhập,,,,,,
+IT_DANGNHAP_001,Kiểm thử tích hợp đăng nhập thành công,"1. Tạo đối tượng LoginRequest với tên đăng nhập và mật khẩu hợp lệ
+2. Gửi request POST đến endpoint ""/dangnhap""
+3. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Response body chứa đối tượng ResponseDTO với status 200
+- Token JWT được trả về trong data của ResponseDTO
+- Token không rỗng và có định dạng hợp lệ","- API trả về status code 200 OK
+- Response body chứa token JWT hợp lệ
+- Xác thực token thành công",Passed,
+IT_DANGNHAP_002,Kiểm thử tích hợp đăng nhập thất bại với thông tin không hợp lệ,"1. Tạo đối tượng LoginRequest với tên đăng nhập và mật khẩu không hợp lệ
+2. Gửi request POST đến endpoint ""/dangnhap""
+3. Kiểm tra kết quả trả về","- API trả về status code 401 Unauthorized
+- Người dùng không được xác thực và không nhận được token","- API trả về status code 401
+- Không có token được trả về",Passed,
+,,,,,,
+II. Kiểm thử tích hợp quản lý người dùng,,,,,,
+IT_NGUOIDUNG_001,Kiểm thử tích hợp lấy thông tin người dùng theo ID,"1. Gửi request GET đến endpoint ""/nguoidung/get"" với tham số id=1
+2. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Response body chứa đối tượng ResponseDTO với status 200 và message ""Thành công""
+- Dữ liệu người dùng được trả về chính xác","- API trả về status 200
+- Dữ liệu người dùng chính xác",Passed,
+IT_NGUOIDUNG_002,Kiểm thử tích hợp tạo người dùng mới,"1. Tạo đối tượng NguoiDungDTO với thông tin người dùng mới
+2. Gửi request POST đến endpoint ""/nguoidung/create""
+3. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Người dùng mới được tạo trong cơ sở dữ liệu","- API trả về status 200
+- Người dùng được tạo thành công",Passed,
+IT_NGUOIDUNG_003,Kiểm thử tích hợp cập nhật thông tin người dùng,"1. Tạo đối tượng NguoiDungDTO với thông tin cập nhật
+2. Gửi request PUT đến endpoint ""/nguoidung/update""
+3. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Thông tin người dùng được cập nhật trong cơ sở dữ liệu","- API trả về status 200
+- Thông tin được cập nhật thành công",Passed,
+IT_NGUOIDUNG_004,Kiểm thử tích hợp xóa người dùng,"1. Gửi request DELETE đến endpoint ""/nguoidung/delete"" với id người dùng
+2. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Người dùng được đánh dấu là đã xóa trong cơ sở dữ liệu","- API trả về status 200
+- Người dùng được xóa thành công",Passed,
+,,,,,,
+III. Kiểm thử tích hợp quản lý nhóm quyền,,,,,,
+IT_NHOMQUYEN_001,Kiểm thử tích hợp lấy danh sách nhóm quyền,"1. Gửi request GET đến endpoint ""/nhomquyen/list""
+2. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Danh sách nhóm quyền được trả về đầy đủ","- API trả về status 200
+- Danh sách nhóm quyền chính xác",Passed,
+IT_NHOMQUYEN_002,Kiểm thử tích hợp tạo nhóm quyền mới,"1. Tạo đối tượng NhomQuyenDTO với thông tin mới
+2. Gửi request POST đến endpoint ""/nhomquyen/create""
+3. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Nhóm quyền mới được tạo trong cơ sở dữ liệu","- API trả về status 200
+- Nhóm quyền được tạo thành công",Passed,
+IT_NHOMQUYEN_003,Kiểm thử tích hợp cập nhật nhóm quyền,"1. Tạo đối tượng NhomQuyenDTO với thông tin cập nhật
+2. Gửi request PUT đến endpoint ""/nhomquyen/update""
+3. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Thông tin nhóm quyền được cập nhật","- API trả về status 200
+- Thông tin được cập nhật thành công",Passed,
+,,,,,,
+IV. Kiểm thử tích hợp phân quyền,,,,,,
+IT_PHANQUYEN_001,Kiểm thử tích hợp gán quyền cho người dùng,"1. Tạo đối tượng request với thông tin người dùng và nhóm quyền
+2. Gửi request POST đến endpoint ""/nguoidung/ganquyen""
+3. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Quyền được gán cho người dùng thành công","- API trả về status 200
+- Quyền được gán thành công",Passed,
+IT_PHANQUYEN_002,Kiểm thử tích hợp thu hồi quyền từ người dùng,"1. Gửi request POST đến endpoint ""/nguoidung/thuhoiquyen"" với thông tin người dùng và quyền
+2. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Quyền được thu hồi khỏi người dùng","- API trả về status 200
+- Quyền được thu hồi thành công",Passed,
+,,,,,,
+V. Kiểm thử tích hợp xác thực và phân quyền,,,,,,
+IT_XACTHUC_001,Kiểm thử tích hợp xác thực token JWT,"1. Đăng nhập để lấy token JWT
+2. Gửi request với token trong header
+3. Kiểm tra xác thực token","- Request được xác thực thành công
+- Thông tin người dùng được giải mã từ token","- Token được xác thực thành công
+- Thông tin người dùng chính xác",Passed,
+IT_XACTHUC_002,Kiểm thử tích hợp kiểm tra quyền truy cập,"1. Đăng nhập với tài khoản có quyền hạn chế
+2. Gửi request đến API cần quyền cao hơn
+3. Kiểm tra kết quả","- API trả về status code 403 Forbidden
+- Người dùng không được phép truy cập","- API trả về status 403
+- Truy cập bị từ chối",Passed,
+IT_XACTHUC_003,Kiểm thử tích hợp refresh token,"1. Gửi request POST đến endpoint ""/refresh-token"" với refresh token
+2. Kiểm tra kết quả trả về","- API trả về status code 200 OK
+- Token mới được tạo và trả về","- API trả về status 200
+- Token mới hợp lệ",Passed, 

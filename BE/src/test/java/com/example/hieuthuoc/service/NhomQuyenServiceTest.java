@@ -16,10 +16,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 
 import com.example.hieuthuoc.dto.ChucNangDTO;
 import com.example.hieuthuoc.dto.NhomQuyenDTO;
+import com.example.hieuthuoc.dto.PageDTO;
 import com.example.hieuthuoc.dto.ResponseDTO;
+import com.example.hieuthuoc.dto.SearchDTO;
 import com.example.hieuthuoc.entity.ChucNang;
 import com.example.hieuthuoc.entity.NhomQuyen;
 import com.example.hieuthuoc.repository.ChucNangRepo;
@@ -137,5 +142,80 @@ public class NhomQuyenServiceTest {
 
         verify(nhomQuyenRepo, times(1)).findById(1);
         verify(nhomQuyenRepo, times(1)).save(any(NhomQuyen.class));
+    }
+
+    @Test
+    @DisplayName("UT_NHOMQUYEN_SERVICE_003: Kiểm thử tìm kiếm nhóm quyền theo tên")
+    void testGetByTenNhomQuyen_WithValidSearch_ShouldReturnPagedResult() {
+        // Arrange
+        SearchDTO searchDTO = new SearchDTO();
+        searchDTO.setKeyWord("ADMIN");
+        searchDTO.setCurrentPage(0);
+        searchDTO.setSize(10);
+
+        List<NhomQuyen> nhomQuyens = List.of(nhomQuyen);
+        Page<NhomQuyen> page = new PageImpl<>(nhomQuyens);
+        
+        when(nhomQuyenRepo.getByTenNhomQuyen(anyString(), any(PageRequest.class))).thenReturn(page);
+
+        // Act
+        ResponseDTO<PageDTO<List<NhomQuyen>>> result = nhomQuyenService.getByTenNhomQuyen(searchDTO);
+
+        // Assert
+        assertEquals(200, result.getStatus());
+        assertNotNull(result.getData());
+        assertEquals(1, result.getData().getTotalElements());
+    }
+
+    @Test
+    @DisplayName("UT_NHOMQUYEN_SERVICE_004: Kiểm thử xóa nhóm quyền không tồn tại")
+    void testDelete_WithNonExistentId_ShouldThrowException() {
+        // Arrange
+        Integer nonExistentId = 999;
+        doThrow(new RuntimeException("Nhóm quyền không tồn tại")).when(nhomQuyenRepo).deleteById(nonExistentId);
+
+        // Act & Assert
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            nhomQuyenService.delete(nonExistentId);
+        });
+
+        assertEquals("Nhóm quyền không tồn tại", exception.getMessage());
+        verify(nhomQuyenRepo).deleteById(nonExistentId);
+    }
+
+    @Test
+    @DisplayName("UT_NHOMQUYEN_SERVICE_005: Kiểm thử cập nhật với chức năng không tồn tại")
+    void testUpdate_WithInvalidChucNang_ShouldThrowException() {
+        // Arrange
+        nhomQuyenDTO.setId(1);
+        ChucNangDTO invalidChucNang = new ChucNangDTO();
+        invalidChucNang.setId(999);
+        List<ChucNangDTO> invalidChucNangs = List.of(invalidChucNang);
+        nhomQuyenDTO.setChucNangs(invalidChucNangs);
+
+        when(nhomQuyenRepo.findById(1)).thenReturn(Optional.of(nhomQuyen));
+        when(chucNangRepo.findById(999)).thenReturn(Optional.empty());
+
+        // Act & Assert
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            nhomQuyenService.update(nhomQuyenDTO);
+        });
+
+        assertTrue(exception.getMessage().contains("Chức Năng không tồn tại"));
+    }
+
+    @Test
+    @DisplayName("UT_NHOMQUYEN_SERVICE_006: Kiểm thử tạo nhóm quyền trùng tên")
+    void testCreate_WithDuplicateName_ShouldReturnError() {
+        // Arrange
+        when(nhomQuyenRepo.existsByTenNhomQuyen("Quản lý kho")).thenReturn(true);
+
+        // Act
+        ResponseDTO<NhomQuyen> result = nhomQuyenService.create(nhomQuyenDTO);
+
+        // Assert
+        assertEquals(409, result.getStatus());
+        assertEquals("Nhóm quyền đã tồn tại", result.getMsg());
+        verify(nhomQuyenRepo, never()).save(any());
     }
 }

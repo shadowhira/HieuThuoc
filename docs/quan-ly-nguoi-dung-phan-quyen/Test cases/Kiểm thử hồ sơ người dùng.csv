@@ -1,0 +1,272 @@
+Function Name,Quản lý hồ sơ người dùng,,,,,
+Test Result,Chrome,,,,,
+Total,26,,,,,
+Passed,23,,,,,
+Failed,3,,,,,
+NA,0,,,,,
+,,,,,,
+ID,Summary,Steps,Expected Output,Current Ouput,Test Results,Notes
+,,,,,Chrome,
+I. Kiểm tra tính năng Quản lý hồ sơ người dùng,,,,,,
+1. Kiểm thử giao diện (UI/UX),,,,,,
+QLHS_001,"Kiểm tra giao diện mặc định của màn hình ""Hồ sơ người dùng""","1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Kiểm tra giao diện mặc định của màn hình","- Hiển thị tiêu đề ""Thông tin cá nhân""
+ - Hiển thị avatar người dùng
+ - Hiển thị các thông tin: Họ tên, Tên đăng nhập, Số điện thoại, Email
+ - Hiển thị nút ""Cập nhật thông tin""
+ - Hiển thị nút ""Đổi mật khẩu""","- Hiển thị tiêu đề ""Thông tin cá nhân""
+ - Hiển thị avatar người dùng
+ - Hiển thị các thông tin: Họ tên, Tên đăng nhập, Số điện thoại, Email
+ - Hiển thị nút ""Cập nhật thông tin""
+ - Hiển thị nút ""Đổi mật khẩu""",Passed,
+QLHS_002,"Kiểm tra bố cục, căn chỉnh các field, font, size, color","1. Kiểm tra bố cục, căn chỉnh các field, font, size, color của màn hình ""Hồ sơ người dùng""","- Căn chỉnh các trường thông tin hợp lý, thẳng hàng
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế
+ - Các nút chức năng được căn chỉnh hợp lý","- Căn chỉnh các trường thông tin thẳng hàng
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế
+ - Các nút chức năng được căn chỉnh hợp lý",Passed,
+QLHS_003,Kiểm tra hiển thị dữ liệu trong hồ sơ người dùng,1. Kiểm tra hiển thị dữ liệu trong hồ sơ người dùng,"- Dữ liệu người dùng được hiển thị đầy đủ và chính xác
+ - Thông tin cá nhân được hiển thị đúng với dữ liệu trong cơ sở dữ liệu","- Dữ liệu người dùng được hiển thị đầy đủ và chính xác
+ - Thông tin cá nhân được hiển thị đúng với dữ liệu trong cơ sở dữ liệu",Passed,
+QLHS_004,"Kiểm tra xử lý của hệ thống khi nhấn ""Tab"" từ bàn phím","1. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 2. Click vào nút ""Cập nhật thông tin""
+ 3. Focus chuột vào trường đầu tiên của form
+ 4. Nhấn phím ""tab"" từ bàn phím","- Con trỏ chuột sẽ dịch chuyển qua các trường nhập liệu từ trái sang phải, từ trên xuống dưới
+",,Passed,
+QLHS_005,"Kiểm tra xử lý của hệ thống khi nhấn ""Shift+Tab"" từ bàn phím","1. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 2. Click vào nút ""Cập nhật thông tin""
+ 3. Focus chuột vào trường cuối cùng hoặc nút cuối cùng của form
+ 4. Nhấn phím ""shift+tab"" từ bàn phím","- Con trỏ chuột sẽ dịch chuyển qua các trường nhập liệu từ phải sang trái, từ dưới lên trên
+ ",,Passed,
+2. Kiểm thử chức năng cập nhật thông tin cá nhân,,,,,,
+2.1. Kiểm thử validate,,,,,,
+QLHS_006,Kiểm tra validate các trường bắt buộc khi cập nhật thông tin,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Cập nhật thông tin""
+ 4. Xóa dữ liệu các trường bắt buộc
+ 5. Click nút ""Lưu""","- Hiển thị thông báo lỗi cho các trường bắt buộc
+ - Không cho phép lưu khi thiếu thông tin bắt buộc",- Hiển thị thông báo cập nhật thành công,Failed,Vẫn cập nhật với dữ liệu trống
+QLHS_007,Kiểm tra validate định dạng số điện thoại khi cập nhật thông tin,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Cập nhật thông tin""
+ 4. Nhập số điện thoại không đúng định dạng
+ 5. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Số điện thoại không đúng định dạng""
+ - Không cho phép lưu khi số điện thoại không hợp lệ",- Hiển thị thông báo cập nhật thành công,Failed,Không có validate định dạng số điện thoại
+2.2. Kiểm thử chức năng,,,,,,
+QLHS_008,Cập nhật thông tin cá nhân thành công với dữ liệu hợp lệ,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Cập nhật thông tin""
+ 4. Nhập dữ liệu hợp lệ
+ 5. Click nút ""Lưu""","- Hiển thị thông báo: ""Cập nhật thông tin thành công""
+ - Thông tin người dùng được cập nhật
+ - Form cập nhật được đóng
+ - Màn hình hiển thị thông tin đã cập nhật","- Hiển thị thông báo: ""Cập nhật thông tin thành công""
+ - Thông tin người dùng được cập nhật
+ - Form cập nhật được đóng
+ - Màn hình hiển thị thông tin đã cập nhật",Passed,
+QLHS_009,Cập nhật ảnh đại diện thành công,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Cập nhật thông tin""
+ 4. Click vào nút chọn ảnh đại diện
+ 5. Chọn file ảnh hợp lệ
+ 6. Click nút ""Lưu""","- Hiển thị thông báo: ""Cập nhật thông tin thành công""
+ - Ảnh đại diện được cập nhật
+ - Form cập nhật được đóng
+ - Màn hình hiển thị ảnh đại diện mới","- Hiển thị thông báo: ""Cập nhật thông tin thành công""
+ - Ảnh đại diện được cập nhật
+ - Form cập nhật được đóng
+ - Màn hình hiển thị ảnh đại diện mới",Passed,
+2.3. Kiểm thử API,,,,,,
+QLHS_010,Kiểm thử API cập nhật thông tin cá nhân thành công,"1. Gửi request PUT đến /hieuthuoc/nguoidung/update: 
+{
+  ""id"": 13,
+  ""hoTen"": ""Người dùng đã cập nhật"",
+  ""email"": ""updated@example.com"",
+  ""soDienThoai"": ""0987654322"",
+  ""diaChi"": ""Hà Nội cập nhật"",
+  ""nhomQuyenIds"": [1, 2]
+}","- Status code: 200
+ - Response body chứa status 200 và thông báo thành công
+ - Dữ liệu người dùng được cập nhật thành công trong hệ thống","{
+    ""status"": 200,
+    ""msg"": ""Thành công"",
+    ""data"": {
+        ""createdAt"": null,
+        ""updateAt"": 1747898509670,
+        ""id"": 13,
+        ""tenDangNhap"": null,
+        ""matKhau"": null,
+        ""hoTen"": ""Người dùng đã cập nhật"",
+        ""email"": ""updated@example.com"",
+        ""diaChi"": ""Hà Nội cập nhật"",
+        ""soDienThoai"": ""0987654322"",
+        ""avatar"": null,
+        ""trangThai"": true,
+        ""nhomQuyens"": null
+    }
+}",Passed,
+QLHS_011,Kiểm thử API cập nhật thông tin với Id không tồn tại,"1. Gửi request PUT đến endpoint /nguoidung/update với ID không tồn tại:
+ {
+ ""id"": ""999999"",
+ ""hoTen"": ""Khách hàng không tồn tại"",
+ ""email"": ""nonexistent@example.com"",
+ ""soDienThoai"": ""0987654321"",
+ ""diaChi"": ""Hà Nội""
+ }","- Status code: 404 hoặc 200 với status 404
+ - Response body chứa thông báo lỗi phù hợp","{
+    ""status"": 400,
+    ""msg"": ""Tài khoản không tồn tại.""
+}",Passed,
+3. Kiểm thử chức năng đổi mật khẩu,,,,,,
+3.1. Kiểm thử giao diện,,,,,,
+QLHS_012,Kiểm tra giao diện form đổi mật khẩu,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Đổi mật khẩu""
+ 4. Kiểm tra giao diện form đổi mật khẩu","- Hiển thị tiêu đề ""Đổi mật khẩu""
+ - Hiển thị các trường nhập liệu: Mật khẩu hiện tại, Mật khẩu mới, Xác nhận mật khẩu mới
+ - Hiển thị các nút: Đổi mật khẩu
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế","- Hiển thị tiêu đề ""Đổi mật khẩu""
+ - Hiển thị các trường nhập liệu: Mật khẩu hiện tại, Mật khẩu mới, Xác nhận mật khẩu mới
+ - Hiển thị các nút: Đổi mật khẩu
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế",Passed,
+3.2. Kiểm thử validate,,,,,,
+QLHS_013,Kiểm tra validate các trường bắt buộc khi đổi mật khẩu,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Đổi mật khẩu""
+ 4. Để trống các trường
+ 5. Click nút ""Lưu""","- Hiển thị thông báo lỗi cho các trường bắt buộc
+ - Không cho phép lưu khi thiếu thông tin bắt buộc","- Hiển thị thông báo lỗi cho các trường bắt buộc: Mật khẩu hiện tại, Mật khẩu mới, Xác nhận mật khẩu mới
+ - Không cho phép lưu khi thiếu thông tin bắt buộc",Passed,
+QLHS_014,Kiểm tra validate mật khẩu mới không đủ độ phức tạp,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Đổi mật khẩu""
+ 4. Nhập mật khẩu hiện tại chính xác
+ 5. Nhập mật khẩu mới không đủ độ phức tạp (ví dụ: quá ngắn)
+ 6. Nhập xác nhận mật khẩu mới trùng khớp
+ 7. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Mật khẩu mới phải có ít nhất 6 ký tự""
+ - Không cho phép lưu khi mật khẩu mới không đủ độ phức tạp",- Hiển thị thông báo cập nhật thành công,Failed,Không validate mật khẩu
+3.3. Kiểm thử chức năng,,,,,,
+QLHS_015,Kiểm tra validate mật khẩu hiện tại không chính xác,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Đổi mật khẩu""
+ 4. Nhập mật khẩu hiện tại không chính xác
+ 5. Nhập mật khẩu mới và xác nhận mật khẩu mới hợp lệ
+ 6. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Mật khẩu hiện tại không chính xác""
+ - Không cho phép lưu khi mật khẩu hiện tại không chính xác","- Hiển thị thông báo lỗi: ""Mật khẩu hiện tại không chính xác""
+ - Không cho phép lưu khi mật khẩu hiện tại không chính xác",Passed,
+QLHS_015,Kiểm tra validate mật khẩu mới và xác nhận mật khẩu mới không khớp,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Đổi mật khẩu""
+ 4. Nhập mật khẩu hiện tại chính xác
+ 5. Nhập mật khẩu mới hợp lệ
+ 6. Nhập xác nhận mật khẩu mới không khớp với mật khẩu mới
+ 7. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Xác nhận mật khẩu không khớp""
+ - Không cho phép lưu khi xác nhận mật khẩu không khớp",- Hiển thị thông báo cập nhật thành công,Failed,Không so sánh mật khẩu mới và mật khẩu nhập lại
+QLHS_016,Đổi mật khẩu thành công với dữ liệu hợp lệ,"1. Đăng nhập vào hệ thống
+ 2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+ 3. Click vào nút ""Đổi mật khẩu""
+ 4. Nhập mật khẩu hiện tại chính xác
+ 5. Nhập mật khẩu mới hợp lệ
+ 6. Nhập xác nhận mật khẩu mới khớp với mật khẩu mới
+ 7. Click nút ""Lưu""","- Hiển thị thông báo: ""Đổi mật khẩu thành công""
+ - Form đổi mật khẩu được đóng
+ - Người dùng có thể đăng nhập bằng mật khẩu mới","- Hiển thị thông báo: ""Đổi mật khẩu thành công""
+ - Form đổi mật khẩu được đóng
+ - Người dùng có thể đăng nhập bằng mật khẩu mới",Passed,
+3.4. Kiểm thử API,,,,,,
+QLHS_017,Kiểm thử API đổi mật khẩu thành công,"1. Gửi request POST đến /hieuthuoc/nguoidung/change_matkhau:
+{
+  ""id"": 1,
+  ""matKhau"": ""1"",
+  ""matKhauMoi"": ""123""
+}","- Status code: 200
+ - Response body chứa status 200 và thông báo đổi mật khẩu thành công","{
+    ""status"": 200,
+    ""msg"": ""Đổi mật khẩu thành công."",
+    ""data"": {
+        ""createdAt"": 1747641560924,
+        ""updateAt"": 1747926351984,
+        ""id"": 1,
+        ""tenDangNhap"": ""admin2"",
+        ""matKhau"": ""$2a$10$Qv3Hh6WXjaQhn5D6Sorf0.AGJwPlVAUwNO66Y2/qmZbKhwUv5DEge"",
+        ""hoTen"": """",
+        ""email"": ""admin2@gmail.com"",
+        ""diaChi"": ""Hà Nội"",
+        ""soDienThoai"": null,
+        ""avatar"": null,
+        ""trangThai"": true,}",Passed,
+QLHS_018,Kiểm thử API đổi mật khẩu với mật khẩu hiện tại không chính xác,"1. Gửi request POST đến /hieuthuoc/nguoidung/change_matkhau:
+{
+  ""id"": 1,
+  ""matKhau"": ""1"",
+  ""matKhauMoi"": ""123""
+}","- Status code: 200
+ - Response body chứa status 400 và thông báo lỗi mật khẩu hiện tại không chính xác","{
+    ""status"": 400,
+    ""msg"": ""Mật khẩu không chính xác.""
+}",Passed,
+4. Kiểm thử chức năng thay đổi avatar,,,,,,
+4.1. Kiểm thử giao diện,,,,,,
+QLHS_019,Kiểm tra giao diện chọn ảnh đại diện,"1. Đăng nhập vào hệ thống
+2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+3. Kiểm tra giao diện chọn ảnh đại diện","- Hiển thị ảnh đại diện hiện tại hoặc ảnh mặc định nếu chưa có
+- Hiển thị nút chọn ảnh (icon camera)
+- Chỉ cho phép chọn file ảnh (png, gif, jpeg)","- Hiển thị ảnh đại diện hiện tại hoặc ảnh mặc định nếu chưa có
+- Hiển thị nút chọn ảnh (icon camera)
+- Chỉ cho phép chọn file ảnh (png, gif, jpeg)",Passed,
+4.2. Kiểm thử chức năng,,,,,,
+QLHS_020,Kiểm thử API thay đổi avatar thành công,"1. Đăng nhập vào hệ thống
+2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+3. Click vào icon camera
+4. Chọn file ảnh hợp lệ (png, jpg, jpeg)
+5. Kiểm tra kết quả","- Hiển thị preview ảnh đã chọn
+- Upload ảnh thành công lên server
+- Cập nhật URL ảnh mới trong database
+- Hiển thị ảnh mới trên giao diện","- Hiển thị preview ảnh đã chọn
+- Upload ảnh thành công lên server
+- Cập nhật URL ảnh mới trong database
+- Hiển thị ảnh mới trên giao diện",Passed,
+QLHS_021,Kiểm tra giới hạn kích thước file ảnh,"1. Đăng nhập vào hệ thống
+2. Di chuyển đến màn hình ""Hồ sơ người dùng""
+3. Click vào icon camera
+4. Chọn file ảnh có kích thước lớn (>5MB)","- Hiển thị thông báo lỗi về kích thước file
+- Không cho phép upload file quá lớn","- Hiển thị thông báo lỗi về kích thước file
+- Không cho phép upload file quá lớn",Passed,
+4.3. Kiểm thử API,,,,,,
+QLHS_022,Kiểm thử API thay đổi avatar thành công,"1. Gửi request PUT đến /hieuthuoc/nguoidung/change_avatar với FormData chứa:
+- nguoiDungDTO: thông tin người dùng
+- file: file ảnh hợp lệ","- Status code: 200
+- Response body chứa status 200 và thông báo thành công
+- URL ảnh mới được lưu vào database","- Status code: 200
+- Response body chứa status 200 và thông báo thành công
+- URL ảnh mới được lưu vào database",Passed,
+QLHS_023,Kiểm thử API thay đổi avatar với file không hợp lệ,"1. Gửi request PUT đến /hieuthuoc/nguoidung/change_avatar với FormData chứa:
+- nguoiDungDTO: thông tin người dùng
+- file: file không phải ảnh","- Status code: 200
+- Response body chứa status 400 và thông báo lỗi định dạng file","- Status code: 200
+- Response body chứa status 400 và thông báo lỗi định dạng file",Passed,
+5. Kiểm thử Unit Test,,,,,,
+QLHS_024,Kiểm thử phương thức cập nhật thông tin cá nhân,"1. Tạo đối tượng NguoiDungDTO với dữ liệu hợp lệ
+ 2. Mock NguoiDungRepository để trả về người dùng hiện có
+ 3. Gọi phương thức updateProfile(nguoiDungDTO) của NguoiDungService
+ 4. Kiểm tra kết quả trả về","- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo cập nhật thành công
+ - Phương thức save của repository được gọi đúng một lần
+ - Dữ liệu người dùng được cập nhật chính xác","- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo cập nhật thành công
+- Phương thức save của repository được gọi đúng một lần
+- Dữ liệu họ tên và số điện thoại được cập nhật chính xác",Passed,Chỉ cập nhật được họ tên và số điện thoại
+QLHS_025,Kiểm thử phương thức đổi mật khẩu thành công ,"1. Tạo đối tượng ChangePasswordDTO với dữ liệu hợp lệ
+ 2. Mock NguoiDungRepository để trả về người dùng hiện có
+ 3. Mock PasswordEncoder để kiểm tra mật khẩu hiện tại và mã hóa mật khẩu mới
+ 4. Gọi phương thức changePassword(changePasswordDTO) của NguoiDungService
+ 5. Kiểm tra kết quả trả về","- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo đổi mật khẩu thành công
+ - Phương thức save của repository được gọi đúng một lần
+ - Mật khẩu mới được mã hóa trước khi lưu","- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo đổi mật khẩu thành công
+- Phương thức save của repository được gọi đúng một lần
+- Mật khẩu mới được mã hóa trước khi lưu",Passed,Link code unit test
+QLHS_026,Kiểm thử phương thức đổi mật khẩu với mật khẩu hiện tại không chính xác,"1. Tạo đối tượng ChangePasswordDTO với mật khẩu hiện tại không chính xác
+ 2. Mock NguoiDungRepository để trả về người dùng hiện có
+ 3. Mock PasswordEncoder để trả về false khi kiểm tra mật khẩu hiện tại
+ 4. Gọi phương thức changePassword(changePasswordDTO) của NguoiDungService
+ 5. Kiểm tra kết quả trả về","- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi mật khẩu hiện tại không chính xác
+ - Phương thức save của repository không được gọi","- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi mật khẩu hiện tại không chính xác
+- Phương thức save của repository không được gọi",Passed,

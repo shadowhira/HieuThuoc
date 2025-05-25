@@ -1,0 +1,374 @@
+Function Name,Quản lý khách hàng,,,,,
+Test Result,Chrome,,,,,
+Total,49,,,,,
+Passed,24,,,,,
+Failed,5,,,,,
+N/A,20,,,,,
+,,,,,,
+,,,,,,
+ID,Summary,Steps,Expected Output,Current Ouput,Test Results,Notes
+,,,,,Chrome,
+I. Kiểm tra tính năng Quản lý khách hàng,,,,,,
+1. Kiểm thử giao diện (UI/UX),,,,,,
+QLKH_001,"Kiểm tra giao diện mặc định của màn hình ""Quản lý khách hàng""","1. Đăng nhập với tài khoản admin
+ 2. Di chuyển đến màn hình ""Quản lý khách hàng""
+ 3. Kiểm tra giao diện mặc định của màn hình","- Hiển thị tiêu đề ""Khách Hàng""
+ - Hiển thị thanh tìm kiếm
+ - Hiển thị bảng danh sách khách hàng với các cột: ID, Tên đăng nhập, Họ và tên, Email, Số điện thoại, Trạng thái, Ngày tạo
+ - Hiển thị phân trang","- Hiển thị tiêu đề ""Khách Hàng""
+ - Hiển thị thanh tìm kiếm với trường ""Tên Khách Hàng""
+ - Hiển thị bảng danh sách khách hàng với các cột: ID, Tên đăng nhập, Họ và tên, Email, Số điện thoại, Trạng thái, Ngày tạo
+ - Hiển thị phân trang",Passed,
+QLKH_002,"Kiểm tra bố cục, căn chỉnh các field, font, size, color","1. Kiểm tra bố cục, căn chỉnh các field, font, size, color của màn hình ""Quản lý khách hàng""","- Căn chỉnh các cột trong bảng hợp lý, thẳng hàng
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế
+ - Các nút chức năng được căn chỉnh hợp lý","- Các cột trong bảng được căn chỉnh thẳng hàng
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế
+ - Nút tìm kiếm được căn chỉnh hợp lý",Passed,
+QLKH_003,Kiểm tra hiển thị dữ liệu trong bảng khách hàng,1. Kiểm tra hiển thị dữ liệu trong bảng khách hàng,"- Dữ liệu khách hàng được hiển thị đầy đủ và chính xác
+ - Trạng thái khách hàng được hiển thị bằng màu sắc hoặc biểu tượng phù hợp
+ - Ngày tạo được hiển thị đúng định dạng","- Dữ liệu khách hàng được hiển thị đầy đủ và chính xác
+ - Trạng thái khách hàng được hiển thị bằng badge màu xanh với text ""Hoạt động"" hoặc ""Không hoạt động""
+ - Ngày tạo chưa hiển thị dữ liệu",Failed,Ngày tạo chưa hiển thị dữ liệu
+QLKH_004,Kiểm tra phân trang trong bảng khách hàng,"1. Kiểm tra chức năng phân trang trong bảng khách hàng
+ 2. Click vào các nút phân trang","- Hiển thị đúng số lượng bản ghi trên mỗi trang
+ - Chuyển trang hoạt động chính xác
+ - Hiển thị đúng tổng số bản ghi","- Hiển thị đúng 10 bản ghi trên mỗi trang
+ - Chuyển trang hoạt động chính xác
+ - Hiển thị đúng tổng số bản ghi",Passed,
+2. Kiểm thử chức năng tìm kiếm,,,,,,
+2.1. Kiểm thử validate,,,,,,
+QLKH_005,Kiểm tra tìm kiếm với từ khóa quá ngắn,"1. Nhập từ khóa tìm kiếm quá ngắn (1 ký tự)
+ 2. Nhấn Enter hoặc click nút tìm kiếm","- Hiển thị thông báo lỗi: ""Từ khóa tìm kiếm phải có ít nhất 2 ký tự""",- Không hiển thị thông báo lỗi,Failed,Hệ thống không có validate độ dài tối thiểu cho từ khóa tìm kiếm
+QLKH_006,Kiểm tra tìm kiếm với từ khóa chứa ký tự đặc biệt,"1. Nhập từ khóa tìm kiếm chứa ký tự đặc biệt (ví dụ: @#$%)
+ 2. Nhấn Enter hoặc click nút tìm kiếm",- Hệ thống xử lý tìm kiếm bình thường hoặc hiển thị thông báo phù hợp,Hệ thống xử lý tìm kiếm bình thường với từ khóa chứa ký tự đặc biệt,Passed,
+2.2. Kiểm thử chức năng,,,,,,
+QLKH_007,Tìm kiếm khách hàng theo tên đăng nhập,"1. Nhập tên đăng nhập của khách hàng vào ô tìm kiếm
+ 2. Nhấn Enter hoặc click nút tìm kiếm","- Hiển thị kết quả tìm kiếm chứa khách hàng có tên đăng nhập trùng khớp với từ khóa
+ - Nếu không có kết quả, hiển thị thông báo ""Không tìm thấy kết quả""","- Hiển thị kết quả tìm kiếm chứa khách hàng có tên đăng nhập chưa trùng khớp với từ khóa
+ - Bảng dữ liệu trống nếu không có kết quả",Failed,Hệ thống không áp dụng tìm kiếm theo tên đăng nhập
+QLKH_008,Tìm kiếm khách hàng theo họ tên,"1. Nhập họ tên của khách hàng vào ô tìm kiếm
+ 2. Nhấn Enter hoặc click nút tìm kiếm","- Hiển thị kết quả tìm kiếm chứa khách hàng có họ tên trùng khớp với từ khóa
+ - Nếu không có kết quả, hiển thị thông báo ""Không tìm thấy kết quả""","- Hiển thị kết quả tìm kiếm chứa khách hàng có họ tên trùng khớp với từ khóa
+ - Bảng dữ liệu trống nếu không có kết quả",Passed,
+QLKH_009,Tìm kiếm khách hàng theo email,"1. Nhập email của khách hàng vào ô tìm kiếm
+ 2. Nhấn Enter hoặc click nút tìm kiếm","- Hiển thị kết quả tìm kiếm chứa khách hàng có email trùng khớp với từ khóa
+ - Nếu không có kết quả, hiển thị thông báo ""Không tìm thấy kết quả""","- Hiển thị kết quả tìm kiếm chứa khách hàng có email trùng khớp với từ khóa
+ - Bảng dữ liệu trống nếu không có kết quả",Failed,Hệ thống không áp dụng tìm kiếm theo email
+QLKH_010,Tìm kiếm khách hàng theo số điện thoại,"1. Nhập số điện thoại của khách hàng vào ô tìm kiếm
+ 2. Nhấn Enter hoặc click nút tìm kiếm","- Hiển thị kết quả tìm kiếm chứa khách hàng có số điện thoại trùng khớp với từ khóa
+ - Nếu không có kết quả, hiển thị thông báo ""Không tìm thấy kết quả""","- Hiển thị kết quả tìm kiếm chứa khách hàng có số điện thoại trùng khớp với từ khóa
+ - Bảng dữ liệu trống nếu không có kết quả",Failed,Hệ thống không áp dụng tìm kiếm theo số điện thoại
+QLKH_011,Tìm kiếm với từ khóa không tồn tại,"1. Nhập từ khóa không tồn tại trong hệ thống
+ 2. Nhấn Enter hoặc click nút tìm kiếm","- Hiển thị thông báo ""Không tìm thấy kết quả""
+ - Bảng dữ liệu trống","- Bảng dữ liệu trống
+ - Không hiển thị thông báo",Passed,
+2.3. Kiểm thử API,,,,,,
+QLKH_012,Kiểm thử API tìm kiếm khách hàng thành công,"1. Gửi request POST đến endpoint /nguoidung/list với dữ liệu tìm kiếm hợp lệ:
+ {
+ ""keyWord"": ""test"",
+ ""currentPage"": 0,
+ ""size"": 10
+ }","- Status code: 200
+ - Response body chứa status 200 và danh sách khách hàng phù hợp với từ khóa tìm kiếm
+ - Dữ liệu phân trang chính xác","- Status code: 200
+ - Response body chứa status 200 và danh sách khách hàng phù hợp với từ khóa tìm kiếm
+ - Dữ liệu phân trang chính xác",Passed,
+QLKH_013,Kiểm thử API tìm kiếm khách hàng với từ khóa không tồn tại,"1. Gửi request POST đến endpoint /nguoidung/list với từ khóa không tồn tại:
+ {
+ ""keyWord"": ""nonexistentuser123456"",
+ ""currentPage"": 0,
+ ""size"": 10
+ }","- Status code: 200
+ - Response body chứa status 200 và danh sách khách hàng trống
+ - Tổng số bản ghi là 0","- Status code: 200
+ - Response body chứa status 200 và danh sách khách hàng trống
+ - Tổng số bản ghi là 0",Passed,
+QLKH_014,Kiểm thử API tìm kiếm khách hàng với tham số không hợp lệ,"1. Gửi request POST đến endpoint /nguoidung/list với tham số không hợp lệ:
+ {
+ ""keyWord"": ""test"",
+ ""currentPage"": -1,
+ ""size"": 0
+ }","- Status code: 200 hoặc 400
+ - Response body chứa thông báo lỗi phù hợp","- Status code: 200
+ - Hệ thống tự động điều chỉnh giá trị không hợp lệ và trả về kết quả",Passed,Hệ thống không trả về lỗi khi tham số không hợp lệ
+3. Kiểm thử hiển thị khách hàng,,,,,,
+3.1. Kiểm thử giao diện,,,,,,
+QLKH_015,Kiểm tra hiển thị thông tin chi tiết khách hàng,"1. Click vào một khách hàng trong danh sách (nếu có chức năng xem chi tiết)
+ 2. Kiểm tra giao diện hiển thị thông tin chi tiết","- Hiển thị đầy đủ thông tin chi tiết của khách hàng: ID, Tên đăng nhập, Họ tên, Email, Số điện thoại, Địa chỉ, Trạng thái, Ngày tạo
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế",,NA,Chức năng chưa được triển khai
+3.2. Kiểm thử API,,,,,,
+QLKH_016,Kiểm thử API lấy thông tin chi tiết khách hàng,1. Gửi request GET đến /hieuthuoc/nguoidung/get?id=6,"- Status code: 200
+ - Response body chứa status 200 và thông tin chi tiết của khách hàng","{
+    ""status"": 200,
+    ""msg"": ""Thành công"",
+    ""data"": {
+        ""createdAt"": 1747641560924,
+        ""updateAt"": 1747641560924,
+        ""id"": 6,
+        ""tenDangNhap"": ""customer3"",
+        ""matKhau"": ""$2a$10$XRUv1H/KAordI8DUVV6ScORT2JnRg.heFhHpGPEr.UN9UAlpSiPBe"",
+        ""hoTen"": ""Customer 3"",
+        ""email"": ""customer3@gmail.com"",
+        ""diaChi"": ""Hà Nội"",
+        ""soDienThoai"": ""0987654326"",
+        ""avatar"": null,
+        ""trangThai"": true,
+        ""nhomQuyens"": [
+            {
+                ""id"": 5,
+                ""tenNhomQuyen"": ""CUSTOMER"",
+                ""moTa"": null,
+                ""chucNangs"": []
+            }
+        ]
+    }
+}",Passed,
+QLKH_017,Kiểm thử API lấy thông tin chi tiết khách hàng với ID không tồn tại,1. Gửi request GET đến endpoint /nguoidung/get với tham số id không tồn tại,"- Status code: 404 hoặc 200 với status 404
+ - Response body chứa thông báo lỗi phù hợp","- Status code: 200
+ - Response body chứa status 404 và thông báo lỗi phù hợp",Passed,
+4. Kiểm thử thêm khách hàng,,,,,,
+4.1. Kiểm thử giao diện,,,,,,
+QLKH_018,Kiểm tra giao diện form thêm khách hàng,"1. Click vào nút ""Thêm khách hàng"" (nếu có)
+ 2. Kiểm tra giao diện form thêm khách hàng","- Hiển thị tiêu đề ""Thêm khách hàng""
+ - Hiển thị các trường nhập liệu: Họ tên, Email, Số điện thoại, Tên đăng nhập, Mật khẩu, Địa chỉ
+ - Hiển thị các nút: Lưu, Hủy
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế",,N/A,Chức năng chưa được triển khai
+4.2. Kiểm thử validate,,,,,,
+QLKH_019,Kiểm tra validate các trường bắt buộc khi thêm khách hàng,"1. Click vào nút ""Thêm khách hàng""
+ 2. Để trống các trường bắt buộc
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi cho các trường bắt buộc
+ - Không cho phép lưu khi thiếu thông tin bắt buộc",,N/A,Chức năng chưa được triển khai
+QLKH_020,Kiểm tra validate định dạng email khi thêm khách hàng,"1. Click vào nút ""Thêm khách hàng""
+ 2. Nhập email không đúng định dạng
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Email không đúng định dạng""
+ - Không cho phép lưu khi email không hợp lệ",,N/A,Chức năng chưa được triển khai
+QLKH_021,Kiểm tra validate định dạng số điện thoại khi thêm khách hàng,"1. Click vào nút ""Thêm khách hàng""
+ 2. Nhập số điện thoại không đúng định dạng
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Số điện thoại không đúng định dạng""
+ - Không cho phép lưu khi số điện thoại không hợp lệ",,N/A,Chức năng chưa được triển khai
+QLKH_022,Kiểm tra validate email đã tồn tại khi thêm khách hàng,"1. Click vào nút ""Thêm khách hàng""
+ 2. Nhập email đã tồn tại trong hệ thống
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Email đã được sử dụng""
+ - Không cho phép lưu khi email đã tồn tại",,N/A,Chức năng chưa được triển khai
+QLKH_023,Kiểm tra validate tên đăng nhập đã tồn tại khi thêm khách hàng,"1. Click vào nút ""Thêm khách hàng""
+ 2. Nhập tên đăng nhập đã tồn tại trong hệ thống
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Tên đăng nhập đã tồn tại""
+ - Không cho phép lưu khi tên đăng nhập đã tồn tại",,N/A,Chức năng chưa được triển khai
+4.3. Kiểm thử chức năng,,,,,,
+QLKH_024,Thêm khách hàng thành công với dữ liệu hợp lệ,"1. Click vào nút ""Thêm khách hàng""
+ 2. Nhập đầy đủ thông tin hợp lệ
+ 3. Click nút ""Lưu""","- Hiển thị thông báo: ""Thêm khách hàng thành công""
+ - Khách hàng mới được thêm vào danh sách
+ - Form thêm khách hàng được đóng",,N/A,Chức năng chưa được triển khai
+QLKH_025,Hủy thêm khách hàng,"1. Click vào nút ""Thêm khách hàng""
+ 2. Nhập một số thông tin
+ 3. Click nút ""Hủy""","- Form thêm khách hàng được đóng
+ - Không có khách hàng mới được thêm vào danh sách",,N/A,Chức năng chưa được triển khai
+4.4. Kiểm thử API,,,,,,
+QLKH_026,Kiểm thử API tạo khách hàng mới thành công,"1. Gửi request POST đến endpoint /hieuthuoc/nguoidung/create với dữ liệu hợp lệ:
+ {
+ ""hoTen"": ""Khách hàng mới"",
+ ""tenDangNhap"": ""khachhangmoi"",
+ ""matKhau"": ""123456"",
+ ""email"": ""khachhangmoi@example.com"",
+ ""soDienThoai"": ""0987654321"",
+ ""diaChi"": ""Hà Nội""
+ }","- Status code: 200
+ - Response body chứa status 200 và thông báo thành công
+ - Dữ liệu khách hàng được tạo thành công trong hệ thống","{
+    ""status"": 200,
+    ""msg"": ""Thành công"",
+    ""data"": {
+        ""createdAt"": 1747897280093,
+        ""updateAt"": 1747897280093,
+        ""id"": 29,
+        ""tenDangNhap"": ""khachhangmoi"",
+        ""matKhau"": ""$2a$10$gkp.2bsoZ0.UiYg5kYif7.vwCXaQ9WiIOS19wF46nKyqyvvwR.hhm"",
+        ""hoTen"": ""Khách hàng mới"",
+        ""email"": ""khachhangmoi@example.com"",
+        ""diaChi"": ""Hà Nội"",
+        ""soDienThoai"": ""0987654321"",
+        ""avatar"": null,
+        ""trangThai"": true,
+        ""nhomQuyens"": []
+ ",Passed,
+QLKH_027,Kiểm thử API tạo khách hàng với email đã tồn tại,"1. Gửi request POST đến endpoint /nguoidung/dangky với email đã tồn tại:
+ {
+ ""hoTen"": ""Khách hàng mới"",
+ ""tenDangNhap"": ""khachhangmoi2"",
+ ""matKhau"": ""123456"",
+ ""email"": ""existing@example.com"",
+ ""soDienThoai"": ""0987654321"",
+ ""diaChi"": ""Hà Nội""
+ }","- Status code: 200
+ - Response body chứa status 400 và thông báo lỗi email đã tồn tại","{
+    ""status"": 400,
+    ""msg"": ""Email đã tồn tại.""
+}",Passed,
+QLKH_028,Kiểm thử API tạo khách hàng với tên đăng nhập đã tồn tại,"1. Gửi request POST đến endpoint /nguoidung/dangky với tên đăng nhập đã tồn tại:
+ {
+ ""hoTen"": ""Khách hàng mới"",
+ ""tenDangNhap"": ""existing"",
+ ""matKhau"": ""123456"",
+ ""email"": ""khachhangmoi3@example.com"",
+ ""soDienThoai"": ""0987654321"",
+ ""diaChi"": ""Hà Nội""
+ }","- Status code: 200
+ - Response body chứa status 400 và thông báo lỗi tên đăng nhập đã tồn tại","{
+    ""status"": 400,
+    ""msg"": ""Tên đăng nhập đã tồn tại.""
+}",Passed,
+5. Kiểm thử sửa khách hàng,,,,,,
+5.1. Kiểm thử giao diện,,,,,,
+QLKH_029,Kiểm tra giao diện form sửa khách hàng,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng trong danh sách (nếu có)
+ 2. Kiểm tra giao diện form sửa khách hàng","- Hiển thị tiêu đề ""Sửa thông tin khách hàng""
+ - Hiển thị các trường nhập liệu với dữ liệu hiện tại của khách hàng: Họ tên, Email, Số điện thoại, Địa chỉ
+ - Hiển thị các nút: Lưu, Hủy
+ - Bố cục, font, size, color hiển thị đúng theo thiết kế",,N/A,Chức năng chưa được triển khai
+5.2. Kiểm thử validate,,,,,,
+QLKH_030,Kiểm tra validate các trường bắt buộc khi sửa khách hàng,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng
+ 2. Xóa dữ liệu các trường bắt buộc
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi cho các trường bắt buộc
+ - Không cho phép lưu khi thiếu thông tin bắt buộc",,N/A,Chức năng chưa được triển khai
+QLKH_031,Kiểm tra validate định dạng email khi sửa khách hàng,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng
+ 2. Sửa email thành định dạng không hợp lệ
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Email không đúng định dạng""
+ - Không cho phép lưu khi email không hợp lệ",,N/A,Chức năng chưa được triển khai
+QLKH_032,Kiểm tra validate định dạng số điện thoại khi sửa khách hàng,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng
+ 2. Sửa số điện thoại thành định dạng không hợp lệ
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Số điện thoại không đúng định dạng""
+ - Không cho phép lưu khi số điện thoại không hợp lệ",,N/A,Chức năng chưa được triển khai
+QLKH_033,Kiểm tra validate email đã tồn tại khi sửa khách hàng,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng
+ 2. Sửa email thành email đã tồn tại của khách hàng khác
+ 3. Click nút ""Lưu""","- Hiển thị thông báo lỗi: ""Email đã được sử dụng""
+ - Không cho phép lưu khi email đã tồn tại",,N/A,Chức năng chưa được triển khai
+5.3. Kiểm thử chức năng,,,,,,
+QLKH_034,Sửa thông tin khách hàng thành công với dữ liệu hợp lệ,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng
+ 2. Sửa thông tin với dữ liệu hợp lệ
+ 3. Click nút ""Lưu""","- Hiển thị thông báo: ""Cập nhật thông tin khách hàng thành công""
+ - Thông tin khách hàng được cập nhật trong danh sách
+ - Form sửa khách hàng được đóng",,N/A,Chức năng chưa được triển khai
+QLKH_035,Hủy sửa thông tin khách hàng,"1. Click vào nút ""Sửa"" bên cạnh một khách hàng
+ 2. Sửa một số thông tin
+ 3. Click nút ""Hủy""","- Form sửa khách hàng được đóng
+ - Thông tin khách hàng không thay đổi",,N/A,Chức năng chưa được triển khai
+5.4. Kiểm thử API,,,,,,
+QLKH_036,Kiểm thử API cập nhật thông tin khách hàng thành công,"1. Gửi request PUT đến endpoint /nguoidung/update với dữ liệu hợp lệ:
+{
+  ""id"": 13,
+  ""hoTen"": ""Người dùng đã cập nhật"",
+  ""email"": ""updated@example.com"",
+  ""soDienThoai"": ""0987654322"",
+  ""diaChi"": ""Hà Nội cập nhật"",
+  ""nhomQuyenIds"": [1, 2]
+}","- Status code: 200
+ - Response body chứa status 200 và thông báo thành công
+ - Dữ liệu khách hàng được cập nhật thành công trong hệ thống","{
+    ""status"": 200,
+    ""msg"": ""Thành công"",
+    ""data"": {
+        ""createdAt"": null,
+        ""updateAt"": 1747898509670,
+        ""id"": 13,
+        ""tenDangNhap"": null,
+        ""matKhau"": null,
+        ""hoTen"": ""Người dùng đã cập nhật"",
+        ""email"": ""updated@example.com"",
+        ""diaChi"": ""Hà Nội cập nhật"",
+        ""soDienThoai"": ""0987654322"",
+        ""avatar"": null,
+        ""trangThai"": true,
+        ""nhomQuyens"": null
+    }
+}",Passed,
+QLKH_037,Kiểm thử API cập nhật thông tin khách hàng với ID không tồn tại,"1. Gửi request PUT đến endpoint /nguoidung/update với ID không tồn tại:
+ {
+ ""id"": ""999999"",
+ ""hoTen"": ""Khách hàng không tồn tại"",
+ ""email"": ""nonexistent@example.com"",
+ ""soDienThoai"": ""0987654321"",
+ ""diaChi"": ""Hà Nội""
+ }","- Status code: 404 hoặc 200 với status 404
+ - Response body chứa thông báo lỗi phù hợp","{
+    ""status"": 400,
+    ""msg"": ""Tài khoản không tồn tại.""
+}",Passed,
+6. Kiểm thử xóa khách hàng,,,,,,
+6.1. Kiểm thử chức năng,,,,,,
+QLKH_038,Xóa khách hàng thành công,"1. Click vào nút ""Xóa"" bên cạnh một khách hàng trong danh sách (nếu có)
+ 2. Xác nhận xóa trong hộp thoại xác nhận","- Hiển thị thông báo: ""Xóa khách hàng thành công""
+ - Khách hàng bị xóa khỏi danh sách",,N/A,Chức năng chưa được triển khai
+QLKH_039,Hủy xóa khách hàng,"1. Click vào nút ""Xóa"" bên cạnh một khách hàng
+ 2. Hủy xóa trong hộp thoại xác nhận","- Hộp thoại xác nhận được đóng
+ - Khách hàng không bị xóa khỏi danh sách",,N/A,Chức năng chưa được triển khai
+6.2. Kiểm thử API,,,,,,
+QLKH_040,Kiểm thử API xóa khách hàng thành công,1. Gửi request DELETE đến endpoint /nguoidung/delete với tham số id hợp lệ,"- Status code: 200
+ - Response body chứa status 200 và thông báo thành công
+ - Khách hàng bị xóa khỏi hệ thống","{
+    ""status"": 200,
+    ""msg"": ""ok""
+}",Passed,
+QLKH_041,Kiểm thử API xóa khách hàng với ID không tồn tại,1. Gửi request DELETE đến endpoint /nguoidung/delete với tham số id không tồn tại,"- Status code: 404 hoặc 200 với status 404
+ - Response body chứa thông báo lỗi phù hợp","- Status code: 200
+ - Response body chứa status 404 và thông báo lỗi phù hợp",Passed,
+7. Kiểm thử cập nhật trạng thái tài khoản khách hàng,,,,,,
+7.1. Kiểm thử giao diện,,,,,,
+QLKH_042,Kiểm tra giao diện cập nhật trạng thái tài khoản,"1. Click vào nút hoặc biểu tượng cập nhật trạng thái bên cạnh một khách hàng (nếu có)
+ 2. Kiểm tra giao diện cập nhật trạng thái","- Hiển thị hộp thoại xác nhận cập nhật trạng thái
+ - Hiển thị các tùy chọn trạng thái (Hoạt động/Khóa)
+ - Hiển thị các nút: Xác nhận, Hủy",,N/A,Chức năng chưa được triển khai
+7.2. Kiểm thử chức năng,,,,,,
+QLKH_043,Cập nhật trạng thái tài khoản thành công,"1. Click vào nút hoặc biểu tượng cập nhật trạng thái bên cạnh một khách hàng
+ 2. Chọn trạng thái mới
+ 3. Click nút ""Xác nhận""","- Hiển thị thông báo: ""Cập nhật trạng thái tài khoản thành công""
+ - Trạng thái khách hàng được cập nhật trong danh sách
+ - Hộp thoại xác nhận được đóng",,N/A,Chức năng chưa được triển khai
+8. Kiểm thử Unit Test,,,,,,
+8.1. Kiểm thử Service,,,,,,
+QLKH_044,Kiểm thử phương thức tạo người dùng mới (UT_NGUOIDUNG_SERVICE_001),"1. Tạo đối tượng NguoiDungDTO với dữ liệu hợp lệ
+ 2. Mock NguoiDungRepository để trả về người dùng đã tạo
+ 3. Mock PasswordEncoder để mã hóa mật khẩu
+ 4. Gọi phương thức create(nguoiDungDTO) của NguoiDungService
+ 5. Kiểm tra kết quả trả về","- Phương thức trả về đối tượng ResponseDTO với status 200 và data là người dùng đã tạo
+ - Phương thức save của repository được gọi đúng một lần
+ - Dữ liệu người dùng được lưu chính xác","- Phương thức trả về đối tượng ResponseDTO với status 200 và data là người dùng đã tạo
+ - Phương thức save của repository được gọi đúng một lần
+ - Dữ liệu người dùng được lưu chính xác",Passed,Link code unit test
+QLKH_045,Kiểm thử phương thức đăng ký người dùng mới (UT_NGUOIDUNG_SERVICE_001A),"1. Tạo đối tượng NguoiDungDTO với dữ liệu hợp lệ
+ 2. Mock NguoiDungRepository để trả về null khi kiểm tra email và tên đăng nhập (chưa tồn tại)
+ 3. Mock NhomQuyenRepository để trả về nhóm quyền KHACH_HANG
+ 4. Mock BCryptPasswordEncoder để mã hóa mật khẩu
+ 5. Gọi phương thức register(nguoiDungDTO) của NguoiDungService","- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo đăng ký thành công
+ - Phương thức save của NguoiDungRepository được gọi đúng một lần
+ - Dữ liệu người dùng được lưu chính xác với nhóm quyền là KHACH_HANG
+ - Mật khẩu được mã hóa trước khi lưu
+ - Giỏ hàng được tạo cho người dùng mới","- Phương thức trả về đối tượng ResponseDTO với status 200 và thông báo đăng ký thành công
+ - Phương thức save của NguoiDungRepository được gọi đúng một lần
+ - Dữ liệu người dùng được lưu chính xác với nhóm quyền là KHACH_HANG
+ - Mật khẩu được mã hóa trước khi lưu
+ - Giỏ hàng được tạo cho người dùng mới",Passed,
+QLKH_046,Kiểm thử đăng ký với email đã tồn tại (UT_NGUOIDUNG_SERVICE_001B),"1. Tạo đối tượng NguoiDungDTO với email đã tồn tại
+ 2. Mock NguoiDungRepository để trả về người dùng hiện có khi kiểm tra email
+ 3. Gọi phương thức register(nguoiDungDTO) của NguoiDungService","- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi email đã tồn tại
+ - Phương thức save của NguoiDungRepository không được gọi","- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi email đã tồn tại
+ - Phương thức save của NguoiDungRepository không được gọi",Passed,
+QLKH_047,Kiểm thử đăng ký với tên đăng nhập đã tồn tại (UT_NGUOIDUNG_SERVICE_001C),"1. Tạo đối tượng NguoiDungDTO với tên đăng nhập đã tồn tại
+ 2. Mock NguoiDungRepository để trả về người dùng hiện có khi kiểm tra tên đăng nhập
+ 3. Gọi phương thức register(nguoiDungDTO) của NguoiDungService","- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi tên đăng nhập đã tồn tại
+ - Phương thức save của NguoiDungRepository không được gọi","- Phương thức trả về đối tượng ResponseDTO với status 400 và thông báo lỗi tên đăng nhập đã tồn tại
+ - Phương thức save của NguoiDungRepository không được gọi",Passed,
+QLKH_048,Kiểm thử phương thức cập nhật người dùng (UT_NGUOIDUNG_SERVICE_002),"1. Tạo đối tượng NguoiDungDTO với ID đã tồn tại
+ 2. Mock NguoiDungRepository để trả về người dùng hiện có
+ 3. Gọi phương thức update(nguoiDungDTO) của NguoiDungService
+ 4. Kiểm tra kết quả trả về","- Phương thức trả về đối tượng ResponseDTO với status 200 và data là người dùng đã cập nhật
+ - Phương thức save của repository được gọi đúng một lần
+ - Dữ liệu người dùng được cập nhật chính xác","- Phương thức trả về đối tượng ResponseDTO với status 200 và data là người dùng đã cập nhật
+ - Phương thức save của repository được gọi đúng một lần
+ - Dữ liệu người dùng được cập nhật chính xác",Passed,
+QLKH_049,Kiểm thử phương thức lấy thông tin người dùng theo ID (UT_NGUOIDUNG_SERVICE_003),"1. Mock NguoiDungRepository để trả về người dùng với ID cụ thể
+ 2. Gọi phương thức getById(id) của NguoiDungService
+ 3. Kiểm tra kết quả trả về","- Phương thức trả về đối tượng ResponseDTO với status 200 và data là người dùng tìm thấy
+ - Phương thức findById của repository được gọi đúng một lần
+ - Dữ liệu người dùng được trả về chính xác","- Phương thức trả về đối tượng ResponseDTO với status 200 và data là người dùng tìm thấy
+ - Phương thức findById của repository được gọi đúng một lần
+ - Dữ liệu người dùng được trả về chính xác",Passed,

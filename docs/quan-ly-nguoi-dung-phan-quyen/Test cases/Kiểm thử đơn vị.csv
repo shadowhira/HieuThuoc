@@ -1,0 +1,270 @@
+Function Name,Kiểm thử đơn vị quản lý người dùng và phân quyền,,,,,
+Test Result,Chrome,,,,,
+Total,38,,,,,
+Passed,38,,,,,
+Failed,0,,,,,
+Not Run,0,,,,,
+NA,0,,,,,
+,,,,,,
+,,,,,,
+ID,Summary,Steps,Expected Output,Current Ouput,Test Results,Notes
+,,,,,Chrome,
+I. Kiểm thử DangNhapService,,,,,,
+UT_DANGNHAP_SERVICE_001,Kiểm thử đăng nhập thành công,"1. Tạo LoginRequest với thông tin hợp lệ
+2. Mock AuthenticationManager để xác thực thành công
+3. Mock JwtService để tạo token
+4. Gọi phương thức login()
+5. Kiểm tra kết quả","- ResponseDTO với status 200
+- Token JWT được trả về trong data
+- AuthenticationManager.authenticate() được gọi
+- JwtService.generateToken() được gọi","- Trả về status 200
+- Token JWT hợp lệ
+- Các phương thức được gọi đúng",Passed,
+UT_DANGNHAP_SERVICE_002,Kiểm thử đăng nhập với tài khoản không tồn tại,"1. Tạo LoginRequest với tài khoản không tồn tại
+2. Mock AuthenticationManager để ném UsernameNotFoundException
+3. Gọi phương thức login()
+4. Kiểm tra exception","- Ném UsernameNotFoundException
+- Thông báo ""Tài khoản không tồn tại""
+- Không gọi JwtService.generateToken()","- Exception được ném đúng
+- Thông báo lỗi chính xác
+- Không tạo token",Passed,
+UT_DANGNHAP_SERVICE_003,Kiểm thử đăng nhập với mật khẩu sai,"1. Tạo LoginRequest với mật khẩu sai
+2. Mock AuthenticationManager để ném BadCredentialsException
+3. Gọi phương thức login()
+4. Kiểm tra exception","- Ném BadCredentialsException
+- Thông báo ""Mật khẩu không chính xác""
+- Không gọi JwtService.generateToken()","- Exception được ném đúng
+- Thông báo lỗi chính xác
+- Không tạo token",Passed,
+UT_DANGNHAP_SERVICE_004,Kiểm thử đăng nhập với tài khoản bị khóa,"1. Tạo LoginRequest với tài khoản bị khóa
+2. Mock AuthenticationManager để ném DisabledException
+3. Gọi phương thức login()
+4. Kiểm tra exception","- Ném DisabledException
+- Thông báo ""Tài khoản đã bị vô hiệu hóa""
+- Không gọi JwtService.generateToken()","- Exception được ném đúng
+- Thông báo lỗi chính xác
+- Không tạo token",Passed,
+,,,,,,
+II. Kiểm thử NguoiDungService,,,,,,
+UT_NGUOIDUNG_SERVICE_001,Kiểm thử tạo người dùng mới với dữ liệu hợp lệ,"1. Tạo NguoiDungDTO với dữ liệu hợp lệ
+2. Mock repository trả về null cho kiểm tra trùng
+3. Mock repository lưu thành công
+4. Gọi phương thức create()
+5. Kiểm tra kết quả","- ResponseDTO với status 200
+- Dữ liệu người dùng được lưu
+- Giỏ hàng được tạo
+- Repository.save() được gọi","- Trả về status 200
+- Dữ liệu lưu thành công
+- Các phương thức được gọi đúng",Passed,
+UT_NGUOIDUNG_SERVICE_002,Kiểm thử tạo người dùng với email đã tồn tại,"1. Tạo NguoiDungDTO với email đã tồn tại
+2. Mock repository trả về user hiện có
+3. Gọi phương thức create()
+4. Kiểm tra kết quả","- ResponseDTO với status 400
+- Thông báo ""Email đã tồn tại""
+- Không lưu dữ liệu","- Trả về status 400
+- Thông báo lỗi chính xác
+- Không lưu dữ liệu",Passed,
+UT_NGUOIDUNG_SERVICE_003,Kiểm thử cập nhật thông tin người dùng,"1. Tạo NguoiDungDTO với thông tin cập nhật
+2. Mock repository trả về user hiện có
+3. Gọi phương thức update()
+4. Kiểm tra kết quả","- ResponseDTO với status 200
+- Thông tin được cập nhật
+- Repository.save() được gọi","- Trả về status 200
+- Dữ liệu cập nhật thành công
+- Phương thức được gọi đúng",Passed,
+UT_NGUOIDUNG_SERVICE_004,Kiểm thử đăng ký tài khoản mới,"1. Tạo NguoiDungDTO với thông tin đăng ký
+2. Gọi phương thức register()
+3. Kiểm tra kết quả","- ResponseDTO với status 200
+- Tài khoản được tạo với nhóm quyền KHACH_HANG
+- Giỏ hàng được tạo","- Trả về status 200
+- Tài khoản tạo thành công
+- Giỏ hàng được tạo",Passed,
+UT_NGUOIDUNG_SERVICE_005,Kiểm thử đổi mật khẩu,"1. Tạo NguoiDungDTO với mật khẩu mới
+2. Gọi phương thức changeMatKhau()
+3. Kiểm tra kết quả","- ResponseDTO với status 200
+- Mật khẩu được cập nhật và mã hóa","- Trả về status 200
+- Mật khẩu được cập nhật",Passed,
+UT_NGUOIDUNG_SERVICE_006,Kiểm thử quên mật khẩu,"1. Gọi phương thức forgotMatKhau() với email
+2. Kiểm tra kết quả","- ResponseDTO với status 200
+- Mật khẩu mới được tạo
+- Email được gửi","- Trả về status 200
+- Email gửi thành công",Passed,
+UT_NGUOIDUNG_SERVICE_007,Kiểm thử thay đổi avatar,"1. Tạo NguoiDungDTO với avatar mới
+2. Gọi phương thức changeAvatar()
+3. Kiểm tra kết quả","- ResponseDTO với status 200
+- Avatar được cập nhật","- Trả về status 200
+- Avatar cập nhật thành công",Passed,
+UT_NGUOIDUNG_SERVICE_008,Kiểm thử tìm kiếm người dùng theo tên,"1. Tạo SearchDTO với từ khóa tìm kiếm
+2. Gọi phương thức getByHoTen()
+3. Kiểm tra kết quả phân trang","- ResponseDTO với status 200
+- Danh sách người dùng phân trang
+- Tổng số trang và phần tử","- Trả về status 200
+- Danh sách chính xác
+- Phân trang đúng",Passed,
+UT_NGUOIDUNG_SERVICE_009,Kiểm thử xóa người dùng,"1. Gọi phương thức delete() với ID
+2. Kiểm tra kết quả","- ResponseDTO với status 200
+- Người dùng bị xóa","- Trả về status 200
+- Xóa thành công",Passed,
+UT_NGUOIDUNG_SERVICE_010,Kiểm thử loadUserByUsername,"1. Gọi loadUserByUsername() với tên đăng nhập
+2. Kiểm tra kết quả","- UserDetails với authorities
+- Danh sách quyền đúng","- UserDetails hợp lệ
+- Authorities đúng",Passed,
+,,,,,,
+III. Kiểm thử NhomQuyenService,,,,,,
+UT_NHOMQUYEN_SERVICE_001,Kiểm thử tạo nhóm quyền mới với dữ liệu hợp lệ,"1. Tạo NhomQuyenDTO với dữ liệu hợp lệ
+2. Mock repository kiểm tra tên không trùng
+3. Mock repository lưu thành công
+4. Gọi phương thức create()
+5. Kiểm tra kết quả","- ResponseDTO với status 201
+- Dữ liệu nhóm quyền được lưu
+- Repository.save() được gọi","- Trả về status 201
+- Dữ liệu lưu thành công
+- Phương thức được gọi đúng",Passed,
+UT_NHOMQUYEN_SERVICE_002,Kiểm thử cập nhật nhóm quyền,"1. Tạo NhomQuyenDTO với thông tin cập nhật
+2. Mock repository trả về nhóm quyền hiện có
+3. Gọi phương thức update()
+4. Kiểm tra kết quả","- ResponseDTO với status 200
+- Thông tin được cập nhật
+- Repository.save() được gọi","- Trả về status 200
+- Dữ liệu cập nhật thành công
+- Phương thức được gọi đúng",Passed,
+UT_NHOMQUYEN_SERVICE_003,Kiểm thử tìm kiếm nhóm quyền theo tên,"1. Tạo SearchDTO với từ khóa
+2. Gọi getByTenNhomQuyen()
+3. Kiểm tra kết quả phân trang","- ResponseDTO với status 200
+- Danh sách nhóm quyền phân trang","- Trả về status 200
+- Phân trang chính xác",Passed,
+UT_NHOMQUYEN_SERVICE_004,Kiểm thử xóa nhóm quyền không tồn tại,"1. Gọi delete() với ID không tồn tại
+2. Kiểm tra exception","- Ném EntityNotFoundException
+- Thông báo lỗi phù hợp","- Exception được ném
+- Thông báo chính xác",Passed,
+UT_NHOMQUYEN_SERVICE_005,Kiểm thử cập nhật với chức năng không tồn tại,"1. Tạo NhomQuyenDTO với ID chức năng không tồn tại
+2. Gọi update()
+3. Kiểm tra exception","- Ném RuntimeException
+- Thông báo ""Chức năng không tồn tại""","- Exception được ném
+- Thông báo chính xác",Passed,
+UT_NHOMQUYEN_SERVICE_006,Kiểm thử tạo nhóm quyền trùng tên,"1. Tạo NhomQuyenDTO với tên đã tồn tại
+2. Gọi create()
+3. Kiểm tra kết quả","- ResponseDTO với status 409
+- Thông báo trùng tên","- Trả về status 409
+- Thông báo chính xác",Passed,
+,,,,,,
+IV. Kiểm thử JWTService,,,,,,
+UT_JWT_SERVICE_001,Kiểm thử tạo token JWT,"1. Chuẩn bị thông tin người dùng
+2. Mock NguoiDungService trả về thông tin user
+3. Gọi phương thức generateToken()
+4. Kiểm tra kết quả","- Token JWT được tạo
+- Token không rỗng
+- Token có định dạng hợp lệ","- Token được tạo thành công
+- Token hợp lệ",Passed,
+UT_JWT_SERVICE_002,Kiểm thử xác thực token JWT hợp lệ,"1. Tạo token JWT hợp lệ
+2. Mock UserDetails trả về username
+3. Gọi phương thức validateToken()
+4. Kiểm tra kết quả","- Kết quả trả về true
+- Token được xác thực thành công","- Token được xác thực
+- Kết quả trả về true",Passed,
+UT_JWT_SERVICE_003,Kiểm thử token không hợp lệ,"1. Tạo token sai định dạng
+2. Gọi validateToken()
+3. Kiểm tra kết quả","- Trả về false
+- Token bị từ chối","- Kết quả false
+- Token không hợp lệ",Passed,
+UT_JWT_SERVICE_004,Kiểm thử token hết hạn,"1. Tạo token đã hết hạn
+2. Gọi validateToken()
+3. Kiểm tra kết quả","- Trả về false
+- Token bị từ chối","- Kết quả false
+- Token hết hạn",Passed,
+UT_JWT_SERVICE_005,Kiểm thử token sai chữ ký,"1. Tạo token với chữ ký sai
+2. Gọi validateToken()
+3. Kiểm tra kết quả","- Trả về false
+- Token bị từ chối","- Kết quả false
+- Chữ ký không hợp lệ",Passed,
+
+V. Kiểm thử DangNhapController,,,,,,
+UT_DANGNHAP_CONTROLLER_001,Kiểm thử API đăng nhập thành công,"1. Tạo LoginRequest với thông tin hợp lệ
+2. Mock AuthenticationManager để xác thực thành công
+3. Mock JwtService để tạo token
+4. Gọi API /dangnhap
+5. Kiểm tra kết quả","- Status code 200
+- Token JWT được trả về
+- AuthenticationManager.authenticate() được gọi
+- JwtService.generateToken() được gọi","- Trả về status 200
+- Token JWT hợp lệ
+- Các phương thức được gọi đúng",Passed,
+
+UT_DANGNHAP_CONTROLLER_002,Kiểm thử API đăng nhập với tài khoản không tồn tại,"1. Tạo LoginRequest với tài khoản không tồn tại
+2. Mock AuthenticationManager để ném BadCredentialsException
+3. Gọi API /dangnhap
+4. Kiểm tra exception","- Ném BadCredentialsException
+- Thông báo ""Tài khoản không tồn tại""
+- Không gọi JwtService.generateToken()","- Exception được ném đúng
+- Thông báo lỗi chính xác
+- Không tạo token",Passed,
+
+VI. Kiểm thử NguoiDungController,,,,,,
+UT_NGUOIDUNG_CONTROLLER_001,Kiểm thử API tạo người dùng mới với dữ liệu hợp lệ,"1. Tạo NguoiDungDTO với dữ liệu hợp lệ
+2. Mock NguoiDungService để trả về thành công
+3. Gọi API tạo người dùng
+4. Kiểm tra kết quả","- Status code 200
+- Thông báo thành công
+- Dữ liệu người dùng được trả về","- Trả về status 200
+- Thông báo ""Thành công""
+- Dữ liệu người dùng chính xác",Passed,
+
+UT_NGUOIDUNG_CONTROLLER_002,Kiểm thử API cập nhật người dùng với dữ liệu hợp lệ,"1. Tạo NguoiDungDTO với dữ liệu cập nhật
+2. Mock NguoiDungService để trả về thành công
+3. Gọi API cập nhật
+4. Kiểm tra kết quả","- Status code 200
+- Thông báo thành công
+- Dữ liệu được cập nhật","- Trả về status 200
+- Thông báo ""Thành công""
+- Dữ liệu cập nhật chính xác",Passed,
+
+UT_NGUOIDUNG_CONTROLLER_003,Kiểm thử API lấy thông tin người dùng theo ID,"1. Mock NguoiDungService để trả về người dùng
+2. Gọi API lấy thông tin theo ID
+3. Kiểm tra kết quả","- Status code 200
+- Thông báo thành công
+- Dữ liệu người dùng được trả về","- Trả về status 200
+- Thông báo ""Thành công""
+- Dữ liệu người dùng chính xác",Passed,
+
+VII. Kiểm thử NguoiDungRepository,,,,,,
+UT_NGUOIDUNG_REPOSITORY_001,Kiểm thử phương thức findByEmail,"1. Tạo dữ liệu người dùng mẫu
+2. Lưu vào database test
+3. Gọi findByEmail()
+4. Kiểm tra kết quả","- Trả về đối tượng NguoiDung
+- Thông tin người dùng chính xác","- Đối tượng NguoiDung không null
+- Thông tin trùng khớp dữ liệu mẫu",Passed,
+
+UT_NGUOIDUNG_REPOSITORY_002,Kiểm thử phương thức findByTenDangNhap,"1. Tạo dữ liệu người dùng mẫu
+2. Lưu vào database test
+3. Gọi findByTenDangNhap()
+4. Kiểm tra kết quả","- Trả về đối tượng NguoiDung
+- Thông tin người dùng chính xác","- Đối tượng NguoiDung không null
+- Thông tin trùng khớp dữ liệu mẫu",Passed,
+
+UT_NGUOIDUNG_REPOSITORY_003,Kiểm thử phương thức findByEmail với email không tồn tại,"1. Gọi findByEmail() với email không tồn tại
+2. Kiểm tra kết quả","- Trả về null","- Kết quả là null",Passed,
+
+VIII. Kiểm thử NguoiDungValidator,,,,,,
+UT_NGUOIDUNG_VALIDATOR_001,Kiểm thử validate email hợp lệ,"1. Tạo NguoiDungDTO với email hợp lệ
+2. Gọi validateEmail()
+3. Kiểm tra kết quả","- Trả về true","- Kết quả là true",Passed,
+
+UT_NGUOIDUNG_VALIDATOR_002,Kiểm thử validate email không hợp lệ,"1. Tạo NguoiDungDTO với email không hợp lệ
+2. Gọi validateEmail()
+3. Kiểm tra kết quả","- Trả về false","- Kết quả là false",Passed,
+
+UT_NGUOIDUNG_VALIDATOR_003,Kiểm thử validate mật khẩu hợp lệ,"1. Tạo NguoiDungDTO với mật khẩu hợp lệ
+2. Gọi validatePassword()
+3. Kiểm tra kết quả","- Trả về true","- Kết quả là true",Passed,
+
+UT_NGUOIDUNG_VALIDATOR_004,Kiểm thử validate mật khẩu không hợp lệ - quá ngắn,"1. Tạo NguoiDungDTO với mật khẩu ngắn
+2. Gọi validatePassword()
+3. Kiểm tra kết quả","- Trả về false","- Kết quả là false",Passed,
+
+UT_NGUOIDUNG_VALIDATOR_005,Kiểm thử validate số điện thoại hợp lệ,"1. Tạo NguoiDungDTO với số điện thoại hợp lệ
+2. Gọi validatePhoneNumber()
+3. Kiểm tra kết quả","- Trả về true","- Kết quả là true",Passed,
+
+UT_NGUOIDUNG_VALIDATOR_006,Kiểm thử validate số điện thoại không hợp lệ,"1. Tạo NguoiDungDTO với số điện thoại không hợp lệ
+2. Gọi validatePhoneNumber()
+3. Kiểm tra kết quả","- Trả về false","- Kết quả là false",Passed, 
