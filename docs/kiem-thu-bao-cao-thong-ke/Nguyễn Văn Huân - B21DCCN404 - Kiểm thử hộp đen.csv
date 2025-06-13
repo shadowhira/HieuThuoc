@@ -1,0 +1,178 @@
+,,,,,,
+Pass,34,,,,,
+Fail,0,,,,,
+N/A,0,,,,,
+Tổng số test case,34,,,,,
+,,,,,,
+,,,,,,
+Mã Testcase,Mục đích kiểm thử,Các bước thực hiện,Kết quả mong muốn,Kết quả hiện tại,Chi tiết lỗi,Trạng thái
+TC-TK-UI-01,Kiểm tra hiển thị tổng quan ban đầu của giao diện thống kê,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Kiểm tra hiển thị các thành phần chính","1. Hiển thị 3 ô tổng quan: Hóa đơn, Đơn hàng trả lại, Doanh thu
+2. Hiển thị biểu đồ doanh thu
+3. Hiển thị các tab lọc: Theo ngày, Theo tháng, Theo năm
+4. Hiển thị dropdown chọn thời gian",Hiển thị đầy đủ các thành phần theo yêu cầu,,Passed
+TC-TK-UI-02,Kiểm tra hiển thị số liệu tổng quan,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Kiểm tra hiển thị số liệu trong các ô tổng quan","1. Hiển thị số lượng hóa đơn
+2. Hiển thị số lượng đơn hàng trả lại
+3. Hiển thị tổng doanh thu kèm đơn vị VNĐ",Hiển thị đầy đủ số liệu trong các ô tổng quan,,Passed
+TC-TK-UI-03,Kiểm tra hiển thị biểu tượng cho các thẻ thông tin,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Kiểm tra các icon trong ô tổng quan","1. Icon trong ô Hóa đơn hiển thị đúng
+2. Icon trong ô Đơn hàng trả lại hiển thị đúng
+3. Icon trong ô Doanh thu hiển thị đúng",Các icon hiển thị đúng,,Passed
+TC-TK-FILTER-01,Kiểm tra chuyển đổi giữa các tab thời gian,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chuyển đổi giữa các tab thời gian","1. Tab Theo ngày được chọn mặc định
+2. Khi chọn tab Theo tháng, hiển thị dropdown chọn tháng và năm
+3. Khi chọn tab Theo năm, hiển thị dropdown chọn năm
+4. Biểu đồ cập nhật khi chuyển đổi tab",Chuyển đổi giữa các tab thời gian hoạt động đúng,,Passed
+TC-TK-FILTER-02,Kiểm tra bộ lọc ngày,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo ngày
+4. Chọn ngày, tháng, năm cụ thể","1. Dropdown hiển thị đầy đủ các ngày trong tháng
+2. Khi chọn ngày khác, biểu đồ và số liệu tổng quan cập nhật",Bộ lọc ngày hoạt động đúng,,Passed
+TC-TK-FILTER-03,Kiểm tra bộ lọc tháng,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo tháng
+4. Chọn các tháng khác nhau trong dropdown","1. Dropdown hiển thị đầy đủ 12 tháng
+2. Khi chọn tháng khác, biểu đồ và số liệu tổng quan cập nhật",Bộ lọc tháng hoạt động đúng,,Passed
+TC-TK-FILTER-04,Kiểm tra bộ lọc năm,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo năm
+4. Chọn các năm khác nhau trong dropdown","1. Dropdown hiển thị đầy đủ các năm
+2. Khi chọn năm khác, biểu đồ và số liệu tổng quan cập nhật",Bộ lọc năm hoạt động đúng,,Passed
+TC-TK-FILTER-05,Kiểm tra hiển thị số ngày trong tháng khi chọn tháng khác nhau,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo ngày
+4. Chọn tháng 2 năm 2024
+5. Kiểm tra số ngày trong dropdown
+6. Chọn tháng 2 năm 2023
+7. Kiểm tra số ngày trong dropdown
+8. Chọn tháng 4 năm 2024
+9. Kiểm tra số ngày trong dropdown
+10. Chọn tháng 5 năm 2024
+11. Kiểm tra số ngày trong dropdown","1. Tháng 2 năm 2024 (năm nhuận) hiển thị 29 ngày
+2. Tháng 2 năm 2023 (năm không nhuận) hiển thị 28 ngày
+3. Tháng 4 (30 ngày) hiển thị đúng
+4. Tháng 5 (31 ngày) hiển thị đúng",Hiển thị đúng số ngày trong các tháng khác nhau,,Passed
+TC-TK-CHART-01,Kiểm tra hiển thị biểu đồ doanh thu theo ngày,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo ngày
+4. Chọn ngày, tháng, năm cụ thể","1. Biểu đồ hiển thị dữ liệu theo giờ trong ngày
+2. Số liệu tổng quan cập nhật theo ngày đã chọn",Biểu đồ theo ngày hiển thị đúng,,Passed
+TC-TK-CHART-02,Kiểm tra hiển thị biểu đồ doanh thu theo tháng,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo tháng
+4. Chọn tháng và năm cụ thể","1. Biểu đồ hiển thị dữ liệu theo ngày trong tháng
+2. Số liệu tổng quan cập nhật theo tháng đã chọn",Biểu đồ theo tháng hiển thị đúng,,Passed
+TC-TK-CHART-03,Kiểm tra hiển thị biểu đồ doanh thu theo năm,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo năm
+4. Chọn năm cụ thể","1. Biểu đồ hiển thị dữ liệu theo tháng trong năm
+2. Số liệu tổng quan cập nhật theo năm đã chọn",Biểu đồ theo năm hiển thị đúng,,Passed
+TC-TK-CHART-04,Kiểm tra tương tác với biểu đồ,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Di chuột qua các cột trong biểu đồ","1. Khi di chuột qua các cột, hiển thị tooltip với thông tin chi tiết
+2. Biểu đồ phản hồi khi tương tác",Tương tác với biểu đồ hoạt động đúng,,Passed
+TC-TK-CHART-05,Kiểm tra cập nhật biểu đồ khi thay đổi bộ lọc thời gian,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo tháng
+4. Thay đổi tháng","1. Biểu đồ cập nhật dữ liệu khi thay đổi bộ lọc
+2. Số liệu tổng quan cập nhật",Biểu đồ và số liệu tổng quan cập nhật khi thay đổi bộ lọc,,Passed
+TC-TK-DATA-01,Kiểm tra tính chính xác của dữ liệu tổng quan,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn thời gian có dữ liệu đã biết trước","1. Số lượng hóa đơn hiển thị chính xác
+2. Số lượng đơn hàng trả lại hiển thị chính xác
+3. Tổng doanh thu hiển thị chính xác",Dữ liệu tổng quan hiển thị chính xác,,Passed
+TC-TK-DATA-02,Kiểm tra tính chính xác của dữ liệu biểu đồ,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn thời gian có dữ liệu đã biết trước","1. Dữ liệu trên biểu đồ hiển thị chính xác
+2. Tổng doanh thu trên biểu đồ khớp với tổng doanh thu trong phần tổng quan",Dữ liệu biểu đồ hiển thị chính xác,,Passed
+TC-TK-DATA-03,Kiểm tra tính nhất quán của dữ liệu khi chuyển đổi giữa các loại báo cáo,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo ngày và ghi nhận dữ liệu
+4. Chọn tab Theo tháng (cùng tháng với ngày đã chọn)
+5. Chọn tab Theo năm (cùng năm với tháng đã chọn)","1. Dữ liệu tổng quan nhất quán giữa các loại báo cáo
+2. Tổng doanh thu theo ngày <= Tổng doanh thu theo tháng <= Tổng doanh thu theo năm",Dữ liệu nhất quán giữa các loại báo cáo,,Passed
+TC-TK-EDGE-01,Kiểm tra hiển thị khi không có dữ liệu,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn thời gian không có dữ liệu","1. Biểu đồ hiển thị trống hoặc giá trị 0
+2. Số liệu tổng quan hiển thị giá trị 0",Hiển thị đúng khi không có dữ liệu,,Passed
+TC-TK-EDGE-02,Kiểm tra hiển thị với dữ liệu lớn,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn thời gian có nhiều dữ liệu","1. Biểu đồ hiển thị đúng với dữ liệu lớn
+2. Thời gian tải trang không quá lâu
+3. Không có lỗi hiển thị",Hiển thị đúng với dữ liệu lớn,,Passed
+TC-TK-EDGE-03,Kiểm tra hiển thị với dữ liệu có giá trị chênh lệch lớn,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn thời gian có dữ liệu chênh lệch lớn","1. Biểu đồ hiển thị đúng với dữ liệu chênh lệch lớn
+2. Tỷ lệ biểu đồ hợp lý, không bị méo",Hiển thị đúng với dữ liệu chênh lệch lớn,,Passed
+TC-TK-EDGE-04,Kiểm tra hiển thị khi API trả về lỗi,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Giả lập API trả về lỗi","1. Hiển thị thông báo lỗi phù hợp
+2. Giao diện không bị vỡ",Hiển thị đúng khi API trả về lỗi,,Passed
+TC-TK-EDGE-05,Kiểm tra hiển thị khi chọn ngày trong tương lai,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Chọn tab Theo ngày
+4. Chọn ngày trong tương lai","1. Biểu đồ hiển thị trống hoặc giá trị 0
+2. Số liệu tổng quan hiển thị giá trị 0",Hiển thị đúng khi chọn ngày trong tương lai,,Passed
+TC-TK-RESP-01,Kiểm tra tính responsive của giao diện trên desktop,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Thiết lập kích thước màn hình desktop (>=1200px)","1. Giao diện hiển thị đúng trên desktop
+2. Các thành phần được bố trí hợp lý
+3. Không có lỗi hiển thị",Giao diện hiển thị đúng trên desktop,,Passed
+TC-TK-RESP-02,Kiểm tra tính responsive của giao diện trên tablet,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Thiết lập kích thước màn hình tablet (>=768px và <1200px)","1. Giao diện hiển thị đúng trên tablet
+2. Các thành phần được bố trí hợp lý
+3. Không có lỗi hiển thị",Giao diện hiển thị đúng trên tablet,,Passed
+TC-TK-RESP-03,Kiểm tra tính responsive của giao diện trên mobile,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Thiết lập kích thước màn hình mobile (<768px)","1. Giao diện hiển thị đúng trên mobile
+2. Các thành phần được bố trí hợp lý
+3. Không có lỗi hiển thị",Giao diện hiển thị đúng trên mobile,,Passed
+TC-TK-COMP-01,Kiểm tra hiển thị trên trình duyệt Chrome,"1. Mở trình duyệt Chrome
+2. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+3. Truy cập trang thống kê (/sys/thongke)","1. Giao diện hiển thị đúng trên Chrome
+2. Các chức năng hoạt động bình thường",Giao diện hiển thị đúng trên Chrome,,Passed
+TC-TK-COMP-02,Kiểm tra hiển thị trên trình duyệt Firefox,"1. Mở trình duyệt Firefox
+2. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+3. Truy cập trang thống kê (/sys/thongke)","1. Giao diện hiển thị đúng trên Firefox
+2. Các chức năng hoạt động bình thường",Giao diện hiển thị đúng trên Firefox,,Passed
+TC-TK-COMP-03,Kiểm tra hiển thị trên trình duyệt Edge,"1. Mở trình duyệt Edge
+2. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+3. Truy cập trang thống kê (/sys/thongke)","1. Giao diện hiển thị đúng trên Edge
+2. Các chức năng hoạt động bình thường",Giao diện hiển thị đúng trên Edge,,Passed
+TC-TK-PERF-01,Kiểm tra thời gian tải trang,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Đo thời gian tải trang","1. Thời gian tải trang không quá 3 giây
+2. Không có lỗi hiển thị",Thời gian tải trang hợp lý,,Passed
+TC-TK-PERF-02,Kiểm tra thời gian phản hồi khi thay đổi bộ lọc,"1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)
+3. Thay đổi bộ lọc thời gian
+4. Đo thời gian phản hồi","1. Thời gian phản hồi không quá 2 giây
+2. Không có lỗi hiển thị",Thời gian phản hồi hợp lý,,Passed
+UI-31,Kiểm tra hiển thị khi chuyển đổi giữa chế độ sáng/tối,"1. Đăng nhập với tài khoản admin
+2. Truy cập trang thống kê
+3. Chuyển đổi giữa chế độ sáng/tối (nếu có)","1. Giao diện hiển thị đúng ở chế độ sáng
+2. Giao diện hiển thị đúng ở chế độ tối",Hiển thị đúng khi chuyển đổi giữa chế độ sáng/tối,,Passed
+UI-32,Kiểm tra hiển thị khi phóng to/thu nhỏ trang,"1. Đăng nhập với tài khoản admin
+2. Truy cập trang thống kê
+3. Phóng to/thu nhỏ trang (zoom)","1. Giao diện hiển thị đúng khi zoom 75%
+2. Giao diện hiển thị đúng khi zoom 100%
+3. Giao diện hiển thị đúng khi zoom 125%
+4. Giao diện hiển thị đúng khi zoom 150%",Hiển thị đúng khi phóng to/thu nhỏ trang,,Passed
+UI-33,Kiểm tra hiển thị khi có dữ liệu bằng 0,"1. Đăng nhập với tài khoản admin
+2. Truy cập trang thống kê
+3. Chọn thời gian có dữ liệu bằng 0","1. Biểu đồ hiển thị đúng với dữ liệu bằng 0
+2. Số liệu tổng quan hiển thị giá trị 0",Hiển thị đúng khi có dữ liệu bằng 0,,Passed
+UI-34,Kiểm tra hiển thị khi có dữ liệu rất nhỏ,"1. Đăng nhập với tài khoản admin
+2. Truy cập trang thống kê
+3. Chọn thời gian có dữ liệu rất nhỏ","1. Biểu đồ hiển thị đúng với dữ liệu rất nhỏ
+2. Số liệu tổng quan hiển thị giá trị nhỏ",Hiển thị đúng khi có dữ liệu rất nhỏ,,Passed
+UI-35,Kiểm tra hiển thị khi có dữ liệu rất lớn,"1. Đăng nhập với tài khoản admin
+2. Truy cập trang thống kê
+3. Chọn thời gian có dữ liệu rất lớn","1. Biểu đồ hiển thị đúng với dữ liệu rất lớn
+2. Số liệu tổng quan hiển thị giá trị lớn đúng định dạng",Hiển thị đúng khi có dữ liệu rất lớn,,Passed

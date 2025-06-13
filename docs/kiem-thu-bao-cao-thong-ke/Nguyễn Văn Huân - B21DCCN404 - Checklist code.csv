@@ -1,0 +1,92 @@
+Báo cáo,,,,
+,,,,
+Code Review Checklist,,,,
+,,,,
+Mã dự án:,HieuThuoc,,,
+Thành phần được xem xét:,Module Báo cáo thống kê doanh thu,,,
+Phiên bản:,1.0,,,
+Lần xem xét:,1,,,
+Người xem xét:,Nguyễn Văn Huân,,,
+Ngày xem xét:,22/05/2025,,,
+Độ lớn sản phẩm được xem xét:,Trung bình,,,
+Nhân công dành cho xem xét (MH):,1,,,
+,,,,
+,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú
+Tổng quan,,,,
+Code có được viết tốt không (về mặt hình thức) ? Đọc có dễ hiểu không?,X,,,Code có cấu trúc rõ ràng và dễ đọc
+Các ghi chú và chuẩn lập trình,,,,
+Code có thực hiện theo đúng chuẩn lập trình không?,X,,,Tuân thủ chuẩn Java và TypeScript
+Tên biến,X,,,Tên biến có ý nghĩa và rõ ràng
+Căn lề,X,,,Code được căn lề đúng chuẩn
+Kiểu dấu ngoặc,X,,,Sử dụng dấu ngoặc nhất quán
+Các file source có đầy đủ tiêu đề đầu trang và thông tin bản quyền không?,,X,,Thiếu header và thông tin bản quyền
+Các khai báo biến có được ghi chú đúng cách không?,,X,,Một số biến thiếu comment giải thích
+Các thành phần dữ liệu dạng số có được khai báo rõ ràng không?,X,,,"Sử dụng Integer, Double, Long rõ ràng"
+"Toàn bộ các functions, methods và classes có được ghi chú lại không",,X,,Thiếu JavaDoc và comment cho nhiều method
+Các đoạn thuật toán phức tap và các đoạn tối ưu code có được ghi chú đầy đủ không?,,X,,Query JPQL phức tạp thiếu comment giải thích
+Các đoạn code được đánh dấu hủy bỏ có được giải thích không?,,,X,Không có code bị comment out
+Các ghi chú có được cập nhật kịp thời không?,X,,,Comment hiện tại phù hợp với code
+Các ghi chú có rõ ràng và đúng không?,X,,,Comment có sẵn đều rõ ràng
+Các ghi chú có tập trung vào giải thích tại sao chứ không phải như thế nào không?,,X,,"Comment chủ yếu giải thích ""what"" thay vì ""why"""
+Tên của mỗi thủ tục/hàm/class có nói lên thủ tục/hàm/class đó làm gì hay không?,X,,,Tên method và class có ý nghĩa rõ ràng
+Xử lý lỗi,,,,
+Có xử lý lỗi mỗi khi function return không?,,X,,Thiếu try-catch và error handling
+Các trường hợp ngoại lệ có được xử lý không?,,X,,Không có exception handling trong controller
+Các hàm gọi đến có được thông báo khi có lỗi không?,,X,,Thiếu error response cho client
+Quản lý tài nguyên,,,,
+Các bộ nhớ được cấp phát có được giải phóng không?,X,,,Spring tự động quản lý memory
+"Toàn bộ các đối tượng (Database connections, Sockets, Files, etc.) có được giải phóng ngay cả trong trường hợp có lỗi không?",X,,,Spring JPA tự động quản lý connection
+Có đối tượng nào được giải phóng > 1 lần không?,,,X,Không có trường hợp này
+Thread Safeness,,,,
+Việc thay đổi giá trị của các biến dùng trong nhiều thread có được đồng bộ không?,,,X,Không sử dụng multi-threading
+Các đối tượng dùng trong nhiều thread có được đồng bộ không?,,,X,Không có shared objects giữa threads
+Có giải phóng các lock theo đúng thứ tự không?,,,X,Không sử dụng explicit locking
+Có khả năng xảy ra deadlock hoặc tranh chấp lock không?,,,X,Không có concurrent access
+Các cấu trúc điều khiển,,,,
+Các điều kiện kết thúc vòng lặp có chính xác không?,X,,,Vòng lặp forEach đơn giản và an toàn
+Code có bị lặp vô hạn không định trước không?,,,X,Không có vòng lặp vô hạn
+Các vòng lặp lồng nhau có được giảm đến mức ít nhất?,X,,,Không có vòng lặp lồng nhau phức tạp
+Performance,,,,
+Có xảy ra trường hợp trùng lặp cả một object trong khi có thể tham chiếu đến nó không?,,X,,Tạo mới array trong mỗi lần gọi API
+"Code có ảnh hưởng đến kích thước, tốc độ hoặc bộ nhớ sử dụng không?",,X,,Query có thể chậm với dữ liệu lớn
+Code đã được viết tối ưu chưa?,,X,,Thiếu index và pagination cho query
+Các hàm,,,,
+Các biến của hàm có được xác minh rõ ràng trong code không?,,X,,Thiếu validation cho input parameters
+Các mảng có được kiểm tra trường hợp ngoài khoảng không?,,X,,Không kiểm tra array bounds
+Các biến có được khai báo trước khi sử dụng không?,X,,,Tất cả biến đều được khai báo đúng
+Thủ tục/hàm/class có dài quá không? có thể làm đơn giản bằng cách tách ra thành những thủ tục/hàm/class nhỏ hơn không?,,X,,ThongKeComponent quá dài (525 lines)
+Kiểm tra validation dữ liệu đầu vào,,X,,Thiếu validation cho date format và range
+,,,,
+,,,,
+* Nhận xét,"Phân hệ báo cáo thống kê được triển khai với cấu trúc rõ ràng, bao gồm:                        
+- Backend: BaoCaoController, DonHangRepo, ChiTietDonHangRepo                        
+- Frontend: ThongKeComponent, BaoCaoService                
+- Chức năng chính: Báo cáo doanh thu theo ngày/tháng/năm                     
+- Bảo mật: Có kiểm soát truy cập Admin/Manager qua RoleGuard và JWT                        
+- Hiển thị: Sử dụng Highcharts để hiển thị biểu đồ trực quan                        
+Tuy nhiên, code còn một số vấn đề về error handling, validation, và performance.                        ",,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+* Đề xuất,"1. Cải thiện error handling: Thêm try-catch và exception handling trong controller                
+2. Thêm validation: Kiểm tra input parameters (date format, range validation)                
+3. Tối ưu performance: Thêm index cho database, implement pagination                
+4. Refactor code: Tách ThongKeComponent thành các component nhỏ hơn                
+5. Thêm documentation: JavaDoc cho methods và classes                
+6. Thêm unit tests: Kiểm thử cho các business logic quan trọng                
+           ",,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+[   x   ] - Đạt,,,,
+[       ] - Xem xét lại,,,,
+[       ] - Khác,,,,

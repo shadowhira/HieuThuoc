@@ -1,0 +1,24 @@
+,,,,,,,,,
+,,Báo cáo cá nhân,,,,,Chức năng,,Báo cáo thống kê doanh thu
+,,,,,,,Người thực hiện,,Nguyễn Văn Huân
+,,,,,,,Mã sinh viên,,B21DCCN404
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,Review tài liệu đặc tả cho phần chức năng báo cáo thống kê doanh thu,Nhận xét,,Trạng thái,,Review Code,Checklist code,,
+,,Sửa lại các chức năng có trên web,4.5.1. SREQ015 – Thống kê doanh thu,Đã bổ sung vào SRS,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,Phương pháp sử dụng,Tool sử dụng,Số lượng testcase,,,
+,,,,,,Testcase,Passed,Failed,Tổng cộng
+,,,,,,,,,Testcase
+,Tổng hợp testcase,Các phương pháp được áp dụng,Phân loại theo mục đích,Kiểm thử đơn vị,"JUnit, Mockito",17,17,0,101
+,,,,Kiểm thử hiệu năng,JMeter,15,13,2,
+,,,,Kiểm thử giao diện,Cypress,35,35,0,
+,,,Phân loại theo kỹ thuật,Kiểm thử hộp đen,JUnit,34,34,0,
+,,,,,,,,,
+,,,Phân loại theo chiến lược,Kiểm thử thủ công,UI test,,,,
+,,,,Kiểm thử tự động,"Cypress, Junit, Postman, Jmeter",,,,
