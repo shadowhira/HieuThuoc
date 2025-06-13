@@ -1,0 +1,160 @@
+ID,Mô tả,Các bước thực hiện,Dữ liệu đầu vào,Kết quả mong đợi,Kết quả thực tế,Chi tiết lỗi,Trạng thái
+,,,,,,
+,Pass,7,,,,
+,Fail,5,,,,
+,N/A,8,,,,
+,Tổng số test case,20,,,,
+,,,,,,
+"Điều kiện tiên quyết: Admin đăng nhập thành công vào hệ thống và có quyền thực hiện chức năng báo cáo thống kê",,,,,,
+,,,,,,
+HB-TK-001,"Kiểm tra hiển thị tổng quan ban đầu của giao diện thống kê","1. Đăng nhập với tài khoản admin (username: admin, password: 123456)
+2. Truy cập trang thống kê (/sys/thongke)","Tài khoản admin (username: admin, password: 123456)","1. Hiển thị đúng 3 ô tổng quan: Hóa đơn, Đơn hàng trả lại, Doanh thu với các icon tương ứng
+2. Hiển thị biểu đồ doanh thu
+3. Mặc định hiển thị theo ngày hiện tại
+4. Các tab lọc (Theo ngày, Theo tháng, Theo năm) hiển thị đúng
+5. Dropdown chọn ngày, tháng và năm hiển thị đúng","Hiển thị đúng 3 ô tổng quan: Hóa đơn, Đơn hàng trả lại, Doanh thu với các icon tương ứng. Các tab lọc (Theo ngày, Theo tháng, Theo năm) hiển thị đúng. Dropdown chọn ngày, tháng và năm hiển thị đúng. Biểu đồ doanh thu hiển thị trong container nhưng không tìm thấy thành phần highcharts-chart.",,"Passed"
+HB-TK-002,"Kiểm tra hiển thị dữ liệu tổng quan chính xác","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Kiểm tra hiển thị dữ liệu trong các thẻ thông tin tổng quan","Tài khoản admin (username: admin, password: 123456)","1. Thẻ Hóa đơn hiển thị đúng số lượng hóa đơn
+2. Thẻ Đơn hàng trả lại hiển thị đúng số lượng đơn hàng trả lại
+3. Thẻ Doanh thu hiển thị đúng tổng doanh thu kèm đơn vị VNĐ","Các thẻ thông tin tổng quan hiển thị đúng dữ liệu. Thẻ Hóa đơn hiển thị số lượng hóa đơn. Thẻ Đơn hàng trả lại hiển thị số lượng đơn hàng trả lại. Thẻ Doanh thu hiển thị tổng doanh thu kèm đơn vị VNĐ.",,"Passed"
+HB-TK-003,"Kiểm tra chức năng lọc theo ngày","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn một ngày cụ thể từ dropdown","Tài khoản admin (username: admin, password: 123456)
+Ngày: 15
+Tháng: 6
+Năm: 2023","1. Biểu đồ doanh thu cập nhật theo ngày đã chọn
+2. Hiển thị doanh thu theo giờ trong ngày
+3. Các thẻ thông tin tổng quan cập nhật theo dữ liệu của ngày đã chọn","Chức năng lọc theo ngày hoạt động đúng. Khi chọn ngày 15/6/2023, biểu đồ doanh thu cập nhật theo ngày đã chọn. Các thẻ thông tin tổng quan cập nhật theo dữ liệu của ngày đã chọn.",,"Passed"
+HB-TK-004,"Kiểm tra chức năng lọc theo tháng","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn một tháng cụ thể từ dropdown","Tài khoản admin (username: admin, password: 123456)
+Tháng: 6
+Năm: 2023","1. Biểu đồ doanh thu cập nhật theo tháng đã chọn
+2. Hiển thị doanh thu theo ngày trong tháng
+3. Các thẻ thông tin tổng quan cập nhật theo dữ liệu của tháng đã chọn","Chức năng lọc theo tháng hoạt động đúng. Khi chọn tháng 6/2023, biểu đồ doanh thu cập nhật theo tháng đã chọn. Các thẻ thông tin tổng quan cập nhật theo dữ liệu của tháng đã chọn.",,"Passed"
+HB-TK-005,"Kiểm tra chức năng lọc theo năm","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn một năm cụ thể từ dropdown","Tài khoản admin (username: admin, password: 123456)
+Năm: 2023","1. Biểu đồ doanh thu cập nhật theo năm đã chọn
+2. Hiển thị doanh thu theo tháng trong năm
+3. Các thẻ thông tin tổng quan cập nhật theo dữ liệu của năm đã chọn","Chức năng lọc theo năm hoạt động đúng. Khi chọn năm 2023, biểu đồ doanh thu cập nhật theo năm đã chọn. Các thẻ thông tin tổng quan cập nhật theo dữ liệu của năm đã chọn.",,"Passed"
+HB-TK-006,"Kiểm tra hiển thị biểu đồ doanh thu theo ngày","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Kiểm tra hiển thị biểu đồ","Tài khoản admin (username: admin, password: 123456)","1. Biểu đồ hiển thị dạng cột
+2. Trục X hiển thị các giờ trong ngày (0-23)
+3. Trục Y hiển thị doanh thu
+4. Có tooltip khi di chuột qua các cột
+5. Hiển thị đúng dữ liệu doanh thu theo giờ","Không tìm thấy thành phần highcharts-chart trong biểu đồ. Container biểu đồ hiển thị nhưng không có nội dung biểu đồ.","Timed out retrying after 10000ms: Expected to find element: `highcharts-chart`, but never found it.","Failed"
+HB-TK-007,"Kiểm tra hiển thị biểu đồ doanh thu theo tháng","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo tháng""
+4. Kiểm tra hiển thị biểu đồ","Tài khoản admin (username: admin, password: 123456)","1. Biểu đồ hiển thị dạng cột
+2. Trục X hiển thị các ngày trong tháng (1-31)
+3. Trục Y hiển thị doanh thu
+4. Có tooltip khi di chuột qua các cột
+5. Hiển thị đúng dữ liệu doanh thu theo ngày","Không tìm thấy thành phần highcharts-chart trong biểu đồ. Container biểu đồ hiển thị nhưng không có nội dung biểu đồ.","Timed out retrying after 10000ms: Expected to find element: `highcharts-chart`, but never found it.","Failed"
+HB-TK-008,"Kiểm tra hiển thị biểu đồ doanh thu theo năm","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo năm""
+4. Kiểm tra hiển thị biểu đồ","Tài khoản admin (username: admin, password: 123456)","1. Biểu đồ hiển thị dạng cột
+2. Trục X hiển thị các tháng trong năm (1-12)
+3. Trục Y hiển thị doanh thu
+4. Có tooltip khi di chuột qua các cột
+5. Hiển thị đúng dữ liệu doanh thu theo tháng","Không tìm thấy thành phần highcharts-chart trong biểu đồ. Container biểu đồ hiển thị nhưng không có nội dung biểu đồ.","Timed out retrying after 10000ms: Expected to find element: `highcharts-chart`, but never found it.","Failed"
+HB-TK-009,"Kiểm tra tính chính xác của dữ liệu doanh thu theo ngày","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày có dữ liệu đã biết
+5. Kiểm tra dữ liệu hiển thị","Tài khoản admin (username: admin, password: 123456)
+Ngày: 15
+Tháng: 6
+Năm: 2023
+Dữ liệu đã biết: 3 hóa đơn, 0 đơn hàng trả lại, 43,500 VNĐ doanh thu","1. Thẻ Hóa đơn hiển thị đúng số lượng: 3
+2. Thẻ Đơn hàng trả lại hiển thị đúng số lượng: 0
+3. Thẻ Doanh thu hiển thị đúng tổng: 43,500 VNĐ
+4. Biểu đồ hiển thị đúng dữ liệu doanh thu theo giờ",,
+HB-TK-010,"Kiểm tra tính chính xác của dữ liệu doanh thu theo tháng","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn tháng có dữ liệu đã biết
+5. Kiểm tra dữ liệu hiển thị","Tài khoản admin (username: admin, password: 123456)
+Tháng: 6
+Năm: 2023
+Dữ liệu đã biết: 13 hóa đơn, 1 đơn hàng trả lại, 343,500 VNĐ doanh thu","1. Thẻ Hóa đơn hiển thị đúng số lượng: 13
+2. Thẻ Đơn hàng trả lại hiển thị đúng số lượng: 1
+3. Thẻ Doanh thu hiển thị đúng tổng: 343,500 VNĐ
+4. Biểu đồ hiển thị đúng dữ liệu doanh thu theo ngày",,
+HB-TK-011,"Kiểm tra tính chính xác của dữ liệu doanh thu theo năm","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn năm có dữ liệu đã biết
+5. Kiểm tra dữ liệu hiển thị","Tài khoản admin (username: admin, password: 123456)
+Năm: 2023
+Dữ liệu đã biết: 120 hóa đơn, 13 đơn hàng trả lại, 3,100,000 VNĐ doanh thu","1. Thẻ Hóa đơn hiển thị đúng số lượng: 120
+2. Thẻ Đơn hàng trả lại hiển thị đúng số lượng: 13
+3. Thẻ Doanh thu hiển thị đúng tổng: 3,100,000 VNĐ
+4. Biểu đồ hiển thị đúng dữ liệu doanh thu theo tháng",,
+HB-TK-012,"Kiểm tra hiển thị khi không có dữ liệu","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày không có dữ liệu
+5. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+Ngày: 1
+Tháng: 1
+Năm: 2021 (năm không có dữ liệu)","1. Thẻ Hóa đơn hiển thị số lượng: 0
+2. Thẻ Đơn hàng trả lại hiển thị số lượng: 0
+3. Thẻ Doanh thu hiển thị tổng: 0 VNĐ
+4. Biểu đồ hiển thị trống hoặc có thông báo không có dữ liệu",,
+HB-TK-013,"Kiểm tra hiển thị với dữ liệu lớn","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn năm có dữ liệu lớn
+5. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+Năm: 2023 (năm có nhiều dữ liệu)","1. Thẻ Hóa đơn hiển thị đúng số lượng lớn
+2. Thẻ Đơn hàng trả lại hiển thị đúng số lượng lớn
+3. Thẻ Doanh thu hiển thị đúng tổng lớn với định dạng số đúng (có dấu phân cách hàng nghìn)
+4. Biểu đồ hiển thị đúng dữ liệu doanh thu theo tháng",,
+HB-TK-014,"Kiểm tra chuyển đổi giữa các loại báo cáo","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Sau đó chọn loại báo cáo ""Theo tháng""
+5. Sau đó chọn loại báo cáo ""Theo năm""","Tài khoản admin (username: admin, password: 123456)","1. Khi chuyển từ ""Theo ngày"" sang ""Theo tháng"", biểu đồ và dữ liệu cập nhật chính xác
+2. Khi chuyển từ ""Theo tháng"" sang ""Theo năm"", biểu đồ và dữ liệu cập nhật chính xác
+3. Các dropdown chọn thời gian thay đổi phù hợp với loại báo cáo","Chức năng chuyển đổi giữa các loại báo cáo hoạt động đúng. Khi chuyển từ ""Theo ngày"" sang ""Theo tháng"" và ""Theo năm"", các dropdown chọn thời gian thay đổi phù hợp với loại báo cáo. Biểu đồ và dữ liệu cập nhật theo loại báo cáo đã chọn.",,"Passed"
+HB-TK-015,"Kiểm tra tính responsive của giao diện","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Thay đổi kích thước màn hình hoặc sử dụng công cụ kiểm tra responsive","Tài khoản admin (username: admin, password: 123456)
+Các kích thước màn hình: Desktop (1920x1080), Tablet (768x1024), Mobile (375x667)","1. Giao diện hiển thị đúng trên desktop
+2. Giao diện hiển thị đúng trên tablet
+3. Giao diện hiển thị đúng trên mobile
+4. Các thành phần tự điều chỉnh kích thước phù hợp với màn hình",,
+HB-TK-016,"Kiểm tra hiển thị khi chọn ngày không hợp lệ","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày không hợp lệ (ví dụ: 31/2/2023)","Tài khoản admin (username: admin, password: 123456)
+Ngày: 31
+Tháng: 2
+Năm: 2023","1. Hệ thống không cho phép chọn ngày không hợp lệ hoặc
+2. Hệ thống hiển thị thông báo lỗi hoặc
+3. Hệ thống tự động điều chỉnh sang ngày hợp lệ gần nhất",,
+HB-TK-017,"Kiểm tra hiển thị dữ liệu hôm nay và hôm qua","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Kiểm tra hiển thị dữ liệu hôm nay và hôm qua","Tài khoản admin (username: admin, password: 123456)","1. Hiển thị đúng số lượng hóa đơn hôm nay
+2. Hiển thị đúng số lượng đơn hàng trả lại hôm nay
+3. Hiển thị đúng số lượng hóa đơn hôm qua
+4. Hiển thị đúng số lượng đơn hàng trả lại hôm qua","Không tìm thấy thông tin hiển thị dữ liệu hôm nay và hôm qua trên giao diện.","Timed out retrying after 10000ms: Expected to find content: 'Hôm nay' within the selector: 'p' but never did.","Failed"
+HB-TK-018,"Kiểm tra hiển thị dữ liệu tháng này và tháng trước","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Kiểm tra hiển thị dữ liệu tháng này và tháng trước","Tài khoản admin (username: admin, password: 123456)","1. Hiển thị đúng doanh thu tháng này
+2. Hiển thị đúng doanh thu tháng trước","Không tìm thấy thông tin hiển thị dữ liệu tháng này và tháng trước trên giao diện.","Timed out retrying after 10000ms: Expected to find content: 'Tháng này' within the selector: 'p' but never did.","Failed"
+HB-TK-019,"Kiểm tra quyền truy cập báo cáo thống kê","1. Đăng nhập với tài khoản không có quyền admin
+2. Thử truy cập trang báo cáo thống kê (/sys/thongke)","Tài khoản không có quyền admin","1. Hệ thống không cho phép truy cập trang báo cáo thống kê
+2. Hiển thị thông báo lỗi hoặc chuyển hướng đến trang khác",,
+HB-TK-020,"Kiểm tra truy cập trang báo cáo thống kê khi chưa đăng nhập","1. Không đăng nhập
+2. Thử truy cập trang báo cáo thống kê (/sys/thongke)","Không có dữ liệu đầu vào","1. Hệ thống chuyển hướng đến trang đăng nhập
+2. Sau khi đăng nhập thành công, hệ thống chuyển hướng đến trang báo cáo thống kê","Khi chưa đăng nhập và truy cập trang báo cáo thống kê, hệ thống chuyển hướng đến trang đăng nhập.",,"Passed"

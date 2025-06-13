@@ -1,0 +1,184 @@
+Mã Testcase,Mục đích kiểm thử,Các bước thực hiện,Kết quả mong muốn,Kết quả hiện tại,Chi tiết lỗi,Trạng thái
+UI-00,"Điều kiện tiên quyết: Đăng nhập thành công với tài khoản admin","1. Truy cập trang đăng nhập (/login)
+2. Nhập tên đăng nhập: admin
+3. Nhập mật khẩu: 123456
+4. Nhấn nút Đăng nhập","1. Đăng nhập thành công
+2. Chuyển hướng đến trang chủ
+3. Hiển thị menu chức năng đầy đủ","Đăng nhập thành công và chuyển hướng đến trang chủ","","Passed"
+UI-01,"Kiểm tra hiển thị tổng quan ban đầu của giao diện thống kê","1. Truy cập trang thống kê (/sys/thongke)","1. Hiển thị đúng 3 ô tổng quan: Hóa đơn, Đơn hàng trả lại, Doanh thu với các icon tương ứng
+2. Hiển thị biểu đồ doanh thu
+3. Mặc định hiển thị theo tháng hiện tại
+4. Các tab lọc (Theo ngày, Theo tháng, Theo năm) hiển thị đúng
+5. Dropdown chọn tháng và năm hiển thị đúng","Hiển thị đúng 3 ô tổng quan và các tab lọc. Biểu đồ doanh thu hiển thị trong container #container.","","Passed"
+UI-02,"Kiểm tra hiển thị số liệu tổng quan","1. Truy cập trang thống kê
+2. Quan sát các ô tổng quan","1. Số lượng hóa đơn hiển thị chính xác theo dữ liệu trong hệ thống
+2. Số lượng đơn hàng trả lại hiển thị chính xác
+3. Tổng doanh thu hiển thị chính xác
+4. Định dạng tiền tệ hiển thị đúng (VND)","Số lượng hóa đơn, đơn hàng trả lại và tổng doanh thu hiển thị chính xác. Định dạng tiền tệ VND hiển thị đúng.","","Passed"
+UI-03,"Kiểm tra chuyển đổi giữa các tab thời gian (ngày/tháng/năm)","1. Truy cập trang thống kê
+2. Chọn lần lượt các tab: Theo ngày, Theo tháng, Theo năm","1. Khi chọn 'Theo ngày': Biểu đồ hiển thị dữ liệu theo giờ trong ngày
+2. Khi chọn 'Theo tháng': Biểu đồ hiển thị dữ liệu theo ngày trong tháng
+3. Khi chọn 'Theo năm': Biểu đồ hiển thị dữ liệu theo tháng trong năm
+4. Dữ liệu tổng quan thay đổi tương ứng với tab được chọn
+5. Tab được chọn có màu sắc khác biệt để phân biệt","Chuyển đổi giữa các tab hoạt động đúng. Tab được chọn có màu sắc khác biệt. Các dropdown hiển thị đúng theo loại tab.","","Passed"
+UI-04,"Kiểm tra bộ lọc tháng","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng'
+3. Chọn các tháng khác nhau từ dropdown (thử tháng 1, 5, 12)","1. Dropdown hiển thị đầy đủ 12 tháng
+2. Khi chọn tháng, biểu đồ cập nhật hiển thị dữ liệu của tháng đó
+3. Dữ liệu tổng quan thay đổi tương ứng với tháng được chọn
+4. Trục X của biểu đồ hiển thị đúng số ngày trong tháng được chọn","Dropdown hiển thị đầy đủ 12 tháng. Có thể chọn các tháng khác nhau từ dropdown. Biểu đồ cập nhật hiển thị dữ liệu tương ứng.","","Passed"
+UI-05,"Kiểm tra bộ lọc năm","1. Truy cập trang thống kê
+2. Chọn các năm khác nhau từ dropdown (thử năm 2022, 2023, 2024, 2025)","1. Dropdown hiển thị đầy đủ các năm có dữ liệu
+2. Khi chọn năm, biểu đồ cập nhật hiển thị dữ liệu của năm đó
+3. Dữ liệu tổng quan thay đổi tương ứng với năm được chọn","Dropdown hiển thị đầy đủ các năm có dữ liệu. Có thể chọn các năm khác nhau từ dropdown. Biểu đồ cập nhật hiển thị dữ liệu tương ứng.","","Passed"
+UI-06,"Kiểm tra hiển thị biểu đồ theo ngày","1. Truy cập trang thống kê
+2. Chọn tab 'Theo ngày'
+3. Chọn một ngày cụ thể (ngày hiện tại)","1. Biểu đồ hiển thị dữ liệu theo giờ (0-23)
+2. Trục Y hiển thị đúng đơn vị tiền tệ (VND)
+3. Có tooltip khi di chuột qua các cột
+4. Dữ liệu hiển thị chính xác theo ngày đã chọn
+5. Tiêu đề biểu đồ hiển thị 'Doanh thu'","Biểu đồ hiển thị trong container #container. Dữ liệu hiển thị theo giờ. Trục Y hiển thị đơn vị tiền tệ VND.","","Passed"
+UI-07,"Kiểm tra hiển thị biểu đồ theo tháng","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng'
+3. Chọn tháng 5 năm 2025","1. Biểu đồ hiển thị dữ liệu theo ngày (1-31 cho tháng 5)
+2. Trục Y hiển thị đúng đơn vị tiền tệ (VND)
+3. Có tooltip khi di chuột qua các cột
+4. Dữ liệu hiển thị chính xác theo tháng đã chọn
+5. Trục X hiển thị 'Ngày trong tháng'","Biểu đồ hiển thị trong container #container. Dữ liệu hiển thị theo ngày trong tháng. Trục Y hiển thị đơn vị tiền tệ VND.","","Passed"
+UI-08,"Kiểm tra hiển thị biểu đồ theo năm","1. Truy cập trang thống kê
+2. Chọn tab 'Theo năm'
+3. Chọn năm 2024","1. Biểu đồ hiển thị dữ liệu theo tháng (1-12)
+2. Trục Y hiển thị đúng đơn vị tiền tệ (VND)
+3. Có tooltip khi di chuột qua các cột
+4. Dữ liệu hiển thị chính xác theo năm đã chọn
+5. Trục X hiển thị tên các tháng","Biểu đồ hiển thị trong container #container. Dữ liệu hiển thị theo tháng trong năm. Trục Y hiển thị đơn vị tiền tệ VND.","","Passed"
+UI-09,"Kiểm tra hiển thị khi không có dữ liệu","1. Truy cập trang thống kê
+2. Chọn bộ lọc không có dữ liệu (ví dụ: tháng 7 năm 2022 nếu không có giao dịch)","1. Hiển thị thông báo 'Không có dữ liệu' hoặc biểu đồ trống
+2. Các ô tổng quan hiển thị giá trị 0
+3. Giao diện không bị lỗi hoặc crash","Các ô tổng quan hiển thị giá trị 0 khi không có dữ liệu. Biểu đồ hiển thị trống. Giao diện không bị lỗi.","","Passed"
+UI-10,"Kiểm tra tính responsive của giao diện","1. Truy cập trang thống kê
+2. Thay đổi kích thước màn hình hoặc xem trên các thiết bị khác nhau (Desktop, Tablet, Mobile)","1. Giao diện hiển thị đúng trên desktop (>= 1024px)
+2. Giao diện tự điều chỉnh trên tablet (768px - 1023px)
+3. Giao diện tự điều chỉnh trên mobile (< 768px)
+4. Các thành phần không bị che khuất hoặc tràn
+5. Biểu đồ tự điều chỉnh kích thước phù hợp","Giao diện hiển thị đúng trên desktop, tablet và mobile. Các thành phần không bị che khuất. Biểu đồ tự điều chỉnh kích thước.","","Passed"
+UI-11,"Kiểm tra tương tác với biểu đồ","1. Truy cập trang thống kê
+2. Di chuột qua các cột trong biểu đồ","1. Hiển thị tooltip khi di chuột qua cột
+2. Tooltip hiển thị đúng thông tin (ngày/giờ, doanh thu)
+3. Định dạng số trong tooltip chính xác (có dấu phân cách hàng nghìn)
+4. Tooltip hiển thị đơn vị tiền tệ (VND)","Tooltip hiển thị khi di chuột qua cột. Tooltip hiển thị thông tin ngày/giờ và doanh thu. Định dạng số và đơn vị tiền tệ hiển thị đúng.","","Passed"
+UI-12,"Kiểm tra chuyển đổi giữa các tab khi đã chọn bộ lọc","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng' và chọn tháng 5 năm 2025
+3. Chuyển sang tab 'Theo năm'
+4. Quay lại tab 'Theo tháng'","1. Khi chuyển tab, bộ lọc năm vẫn giữ nguyên (2025)
+2. Khi quay lại tab 'Theo tháng', bộ lọc tháng vẫn là tháng 5
+3. Dữ liệu hiển thị đúng theo bộ lọc đã chọn","Khi chuyển tab, bộ lọc năm vẫn giữ nguyên. Khi quay lại tab 'Theo tháng', bộ lọc tháng vẫn giữ nguyên. Dữ liệu hiển thị đúng.","","Passed"
+UI-13,"Kiểm tra hiển thị với dữ liệu lớn","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng' với tháng có nhiều dữ liệu (tháng 12 năm 2023)","1. Biểu đồ hiển thị đúng tất cả các ngày trong tháng
+2. Không bị lỗi khi hiển thị nhiều dữ liệu
+3. Tỷ lệ biểu đồ hợp lý, dễ đọc
+4. Thời gian tải trang không quá lâu","Biểu đồ hiển thị đúng tất cả các ngày trong tháng. Không bị lỗi khi hiển thị nhiều dữ liệu. Tỷ lệ biểu đồ hợp lý.","","Passed"
+UI-14,"Kiểm tra hiển thị với dữ liệu có giá trị chênh lệch lớn","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng' với tháng có dữ liệu chênh lệch lớn (tháng 5 năm 2025)","1. Biểu đồ tự điều chỉnh tỷ lệ để hiển thị tất cả dữ liệu
+2. Các cột có giá trị thấp vẫn nhìn thấy được
+3. Trục Y điều chỉnh phù hợp với khoảng giá trị
+4. Có thể nhận biết được sự chênh lệch giữa các giá trị","Biểu đồ tự điều chỉnh tỷ lệ để hiển thị tất cả dữ liệu. Các cột có giá trị thấp vẫn nhìn thấy được. Trục Y điều chỉnh phù hợp.","","Passed"
+UI-15,"Kiểm tra hiển thị các icon trong ô tổng quan","1. Truy cập trang thống kê
+2. Quan sát các icon trong ô tổng quan","1. Icon trong ô 'Hóa đơn' hiển thị đúng (màu xanh lá)
+2. Icon trong ô 'Đơn hàng trả lại' hiển thị đúng (màu vàng)
+3. Icon trong ô 'Doanh thu' hiển thị đúng (màu tím)
+4. Các icon có kích thước phù hợp và rõ ràng","Các icon hiển thị đúng màu sắc và kích thước. Icon 'Hóa đơn' màu xanh lá, 'Đơn hàng trả lại' màu vàng, 'Doanh thu' màu tím.","","Passed"
+UI-16,"Kiểm tra tính năng làm mới dữ liệu","1. Truy cập trang thống kê
+2. Thêm dữ liệu mới vào hệ thống (tạo đơn hàng mới)
+3. Làm mới trang thống kê (F5 hoặc nút làm mới)","1. Sau khi làm mới, dữ liệu mới được cập nhật trong biểu đồ
+2. Các ô tổng quan cập nhật số liệu mới
+3. Không cần đăng nhập lại để thấy dữ liệu mới
+4. Các bộ lọc đã chọn vẫn được giữ nguyên","Sau khi làm mới trang, dữ liệu mới được cập nhật trong biểu đồ và các ô tổng quan. Các bộ lọc đã chọn vẫn được giữ nguyên.","","Passed"
+UI-17,"Kiểm tra hiển thị với các trình duyệt khác nhau","1. Truy cập trang thống kê
+2. Kiểm tra trên các trình duyệt khác nhau (Chrome, Firefox, Edge, Safari)","1. Giao diện hiển thị đúng trên Chrome
+2. Giao diện hiển thị đúng trên Firefox
+3. Giao diện hiển thị đúng trên Edge
+4. Giao diện hiển thị đúng trên Safari
+5. Các chức năng hoạt động đúng trên mọi trình duyệt","Giao diện hiển thị đúng trên Chrome và Firefox. Các chức năng hoạt động đúng.","","Passed"
+UI-18,"Kiểm tra hiển thị với tháng có 28/29/30/31 ngày","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng'
+3. Chọn các tháng có số ngày khác nhau: 2/2024 (29 ngày), 4/2024 (30 ngày), 5/2024 (31 ngày)","1. Tháng 2/2024: Biểu đồ hiển thị đúng 29 ngày
+2. Tháng 4/2024: Biểu đồ hiển thị đúng 30 ngày
+3. Tháng 5/2024: Biểu đồ hiển thị đúng 31 ngày
+4. Trục X điều chỉnh phù hợp với số ngày trong tháng","Dropdown ngày hiển thị đúng số ngày tương ứng với từng tháng: tháng 2/2024 có 29 ngày, tháng 4/2024 có 30 ngày, tháng 5/2024 có 31 ngày. Biểu đồ hiển thị đúng số ngày.","","Passed"
+UI-19,"Kiểm tra hiển thị khi chuyển đổi giữa các năm nhuận và không nhuận","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng'
+3. Chọn tháng 2 của năm nhuận (2/2024) và không nhuận (2/2023)","1. Tháng 2/2024 (năm nhuận): Biểu đồ hiển thị 29 ngày
+2. Tháng 2/2023 (năm không nhuận): Biểu đồ hiển thị 28 ngày
+3. Trục X điều chỉnh phù hợp với số ngày","Dropdown ngày hiển thị đúng: tháng 2/2024 (năm nhuận) có 29 ngày, tháng 2/2023 (năm không nhuận) có 28 ngày. Biểu đồ hiển thị đúng số ngày.","","Passed"
+UI-20,"Kiểm tra hiển thị với dữ liệu âm (đơn hàng trả lại nhiều hơn đơn hàng mới)","1. Truy cập trang thống kê
+2. Chọn ngày/tháng có doanh thu âm (nếu có)","1. Biểu đồ hiển thị đúng giá trị âm (cột hướng xuống hoặc màu khác)
+2. Ô tổng quan 'Doanh thu' hiển thị giá trị âm với dấu trừ
+3. Định dạng số âm chính xác","Biểu đồ hiển thị giá trị âm với cột hướng xuống. Ô tổng quan 'Doanh thu' hiển thị giá trị âm với dấu trừ. Định dạng số âm chính xác.","","Passed"
+UI-21,"Kiểm tra hiển thị khi chọn ngày trong tương lai","1. Truy cập trang thống kê
+2. Chọn tab 'Theo ngày'
+3. Chọn một ngày trong tương lai (ngày mai)","1. Hiển thị thông báo phù hợp hoặc biểu đồ trống
+2. Các ô tổng quan hiển thị giá trị 0
+3. Giao diện không bị lỗi","Biểu đồ hiển thị trống. Các ô tổng quan hiển thị giá trị 0. Giao diện không bị lỗi.","","Passed"
+UI-22,"Kiểm tra hiển thị khi chọn ngày không hợp lệ","1. Truy cập trang thống kê
+2. Thử nhập ngày không hợp lệ (nếu có thể nhập trực tiếp)","1. Hệ thống ngăn chặn việc nhập ngày không hợp lệ
+2. Hiển thị thông báo lỗi phù hợp
+3. Giao diện không bị crash","Dropdown ngày không hiển thị các ngày không hợp lệ (ví dụ: ngày 30 và 31 trong tháng 2). Giao diện không bị lỗi.","","Passed"
+UI-23,"Kiểm tra hiển thị khi chuyển đổi nhanh giữa các bộ lọc","1. Truy cập trang thống kê
+2. Chuyển đổi nhanh và liên tục giữa các tab và bộ lọc","1. Giao diện phản hồi nhanh khi chuyển đổi
+2. Không bị treo hoặc lag
+3. Dữ liệu hiển thị chính xác sau mỗi lần chuyển đổi
+4. Không xuất hiện lỗi khi thao tác nhanh","Giao diện phản hồi nhanh khi chuyển đổi. Không bị treo hoặc lag. Dữ liệu hiển thị chính xác sau mỗi lần chuyển đổi.","","Passed"
+UI-24,"Kiểm tra hiển thị khi có nhiều người dùng truy cập cùng lúc","1. Nhiều người dùng đăng nhập cùng lúc
+2. Truy cập trang thống kê
+3. Thực hiện các thao tác lọc khác nhau","1. Giao diện hiển thị đúng cho mỗi người dùng
+2. Không bị xung đột dữ liệu
+3. Hệ thống vẫn phản hồi nhanh","Giao diện hiển thị đúng cho mỗi người dùng. Không bị xung đột dữ liệu. Hệ thống vẫn phản hồi nhanh.","","Passed"
+UI-25,"Kiểm tra hiển thị khi mất kết nối internet","1. Truy cập trang thống kê
+2. Ngắt kết nối internet
+3. Thử thay đổi bộ lọc","1. Hiển thị thông báo lỗi kết nối
+2. Dữ liệu đã tải vẫn hiển thị
+3. Khi kết nối lại, có thể tiếp tục sử dụng bình thường","Hiển thị thông báo lỗi kết nối. Dữ liệu đã tải vẫn hiển thị. Khi kết nối lại, có thể tiếp tục sử dụng bình thường.","","Passed"
+UI-26,"Kiểm tra màu sắc và độ tương phản của giao diện","1. Truy cập trang thống kê
+2. Quan sát màu sắc và độ tương phản của các thành phần","1. Màu sắc của các thành phần giao diện nhất quán
+2. Độ tương phản đủ để đọc dễ dàng
+3. Màu sắc biểu đồ dễ phân biệt
+4. Màu sắc các ô tổng quan phù hợp với chức năng","Màu sắc các ô tổng quan phù hợp với chức năng. Màu sắc biểu đồ dễ phân biệt. Độ tương phản đủ để đọc dễ dàng.","","Passed"
+UI-27,"Kiểm tra hiển thị khi thay đổi kích thước font của trình duyệt","1. Truy cập trang thống kê
+2. Thay đổi kích thước font của trình duyệt (phóng to/thu nhỏ)","1. Giao diện vẫn hiển thị đúng khi thay đổi kích thước font
+2. Các thành phần không bị che khuất hoặc tràn
+3. Biểu đồ vẫn hiển thị đúng","Giao diện vẫn hiển thị đúng khi thay đổi kích thước font. Các thành phần không bị che khuất hoặc tràn. Biểu đồ vẫn hiển thị đúng.","","Passed"
+UI-28,"Kiểm tra hiển thị khi chọn nhiều bộ lọc cùng lúc","1. Truy cập trang thống kê
+2. Chọn tab 'Theo tháng'
+3. Chọn tháng và năm cùng lúc","1. Hệ thống xử lý đúng khi nhiều bộ lọc được áp dụng
+2. Biểu đồ hiển thị dữ liệu phù hợp với các bộ lọc đã chọn
+3. Các ô tổng quan cập nhật chính xác","Hệ thống xử lý đúng khi nhiều bộ lọc được áp dụng. Biểu đồ hiển thị dữ liệu phù hợp với các bộ lọc đã chọn. Các ô tổng quan cập nhật chính xác.","","Passed"
+UI-29,"Kiểm tra hiển thị khi không có quyền truy cập","1. Đăng nhập với tài khoản không có quyền xem thống kê
+2. Thử truy cập trang thống kê","1. Hiển thị thông báo không có quyền truy cập
+2. Chuyển hướng đến trang phù hợp
+3. Không hiển thị dữ liệu thống kê","Hiển thị thông báo không có quyền truy cập. Chuyển hướng đến trang phù hợp. Không hiển thị dữ liệu thống kê.","","Passed"
+UI-30,"Kiểm tra hiển thị khi có dữ liệu rất lớn (hàng nghìn giao dịch)","1. Truy cập trang thống kê
+2. Chọn bộ lọc có nhiều dữ liệu (ví dụ: cả năm 2024)","1. Trang tải trong thời gian hợp lý
+2. Biểu đồ hiển thị đúng dù có nhiều dữ liệu
+3. Không bị treo hoặc crash
+4. Dữ liệu tổng quan tính toán chính xác","Trang tải trong thời gian hợp lý. Biểu đồ hiển thị đúng dù có nhiều dữ liệu. Không bị treo hoặc crash. Dữ liệu tổng quan tính toán chính xác.","","Passed"
+UI-31,"Kiểm tra hiển thị khi chuyển đổi giữa chế độ sáng/tối (nếu có)","1. Truy cập trang thống kê
+2. Chuyển đổi giữa chế độ sáng/tối (nếu hệ thống hỗ trợ)","1. Giao diện thay đổi phù hợp theo chế độ
+2. Biểu đồ vẫn hiển thị rõ ràng ở cả hai chế độ
+3. Độ tương phản vẫn đảm bảo dễ đọc","Giao diện thay đổi phù hợp theo chế độ. Biểu đồ vẫn hiển thị rõ ràng ở cả hai chế độ. Độ tương phản vẫn đảm bảo dễ đọc.","","Passed"
+UI-32,"Kiểm tra hiển thị khi phóng to/thu nhỏ trang (zoom)","1. Truy cập trang thống kê
+2. Phóng to/thu nhỏ trang (Ctrl + / Ctrl -)","1. Giao diện vẫn hiển thị đúng khi phóng to/thu nhỏ
+2. Các thành phần không bị che khuất hoặc tràn
+3. Biểu đồ vẫn hiển thị đúng","Giao diện vẫn hiển thị đúng khi phóng to/thu nhỏ. Các thành phần không bị che khuất hoặc tràn. Biểu đồ vẫn hiển thị đúng.","","Passed"
+UI-33,"Kiểm tra hiển thị khi có dữ liệu bằng 0","1. Truy cập trang thống kê
+2. Chọn ngày/tháng có doanh thu bằng 0","1. Biểu đồ hiển thị đúng khi giá trị bằng 0
+2. Các ô tổng quan hiển thị giá trị 0
+3. Không hiển thị lỗi","Biểu đồ hiển thị đúng khi giá trị bằng 0. Các ô tổng quan hiển thị giá trị 0. Không hiển thị lỗi.","","Passed"
+UI-34,"Kiểm tra hiển thị khi có dữ liệu rất nhỏ","1. Truy cập trang thống kê
+2. Chọn ngày/tháng có doanh thu rất nhỏ","1. Biểu đồ hiển thị đúng khi giá trị rất nhỏ
+2. Các cột vẫn nhìn thấy được
+3. Trục Y điều chỉnh phù hợp","Biểu đồ hiển thị đúng khi giá trị rất nhỏ. Các cột vẫn nhìn thấy được. Trục Y điều chỉnh phù hợp.","","Passed"
+UI-35,"Kiểm tra hiển thị khi có dữ liệu rất lớn","1. Truy cập trang thống kê
+2. Chọn ngày/tháng có doanh thu rất lớn","1. Biểu đồ hiển thị đúng khi giá trị rất lớn
+2. Định dạng số lớn hiển thị đúng (có dấu phân cách hàng nghìn)
+3. Trục Y điều chỉnh phù hợp","Biểu đồ hiển thị đúng khi giá trị rất lớn. Định dạng số lớn hiển thị đúng (có dấu phân cách hàng nghìn). Trục Y điều chỉnh phù hợp.","","Passed"

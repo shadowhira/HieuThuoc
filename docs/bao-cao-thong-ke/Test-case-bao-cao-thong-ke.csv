@@ -1,0 +1,234 @@
+Mã kiểm thử,Mục đích kiểm thử,Các bước thực hiện,Dữ liệu kiểm thử,Kết quả mong muốn,Test Result,Ngày thực hiện,Tester,Note
+,,,,,,,,
+,Pass,0,,,,,,
+,Fail,0,,,,,,
+,N/A,0,,,,,,
+,Number of Test case,40,,,,,,
+,,,,,,,,
+"Precond:
+Admin đăng nhập thành công vào hệ thống và có quyền thực hiện chức năng báo cáo thống kê",,,,,,,,
+Màn hình Báo cáo thống kê,,,,,,,,
+,Giao diện,,,,,,,
+,Giao diện chung,,,,,,,
+TC-TK-0001,Kiểm tra Tổng thể giao diện màn hình Báo cáo thống kê,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra màu nền, màu chữ, kích thước chữ trên màn hình ",,"1. Các label sử dụng cùng 1 loại font, cỡ chữ, căn lề trái, có độ dài, rộng và khoảng cách bằng nhau, không xô lệch
+2. Các thông tin hiển thị trên màn hình đúng chính tả, đúng ngữ pháp
+3. Form được bố trí hợp lý và dễ sử dụng",,,Đỗ Hoành Thông,
+TC-TK-0002,Kiểm tra bố cục giao diện màn hình Báo cáo thống kê,"1. Kiểm tra title của màn hình
+2. Kiểm tra hiển thị thông tin các trường và button trên màn hình",,"1. Màn hình Báo cáo thống kê gồm:
+- Hiển thị title của giao diện: ""Doanh thu""
+2. Kiểm tra hiển thị thông tin các trường và button trên màn hình
+- Phần thông tin tổng quan:
+  + Thẻ Hóa đơn
+  + Thẻ Đơn hàng trả lại
+  + Thẻ Doanh thu
+- Phần bộ lọc thời gian:
+  + Radio button: Theo ngày
+  + Radio button: Theo tháng
+  + Radio button: Theo năm
+  + Dropdown chọn ngày
+  + Dropdown chọn tháng
+  + Dropdown chọn năm
+- Phần biểu đồ doanh thu",,,Đỗ Hoành Thông,
+TC-TK-0003,Kiểm tra thứ tự di chuyển trỏ trên màn hình khi nhấn phím Tab,Forcus vào màn hình. Nhấn Tab liên tục,,"Con trỏ di chuyển lần lượt trên các trường input, button, hyperlink theo thứ tự trái sang phải, trên xuống dưới.",,,Đỗ Hoành Thông,
+TC-TK-0004,Kiểm tra thứ tự con trỏ di chuyển ngược lại trên màn hình khi nhấn Shift-Tab,Forcus vào màn hình. Nhấn phím Shift-Tab liên tục,,"Con trỏ di chuyển lần lượt trên các trường input, button, hyperlink: từ dưới lên trên, từ phải sang trái",,,Đỗ Hoành Thông,
+TC-TK-0005,"Kiểm tra giao diện khi thu nhỏ, phóng to","1. Nhấn phím Ctrl -
+2. Nhấn phím Ctrl +",,"Màn hình thu nhỏ, phóng to tương ứng và không bị vỡ giao diện",,,Đỗ Hoành Thông,
+TC-TK-0006,Kiểm tra khi nhấn icon reload trên trình duyệt nhiều lần ,Nhấn reload 20 lần liên tục,,Trang thông tin được hiện thị đầy đủ,,,Đỗ Hoành Thông,
+,Kiểm tra hiển thị thông tin tổng quan,,,,,,,
+TC-TK-0007,Kiểm tra hiển thị thẻ thông tin Hóa đơn,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị thẻ thông tin Hóa đơn",,"1. Thẻ thông tin Hóa đơn hiển thị đúng:
+- Tiêu đề ""Hóa đơn""
+- Số lượng hóa đơn hiển thị đúng
+- Icon hiển thị đúng",,,Đỗ Hoành Thông,
+TC-TK-0008,Kiểm tra hiển thị thẻ thông tin Đơn hàng trả lại,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị thẻ thông tin Đơn hàng trả lại",,"1. Thẻ thông tin Đơn hàng trả lại hiển thị đúng:
+- Tiêu đề ""Đơn hàng trả lại""
+- Số lượng đơn hàng trả lại hiển thị đúng
+- Icon hiển thị đúng",,,Đỗ Hoành Thông,
+TC-TK-0009,Kiểm tra hiển thị thẻ thông tin Doanh thu,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị thẻ thông tin Doanh thu",,"1. Thẻ thông tin Doanh thu hiển thị đúng:
+- Tiêu đề ""Doanh thu""
+- Tổng doanh thu hiển thị đúng với đơn vị VNĐ
+- Icon hiển thị đúng",,,Đỗ Hoành Thông,
+TC-TK-0010,Kiểm tra định dạng số và đơn vị tiền tệ,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra định dạng số và đơn vị tiền tệ trong thẻ thông tin Doanh thu",,"1. Số tiền được định dạng đúng:
+- Có dấu phân cách hàng nghìn
+- Có đơn vị tiền tệ VNĐ",,,Đỗ Hoành Thông,
+,Kiểm tra hiển thị biểu đồ,,,,,,,
+TC-TK-0011,Kiểm tra hiển thị container biểu đồ,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị container biểu đồ",,"1. Container biểu đồ hiển thị đúng:
+- Có kích thước phù hợp
+- Hiển thị đúng vị trí",,,Đỗ Hoành Thông,
+TC-TK-0012,Kiểm tra hiển thị trục X và trục Y,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị trục X và trục Y của biểu đồ",,"1. Trục X và trục Y hiển thị đúng:
+- Trục X hiển thị đơn vị thời gian (giờ, ngày, tháng tùy theo loại báo cáo)
+- Trục Y hiển thị đơn vị doanh thu (VNĐ)",,,Đỗ Hoành Thông,
+TC-TK-0013,Kiểm tra hiển thị tooltip khi hover vào cột biểu đồ,"Tại màn hình Báo cáo thống kê
+1. Hover chuột vào một cột biểu đồ",,"1. Tooltip hiển thị đúng:
+- Hiển thị thông tin thời gian
+- Hiển thị thông tin doanh thu
+- Có đơn vị tiền tệ VNĐ",,,Đỗ Hoành Thông,
+,Kiểm thử bộ lọc thời gian,,,,,,,
+TC-TK-0014,Kiểm tra hiển thị tùy chọn loại báo cáo,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị các tùy chọn loại báo cáo",,"1. Các tùy chọn loại báo cáo hiển thị đúng:
+- Radio button ""Theo ngày""
+- Radio button ""Theo tháng""
+- Radio button ""Theo năm""",,,Đỗ Hoành Thông,
+TC-TK-0015,Kiểm tra hiển thị dropdown chọn thời gian,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị các dropdown chọn thời gian",,"1. Các dropdown chọn thời gian hiển thị đúng:
+- Dropdown chọn ngày (khi chọn ""Theo ngày"")
+- Dropdown chọn tháng (khi chọn ""Theo ngày"" hoặc ""Theo tháng"")
+- Dropdown chọn năm",,,Đỗ Hoành Thông,
+TC-TK-0016,Kiểm tra chọn loại báo cáo "Theo ngày","Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""",,"1. Radio button ""Theo ngày"" được chọn
+2. Hiển thị dropdown chọn ngày
+3. Hiển thị dropdown chọn tháng
+4. Hiển thị dropdown chọn năm
+5. Biểu đồ hiển thị dữ liệu theo giờ trong ngày
+6. API doanh thu theo ngày được gọi",,,Đỗ Hoành Thông,
+TC-TK-0017,Kiểm tra chọn loại báo cáo "Theo tháng","Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo tháng""",,"1. Radio button ""Theo tháng"" được chọn
+2. Không hiển thị dropdown chọn ngày
+3. Hiển thị dropdown chọn tháng
+4. Hiển thị dropdown chọn năm
+5. Biểu đồ hiển thị dữ liệu theo ngày trong tháng
+6. API doanh thu theo tháng được gọi",,,Đỗ Hoành Thông,
+TC-TK-0018,Kiểm tra chọn loại báo cáo "Theo năm","Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo năm""",,"1. Radio button ""Theo năm"" được chọn
+2. Không hiển thị dropdown chọn ngày
+3. Không hiển thị dropdown chọn tháng
+4. Hiển thị dropdown chọn năm
+5. Biểu đồ hiển thị dữ liệu theo tháng trong năm
+6. API doanh thu theo năm được gọi",,,Đỗ Hoành Thông,
+TC-TK-0019,Kiểm tra thay đổi ngày trong báo cáo "Theo ngày","Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Chọn một ngày khác trong dropdown chọn ngày",,"1. Dropdown chọn ngày hiển thị giá trị đã chọn
+2. API doanh thu theo ngày được gọi với tham số ngày đã chọn
+3. Biểu đồ cập nhật dữ liệu theo ngày đã chọn",,,Đỗ Hoành Thông,
+TC-TK-0020,Kiểm tra thay đổi tháng trong báo cáo "Theo tháng","Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo tháng""
+2. Chọn một tháng khác trong dropdown chọn tháng",,"1. Dropdown chọn tháng hiển thị giá trị đã chọn
+2. API doanh thu theo tháng được gọi với tham số tháng đã chọn
+3. Biểu đồ cập nhật dữ liệu theo tháng đã chọn",,,Đỗ Hoành Thông,
+TC-TK-0021,Kiểm tra thay đổi năm trong báo cáo "Theo năm","Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo năm""
+2. Chọn một năm khác trong dropdown chọn năm",,"1. Dropdown chọn năm hiển thị giá trị đã chọn
+2. API doanh thu theo năm được gọi với tham số năm đã chọn
+3. Biểu đồ cập nhật dữ liệu theo năm đã chọn",,,Đỗ Hoành Thông,
+,Kiểm thử hiển thị dữ liệu,,,,,,,
+TC-TK-0022,Kiểm tra hiển thị số lượng hóa đơn,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị số lượng hóa đơn trong thẻ thông tin Hóa đơn",,"1. Số lượng hóa đơn hiển thị đúng với dữ liệu từ API
+2. Số lượng hóa đơn được cập nhật khi thay đổi bộ lọc thời gian",,,Đỗ Hoành Thông,
+TC-TK-0023,Kiểm tra hiển thị số lượng đơn hàng trả lại,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị số lượng đơn hàng trả lại trong thẻ thông tin Đơn hàng trả lại",,"1. Số lượng đơn hàng trả lại hiển thị đúng với dữ liệu từ API
+2. Số lượng đơn hàng trả lại được cập nhật khi thay đổi bộ lọc thời gian",,,Đỗ Hoành Thông,
+TC-TK-0024,Kiểm tra hiển thị tổng doanh thu,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị tổng doanh thu trong thẻ thông tin Doanh thu",,"1. Tổng doanh thu hiển thị đúng với dữ liệu từ API
+2. Tổng doanh thu được cập nhật khi thay đổi bộ lọc thời gian
+3. Tổng doanh thu được định dạng đúng với đơn vị tiền tệ VNĐ",,,Đỗ Hoành Thông,
+TC-TK-0025,Kiểm tra hiển thị biểu đồ doanh thu theo ngày,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""",,"1. Biểu đồ hiển thị dữ liệu doanh thu theo giờ trong ngày
+2. Trục X hiển thị các giờ từ 1 đến 24
+3. Trục Y hiển thị doanh thu với đơn vị VNĐ
+4. Các cột biểu đồ hiển thị đúng với dữ liệu từ API",,,Đỗ Hoành Thông,
+TC-TK-0026,Kiểm tra hiển thị biểu đồ doanh thu theo tháng,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo tháng""",,"1. Biểu đồ hiển thị dữ liệu doanh thu theo ngày trong tháng
+2. Trục X hiển thị các ngày từ 1 đến số ngày trong tháng
+3. Trục Y hiển thị doanh thu với đơn vị VNĐ
+4. Các cột biểu đồ hiển thị đúng với dữ liệu từ API",,,Đỗ Hoành Thông,
+TC-TK-0027,Kiểm tra hiển thị biểu đồ doanh thu theo năm,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo năm""",,"1. Biểu đồ hiển thị dữ liệu doanh thu theo tháng trong năm
+2. Trục X hiển thị các tháng từ 1 đến 12
+3. Trục Y hiển thị doanh thu với đơn vị VNĐ
+4. Các cột biểu đồ hiển thị đúng với dữ liệu từ API",,,Đỗ Hoành Thông,
+,Kiểm thử tương tác với API,,,,,,,
+TC-TK-0028,Kiểm tra gọi API doanh thu theo ngày,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""",,"1. API doanh thu theo ngày được gọi
+2. URL chứa endpoint đúng: /baocao/doanhthutheongay
+3. URL chứa tham số ngày đúng",,,Đỗ Hoành Thông,
+TC-TK-0029,Kiểm tra gọi API doanh thu theo tháng,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo tháng""",,"1. API doanh thu theo tháng được gọi
+2. URL chứa endpoint đúng: /baocao/doanhthutheothang
+3. URL chứa tham số tháng và năm đúng",,,Đỗ Hoành Thông,
+TC-TK-0030,Kiểm tra gọi API doanh thu theo năm,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo năm""",,"1. API doanh thu theo năm được gọi
+2. URL chứa endpoint đúng: /baocao/doanhthutheonam
+3. URL chứa tham số năm đúng",,,Đỗ Hoành Thông,
+TC-TK-0031,Kiểm tra xử lý dữ liệu từ API doanh thu theo ngày,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Giả lập API trả về dữ liệu mẫu","{
+  thoiGian: 8, 
+  tongDoanhThu: 25000, 
+  tongDonHang: 2, 
+  tongDonHangTraLai: 1
+}","1. Thẻ thông tin Hóa đơn hiển thị số lượng hóa đơn: 2
+2. Thẻ thông tin Đơn hàng trả lại hiển thị số lượng: 1
+3. Thẻ thông tin Doanh thu hiển thị tổng doanh thu: 25,000 VNĐ
+4. Biểu đồ hiển thị cột doanh thu tại giờ thứ 8 với giá trị 25,000 VNĐ",,,Đỗ Hoành Thông,
+,Kiểm thử trường hợp đặc biệt và ngoại lệ,,,,,,,
+TC-TK-0032,Kiểm tra hiển thị khi không có dữ liệu doanh thu theo ngày,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Giả lập API trả về mảng rỗng","[]","1. Thẻ thông tin Hóa đơn hiển thị số lượng hóa đơn: 0
+2. Thẻ thông tin Đơn hàng trả lại hiển thị số lượng: 0
+3. Thẻ thông tin Doanh thu hiển thị tổng doanh thu: 0 VNĐ
+4. Biểu đồ vẫn hiển thị nhưng không có cột doanh thu",,,Đỗ Hoành Thông,
+TC-TK-0033,Kiểm tra xử lý khi API doanh thu theo ngày trả về lỗi,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Giả lập API trả về lỗi","{
+  status: 500,
+  msg: 'Lỗi server.',
+  data: null
+}","1. Thẻ thông tin Hóa đơn hiển thị số lượng hóa đơn: 0
+2. Thẻ thông tin Đơn hàng trả lại hiển thị số lượng: 0
+3. Thẻ thông tin Doanh thu hiển thị tổng doanh thu: 0 VNĐ
+4. Biểu đồ vẫn hiển thị nhưng không có cột doanh thu
+5. Hiển thị thông báo lỗi (nếu có)",,,Đỗ Hoành Thông,
+TC-TK-0034,Kiểm tra xử lý khi dữ liệu có giá trị âm,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Giả lập API trả về dữ liệu có giá trị âm","{
+  thoiGian: 8, 
+  tongDoanhThu: -25000, 
+  tongDonHang: -2, 
+  tongDonHangTraLai: -1
+}","1. Thẻ thông tin Hóa đơn hiển thị số lượng hóa đơn: 0 (hoặc -2)
+2. Thẻ thông tin Đơn hàng trả lại hiển thị số lượng: 0 (hoặc -1)
+3. Thẻ thông tin Doanh thu hiển thị tổng doanh thu: 0 VNĐ (hoặc -25,000 VNĐ)
+4. Biểu đồ hiển thị cột doanh thu tại giờ thứ 8 với giá trị 0 (hoặc -25,000 VNĐ)",,,Đỗ Hoành Thông,
+TC-TK-0035,Kiểm tra xử lý khi dữ liệu có giá trị rất lớn,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Giả lập API trả về dữ liệu có giá trị rất lớn","{
+  thoiGian: 8, 
+  tongDoanhThu: 9999999999, 
+  tongDonHang: 9999, 
+  tongDonHangTraLai: 9999
+}","1. Thẻ thông tin Hóa đơn hiển thị số lượng hóa đơn: 9,999
+2. Thẻ thông tin Đơn hàng trả lại hiển thị số lượng: 9,999
+3. Thẻ thông tin Doanh thu hiển thị tổng doanh thu: 9,999,999,999 VNĐ
+4. Biểu đồ hiển thị cột doanh thu tại giờ thứ 8 với giá trị 9,999,999,999 VNĐ",,,Đỗ Hoành Thông,
+TC-TK-0036,Kiểm tra xử lý khi dữ liệu không hợp lệ,"Tại màn hình Báo cáo thống kê
+1. Click vào radio button ""Theo ngày""
+2. Giả lập API trả về dữ liệu không hợp lệ","{
+  thoiGian: 'abc', 
+  tongDoanhThu: 'xyz', 
+  tongDonHang: null, 
+  tongDonHangTraLai: undefined
+}","1. Thẻ thông tin Hóa đơn hiển thị số lượng hóa đơn: 0
+2. Thẻ thông tin Đơn hàng trả lại hiển thị số lượng: 0
+3. Thẻ thông tin Doanh thu hiển thị tổng doanh thu: 0 VNĐ
+4. Biểu đồ vẫn hiển thị nhưng không có cột doanh thu",,,Đỗ Hoành Thông,
+TC-TK-0037,Kiểm tra phân quyền truy cập trang báo cáo thống kê,"1. Đăng nhập với tài khoản không có quyền ADMIN hoặc MANAGER
+2. Truy cập trang báo cáo thống kê: /sys/thongke",,"1. Hệ thống chuyển hướng về trang chủ hoặc trang đăng nhập
+2. Hiển thị thông báo không có quyền truy cập",,,Đỗ Hoành Thông,
+TC-TK-0038,Kiểm tra tính năng chụp ảnh màn hình,"Tại màn hình Báo cáo thống kê
+1. Sử dụng Cypress để chụp ảnh màn hình toàn bộ trang
+2. Sử dụng Cypress để chụp ảnh màn hình phần biểu đồ",,"1. Ảnh chụp màn hình toàn bộ trang được lưu thành công
+2. Ảnh chụp màn hình phần biểu đồ được lưu thành công",,,Đỗ Hoành Thông,
+TC-TK-0039,Kiểm tra hiển thị trên các trình duyệt khác nhau,"1. Mở trang báo cáo thống kê trên trình duyệt Chrome
+2. Mở trang báo cáo thống kê trên trình duyệt Firefox
+3. Mở trang báo cáo thống kê trên trình duyệt Edge",,"1. Trang báo cáo thống kê hiển thị đúng trên tất cả các trình duyệt
+2. Các chức năng hoạt động đúng trên tất cả các trình duyệt",,,Đỗ Hoành Thông,
+TC-TK-0040,Kiểm tra tính năng so sánh doanh thu,"Tại màn hình Báo cáo thống kê
+1. Kiểm tra hiển thị thông tin so sánh doanh thu giữa các khoảng thời gian",,"1. Hiển thị thông tin so sánh doanh thu giữa các khoảng thời gian (nếu có)
+2. Hiển thị phần trăm tăng/giảm doanh thu
+3. Hiển thị biểu tượng mũi tên lên/xuống tương ứng",,,Đỗ Hoành Thông,

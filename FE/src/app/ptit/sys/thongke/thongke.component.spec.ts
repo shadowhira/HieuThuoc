@@ -46,10 +46,10 @@ describe('ThongKecComponent', () => {
   it('should create', () => {
     // Arrange
     setupMockResponses();
-    
+
     // Act
     fixture.detectChanges();
-    
+
     // Assert
     expect(component).toBeTruthy();
   });
@@ -57,10 +57,10 @@ describe('ThongKecComponent', () => {
   it('should initialize with current date', () => {
     // Arrange
     setupMockResponses();
-    
+
     // Act
     fixture.detectChanges();
-    
+
     // Assert
     const today = new Date();
     expect(component.ngaySelected).toBe(today.getDate());
@@ -72,10 +72,10 @@ describe('ThongKecComponent', () => {
     // Arrange
     setupMockResponses();
     spyOn(component, 'getDoanhThuNgay');
-    
+
     // Act
     fixture.detectChanges();
-    
+
     // Assert
     expect(component.getDoanhThuNgay).toHaveBeenCalled();
   });
@@ -85,10 +85,10 @@ describe('ThongKecComponent', () => {
     setupMockResponses();
     fixture.detectChanges();
     spyOn(component, 'getDoThiNgay').and.callThrough();
-    
+
     // Act
     component.getDoanhThuNgay(15, 1, 2024);
-    
+
     // Assert
     expect(component.getDoThiNgay).toHaveBeenCalledWith(15, 1, 2024);
     expect(baoCaoService.getDoanhThuTheoNgay).toHaveBeenCalledWith('2024-01-15');
@@ -99,10 +99,10 @@ describe('ThongKecComponent', () => {
     setupMockResponses();
     fixture.detectChanges();
     spyOn(component, 'getDoThiThang').and.callThrough();
-    
+
     // Act
     component.getDoanhThuThang(1, 2024);
-    
+
     // Assert
     expect(component.getDoThiThang).toHaveBeenCalledWith(1, 2024);
     expect(baoCaoService.getDoanhThuTheoThang).toHaveBeenCalledWith({
@@ -116,10 +116,10 @@ describe('ThongKecComponent', () => {
     setupMockResponses();
     fixture.detectChanges();
     spyOn(component, 'getDoThiNam').and.callThrough();
-    
+
     // Act
     component.getDoanhThuNam(2024);
-    
+
     // Assert
     expect(component.getDoThiNam).toHaveBeenCalledWith(2024);
     expect(baoCaoService.getDoanhThuTheoNam).toHaveBeenCalledWith({
@@ -131,10 +131,10 @@ describe('ThongKecComponent', () => {
     // Arrange
     setupMockResponses();
     fixture.detectChanges();
-    
+
     // Act
     component.changeType(CommonConstant.THANG);
-    
+
     // Assert
     expect(component.typeDoanhThu).toBe(CommonConstant.THANG);
   });
@@ -143,14 +143,77 @@ describe('ThongKecComponent', () => {
     // Arrange
     setupMockResponses();
     fixture.detectChanges();
-    
+
     // Act
     component.thangSelected = 2;
     component.namSelected = 2024; // Leap year
     component.updateDaysInMonth();
-    
+
     // Assert
     expect(component.daysInMonth.length).toBe(29); // February 2024 has 29 days
+  });
+
+  it('should handle empty data when getDoanhThuNgay is called', () => {
+    // Arrange
+    setupMockResponses();
+    fixture.detectChanges();
+
+    // Mock empty response
+    baoCaoService.getDoanhThuTheoNgay.and.returnValue(of({
+      status: CommonConstant.STATUS_OK_200,
+      msg: 'Thành công.',
+      data: []
+    }));
+
+    // Act
+    component.getDoanhThuNgay(15, 1, 2024);
+
+    // Assert
+    expect(component.tongDoanhThu).toBe(0);
+    expect(component.tongHoaDon).toBe(0);
+    expect(component.tongHoaDonTraLai).toBe(0);
+  });
+
+  it('should handle empty data when getDoanhThuThang is called', () => {
+    // Arrange
+    setupMockResponses();
+    fixture.detectChanges();
+
+    // Mock empty response
+    baoCaoService.getDoanhThuTheoThang.and.returnValue(of({
+      status: CommonConstant.STATUS_OK_200,
+      msg: 'Thành công.',
+      data: []
+    }));
+
+    // Act
+    component.getDoanhThuThang(1, 2024);
+
+    // Assert
+    expect(component.tongDoanhThu).toBe(0);
+    expect(component.tongHoaDon).toBe(0);
+    expect(component.tongHoaDonTraLai).toBe(0);
+  });
+
+  it('should handle empty data when getDoanhThuNam is called', () => {
+    // Arrange
+    setupMockResponses();
+    fixture.detectChanges();
+
+    // Mock empty response
+    baoCaoService.getDoanhThuTheoNam.and.returnValue(of({
+      status: CommonConstant.STATUS_OK_200,
+      msg: 'Thành công.',
+      data: []
+    }));
+
+    // Act
+    component.getDoanhThuNam(2024);
+
+    // Assert
+    expect(component.tongDoanhThu).toBe(0);
+    expect(component.tongHoaDon).toBe(0);
+    expect(component.tongHoaDonTraLai).toBe(0);
   });
 
   // Helper function to setup mock responses

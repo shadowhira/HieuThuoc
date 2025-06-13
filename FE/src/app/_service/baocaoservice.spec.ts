@@ -58,6 +58,55 @@ describe('BaoCaoService', () => {
       expect(req.request.method).toBe('GET');
       req.flush(mockResponse);
     });
+
+    it('should handle empty data response', () => {
+      // Arrange
+      const ngay = '2024-01-15';
+      const mockResponse = {
+        status: 200,
+        msg: 'Thành công.',
+        data: []
+      };
+
+      // Act
+      service.getDoanhThuTheoNgay(ngay).subscribe(response => {
+        // Assert
+        expect(response).toEqual(mockResponse);
+        expect(response.data).toEqual([]);
+      });
+
+      // Assert
+      const req = httpMock.expectOne(request => {
+        return request.url === `${environment.backApiUrl}/baocao/doanhthutheongay` &&
+               request.params.get('ngay') === ngay;
+      });
+      expect(req.request.method).toBe('GET');
+      req.flush(mockResponse);
+    });
+
+    it('should handle error response', () => {
+      // Arrange
+      const ngay = '2024-01-15';
+      const mockError = { status: 500, statusText: 'Server Error' };
+
+      // Act
+      service.getDoanhThuTheoNgay(ngay).subscribe(
+        () => fail('Expected an error, not success'),
+        error => {
+          // Assert
+          expect(error.status).toBe(500);
+          expect(error.statusText).toBe('Server Error');
+        }
+      );
+
+      // Assert
+      const req = httpMock.expectOne(request => {
+        return request.url === `${environment.backApiUrl}/baocao/doanhthutheongay` &&
+               request.params.get('ngay') === ngay;
+      });
+      expect(req.request.method).toBe('GET');
+      req.flush('Server error', mockError);
+    });
   });
 
   describe('getDoanhThuTheoThang', () => {

@@ -1,0 +1,129 @@
+ID,Mô tả,Các bước thực hiện,Dữ liệu đầu vào,Kết quả mong đợi,Điều kiện tiên quyết,Mức độ ưu tiên,Trạng thái,Kết quả thực tế,Ghi chú
+TC-BCTH-001,"Kiểm tra hiển thị các thành phần cơ bản của trang báo cáo thống kê","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Kiểm tra hiển thị các thành phần cơ bản","Tài khoản admin (username: admin, password: 123456)","1. Hiển thị đúng 3 thẻ thông tin tổng quan: Hóa đơn, Đơn hàng trả lại, Doanh thu
+2. Hiển thị đúng biểu đồ doanh thu
+3. Hiển thị đúng các bộ lọc thời gian: Theo ngày, Theo tháng, Theo năm","Đã đăng nhập với tài khoản admin",Cao,Đã thực hiện,Thành công,"Tất cả các thành phần cơ bản đều hiển thị đúng"
+TC-BCTH-002,"Kiểm tra hiển thị dữ liệu tổng quan chính xác","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Kiểm tra hiển thị dữ liệu trong các thẻ thông tin tổng quan","Tài khoản admin (username: admin, password: 123456)","1. Thẻ Hóa đơn hiển thị đúng số lượng hóa đơn
+2. Thẻ Đơn hàng trả lại hiển thị đúng số lượng đơn hàng trả lại
+3. Thẻ Doanh thu hiển thị đúng tổng doanh thu kèm đơn vị VNĐ","Đã đăng nhập với tài khoản admin",Cao,Đã thực hiện,Thành công,"Các thẻ thông tin tổng quan hiển thị đúng dữ liệu"
+TC-BCTH-003,"Kiểm tra chức năng lọc theo ngày","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn một ngày cụ thể từ dropdown
+5. Kiểm tra dữ liệu hiển thị","Tài khoản admin (username: admin, password: 123456)
+Ngày: 15","1. Hiển thị đúng 3 dropdown: ngày, tháng, năm
+2. Dữ liệu tổng quan và biểu đồ được cập nhật theo ngày đã chọn
+3. Biểu đồ hiển thị doanh thu theo giờ trong ngày (24 giờ)","Đã đăng nhập với tài khoản admin",Cao,Đã thực hiện,Thành công,"Hiển thị đúng 3 dropdown và dữ liệu được cập nhật theo ngày đã chọn"
+TC-BCTH-004,"Kiểm tra chức năng lọc theo tháng","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn một tháng cụ thể từ dropdown
+5. Kiểm tra dữ liệu hiển thị","Tài khoản admin (username: admin, password: 123456)
+Tháng: 3
+Năm: 2024","1. Hiển thị đúng 2 dropdown: tháng, năm
+2. Dữ liệu tổng quan và biểu đồ được cập nhật theo tháng đã chọn
+3. Biểu đồ hiển thị doanh thu theo ngày trong tháng","Đã đăng nhập với tài khoản admin",Cao,Đã thực hiện,Thành công,"Hiển thị đúng 2 dropdown và dữ liệu được cập nhật theo tháng đã chọn"
+TC-BCTH-005,"Kiểm tra chức năng lọc theo năm","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn một năm cụ thể từ dropdown
+5. Kiểm tra dữ liệu hiển thị","Tài khoản admin (username: admin, password: 123456)
+Năm: 2023","1. Hiển thị đúng 1 dropdown: năm
+2. Dữ liệu tổng quan và biểu đồ được cập nhật theo năm đã chọn
+3. Biểu đồ hiển thị doanh thu theo tháng trong năm (12 tháng)","Đã đăng nhập với tài khoản admin",Cao,Đã thực hiện,Thành công,"Hiển thị đúng 1 dropdown và dữ liệu được cập nhật theo năm đã chọn"
+TC-BCTH-006,"Kiểm tra tính chính xác của dữ liệu hiển thị trong biểu đồ theo ngày","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn ngày 20/5/2024
+5. Kiểm tra dữ liệu hiển thị trong biểu đồ","Tài khoản admin (username: admin, password: 123456)
+Ngày: 20
+Tháng: 5
+Năm: 2024","1. Biểu đồ hiển thị đúng dữ liệu doanh thu theo giờ trong ngày 20/5/2024
+2. Trục X hiển thị 24 giờ trong ngày
+3. Trục Y hiển thị giá trị doanh thu
+4. Các cột biểu đồ hiển thị đúng giá trị doanh thu tương ứng với từng giờ","Đã đăng nhập với tài khoản admin
+Có dữ liệu doanh thu ngày 20/5/2024",Cao,Đã thực hiện,Thành công,"Biểu đồ hiển thị đúng dữ liệu doanh thu theo giờ trong ngày"
+TC-BCTH-007,"Kiểm tra tính chính xác của dữ liệu hiển thị trong biểu đồ theo tháng","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo tháng""
+4. Chọn tháng 3/2024
+5. Kiểm tra dữ liệu hiển thị trong biểu đồ","Tài khoản admin (username: admin, password: 123456)
+Tháng: 3
+Năm: 2024","1. Biểu đồ hiển thị đúng dữ liệu doanh thu theo ngày trong tháng 3/2024
+2. Trục X hiển thị các ngày trong tháng (1-31)
+3. Trục Y hiển thị giá trị doanh thu
+4. Các cột biểu đồ hiển thị đúng giá trị doanh thu tương ứng với từng ngày","Đã đăng nhập với tài khoản admin
+Có dữ liệu doanh thu tháng 3/2024",Cao,Đã thực hiện,Thành công,"Biểu đồ hiển thị đúng dữ liệu doanh thu theo ngày trong tháng"
+TC-BCTH-008,"Kiểm tra tính chính xác của dữ liệu hiển thị trong biểu đồ theo năm","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo năm""
+4. Chọn năm 2023
+5. Kiểm tra dữ liệu hiển thị trong biểu đồ","Tài khoản admin (username: admin, password: 123456)
+Năm: 2023","1. Biểu đồ hiển thị đúng dữ liệu doanh thu theo tháng trong năm 2023
+2. Trục X hiển thị 12 tháng trong năm
+3. Trục Y hiển thị giá trị doanh thu
+4. Các cột biểu đồ hiển thị đúng giá trị doanh thu tương ứng với từng tháng","Đã đăng nhập với tài khoản admin
+Có dữ liệu doanh thu năm 2023",Cao,Đã thực hiện,Thành công,"Biểu đồ hiển thị đúng dữ liệu doanh thu theo tháng trong năm"
+TC-BCTH-009,"Kiểm tra hiển thị khi không có dữ liệu","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn một ngày không có dữ liệu doanh thu
+5. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+Ngày: 1
+Tháng: 1
+Năm: 2022","1. Thẻ Hóa đơn hiển thị giá trị 0
+2. Thẻ Đơn hàng trả lại hiển thị giá trị 0
+3. Thẻ Doanh thu hiển thị giá trị 0 VNĐ
+4. Biểu đồ vẫn hiển thị nhưng không có dữ liệu (các cột có giá trị 0)","Đã đăng nhập với tài khoản admin",Trung bình,Đã thực hiện,Thành công,"Hiển thị giá trị 0 cho tất cả các thẻ thông tin khi không có dữ liệu"
+TC-BCTH-010,"Kiểm tra hiển thị khi API trả về lỗi","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Giả lập API trả về lỗi
+4. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+API trả về lỗi 500","1. Thẻ Hóa đơn hiển thị giá trị 0
+2. Thẻ Đơn hàng trả lại hiển thị giá trị 0
+3. Thẻ Doanh thu hiển thị giá trị 0 VNĐ
+4. Biểu đồ vẫn hiển thị nhưng không có dữ liệu (các cột có giá trị 0)","Đã đăng nhập với tài khoản admin",Trung bình,Đã thực hiện,Thành công,"Hiển thị giá trị 0 cho tất cả các thẻ thông tin khi API trả về lỗi"
+TC-BCTH-011,"Kiểm tra hiển thị số ngày trong tháng khi chọn tháng khác nhau","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày""
+4. Chọn tháng 2 năm 2024 (năm nhuận)
+5. Kiểm tra số ngày trong dropdown ngày
+6. Chọn tháng 2 năm 2023 (năm không nhuận)
+7. Kiểm tra số ngày trong dropdown ngày
+8. Chọn tháng 4 năm 2024
+9. Kiểm tra số ngày trong dropdown ngày","Tài khoản admin (username: admin, password: 123456)","1. Khi chọn tháng 2 năm 2024 (năm nhuận), dropdown ngày hiển thị 29 ngày
+2. Khi chọn tháng 2 năm 2023 (năm không nhuận), dropdown ngày hiển thị 28 ngày
+3. Khi chọn tháng 4 năm 2024, dropdown ngày hiển thị 30 ngày","Đã đăng nhập với tài khoản admin",Thấp,Đã thực hiện,Thành công,"Hiển thị đúng số ngày trong tháng khi chọn các tháng khác nhau"
+TC-BCTH-012,"Kiểm tra hiển thị trên màn hình desktop","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Thiết lập kích thước màn hình desktop (1920x1080)
+4. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+Kích thước màn hình: 1920x1080","1. Các thẻ thông tin tổng quan hiển thị theo hàng ngang (3 thẻ trên một hàng)
+2. Biểu đồ hiển thị đầy đủ và rõ ràng
+3. Các bộ lọc thời gian hiển thị đầy đủ và dễ sử dụng","Đã đăng nhập với tài khoản admin",Trung bình,Đã thực hiện,Thành công,"Hiển thị đúng layout trên màn hình desktop"
+TC-BCTH-013,"Kiểm tra hiển thị trên màn hình tablet","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Thiết lập kích thước màn hình tablet (768x1024)
+4. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+Kích thước màn hình: 768x1024","1. Các thẻ thông tin tổng quan hiển thị phù hợp với kích thước màn hình
+2. Biểu đồ hiển thị đầy đủ và rõ ràng, có thể thu nhỏ so với desktop
+3. Các bộ lọc thời gian hiển thị đầy đủ và dễ sử dụng","Đã đăng nhập với tài khoản admin",Trung bình,Đã thực hiện,Thành công,"Hiển thị đúng layout trên màn hình tablet"
+TC-BCTH-014,"Kiểm tra hiển thị trên màn hình mobile","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Thiết lập kích thước màn hình mobile (375x667)
+4. Kiểm tra hiển thị","Tài khoản admin (username: admin, password: 123456)
+Kích thước màn hình: 375x667","1. Các thẻ thông tin tổng quan hiển thị phù hợp với kích thước màn hình
+2. Biểu đồ hiển thị đầy đủ và rõ ràng, có thể thu nhỏ so với tablet
+3. Các bộ lọc thời gian hiển thị đầy đủ và dễ sử dụng","Đã đăng nhập với tài khoản admin",Trung bình,Đã thực hiện,Thành công,"Hiển thị đúng layout trên màn hình mobile"
+TC-BCTH-015,"Kiểm tra luồng nghiệp vụ đầy đủ","1. Đăng nhập với tài khoản admin
+2. Truy cập trang báo cáo thống kê (/sys/thongke)
+3. Chọn loại báo cáo ""Theo ngày"" và kiểm tra dữ liệu
+4. Chọn loại báo cáo ""Theo tháng"" và kiểm tra dữ liệu
+5. Chọn loại báo cáo ""Theo năm"" và kiểm tra dữ liệu
+6. Thay đổi năm và kiểm tra dữ liệu","Tài khoản admin (username: admin, password: 123456)","1. Khi chọn ""Theo ngày"", hiển thị đúng dữ liệu doanh thu theo giờ trong ngày
+2. Khi chọn ""Theo tháng"", hiển thị đúng dữ liệu doanh thu theo ngày trong tháng
+3. Khi chọn ""Theo năm"", hiển thị đúng dữ liệu doanh thu theo tháng trong năm
+4. Khi thay đổi năm, dữ liệu được cập nhật chính xác","Đã đăng nhập với tài khoản admin",Cao,Đã thực hiện,Thành công,"Luồng nghiệp vụ hoạt động đúng, dữ liệu được cập nhật chính xác khi thay đổi các bộ lọc"

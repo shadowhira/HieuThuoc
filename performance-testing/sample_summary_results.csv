@@ -1,0 +1,4 @@
+test_name,total_requests,successful_requests,failed_requests,success_rate,min_response_time,max_response_time,avg_response_time,median_response_time,std_deviation,p95_response_time,p99_response_time
+Doanh Thu Theo Ngay,15,15,0,100.0,198.45,312.89,256.78,256.78,32.45,298.67,310.23
+Doanh Thu Theo Thang,15,15,0,100.0,389.12,467.89,415.67,412.34,25.67,458.90,465.78
+Doanh Thu Theo Nam,15,15,0,100.0,645.67,745.67,689.45,678.90,35.67,734.56,742.34 

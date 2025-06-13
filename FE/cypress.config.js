@@ -1,4 +1,5 @@
-const { defineConfig } = require('cypress');
+// Cypress configuration file
+const defineConfig = (config) => config;
 
 module.exports = defineConfig({
   e2e: {

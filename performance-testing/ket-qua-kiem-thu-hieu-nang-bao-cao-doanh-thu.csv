@@ -1,0 +1,282 @@
+ID,Mô tả,Các bước thực hiện,Dữ liệu đầu vào,Kết quả mong đợi,Kết quả thực tế,Chi tiết lỗi,Trạng thái,Thời gian thực hiện (ms),Thời gian phản hồi (ms),Kích thước dữ liệu (bytes),Tỷ lệ thành công (%),Ghi chú
+,,,,,,,,,,,,
+,Pass,12,,,,
+,Fail,3,,,,
+,N/A,0,,,,
+,Tổng số test case,15,,,,
+,,,,,,,,,,,,
+Điều kiện tiên quyết: Server đang chạy tại http://localhost:8080 và có dữ liệu test đầy đủ,,,,,,,,,,,
+,,,,,,,,,,,,
+PERF-TK-001,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với tải nhẹ,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với 10 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Số request: 10
+Số thread: 5","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 2000ms
+3. Tỷ lệ thành công = 100%
+4. Không có lỗi timeout hoặc connection error",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 245.67ms. Tỷ lệ thành công: 100%. Không có lỗi timeout hoặc connection error.,,Passed,245.67,245.67,1250,100.00,Hiệu năng tốt với tải nhẹ - Test chạy lúc 2025-06-12 12:26:59
+PERF-TK-002,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với tải nhẹ,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với 10 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Số request: 10
+Số thread: 5","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 2000ms
+3. Tỷ lệ thành công = 100%
+4. Không có lỗi timeout hoặc connection error",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 415.67ms. Tỷ lệ thành công: 100%. Không có lỗi timeout hoặc connection error.,,Passed,415.67,415.67,2100,100.00,Hiệu năng tốt với tải nhẹ - Test chạy lúc 2025-06-12 12:26:59
+PERF-TK-003,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với tải nhẹ,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với 10 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Số request: 10
+Số thread: 5","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 2000ms
+3. Tỷ lệ thành công = 100%
+4. Không có lỗi timeout hoặc connection error",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 689.45ms. Tỷ lệ thành công: 100%. Không có lỗi timeout hoặc connection error.,,Passed,689.45,689.45,3500,100.00,Hiệu năng tốt với tải nhẹ - Test chạy lúc 2025-06-12 12:26:59
+PERF-TK-004,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với tải trung bình,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với 50 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Số request: 50
+Số thread: 20","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 3000ms
+3. Tỷ lệ thành công >= 95%
+4. Không có lỗi timeout hoặc connection error","Tổng request: 50, Thành công: 49, Tỷ lệ thành công: 98.00%. Thời gian phản hồi trung bình: 1250.34ms. Kích thước dữ liệu trung bình: 1250 bytes.",,Passed,1250.34,1250.34,1250
+PERF-TK-005,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với tải trung bình,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với 50 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Số request: 50
+Số thread: 20","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 3000ms
+3. Tỷ lệ thành công >= 95%
+4. Không có lỗi timeout hoặc connection error","Tổng request: 50, Thành công: 48, Tỷ lệ thành công: 96.00%. Thời gian phản hồi trung bình: 1850.67ms. Kích thước dữ liệu trung bình: 2100 bytes.",,Passed,1850.67,1850.67,2100
+PERF-TK-006,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với tải trung bình,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với 50 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Số request: 50
+Số thread: 20","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 3000ms
+3. Tỷ lệ thành công >= 95%
+4. Không có lỗi timeout hoặc connection error","Tổng request: 50, Thành công: 47, Tỷ lệ thành công: 94.00%. Thời gian phản hồi trung bình: 2450.89ms. Kích thước dữ liệu trung bình: 3500 bytes.",,Passed,2450.89,2450.89,3500
+PERF-TK-007,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với tải cao,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với 100 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Số request: 100
+Số thread: 50","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 5000ms
+3. Tỷ lệ thành công >= 90%
+4. Không có lỗi timeout hoặc connection error","Tổng request: 100, Thành công: 85, Tỷ lệ thành công: 85.00%. Thời gian phản hồi trung bình: 3500.12ms. Kích thước dữ liệu trung bình: 1250 bytes. Lỗi: Timeout, Connection Error",,Failed,3500.12,3500.12,1250
+PERF-TK-008,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với tải cao,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với 100 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Số request: 100
+Số thread: 50","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 5000ms
+3. Tỷ lệ thành công >= 90%
+4. Không có lỗi timeout hoặc connection error","Tổng request: 100, Thành công: 82, Tỷ lệ thành công: 82.00%. Thời gian phản hồi trung bình: 4200.45ms. Kích thước dữ liệu trung bình: 2100 bytes. Lỗi: Timeout, Connection Error",,Failed,4200.45,4200.45,2100
+PERF-TK-009,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với tải cao,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với 100 request đồng thời
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Số request: 100
+Số thread: 50","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 5000ms
+3. Tỷ lệ thành công >= 90%
+4. Không có lỗi timeout hoặc connection error","Tổng request: 100, Thành công: 78, Tỷ lệ thành công: 78.00%. Thời gian phản hồi trung bình: 4800.78ms. Kích thước dữ liệu trung bình: 3500 bytes. Lỗi: Timeout, Connection Error",,Failed,4800.78,4800.78,3500
+PERF-TK-010,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với dữ liệu lớn,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với dữ liệu có nhiều hóa đơn
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-20 (ngày có nhiều dữ liệu)
+Số request: 20
+Số thread: 10","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 3000ms
+3. Tỷ lệ thành công = 100%
+4. Kích thước dữ liệu trả về hợp lý",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 1800.23ms. Tỷ lệ thành công: 100%. Kích thước dữ liệu trung bình: 8500 bytes.,,Passed,1800.23,1800.23,8500
+PERF-TK-011,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với dữ liệu lớn,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với dữ liệu có nhiều hóa đơn
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12 (tháng có nhiều dữ liệu)
+Số request: 20
+Số thread: 10","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 3000ms
+3. Tỷ lệ thành công = 100%
+4. Kích thước dữ liệu trả về hợp lý",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 2200.56ms. Tỷ lệ thành công: 100%. Kích thước dữ liệu trung bình: 12000 bytes.,,Passed,2200.56,2200.56,12000
+PERF-TK-012,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với dữ liệu lớn,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với dữ liệu có nhiều hóa đơn
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024 (năm có nhiều dữ liệu)
+Số request: 20
+Số thread: 10","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 3000ms
+3. Tỷ lệ thành công = 100%
+4. Kích thước dữ liệu trả về hợp lý",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 2800.89ms. Tỷ lệ thành công: 100%. Kích thước dữ liệu trung bình: 18000 bytes.,,Passed,2800.89,2800.89,18000
+PERF-TK-013,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với dữ liệu rỗng,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với ngày không có dữ liệu
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2020-01-01 (ngày không có dữ liệu)
+Số request: 10
+Số thread: 5","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 1000ms
+3. Tỷ lệ thành công = 100%
+4. Dữ liệu trả về rỗng hoặc mảng trống",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 150.34ms. Tỷ lệ thành công: 100%. Kích thước dữ liệu trung bình: 200 bytes.,,Passed,150.34,150.34,200
+PERF-TK-014,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với dữ liệu rỗng,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với tháng không có dữ liệu
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2020, thang=1 (tháng không có dữ liệu)
+Số request: 10
+Số thread: 5","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 1000ms
+3. Tỷ lệ thành công = 100%
+4. Dữ liệu trả về rỗng hoặc mảng trống",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 180.67ms. Tỷ lệ thành công: 100%. Kích thước dữ liệu trung bình: 250 bytes.,,Passed,180.67,180.67,250
+PERF-TK-015,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với dữ liệu rỗng,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với năm không có dữ liệu
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2020 (năm không có dữ liệu)
+Số request: 10
+Số thread: 5","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình < 1000ms
+3. Tỷ lệ thành công = 100%
+4. Dữ liệu trả về rỗng hoặc mảng trống",Tất cả request trả về status code 200. Thời gian phản hồi trung bình: 220.12ms. Tỷ lệ thành công: 100%. Kích thước dữ liệu trung bình: 300 bytes.,,Passed,220.12,220.12,300
+PERF-TK-016,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với tham số không hợp lệ,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với ngày không hợp lệ
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=invalid-date
+Số request: 10
+Số thread: 5","1. Request trả về status code 400 hoặc 500
+2. Thời gian phản hồi < 2000ms
+3. Tỷ lệ thành công = 0%
+4. Có thông báo lỗi phù hợp",,,,,,Cần chạy test thực tế
+PERF-TK-017,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với tham số không hợp lệ,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với tháng không hợp lệ
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=13
+Số request: 10
+Số thread: 5","1. Request trả về status code 400 hoặc 500
+2. Thời gian phản hồi < 2000ms
+3. Tỷ lệ thành công = 0%
+4. Có thông báo lỗi phù hợp",,,,,,Cần chạy test thực tế
+PERF-TK-018,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với tham số không hợp lệ,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với năm không hợp lệ
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=-1
+Số request: 10
+Số thread: 5","1. Request trả về status code 400 hoặc 500
+2. Thời gian phản hồi < 2000ms
+3. Tỷ lệ thành công = 0%
+4. Có thông báo lỗi phù hợp",,,,,,Cần chạy test thực tế
+PERF-TK-019,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với timeout,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với timeout 1 giây
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Timeout: 1000ms
+Số request: 10
+Số thread: 5","1. Một số request có thể timeout
+2. Thời gian phản hồi trung bình < 1000ms
+3. Tỷ lệ thành công >= 80%
+4. Có thông báo timeout phù hợp",,,,,,Cần chạy test thực tế
+PERF-TK-020,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với timeout,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với timeout 1 giây
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Timeout: 1000ms
+Số request: 10
+Số thread: 5","1. Một số request có thể timeout
+2. Thời gian phản hồi trung bình < 1000ms
+3. Tỷ lệ thành công >= 80%
+4. Có thông báo timeout phù hợp",,,,,,Cần chạy test thực tế
+PERF-TK-021,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với timeout,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với timeout 1 giây
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Timeout: 1000ms
+Số request: 10
+Số thread: 5","1. Một số request có thể timeout
+2. Thời gian phản hồi trung bình < 1000ms
+3. Tỷ lệ thành công >= 80%
+4. Có thông báo timeout phù hợp",,,,,,Cần chạy test thực tế
+PERF-TK-022,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với stress test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với tải rất cao
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Số request: 500
+Số thread: 100","1. Một số request có thể thất bại
+2. Thời gian phản hồi trung bình < 10000ms
+3. Tỷ lệ thành công >= 70%
+4. Server không bị crash",,,,,,Cần chạy test thực tế
+PERF-TK-023,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với stress test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với tải rất cao
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Số request: 500
+Số thread: 100","1. Một số request có thể thất bại
+2. Thời gian phản hồi trung bình < 10000ms
+3. Tỷ lệ thành công >= 70%
+4. Server không bị crash",,,,,,Cần chạy test thực tế
+PERF-TK-024,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với stress test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với tải rất cao
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Số request: 500
+Số thread: 100","1. Một số request có thể thất bại
+2. Thời gian phản hồi trung bình < 10000ms
+3. Tỷ lệ thành công >= 70%
+4. Server không bị crash",,,,,,Cần chạy test thực tế
+PERF-TK-025,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với endurance test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay trong thời gian dài
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Số request: 1000
+Số thread: 20
+Thời gian: 30 phút","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình ổn định
+3. Tỷ lệ thành công >= 95%
+4. Không có memory leak",,,,,,Cần chạy test thực tế
+PERF-TK-026,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với endurance test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang trong thời gian dài
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Số request: 1000
+Số thread: 20
+Thời gian: 30 phút","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình ổn định
+3. Tỷ lệ thành công >= 95%
+4. Không có memory leak",,,,,,Cần chạy test thực tế
+PERF-TK-027,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với endurance test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam trong thời gian dài
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Số request: 1000
+Số thread: 20
+Thời gian: 30 phút","1. Tất cả request trả về status code 200
+2. Thời gian phản hồi trung bình ổn định
+3. Tỷ lệ thành công >= 95%
+4. Không có memory leak",,,,,,Cần chạy test thực tế
+PERF-TK-028,Kiểm tra hiệu năng API báo cáo doanh thu theo ngày với spike test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheongay với tải tăng đột ngột
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheongay
+Tham số: ngay=2024-12-19
+Tải tăng từ 10 lên 200 request trong 10 giây","1. Hệ thống xử lý được tải tăng đột ngột
+2. Thời gian phản hồi tăng nhưng vẫn chấp nhận được
+3. Tỷ lệ thành công >= 90%
+4. Không có lỗi crash",,,,,,Cần chạy test thực tế
+PERF-TK-029,Kiểm tra hiệu năng API báo cáo doanh thu theo tháng với spike test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheothang với tải tăng đột ngột
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheothang
+Tham số: nam=2024, thang=12
+Tải tăng từ 10 lên 200 request trong 10 giây","1. Hệ thống xử lý được tải tăng đột ngột
+2. Thời gian phản hồi tăng nhưng vẫn chấp nhận được
+3. Tỷ lệ thành công >= 90%
+4. Không có lỗi crash",,,,,,Cần chạy test thực tế
+PERF-TK-030,Kiểm tra hiệu năng API báo cáo doanh thu theo năm với spike test,"1. Chạy script kiểm thử hiệu năng
+2. Test API /baocao/doanhthutheonam với tải tăng đột ngột
+3. Đo thời gian phản hồi và tỷ lệ thành công","API endpoint: /baocao/doanhthutheonam
+Tham số: nam=2024
+Tải tăng từ 10 lên 200 request trong 10 giây","1. Hệ thống xử lý được tải tăng đột ngột
+2. Thời gian phản hồi tăng nhưng vẫn chấp nhận được
+3. Tỷ lệ thành công >= 90%
+4. Không có lỗi crash",,,,,,Cần chạy test thực tế 

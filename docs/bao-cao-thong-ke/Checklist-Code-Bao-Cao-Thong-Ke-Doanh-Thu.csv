@@ -1,0 +1,99 @@
+Trở về báo cáo,,,,
+,,,,
+Code Review Checklist - Báo cáo thống kê doanh thu,,,,
+,,,,
+Mã dự án:,HieuThuoc,,,
+Thành phần được xem xét:,Module Báo cáo thống kê doanh thu,,,
+Phiên bản:,1.0,,,
+Lần xem xét:,1,,,
+Người xem xét:,Nguyễn Văn Huân,,,
+Ngày xem xét:,22/12/2024,,,
+Độ lớn sản phẩm được xem xét:,Trung bình,,,
+Nhân công dành cho xem xét (MH):,2,,,
+,,,,
+Câu hỏi,Có,Không,N/A,Ghi chú
+Tổng quan,,,,
+Code có được viết tốt không (về mặt hình thức) ? Đọc có dễ hiểu không?,x,,,"Code được viết rõ ràng, có cấu trúc tốt và dễ đọc"
+Các ghi chú và chuẩn lập trình,,,,
+Code có thực hiện theo đúng chuẩn lập trình không?,x,,,Tuân thủ chuẩn lập trình Java/Spring Boot và TypeScript/Angular
+Tên biến,x,,,"Tên biến rõ ràng: doanhThuTheoNgay, tongDoanhThu, baocaoService"
+Căn lề,x,,,Căn lề nhất quán trong toàn bộ mã nguồn
+Kiểu dấu ngoặc,x,,,Sử dụng dấu ngoặc nhất quán
+Các file source có đầy đủ tiêu đề đầu trang và thông tin bản quyền không?,,x,,Thiếu thông tin bản quyền và tiêu đề đầu trang
+Các khai báo biến có được ghi chú đúng cách không?,x,,,Các biến quan trọng đều có ghi chú
+Các thành phần dữ liệu dạng số có được khai báo rõ ràng không?,x,,,"Sử dụng kiểu dữ liệu phù hợp (Integer, Double, Long)"
+"Toàn bộ các functions, methods và classes có được ghi chú lại không",,x,,Thiếu JavaDoc cho một số phương thức trong BaoCaoController
+Các đoạn thuật toán phức tap và các đoạn tối ưu code có được ghi chú đầy đủ không?,x,,,Các query phức tạp trong DonHangRepo có ghi chú chi tiết
+Các đoạn code được đánh dấu hủy bỏ có được giải thích không?,,,x,Không có đoạn code bị đánh dấu hủy bỏ
+Các ghi chú có được cập nhật kịp thời không?,x,,,Ghi chú được cập nhật theo code
+Các ghi chú có rõ ràng và đúng không?,x,,,Ghi chú rõ ràng và chính xác
+Các ghi chú có tập trung vào giải thích tại sao chứ không phải như thế nào không?,x,,,Ghi chú tập trung vào lý do và mục đích
+Tên của mỗi thủ tục/hàm/class có nói lên thủ tục/hàm/class đó làm gì hay không?,x,,,"Tên rõ ràng: BaoCaoController, doanhThuTheoNgay, getDoanhThuTheoThang"
+Xử lý lỗi,,,,
+Có xử lý lỗi mỗi khi function return không?,,x,,BaoCaoController thiếu try-catch cho các phương thức
+Các trường hợp ngoại lệ có được xử lý không?,,x,,Thiếu xử lý ngoại lệ cho truy vấn database và validation
+Các hàm gọi đến có được thông báo khi có lỗi không?,x,,,Frontend có xử lý response status để thông báo lỗi
+Quản lý tài nguyên,,,,
+Các bộ nhớ được cấp phát có được giải phóng không?,x,,,Spring Boot quản lý giải phóng bộ nhớ tự động
+"Toàn bộ các đối tượng (Database connections, Sockets, Files, etc.) có được giải phóng ngay cả trong trường hợp có lỗi không?",x,,,Spring JPA quản lý kết nối database tự động
+Có đối tượng nào được giải phóng > 1 lần không?,,x,,Không phát hiện đối tượng nào bị giải phóng nhiều lần
+Thread Safeness,,,,
+Việc thay đổi giá trị của các biến dùng trong nhiều thread có được đồng bộ không?,x,,,Controller stateless nên không có vấn đề thread safety
+Các đối tượng dùng trong nhiều thread có được đồng bộ không?,x,,,Spring quản lý đồng bộ hóa các bean
+Có giải phóng các lock theo đúng thứ tự không?,x,,,Không sử dụng explicit locking
+Có khả năng xảy ra deadlock hoặc tranh chấp lock không?,,x,,Không phát hiện khả năng deadlock
+Các cấu trúc điều khiển,,,,
+Các điều kiện kết thúc vòng lặp có chính xác không?,x,,,Điều kiện kết thúc vòng lặp rõ ràng và chính xác
+Code có bị lặp vô hạn không định trước không?,,x,,Không phát hiện vòng lặp vô hạn
+Các vòng lặp lồng nhau có được giảm đến mức ít nhất?,x,,,Không có vòng lặp lồng nhau phức tạp
+Performance,,,,
+Có xảy ra trường hợp trùng lặp cả một object trong khi có thể tham chiếu đến nó không?,,x,,Không phát hiện trường hợp trùng lặp object
+"Code có ảnh hưởng đến kích thước, tốc độ hoặc bộ nhớ sử dụng không?",x,,,Query database có thể tối ưu hơn với indexing
+Code đã được viết tối ưu chưa?,,x,,Có thể tối ưu query bằng cách sử dụng pagination và caching
+Các hàm,,,,
+Các biến của hàm có được xác minh rõ ràng trong code không?,,x,,Thiếu validation cho tham số đầu vào trong Controller
+Các mảng có được kiểm tra trường hợp ngoài khoảng không?,x,,,Có kiểm tra index trước khi truy cập mảng
+Các biến có được khai báo trước khi sử dụng không?,x,,,Tất cả biến đều được khai báo trước khi sử dụng
+Thủ tục/hàm/class có dài quá không? có thể làm đơn giản bằng cách tách ra thành những thủ tục/hàm/class nhỏ hơn không?,x,,,"Các phương thức có độ dài hợp lý, ThongKecComponent có thể tách thành các service nhỏ hơn"
+Kiểm tra validation dữ liệu đầu vào,,x,,Thiếu @Valid và validation constraints cho request parameters
+API Design,,,,
+Các endpoint có tuân thủ RESTful conventions không?,x,,,"Endpoint rõ ràng: /baocao/doanhthutheongay, /doanhthutheothang, /doanhthutheonam"
+Response format có nhất quán không?,x,,,Sử dụng ResponseDTO nhất quán cho tất cả API
+HTTP status codes có được sử dụng đúng không?,,x,,Chỉ trả về 200 cho mọi trường hợp
+Database Query,,,,
+Các query có được tối ưu hóa không?,,x,,Query có thể tối ưu bằng index và giảm số lượng CASE WHEN
+Có sử dụng prepared statements để tránh SQL injection không?,x,,,Sử dụng JPA @Query với @Param
+Query có xử lý được large dataset không?,,x,,Thiếu pagination cho large dataset
+Frontend Integration,,,,
+Service calls có xử lý loading states không?,,x,,Thiếu loading indicator khi gọi API
+Error handling ở frontend có đầy đủ không?,,x,,Thiếu xử lý chi tiết các loại lỗi khác nhau
+Data binding có được thực hiện đúng cách không?,x,,,Data binding được thực hiện đúng với Observable
+Chart rendering có được tối ưu không?,,x,,Chart re-render mỗi lần có data mới thay vì update
+Security,,,,
+Có kiểm tra authorization cho các endpoint không?,,x,,Thiếu kiểm tra quyền truy cập cho các API báo cáo
+Input sanitization có được thực hiện không?,,x,,Thiếu sanitization cho date parameters
+Có log các hoạt động quan trọng không?,,x,,Thiếu logging cho các thao tác báo cáo
+Testing,,,,
+Có unit tests cho business logic không?,,x,,Thiếu unit tests cho Controller và Service
+Có integration tests cho API endpoints không?,,x,,Thiếu integration tests
+Frontend có unit tests cho components không?,,x,,Thiếu unit tests cho ThongKecComponent
+,,,,
+,,,,
+* Nhận xét,"1. Module báo cáo thống kê doanh thu có cấu trúc code tương đối tốt với việc phân tách rõ ràng giữa Controller, Repository và Frontend Service. Các query database được viết chi tiết và có ghi chú rõ ràng về logic nghiệp vụ.",,,
+,"2. Tuy nhiên, module còn thiếu nhiều khía cạnh quan trọng như error handling, input validation, security checks, và testing. Performance có thể được cải thiện thông qua caching và query optimization.",,,
+,"3. Frontend component có logic phức tạp và có thể được refactor thành các service nhỏ hơn để dễ bảo trì. Chart rendering cần được tối ưu để tránh re-render không cần thiết.",,,
+,,,,
+* Đề xuất,1. Bổ sung try-catch và error handling cho tất cả các phương thức trong BaoCaoController.,,,
+,2. Thêm input validation với @Valid và custom validators cho date parameters.,,,
+,3. Implement authorization checks cho các API báo cáo.,,,
+,4. Tối ưu database queries với indexing và pagination.,,,
+,5. Thêm caching mechanism cho các báo cáo được truy cập thường xuyên.,,,
+,6. Viết unit tests và integration tests cho toàn bộ module.,,,
+,7. Refactor ThongKecComponent thành các service nhỏ hơn.,,,
+,8. Tối ưu chart rendering với update thay vì re-render.,,,
+,9. Thêm logging cho các hoạt động báo cáo quan trọng.,,,
+,10. Implement proper HTTP status codes cho các trường hợp lỗi khác nhau.,,,
+,,,,
+[       ] - Đạt,,,,
+[   x   ] - Xem xét lại,,,,
+[       ] - Khác,,,,

@@ -40,12 +40,12 @@ Cypress.Commands.add('verifyRevenueData', (expectedHoaDon, expectedDonHangTraLai
   if (expectedHoaDon !== null) {
     cy.get('.hoa-don-count').should('contain', expectedHoaDon);
   }
-  
+
   // Kiểm tra số lượng đơn hàng trả lại
   if (expectedDonHangTraLai !== null) {
     cy.get('.don-hang-tra-lai-count').should('contain', expectedDonHangTraLai);
   }
-  
+
   // Kiểm tra tổng doanh thu
   if (expectedDoanhThu !== null) {
     cy.get('.doanh-thu-value').should('contain', expectedDoanhThu);
@@ -56,19 +56,46 @@ Cypress.Commands.add('verifyRevenueData', (expectedHoaDon, expectedDonHangTraLai
 Cypress.Commands.add('selectReportType', (type, options = {}) => {
   // Chọn loại báo cáo (NGAY, THANG, NAM)
   cy.get(`[data-type="${type}"]`).click();
-  
+
   // Chọn ngày nếu có
   if (options.ngay) {
     cy.get('select.ngay-select').select(options.ngay.toString());
   }
-  
+
   // Chọn tháng nếu có
   if (options.thang) {
     cy.get('select.thang-select').select(options.thang.toString());
   }
-  
+
   // Chọn năm nếu có
   if (options.nam) {
     cy.get('select.nam-select').select(options.nam.toString());
   }
+});
+
+// Custom command để đăng nhập bằng UI và truy cập trang thống kê
+Cypress.Commands.add('loginUI', (username = 'admin', password = '123456') => {
+  cy.visit('/login');
+  cy.get('#username').should('be.visible').clear().type(username);
+  cy.get('#password-input').should('be.visible').clear().type(password);
+  cy.get('button.btn-success').contains('Đăng nhập').should('be.visible').click();
+  cy.url().should('not.include', '/login');
+  cy.wait(2000); // Đợi để đảm bảo đăng nhập hoàn tất
+});
+
+// Custom command để truy cập trang thống kê sau khi đăng nhập
+Cypress.Commands.add('visitThongKe', () => {
+  // Kiểm tra xem đã đăng nhập chưa
+  cy.window().then((win) => {
+    // Nếu chưa đăng nhập, thực hiện đăng nhập
+    if (!win.localStorage.getItem('token')) {
+      cy.loginUI();
+    }
+  });
+
+  // Truy cập trang thống kê
+  cy.visit('/sys/thongke');
+
+  // Đợi cho trang tải xong
+  cy.get('.page-content', { timeout: 10000 }).should('be.visible');
 });

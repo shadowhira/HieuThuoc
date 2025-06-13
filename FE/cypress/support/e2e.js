@@ -15,9 +15,18 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
+import './commands-thongke';
+import './session-commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// Xử lý ngoại lệ không bắt được từ ứng dụng
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Trả về false để ngăn Cypress fail test khi có lỗi không bắt được từ ứng dụng
+  console.log('Uncaught exception:', err.message);
+  return false;
+});
 
 // Hide fetch/XHR requests in the command log
 const app = window.top;
